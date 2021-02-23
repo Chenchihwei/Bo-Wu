@@ -1,0 +1,66 @@
+@mixin h2() {
+    font-size: 3.2rem;
+    color:#0D0D0E;
+    margin-bottom: 10px;
+}
+@mixin bottom_line($w) {
+    width: $w;
+    height: 2px;
+    background-color: #707070;
+    margin-bottom: 30px;
+}
+.main{
+    .btn{
+        ul{
+            li{
+                ol{
+                    display: block;
+                }
+            }
+        }
+    }
+    .content{
+        .collection_list{
+            margin-right: 50px;
+            h2{
+                @include h2();
+            }
+            .line{
+                @include bottom_line(160px);
+            }
+            h3{
+                @include h2();
+                font-size: 3rem;
+                font-weight: bold;
+            }
+            .search{
+                margin-bottom: 1vw;
+                margin-top: 1vw;
+            }
+            button{
+                margin-bottom: .5vw;
+                margin-left: 1vw;
+            }
+            .collection_content{
+                margin-bottom: 100px;
+                table{
+                    width: 80vw;
+                    tr{
+                        th{
+                            text-align: center;
+                            font-size: 2rem;
+                        }
+                        td{
+                            font-size: 2rem;
+                            text-align: center;
+                            vertical-align:middle;
+                            img{
+                                width: 4vw;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    } 
+}

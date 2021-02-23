@@ -1,0 +1,96 @@
+@mixin h2() {
+    font-size: 3.2rem;
+    color:#0D0D0E;
+    margin-bottom: 10px;
+}
+@mixin bottom_line($w) {
+    width: $w;
+    height: 2px;
+    background-color: #707070;
+    margin-bottom: 30px;
+}
+.main{
+    
+    .uncheck_list{
+        margin-right: 50px;
+        margin-bottom: 100px;
+        h2{
+            @include h2();
+        }
+        .line{
+            @include bottom_line(160px);
+        }
+        // a{
+        //     font-size: 1rem;
+        //     text-decoration: none;
+        //     color: black;
+        //     border: 1px solid black;
+        //     margin-right: 2vw;
+        //     padding: 3px 5px;
+        // }
+        .btn{
+            margin-right: 0;
+        }
+        button{
+            margin-bottom: 1vw;
+            margin-left: 1vw;
+        }
+        .member_content{
+                overflow-y: scroll;
+                height: 500px;
+            table{
+                width: 80vw;
+                tr{
+                    th{
+                        text-align: center;
+                        font-size: 2rem;
+                    }
+                    td{
+                        font-size: 2rem;
+                        text-align: center;
+                        vertical-align:middle;
+                        img{
+                            width: 4vw;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .work_list{
+        margin-right: 50px;
+        h2{
+            @include h2();
+        }
+        .line{
+            @include bottom_line(128px);
+        }
+        .search_text{
+            margin-bottom: 1vw;
+            margin-right: 0.5vw;
+        }
+        .member_content{
+            height: 500px;
+            overflow-y: scroll;
+            margin-bottom: 100px;
+            table{
+                tr{
+                    th{
+                        text-align: center;
+                        font-size: 2rem;
+                    }
+                    td{
+                        font-size: 2rem;
+                        text-align: center;
+                        vertical-align:middle;
+                        img{
+                            width: 4vw;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    
+}

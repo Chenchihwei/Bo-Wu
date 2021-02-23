@@ -1,0 +1,30 @@
+@import './back_work.scss';
+
+
+.main{
+    .uncheck_list{
+        margin-right: 50px;
+        margin-bottom: 100px;
+        h2{
+            @include h2();
+        }
+        .line{
+            @include bottom_line(100px);
+        }
+        
+        .member_content{
+            overflow:visible;
+            height: auto;
+        }
+    }
+    .work_list{
+        .line{
+            @include bottom_line(100px);
+        }
+        .member_content{
+            overflow:visible;
+            height: auto;
+            margin-top: 1vw;
+        }
+    }
+}

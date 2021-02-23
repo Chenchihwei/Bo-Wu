@@ -1,0 +1,903 @@
+@import '_variables.scss';
+@import 'header_footer.scss';
+@import url(//fonts.googleapis.com/earlyaccess/notosanstc.css);
+
+input {
+    -webkit-appearance: none;  /* Safari 和 Chrome，常用於iOS下移除內建樣式 */
+    -moz-appearance: none;     /* FireFox */
+    appearance: none;
+}
+body{
+    width: 100%;
+    font-family: Roboto;
+}
+.black{
+    background-color: #2E2824 !important;
+  }
+.main{
+    width: 100%;
+    position: relative;
+    display: flex;
+    overflow: hidden;
+    .main_left{
+        width: 79.17%;
+        display: flex;
+        background-image: url('../img/postcard/src_bg_2.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+        header{
+            // width: 13.39vw;
+            width: 15.6vw;
+            background-color: transparent;
+        }
+        .post_content{
+            margin-left: 2.24vw;
+            padding-left: 15.6vw;
+            margin-right: 1vw;
+           .pos_top{
+               margin-bottom: 6.48vh;
+               h1{
+                font-size: $titleS;
+                color: #000000;
+                margin-top: 9.72vh;
+                margin-bottom: 1.85vh;
+               }
+               .bottom_line{
+                width: 57.29vw;
+                height: 10px;
+                background-color: map-get($color , 'darkGray' );
+                margin-bottom: 3.98vh;
+                opacity: 50%;
+            }
+               h2{
+                font-weight: bold;
+                font-size: 2rem;
+                margin-bottom: 1.85vh;
+                color: #000000;
+               }
+               p{
+                font-size: $paragraph;
+                margin-bottom: 3.98vh;
+                color: #212121;
+               }
+               ul{
+                font-size: 2rem;
+                display: flex;
+                padding-left: 3.2vw;
+                li{
+                    font-weight: bold;
+                    display: flex;
+                    font-size: 2rem;
+                    a{
+                        display: block;
+                        line-height: 5.19vh;
+                        text-align: center;
+                        font-size: 1.25rem;
+                        width: 8.8vw;
+                        height: 5.19vh;
+                        background-color: #FBFBF6;
+                        border-radius: 5%;
+                        color: black;
+                        text-decoration: none;
+                        
+                    }
+                    span{
+                        font-weight: bold;
+                        margin-left: 0.781vw;
+                        margin-right: 0.781vw;
+                        display: block;
+                        height: 5.19vh;
+                        line-height: 5.19vh;
+                    }
+                }
+               
+               }
+           }
+           .pos_center{
+               display: flex;
+               .font_color{
+                   display: flex;
+                   margin-right: 0.781vw;
+                   margin-top: 18.52vh;
+                   cursor: pointer;
+                   ul{
+                       margin-right: 0.781vw;
+                       .fa-pen{
+                        margin-bottom: 0.926vh;
+                        font-size: 0.9375rem;
+                       }
+                       li{
+                            display: block;
+                            height: 1.39vh;
+                            width: 0.781vw;
+                            border-radius: 50%;
+                            margin-bottom: 0.926vh;
+                       }
+                       li.red{
+                        background-color: red; 
+                       }
+                       li.orange{
+                        background-color: orange; 
+                       }
+                       li.yellow{
+                        background-color: yellow; 
+                       }
+                       li.green{
+                        background-color: green; 
+                       }
+                       li.blue{
+                        background-color: blue; 
+                       }
+                       li.indigo{
+                        background-color: indigo; 
+                       }
+                       li.purple{
+                        background-color: purple; 
+                       }
+                       li.palette{
+                           background-color: rgb(32, 204, 226);
+                       }
+                   }
+                   .size{
+                    p{
+                        font-size: 0.875rem;
+                        margin-bottom: 0.926vh;
+                    }
+                    .line1{
+                        width: 0.104vw;
+                        height: 8.33vh;
+                        background-color:#5c5858;
+                        margin: 0 auto;
+                    }
+                    .line2{
+                        width: 0.104vw;
+                        height: 5.56vh;
+                        background-color:#FFFFFF;
+                        margin: 0 auto;
+                    }
+                   }
+               }
+               section{
+                   .mobile_font_color{
+                       display: none;
+                       cursor: pointer;
+                   }
+                   .postcard{
+                        .mobilesm_font_color{
+                            display: none;
+                        }
+                        .postcard_send{
+                            width: 39.0625vw;
+                            height: 23.4375vw;
+                        //    padding-top: 19px;
+                        //    padding-bottom: 19px;
+                            background-image: url('../img/postcard/postbg-1.png');
+                            background-size: cover;
+                            .postcard_bg{
+                                    position:relative;
+                                    top:50%;
+                                    transform:translateY(-50%);
+                                    line-height: 700px;
+                                    margin-top: 20px;
+                                    margin: 0 auto;
+                                    width: 36.4583vw;
+                                    height: 20.8333vw;
+                                    background-image: url('../img/postcard/uni_bg_1.jpg');
+                                    background-size: cover;
+                                    .postcard_title{
+                                        display: flex;
+                                        img{
+                                            width: 4.48vw;
+                                            height: 4.48vw;
+                                            border-radius: 50%;
+                                            margin-left: 1.3vw;
+                                            margin-right: 1.3vw;
+                                            margin-top: 25px;
+                                        }
+                                        h3{
+                                            font-size: 0.875rem;
+                                            color: #FBFBF6;
+                                            width: 15vw;
+                                            line-height: 24px;
+                                            margin-top: 25px;
+                                        }
+                                    }
+                                    p{
+                                        font-size: $paragraph;
+                                        color: #FBFBF6;
+                                        margin-left: 10.41vw;
+                                        margin-top: 3.5vw;
+                                        margin-right: 3.125vw;
+                                        line-height: 36px;
+                                    }
+                            }
+                        }
+                       .postcard_message{
+                           margin-top: 30px;
+                           margin-bottom: 50px;
+                           display: flex;
+                           .pos_textbox{
+                            width: 32.97vw;
+                            height: 7.76vw;
+                            margin-right: 15px; 
+                            font-size: 1.25rem;
+                            padding: 5px;
+                            font-family: Lato;
+                            font-weight: bold;
+                           }
+                           .btn{
+                            display: flex;
+                            flex-direction: column;
+                            
+                                button{
+                                    width: 4.7vw;
+                                    height: 36px;
+                                    background-color: #fff; 
+                                    border: 2px solid #3E3E3E;
+                                    text-align: left;
+                                    cursor: pointer;
+                                    font-weight: bold;
+                                    font-family: Noto Serif TC;
+                                    .fa-circle{
+                                        // padding-left: 3px;
+                                        font-size: 0.625rem;
+                                        margin-right: 5px;
+                                    }
+                                    .fa-times{
+                                        padding-left: 3px;
+                                        font-size: 0.625rem;
+                                        margin-right: 5px;
+                                    }
+                                }
+                                .save{
+                                    margin-bottom: 10px;
+                                }
+                                .delete{
+                                    
+                                }
+                            }
+                       }
+                   }
+               }
+               .post_img{
+                   margin-left: 5.2vw;
+                   padding-right: 0.78vw;
+                   height: 33.07vw;
+                   overflow:auto;
+                   cursor: pointer;
+                   ul{
+                       li{
+                           margin-bottom: 30px;
+                           img{
+                                width: 8.33vw;
+                                height: 5.2vw;
+                           }
+                       }
+                   }
+               }
+               /*-------滾動條整體樣式----*/
+
+                ::-webkit-scrollbar {
+
+                    width:5px;
+                    
+                    height:5px;
+                    
+                    }
+                    
+                    /*滾動條裡面小方塊樣式*/
+                    
+                ::-webkit-scrollbar-thumb {
+                    
+                    border-radius:30px;
+                    
+                    -webkit-box-shadow:inset 0 0 5px rgba(0,0,0,0.2);
+                    
+                    background:rgb(112, 109, 109);
+                    
+                    }
+                    
+                    /*滾動條裡面軌道樣式*/
+                    
+                ::-webkit-scrollbar-track {
+                    
+                    -webkit-box-shadow:inset 0 0 5px rgba(0,0,0,0.2);
+                    
+                    border-radius:20px;
+                    
+                    background:rgba(0,0,0,0.1);
+                    
+                    }
+    
+    
+
+           }
+        }
+    }
+    .right{
+        width: 15vw;
+        .pos_finish{
+            position: absolute;
+            bottom: 50px;
+            // right: 1.56vw;
+            display: flex;
+            .sanjiao{
+                width:0;
+                height: 0;
+                border-top:40px solid transparent;
+                border-bottom:40px solid transparent;
+                border-left:30px solid #C9C9C9;
+                border-right:15px solid transparent;
+            }
+            section{
+                h1{
+                    margin-top: 2.5vh;
+                    font-size: 2rem;
+                    margin-bottom: 2.78vh;
+                }
+                h2{
+                    font-size: 0.875rem;
+                    margin-bottom: 0.926vh;
+                }
+                input.email_text{
+                    margin-bottom: 2.31vh;
+                    width: 16.15vw;
+                }
+                .submit{
+                    display: block;
+                    width: 16.15vw;
+                    height: 3.333vh;
+                    background-color: #fff;
+                    border: 2px solid #3E3E3E;
+                    border-radius: 30px;
+                    cursor: pointer;
+                    margin-bottom: 1.39vh;
+                    font-family: Noto Serif TC;
+                    font-weight: bold;
+                }
+                .submit:focus{
+                    outline: none;
+                }
+            }
+        }
+    }
+    .mobile_pos_finish{
+        display: none;
+    }
+}
+// footer{
+//     width: 100%;
+//     height: 23.15vh;
+//     background-color: map-get($color ,'black');
+// }
+
+@media screen and (max-width: 1280px){
+    .main{
+        .main_left{
+            // width: 77.67vw;
+            .post_content{
+                .pos_top{
+                    h1{
+                        font-size: 2.3125rem;
+                    }
+                    h2{
+                        font-size: 1.3125rem;   
+                    }
+                    p{
+                        font-size: 1rem;    
+                    }
+                    ul{
+                        li{
+
+                            a{
+                                font-size: 1rem;
+                            }
+                            span{
+                                font-size: 1rem;
+                            }
+                        }
+                    }
+                }
+                .pos_center{
+                    section{
+                        .postcard{
+                            .postcard_send{
+                                .postcard_bg{
+                                    .postcard_title{
+                                        img{
+                                            margin-top: 1vw;
+                                        }
+                                        h3{
+                                            margin-top: 1vw;
+                                            
+                                        }
+                                    }
+                                    p{
+                                        font-size: 1rem;
+                                    }
+                                }
+                            }
+                            .postcard_message{
+                                .pos_textbox{
+                                 font-size: 1rem;
+                                 width: 31vw;
+                                }
+                                .btn{
+                                    button{ 
+                                        width: 6vw; 
+                                        height: 1.875vw;                                      
+                                        font-size: 10px;
+                                        line-height: 1.5vw;
+                                        .fa-circle{
+                                            font-size: 0.5rem;
+                                            margin-right: 0;
+                                        }
+                                        .fa-times{
+                                            font-size: 0.5rem;
+                                            margin-right: 0;
+                                            padding-left: 0;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .right{
+            width: 22.33vw;
+            .pos_finish{
+                .sanjiao{
+                    border-top:30px solid transparent;
+                    border-bottom:30px solid transparent;
+                    border-left:20px solid #C9C9C9;
+                    border-right:15px solid transparent;
+                }
+                section{
+                    h1{
+                        font-size: 1.3125rem;
+                    }
+                    h2{
+                        font-size: 0.5625rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px){
+    .main{
+        flex-direction: column;
+        .main_left{
+            width: 100vw;
+            .post_content{
+                .pos_top{
+                    margin-bottom: 5vw;
+                    h1{
+                        font-size: 2rem;
+                        margin-bottom: 1.85vh;
+                    }
+                    .bottom_line{
+                        width: 81vw;
+                        height: 5px;
+                        color: rgba(114, 114, 114, 0.5);
+                        margin-bottom: 1.5vw;
+                    }
+                    h2{
+                        font-size: $paragraph;   
+                    }
+                    p{
+                        font-size: 1rem;    
+                    }
+                    ul{
+                        li{
+                            a{
+                                font-size: 0.75rem;
+                                width: 13.54vw;
+                                line-height: 4.49vw;
+                                height: 4.49vw;
+                            }
+                            span{
+                                line-height: 4.49vw;
+                                height: 4.49vw;
+                            }
+                        }
+                    }
+                }
+                .pos_center{
+                    flex-direction: column;
+                    .font_color{
+                        display: none;
+                    }
+                    section{
+                        order: 2;
+                        display: flex;
+                        .mobile_font_color{
+                            display: flex;
+                            margin-left: 1vw;
+                            margin-top: 8vw;
+                            ul{
+                                margin-right: 0.781vw;
+                                .fa-pen{
+                                    margin-bottom: 0.926vh;
+                                    font-size: 1.2rem;
+                                }
+                                li{
+                                    display: block;
+                                    height: 1.95vw;
+                                    width: 1.95vw;
+                                    border-radius: 50%;
+                                    margin-bottom: 0.926vh;
+                                }
+                                li.red{
+                                    background-color: red; 
+                                }
+                                li.orange{
+                                    background-color: orange; 
+                                }
+                                li.yellow{
+                                    background-color: yellow; 
+                                }
+                                li.green{
+                                    background-color: green; 
+                                }
+                                li.blue{
+                                    background-color: blue; 
+                                }
+                                li.indigo{
+                                    background-color: indigo; 
+                                }
+                                li.purple{
+                                    background-color: purple; 
+                                }
+                                li.palette{
+                                    background-color: rgb(32, 204, 226);
+                                }
+                            }
+                            .size{
+                                p{
+                                    font-size: 1.2rem;
+                                    margin-bottom: 0.926vh;
+                                }
+                                .line1{
+                                    width: 0.104vw;
+                                    height: 10vh;
+                                    background-color:#5c5858;
+                                    margin: 0 auto;
+                                }
+                                .line2{
+                                    width: 0.104vw;
+                                    height: 8vh;
+                                    background-color:#FFFFFF;
+                                    margin: 0 auto;
+                                }
+                            }
+                        }
+                        .postcard{
+                            .postcard_send{
+                                width: 60.09vw;
+                                height: 36.04vw;
+                                .postcard_bg{
+                                    width: 56.18vw;
+                                    height: 32.11vw;
+                                    .postcard_title{
+                                        img{
+                                            margin-top: 1vw;
+                                        }
+                                        h3{
+                                            margin-top: 1vw;
+                                            
+                                        }
+                                    }
+                                    p{
+                                        font-size: 1rem;
+                                    }
+                                }
+                            }
+                            .postcard_message{
+                                .pos_textbox{
+                                 font-size: 1rem;
+                                 width: 47vw;
+                                }
+                                .btn{
+                                    button{ 
+                                        width: 10vw; 
+                                        height: 2.99vw;
+                                        font-size: 0.5rem;
+                                        .fa-circle{
+                                            font-size: 0.3rem;
+                                        }
+                                        .fa-times{
+                                            font-size: 0.4rem;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .post_img{
+                        margin: 0;
+                        height: auto;
+                        width: 64.32vw;
+                        ul{
+                            display: flex;
+                            li{
+                                img{
+                                    width: 12.89vw;
+                                    height: 8.07vw;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .right{
+            display: none;
+        }
+        .mobile_pos_finish{
+            display: block;
+            display: flex;
+            position: relative;
+            width: 70vw;
+            margin: 0 auto;
+            h1{
+                margin-top: 2.5vh;
+                margin-bottom: 1vw;
+                font-size: $paragraph;
+            }
+            h2{
+                font-size: 1rem;
+                margin-bottom: 1vw;
+                font-weight: bold;
+            }
+            input.email_text{
+                margin-bottom: 2.31vh;
+                width: 39.06vw;
+                height: 13.02vw;
+            }
+            .send{
+                position: absolute;
+                bottom: 3vw;
+                right: 2vw;
+                .submit{
+                    display: block;
+                    width: 26.04vw;
+                    height: 3.9vh;
+                    background-color: #fff;
+                    border: 2px solid #3E3E3E;
+                    border-radius: 30px;
+                    cursor: pointer;
+                    margin-bottom: 10px;
+                    font-family: Noto Serif TC;
+                    font-weight: bold;
+                }
+                .submit:focus{
+                    outline: none;
+                }
+            }
+            
+        }
+    }
+}
+
+@media screen and (max-width: 414px){
+    .main{
+        .main_left{
+            header{
+                width: 20.53vw;
+            }
+            .post_content{
+                .pos_top{
+                    margin-bottom: 5vw;
+                    h1{
+                        font-size: $paragraph;
+                    }
+                    h2{
+                        font-size: 1rem;   
+                    }
+                    p{
+                        font-size: 1rem;    
+                    }
+                    ul{
+                        li{
+                            a{
+                                font-size: 1rem;
+                                width: 16.9vw;
+                                line-height: 8.33vw;
+                                height: 8.33vw;
+                            }
+                            span{
+                                line-height: 8.33vw;
+                                height: 8.33vw;
+                            }
+                        }
+                    }
+                }
+                .pos_center{
+                    flex-direction: column;
+                    section{
+                        order: 2;
+                        flex-direction: column;
+                        .mobile_font_color{
+                            display: none;
+                        }
+                        .postcard{
+                            .mobilesm_font_color{
+                                display: block;
+                                ul{
+                                    display: flex;
+                                    margin-right: 0.781vw;
+                                    .fa-pen{
+                                     font-size: 1rem;
+                                     margin-right: 3vw;
+                                     margin-left: 3vw;
+                                    }
+                                    li{
+                                         display: block;
+                                         height: 3.62vw;
+                                         width: 3.62vw;
+                                         border-radius: 50%;
+                                         margin-bottom: 0.926vh;
+                                         margin-right: 3vw;
+                                    }
+                                    li.red{
+                                     background-color: red; 
+                                    }
+                                    li.orange{
+                                     background-color: orange; 
+                                    }
+                                    li.yellow{
+                                     background-color: yellow; 
+                                    }
+                                    li.green{
+                                     background-color: green; 
+                                    }
+                                    li.blue{
+                                     background-color: blue; 
+                                    }
+                                    li.indigo{
+                                     background-color: indigo; 
+                                    }
+                                    li.purple{
+                                     background-color: purple; 
+                                    }
+                                    li.palette{
+                                        background-color: rgb(32, 204, 226);
+                                    }
+                                }
+                                .size{
+                                        display: flex;
+                                        margin-top: 1vw;
+                                        margin-bottom: 2vw;
+                                        p{
+                                            font-size: 1rem;
+                                            margin-bottom: 1vw;
+                                            order: 0;
+                                            margin-right: 2vw;
+                                        }
+                                        .line1{
+                                            width: 20vw;
+                                            height: 2px;
+                                            background-color:#5c5858;
+                                            margin-top: 6.5px;
+                                            order:1;
+                                        }
+                                        .line2{
+                                            width: 30vw;
+                                            height: 2px;
+                                            order:2;
+                                            margin-top: 6.5px;
+                                            background-color:#FFFFFF;
+                                        }
+                                   }
+                            }
+                            .postcard_send{
+                                width: 69.14vw;
+                                height: 41.48vw;
+                                margin-bottom: 3vw;
+                                .postcard_bg{
+                                    width: 64.66vw;
+                                    height: 36.95vw;
+                                    .postcard_title{
+                                        h3{
+                                            font-size: 0.75rem;
+                                            width: 30vw;
+                                            line-height: 1;
+                                        }
+                                        img{
+                                            height: 7.25vw;
+                                            width: 7.25vw;
+                                        }
+                                    }
+                                    p{
+                                        font-size: 0.75rem;
+                                        line-height: 1.6;
+                                    }
+                                }
+                            }
+                            .postcard_message{
+                                flex-direction: column;
+                                margin-top: 5vw;
+                                margin-bottom: 3vw;
+                                .pos_textbox{
+                                 font-size: 1rem;
+                                 width: 66vw;
+                                 height: 22.22vw;
+                                }
+                                .btn{
+                                    margin-top: 1vw;
+                                    flex-direction: row;
+                                    button{ 
+                                        margin-right: 1vw;
+                                        width: 34vw; 
+                                        height: 7.25vw;
+                                        font-size: 0.5rem;
+                                        text-align: center;
+                                        span{
+                                            font-size: 0.5rem;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .post_img{
+                        margin: 0;
+                        height: auto;
+                        width: 75vw;
+                        ul{
+                            display: flex;
+                            li{
+                                img{
+                                    width: 23.91vw;
+                                    height: 14.98vw;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .mobile_pos_finish{
+            flex-direction: column;
+            section{
+                h1{
+                    margin-top: 2.5vh;
+                    margin-bottom: 1vw;
+                    font-size: $paragraph;
+                }
+                h2{
+                    font-size: 1rem;
+                    margin-bottom: 1vw;
+                    font-weight: bold;
+                }
+                input.email_text{
+                    margin-bottom: 2.31vh;
+                    width: 67.87vw;
+                    height: 13.02vw;
+                }
+            }
+            .send{
+                position: static;
+                .submit{
+                    display: block;
+                    width: 69.1vw;
+                    height: 3.9vh;
+                    background-color: #fff;
+                    border: 2px solid #3E3E3E;
+                    border-radius: 30px;
+                    cursor: pointer;
+                    margin-bottom: 10px;
+                }
+                .submit:focus{
+                    outline: none;
+                }
+            }
+            
+        }
+    }
+}
