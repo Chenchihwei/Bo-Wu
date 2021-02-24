@@ -31,7 +31,7 @@ Tibame-work
                             pages       自己頁面的scss區
                             utilities   放template的scss區
                  
-           ******   style李會放一支引用所有變數的 all.scss 各自頁面統一讀取這支檔案
+           ******   style裡會放一支引用所有變數的 all.scss 各自頁面統一讀取這支檔案
                    
       | components         共用區塊 (會員彈窗、header、footer之區域)
       | pages              各自頁面資料夾_匯入元素 (有點類似拆功能的部分)
