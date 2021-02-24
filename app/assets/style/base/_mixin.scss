@@ -1,0 +1,14 @@
+// breakpoints----------------------------------------------------
+$break-point-xs: 414px;  //mobile-xs
+$break-point-sm: 576px;  //mobile
+$break-point-md: 768px;  //pad
+$break-point-lg: 1280px;  //pad-pro
+$break-point-xl: 1200px; //notebook
+
+$break-points: (
+  xs: $break-point-xs, 
+  sm: $break-point-sm, 
+  md: $break-point-md, 
+  lg: $break-point-lg, 
+  xl: $break-point-xl, 
+);

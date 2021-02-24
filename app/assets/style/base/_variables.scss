@@ -1,31 +1,3 @@
-// font---------
-$fontSize: 1rem;
-$fontFamily: (
-  'PT Serif', serif, 
-  'Noto Serif TC',serif,
-  'Montserrat',sans-serif,
-);
-$titleL: 4rem;
-$titleM: 3rem;
-$titleS: 1.8rem;
-$paragraph: 1rem;
-
-// color---------
-
-$color: (
-  'red': #9E0000,
-  'lightBrown': #DCCAB8,
-  'brown': #BA967D,
-  'darkBrown': #886F5E,
-  'yellow': #FBFBF6,
-  'gray': #F1F1F1,
-  'gray_2': #E5E5E5,
-  'darkGray': #7E7E7E,
-  'white': #fff,
-  'black': #2E2824,
-);
-
-
 
 // grid------------------------------------------------------------------
 $gutter: 40px;
@@ -46,17 +18,3 @@ $container-lg-padding: 20px;
 $container-sm-padding: 16px;
 
 
-// breakpoints----------------------------------------------------
-$break-point-xs: 414px;  //mobile-xs
-$break-point-sm: 576px;  //mobile
-$break-point-md: 768px;  //pad
-$break-point-lg: 1280px;  //pad-pro
-$break-point-xl: 1200px; //notebook
-
-$break-points: (
-  xs: $break-point-xs, 
-  sm: $break-point-sm, 
-  md: $break-point-md, 
-  lg: $break-point-lg, 
-  xl: $break-point-xl, 
-);

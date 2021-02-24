@@ -1,0 +1,26 @@
+// font---------
+$fontSize: 1rem;
+$fontFamily: (
+  'PT Serif', serif, 
+  'Noto Serif TC',serif,
+  'Montserrat',sans-serif,
+);
+$titleL: 4rem;
+$titleM: 3rem;
+$titleS: 1.8rem;
+$paragraph: 1rem;
+
+// color---------
+
+$color: (
+  'red': #9E0000,
+  'lightBrown': #DCCAB8,
+  'brown': #BA967D,
+  'darkBrown': #886F5E,
+  'yellow': #FBFBF6,
+  'gray': #F1F1F1,
+  'gray_2': #E5E5E5,
+  'darkGray': #7E7E7E,
+  'white': #fff,
+  'black': #2E2824,
+);
