@@ -18,17 +18,40 @@ Tibame-work
 
 | 2.大家檔案名稱不要一樣
 
-| 3.我在img、js、mysql、php、scss都放了各位的以學號命名的資料夾，之後各位就在自己的資料夾做更動
+| 3.創造了以下資料夾
 
-| 4.class、id名稱以駝峰式命名
+   | app  <<<   開發檔案及資源放在這裡面，在統一由gulp整合
+    
+      | assets  
+               |img
+               |js      
+               |php         松輝後台專屬資料夾
+               |style       base        基底環境scss   如 字形變數
+                            components  放components 的scss區
+                            pages       自己頁面的scss區
+                            utilities   放template的scss區
+                 
+           ******   style李會放一支引用所有變數的 all.scss 各自頁面統一讀取這支檔案
+                   
+      | components         共用區塊 (會員彈窗、header、footer之區域)
+      | pages              各自頁面資料夾_匯入元素 (有點類似拆功能的部分)
+      | template           共用功能(如按鈕、動畫類)
+
+| 4.class、id名稱以"駝峰式命名"
+
+ 單字之間不以空格斷開（例：camel case）或連接號（-，例：camel-case）、底線（_，例：camel_case）連結，有兩種格式：
+
+   小駝峰式命名法（lower camel case）：
+     第一個單字以小寫字母開始；第二個單字的首字母大寫，例如：firstName、lastName。
+   大駝峰式命名法（upper camel case）：
+     每一個單字的首字母都採用大寫字母，例如：FirstName、LastName、CamelCase，也被稱為Pascal命名法（英語：Pascal Case）。
 
 | 5.git只放程式和圖片影片等相關檔案，不放文件EX:.pdf、.ppt等等
 
-| 6.php放在lovefood底下的資料夾就好
+| 6.scss目前按照老師的樣子規劃
 
-| 7.scss目前按照老師的樣子規劃
+| 7.現在大家只能自己用自己的分支然後，git checkout dev至dev分支裡面，在用git merge 自己分支名稱，最後用dev這個分支push上去，所以自己本身的分支不能push上去喔，github只能有master及dev這兩個分支
 
-| 8.現在大家只能自己用自己的分支然後，git checkout dev至dev分支裡面，在用git merge 自己分支名稱，最後用dev這個分支push上去，所以自己本身的分支不能push上去喔，github只能有master及dev這兩個分支
 
 ## Git上傳步驟
 1. git add .:把所有資料傳去站存區 小貼心:新增、修改、刪除都可以用
