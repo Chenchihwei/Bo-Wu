@@ -1,0 +1,252 @@
+@import 'variables';
+@import 'reset';
+
+@mixin pad{
+  @media(max-width:1280px){
+    @content;
+  }
+}
+@mixin mobile{
+  @media(max-width:768px){
+    @content;
+  }
+}
+@mixin mobileS {
+  @media(max-width:414px) {
+    @content;
+  }
+}
+
+
+body{
+  // outline: 1px solid green;
+  color: map-get($color, 'black');
+  display: inline-block;
+  // overflow-y: scroll;
+  overflow-x: scroll;
+  font-family: $fontFamily;
+}
+
+body::-webkit-scrollbar{
+  display: none;
+}
+
+.title{
+  // outline: 1px solid hotpink;
+  border-bottom: 20px solid #7e7e7e;
+  width: 1100px;
+  margin-left: 20vw;
+  padding-top: 80px;
+
+  position: sticky;
+  @include pad{
+    margin-left: 18vw;
+    width: 60vw;
+  }
+  @include mobileS{
+    padding-top: 10vh;
+  }
+
+  h1{
+    font-size: $titleM;
+    margin: 0;
+    margin-bottom: 30px;  
+    @include pad{
+      font-size: $titleS;
+    }
+    @include mobileS{
+      margin-bottom: 10px;
+    }
+  }
+}
+
+.container{
+  // outline: 2px solid cadetblue;
+  height: 60vh;
+  width: 100vw;
+  overflow: hidden;
+  // overflow-x: scroll;
+
+  margin-top: 4rem;
+  margin-left: 20vw;
+  margin-bottom: 5.5rem;
+  padding: 0;
+  
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+
+  grid-template-areas: 
+  "big1 big1 big1 small1 small2 big3 big3 small7"
+  "big1 big1 big1 big2 big2 big3 big3 small6 "
+  "big1 big1 big1 big2 big2 small3 small4 small5";
+  grid-gap: 20px;
+
+  @include pad{
+    margin-left: 18vw;
+    grid-gap: 10px;
+
+    height: 60vh;
+    width: 100vw;  
+  }
+  @include mobile{
+    height: 100vh;
+    width: 80vw;
+
+    grid-gap: 15px;
+
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas: 
+    'big1 big1 big1 big1'
+    'big1 big1 big1 big1'
+    'big1 big1 big1 big1'
+    'small1 small2 big2 big2'
+    'big3 big3 small3 small4';
+  }
+  @include mobileS{
+    height: 150vh;
+    width: 80vw;
+
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+
+    grid-template-areas: 
+    'small1 small2'
+    'big3 big3'
+    'big3 big3'
+    'big2 big2'
+    'big2 big2'
+    'small3 small4';
+
+  }
+
+  
+  .big1{
+    background: url('../img/underground/01049e67bcabfbb429a20a70345a4a95.jpg');
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position: center;
+    grid-area: big1;
+    transition: 1s;
+    p{
+      color: #666;
+      opacity: 0;
+      text-align: center;
+      line-height: 1.2rem;
+      height: 100%;
+      transition: 1.3s;
+      margin-top: 3rem;
+      &:hover{
+        color: map-get($color, 'white');
+        opacity: 1;
+      }
+    }
+    &:hover{
+      transform: scale(1.05);
+    }
+  }
+
+  .big2{
+    // background: #666;
+    background: url("../img/ocean/new-glass-concrete-sculptures-ben-young-13.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    grid-area: big2;
+  }
+  
+  .big3{
+    background: url("../img/underground/f868f23578eb4ae6cf6a66e2b9af2a79.jpg");
+    background-size: cover;
+    // background-repeat: no-repeat;
+    background-position: bottom;
+    // background: #666;
+    grid-area: big3;
+  }
+  
+  .small1{
+    // background: #999;
+    background: url("../img/ocean/ben-young-contemporary-glass-sculptures-4.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    grid-area: small1;
+    transition: 1.3s;
+    &:hover{
+      transform: scale(1.1);
+    }
+  }
+
+  .small2{
+    // background: #999;
+    background: url("../img/ocean/new-glass-concrete-sculptures-ben-young-23.jpg");
+    background-size: cover;
+    background-position: center;
+    grid-area: small2;
+  }
+  
+  .small3{
+    // background: #999;
+    background: url("../img/ocean/a6dd8562c17518aeeb5ea81902bb1762.jpg");
+    background-size: cover;
+    background-position: center;
+
+    grid-area: small3;
+  }
+  
+  .small4{
+    // background: #999;
+    background: url("../img/ocean/new-glass-concrete-sculptures-ben-young-15.jpg");
+    background-size: cover;
+    background-position: center;
+    grid-area: small4;
+  }
+  
+  .small5{
+    background: #999;
+    grid-area: small5;
+  }
+  
+  .small6{
+    background: #999;
+    grid-area: small6;
+  }
+  
+  .small7{
+    background: #999;
+    grid-area: small7;
+  }
+  
+  .small8{
+    background: #999;
+    grid-area: small8;
+  }
+  
+  .small9{
+    background: #999;
+    grid-area: small9;
+  }
+
+}
+
+
+// -----箭頭-------
+.container{
+  span{
+    // border: 1px solid blue;
+
+    font-size: $titleL;
+    color: map-get($color, 'white');
+    opacity: 0;
+    z-index: 50;
+    position: absolute;
+    top: 50%;
+    right: 0;
+
+    &:hover{
+      opacity: .8;
+    }
+    
+  }
+}

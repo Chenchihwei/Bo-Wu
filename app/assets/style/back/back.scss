@@ -1,0 +1,97 @@
+@import url("reset.css");
+html{
+    font-size: 62.5%;
+}
+header{
+    display: flex;
+    width: 100%;
+    height: 100px;
+    background-color: #2E2824;
+    img{
+        width: 80px;
+        height: 80px;
+        margin-top: 10px;
+        margin-left: 2vw;
+    }
+    h2{
+        font-size: 2rem;
+        color: #FBFBF6;
+        line-height: 100px;
+        margin-left: 2vw;
+    }
+    a{
+        font-size: 2rem;
+        color: #FBFBF6;
+        line-height: 100px;
+        margin-left: 2vw;
+        text-decoration: none;
+        margin-left: auto;
+        margin-right: 50px;
+    }
+}
+
+.main{
+    margin-top: 80px;
+    margin-left: 87px;
+    display: flex;
+    .btn{
+        margin-right: 60px;
+        ul{
+            li{
+                margin-bottom: 15px;
+                img{
+                    width: 133px;
+                }
+                h1{
+                    width: 133px;
+                    height: 54px;
+                    font-size: 2.1rem;
+                    line-height: 54px;
+                    border: 2px solid #2E2824; 
+                    border-radius: 10px;
+                    background-color: #2E2824;
+                    color: #FFFFFF;
+                    text-align: center;
+                }
+                a{
+                    display: block;
+                    text-align: center;
+                    width: 133px;
+                    height: 54px;
+                    background-color: #FFFFFF;
+                    font-size: 2.1rem;
+                    text-decoration: none;
+                    line-height: 54px;
+                    border: 2px solid #2E2824; 
+                    border-radius: 10px;
+                    color: #2E2824;
+                }
+                a:hover{
+                    color: white;
+                    background-color: #2E2824;
+                }
+                .click{
+                    // background-color:#D9D9D9;
+                    background-color: #2E2824;
+                    color: #FFFFFF;
+                }
+                ol{
+                    margin-left: 30px;
+                    margin-top: 10px;
+                    display: none;
+                    li{
+                        a{
+                            font-size: 1.6rem;
+                            width: 100px;
+                            height: 30px;
+                            line-height: 30px;
+                        }
+                    }
+                }
+            }
+            li:nth-child(5):hover ol{
+                display: block;
+            }
+        }
+    }
+}

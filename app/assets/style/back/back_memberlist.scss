@@ -1,0 +1,43 @@
+@mixin h2() {
+    font-size: 3.2rem;
+    color:#0D0D0E;
+    margin-bottom: 10px;
+}
+@mixin bottom_line($w) {
+    width: $w;
+    height: 2px;
+    background-color: #707070;
+    margin-bottom: 30px;
+}
+.main{
+    
+    .member_list{
+        margin-right: 50px;
+        h2{
+            @include h2();
+        }
+        .line{
+            @include bottom_line(128px);
+        }
+        .search_text{
+            margin-bottom: 1vw;
+            margin-right: 0.5vw;
+        }
+        .member_content{
+            table{
+                tr{
+                    th{
+                        font-size: 2rem;
+                        width: 5vw;
+                    }
+                    td{
+                        font-size: 2rem;
+                        vertical-align:middle;
+
+                    }
+                }
+            }
+        }
+    }
+    
+}
