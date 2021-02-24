@@ -1,0 +1,84 @@
+@import "../scss/variables";
+
+header {
+    // width: 13.39vw;
+    width: 15.6vw;
+    background-color: transparent;
+
+    menu {
+        p {
+            color: map-get($map: $color, $key: "brown");
+        }
+        .indexMenuline1 {
+            background-color: map-get($color, "brown");
+        }
+        .indexMenuline2 {
+            background-color: map-get($map: $color, $key: "brown");
+        }
+    }
+    ul {
+        li {
+            a {
+                // color:#b3b3b3;
+                color: map-get($map: $color, $key: "brown");
+                font-size: 1rem;
+            }
+        }
+    }
+}
+.features {
+    color: map-get($map: $color, $key: "brown");
+    z-index: 1000;
+    a {
+    }
+    .fa-search {
+        color: map-get($map: $color, $key: "brown");
+    }
+    .personal {
+        border-bottom: 2px solid map-get($map: $color, $key: "brown");
+        a {
+            color: map-get($map: $color, $key: "brown");
+        }
+    }
+    .login {
+        border-bottom: 2px solid map-get($map: $color, $key: "brown");
+        a {
+            color: map-get($map: $color, $key: "brown");
+        }
+    }
+    .fa-user-friends {
+    }
+    .fa-bell {
+    }
+}
+.musicControlBtn {
+    .musicControlBtnSpan {
+        .line1 {
+            display: block;
+            height: 35px;
+            width: 4px;
+            background-color: map-get($map: $color, $key: "brown");
+            margin-right: 20px;
+        }
+        .line2 {
+            display: block;
+
+            height: 55px;
+            width: 4px;
+            background-color: map-get($map: $color, $key: "brown");
+            margin-right: 20px;
+        }
+        .line3 {
+            display: block;
+            height: 25px;
+            width: 4px;
+            background-color: map-get($map: $color, $key: "brown");
+        }
+    }
+
+    p {
+        color: map-get($map: $color, $key: "brown");
+        font-size: 16px;
+        font-family: "Montserrat", sans-serif;
+    }
+}
