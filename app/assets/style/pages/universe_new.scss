@@ -1,5 +1,6 @@
 @import 'variables';
 @import 'reset';
+@import 'button';
 
 @mixin pad{
   @media(max-width:$break-point-lg){
@@ -254,56 +255,56 @@ a{
 
 // -----Pagination-----------------
 
-.button{
-  width: 25vw;
-  // outline: 1px solid pink;
-  display: flex;
-  justify-content: space-between;
+// .button{
+//   width: 25vw;
+//   // outline: 1px solid pink;
+//   display: flex;
+//   justify-content: space-between;
 
-  text-align: center;
-  overflow: hidden;
+//   text-align: center;
+//   overflow: hidden;
 
 
-  position: absolute;
-  left: 45vw;
-  bottom:5vh;
-  a{
-    text-align: none;
-    color: map-get($color, 'darkGray');
+//   position: absolute;
+//   left: 45vw;
+//   bottom:5vh;
+//   a{
+//     text-align: none;
+//     color: map-get($color, 'darkGray');
     
-    span{
-      display: block;
-      width: 5px;
-      height: 5px;
-      background-color: transparent;
-      border-radius: 50%;
-      border: 5px solid map-get($color, 'darkgray');
-      opacity: 1;
-      outline: none !important;
-      margin: 0 auto;
-      &::before {
-        content: "";
-        display: block;
-        width: 3vw;
-        margin-left: 2vw;
-        background-color: #707070;
-        border: 1px solid #707070 !important;
-        color: #707070;
-      }
-    }
-    &:hover{
-      color: map-get($color, 'black');
-    }
-    p{
-      // text-align: center;
-      margin-top: 10px;
-    }
+//     span{
+//       display: block;
+//       width: 5px;
+//       height: 5px;
+//       background-color: transparent;
+//       border-radius: 50%;
+//       border: 5px solid map-get($color, 'darkgray');
+//       opacity: 1;
+//       outline: none !important;
+//       margin: 0 auto;
+//       &::before {
+//         content: "";
+//         display: block;
+//         width: 3vw;
+//         margin-left: 2vw;
+//         background-color: #707070;
+//         border: 1px solid #707070 !important;
+//         color: #707070;
+//       }
+//     }
+//     &:hover{
+//       color: map-get($color, 'black');
+//     }
+//     p{
+//       // text-align: center;
+//       margin-top: 10px;
+//     }
 
-  }
+//   }
 
-}
+// }
 
-.clicked{
-  color: map-get($color, 'black');
-}
+// .clicked{
+//   color: map-get($color, 'black');
+// }
 
