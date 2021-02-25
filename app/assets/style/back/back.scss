@@ -29,7 +29,9 @@ header{
         margin-right: 50px;
     }
 }
-
+.none{
+    display: none;
+}
 .main{
     margin-top: 80px;
     margin-left: 87px;
@@ -95,3 +97,21 @@ header{
         }
     }
 }
+
+@mixin h2() {
+    font-size: 3.2rem;
+    color:#0D0D0E;
+    margin-bottom: 10px;
+}
+@mixin bottom_line($w) {
+    width: $w;
+    height: 2px;
+    background-color: #707070;
+    margin-bottom: 30px;
+}
+
+@import './back_collection.scss';
+@import './back_bidding.scss';
+@import './back_memberlist.scss';
+@import './back_postcard.scss';
+@import './back_work.scss';
