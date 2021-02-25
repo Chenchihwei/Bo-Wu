@@ -1,6 +1,9 @@
 // @import url("reset.css");
-@import '_variables.scss';
-@import 'header_footer.scss';
+@import '../base/reset';
+@import '../base/variables';
+@import '../base/mixin';
+@import '../base/font';
+@import '../base/base';
 
 @mixin product_like($left, $right) {
     position: absolute;
