@@ -1,0 +1,38 @@
+{
+  "name": "bowu",
+  "version": "1.0.0",
+  "description": "Tibame-work",
+  "main": "gulpfile.js",
+  "scripts": {
+    "安裝gulp套件": "npm install",
+    "執行全部任務": "gulp all",
+    "kill dist Css": "gulp killCss",
+    "Kill dist":"gulp Kill",
+    "gulp的Sass監聽": "gulp w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Chenchihwei/Bo-Wu.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Chenchihwei/Bo-Wu/issues"
+  },
+  "homepage": "https://github.com/Chenchihwei/Bo-Wu#readme",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-clean": "^0.4.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-file-include": "^2.3.0",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^4.1.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-uglify": "^3.0.2",
+    "node-sass": "^5.0.0"
+  }
+}
