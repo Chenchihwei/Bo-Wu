@@ -7,7 +7,7 @@
     "安裝gulp套件": "npm install",
     "執行全部任務": "gulp all",
     "kill dist Css": "gulp killCss",
-    "Kill dist":"gulp Kill",
+    "Kill dist": "gulp Kill",
     "gulp的Sass監聽": "gulp w"
   },
   "repository": {
