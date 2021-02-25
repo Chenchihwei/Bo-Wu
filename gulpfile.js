@@ -109,6 +109,7 @@ function commonStyle() {
             }).on('error', sass.logError)
         )
         .pipe(sourcemaps.write())
+        // .pipe(concat('all.css'))
         .pipe(dest('dist/assets/css/'));
 }
 
@@ -150,7 +151,7 @@ function killDistCss() {
 
 exports.killCss = killDistCss;
 exports.Kill = killDist;
-exports.all = series(killDistCss,move,parallel(commonStyle,pageStyle,includeHTML));
+exports.all = series(killDistCss,parallel(commonStyle,pageStyle,includeHTML));
 
 //監聽scss
 
