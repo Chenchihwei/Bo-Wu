@@ -1,11 +1,17 @@
 @import './back_collection.scss';
 
-.main{
-    .content{
-        .collection_list{
-            .line{
-                @include bottom_line(230px);
-            }
+.collection{
+    .postcard{
+        .main{
+            .content{
+                .collection_list{
+                    .line{
+                        @include bottom_line(230px);
+                    }
+                }
+            } 
         }
-    } 
+    }
 }
+
+
