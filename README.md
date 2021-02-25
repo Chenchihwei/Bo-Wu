@@ -34,17 +34,44 @@ Tibame-work
            ******   style裡會放一支引用所有變數的 all.scss 各自頁面統一讀取這支檔案
                    
       | components         共用區塊 (會員彈窗、header、footer之區域)
-      | pages              各自頁面資料夾_匯入元素 (有點類似拆功能的部分)
+      | pages              各自頁面資料夾 (可以把自己頁面的區塊拆開來)
       | template           共用功能(如按鈕、動畫類)
 
-| 4.class、id名稱以"駝峰式命名"
+| 4.gulp 部分
 
- 單字之間不以空格斷開（例：camel case）或連接號（-，例：camel-case）、底線（_，例：camel_case）連結，有兩種格式：
+      html
+      
+      @@include('./compontents/header.html')
+   
+      div > wrapper_index
+   
+      @@include('./compontents/footer.html')
+      
+      自己的頁面要在外層加一層頁面的 div class
+      
+      <body>
+      <div id="app">
+        <vue-header></vue-header>
 
-   小駝峰式命名法（lower camel case）：
-     第一個單字以小寫字母開始；第二個單字的首字母大寫，例如：firstName、lastName。
-   大駝峰式命名法（upper camel case）：
-     每一個單字的首字母都採用大寫字母，例如：FirstName、LastName、CamelCase，也被稱為Pascal命名法（英語：Pascal Case）。
+        @@include('./pages/ProductPage/ProductNav.html')
+        <!-- your code here... -->
+        </div>
+
+        @@include('./components/VueHeader.html')
+        <script src="./assets/js/new.js"></script>
+
+        <script>
+        new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello, VueJS!',
+            },
+        });
+       </script>
+
+      </body>
+      
+    
 
 | 5.git只放程式和圖片影片等相關檔案，不放文件EX:.pdf、.ppt等等
 
