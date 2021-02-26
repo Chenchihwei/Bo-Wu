@@ -1,9 +1,25 @@
+@mixin notebook{
+  @media(max-width:$break-point-lg){
+      @content;
+  }
+}
+@mixin pad{
+  @media (max-width:$break-point-md) {
+      @content;
+  }
+}
+@mixin mobile {
+  @media (max-width:$break-point-xs) {
+      @content;
+  }
+}
+
 // breakpoints----------------------------------------------------
-$break-point-xs: 414px;  //mobile-xs
-$break-point-sm: 576px;  //mobile
+$break-point-xs: 414px;  //mobile
+$break-point-sm: 576px;  //
 $break-point-md: 768px;  //pad
-$break-point-lg: 1280px;  //pad-pro
-$break-point-xl: 1200px; //notebook
+$break-point-lg: 1280px; //notebook
+$break-point-xl: 1200px; //
 
 $break-points: (
   xs: $break-point-xs, 

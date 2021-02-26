@@ -125,6 +125,19 @@ function pageStyle() {
         .pipe(sourcemaps.write())
         .pipe(dest('dist/assets/css/pages/'));
 }
+
+//轉譯 back
+function backStyle() {
+    return src('app/assets/style/back/*.scss')
+        .pipe(sourcemaps.init())
+        .pipe(
+            sass({
+                outputStyle: 'nested',
+            }).on('error', sass.logError)
+        )
+        .pipe(sourcemaps.write())
+        .pipe(dest('dist/assets/css/back/'));
+}
 //刪除 Dist
 function killDist() {
     return src('dist',
