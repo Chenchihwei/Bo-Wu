@@ -442,7 +442,8 @@ body {
 }
 
 .none{
-    display: none;
+    display: none !important;
+    transition: 2s;
 }
 
 // 左側選單 end
@@ -899,7 +900,71 @@ body {
 }
 // --- 進入按鈕設定 end ---
 
-// == 動畫設定 == 
+// == 切換頁動畫設定 == 
+
+.swiper-slide-active  {
+
+    // 文字動畫
+
+    $base-delay:.1s;
+
+    .animation-outer{
+
+        &__inner{
+            max-height: 1em;
+            opacity: 1;
+            transition: 1s  $base-delay ease;
+        }
+    }
+
+    h2{
+        .animation-outer{
+
+            &__inner{
+                max-height: 1em;
+                opacity: 1;
+                transition: 1s  $base-delay+.2s ease;
+            }
+        }
+    }
+
+    .animation-p{
+        transform:none;
+        opacity: 1;
+        transition:  1s  $base-delay+.4s;
+    }
+
+    // 圖片按鈕動畫
+
+    .slidePlace{
+        position: relative;
+    }
+    .sliderMask{
+        position: absolute;
+        left: 0;
+        top: 0; 
+
+        width: 230px;
+        height: 380px;
+
+        animation: slideUp 1.5s ease;
+        overflow: hidden;
+
+        @keyframes slideUp{
+            from {
+                height: 380px;
+                top : 0px;
+            }
+            to {
+                height: 0px;
+                top : 380px;
+            }
+        }
+    }
+
+}
+
+// 文字動畫 細節
 
 .animation-wrapper{
     position: fixed;
@@ -913,7 +978,7 @@ body {
     height: 1em;
     &__inner{
         max-height: 0;
-        transition: 1s  ease;
+        transition: 1s ease;
         opacity: 0;
         position: absolute;
         top:0;
@@ -964,37 +1029,6 @@ h2{
     }
 }
 
-.swiper-slide-active  {
-
-    $base-delay:.1s;
-
-    .animation-outer{
-
-        &__inner{
-            max-height: 1em;
-            opacity: 1;
-            transition: 1s  $base-delay ease;
-        }
-    }
-
-    h2{
-        .animation-outer{
-
-            &__inner{
-                max-height: 1em;
-                opacity: 1;
-                transition: 1s  $base-delay+.2s ease;
-            }
-        }
-    }
-
-    .animation-p{
-        transform:none;
-        opacity: 1;
-        transition:  1s  $base-delay+.4s;
-    }
-
-}
 .mainAreaUni{
     position: relative;
     width: 100%;
@@ -1047,9 +1081,10 @@ h2{
     background-position: right 20% center;
     background-size: 350%;
     background-repeat: no-repeat;
+    
     @include pad{
         width: 400px;
-        height: 210px;
+        height: 250px;
         background-size: cover;
     }
     @include mobile{
