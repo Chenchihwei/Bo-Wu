@@ -1,6 +1,9 @@
-@import 'variables';
-@import 'reset';
-@import 'button';
+@import '../base/reset';
+@import '../base/variables';
+@import '../base/mixin';
+@import '../base/font';
+@import '../base/base';
+@import '../utilities/button';
 
 @mixin pad{
   @media(max-width:$break-point-lg){
