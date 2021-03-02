@@ -19,7 +19,8 @@
 <body>
 
   <!-- -----header----- -->
-  <header class="indexSideBar">
+  @@include('./compontents/head.html')
+  <!-- <header class="indexSideBar">
     <a class="logoForIndex" href="./homepage.html">
         <img src="./assets/img/logo_bowu_white.png">
     </a>
@@ -35,7 +36,7 @@
         <b></b>
         <li> <a href="./About.html">CONTACT US</a> </li>
     </ul>
-</header>
+</header> -->
 
   <div class="menu_bar none">
         <a href="" class="menu_personal_exhibits">PERSONAL EXHIBITS</a>
@@ -62,8 +63,10 @@
         </div>
     </div>
 
-    <div class="features" style="position: fixed;">
-      <i class="fas fa-search"></i>
+    @@include('./compontents/searchbar.html')
+
+  <!-- <div class="features" style="position: fixed;">
+    <i class="fas fa-search"></i>
     <div class="personal"><a href="">個人展間</a>
     </div>
 
@@ -73,7 +76,7 @@
     </div>
 
     <i class="fas fa-bell"></i>
-  </div>
+  </div> -->
 
   <div class="musicControlBtn">
     <div class="musicControlBtnSpan">
@@ -150,7 +153,7 @@
       </a>  
     </li>
     <li>
-      <a href="#">
+      <a href="./ground.html">
         <span></span>
         <p>地底</p>
       </a>
