@@ -1,8 +1,8 @@
-@import "./base/variables";
-@import "./base/mixin";
-@import "./base/reset";
-@import "./base/base";
-@import "./base/font";
+@import "../base/variables";
+@import "../base/mixin";
+@import "../base/reset";
+@import "../base/base";
+@import "../base/font";
 // break-point
 
 @mixin notebook{
@@ -31,6 +31,7 @@
 
   width: 15.6vw;
   height: 100%;
+  background-color: map-get($color, 'black');
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -67,7 +68,7 @@
       writing-mode: vertical-lr;
       text-orientation: sideways;
       transform: rotate(-180deg);
-      color: white;
+      color: rgb(255, 240, 240);
       font-family: 'Montserrat', sans-serif;
       overflow-x: hidden;
       @include pad{
