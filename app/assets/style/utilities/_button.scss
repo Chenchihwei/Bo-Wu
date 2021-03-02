@@ -1,3 +1,23 @@
+@import 'variables';
+
+@mixin notebook{
+  @media(max-width:$break-point-lg){
+    @content;
+  }
+}
+
+@mixin pad {
+  @media (max-width:$break-point-md) {
+    @content;
+  }
+}
+@mixin mobile{
+  @media (max-width:$break-point-xs) {
+    @content;
+  }
+}
+
+// -Pagination--------------
 .button{
   width: 25vw;
   // outline: 1px solid pink;
@@ -11,7 +31,9 @@
   position: absolute;
   left: 45vw;
   bottom:5vh;
-  a{
+
+  position: fixed;
+  a{ 
     text-align: none;
     color: map-get($color, 'darkGray');
     
@@ -45,8 +67,139 @@
 
   }
 
+  @include pad{
+    opacity: 0;
+    &:hover{
+      opacity: 1;    
+    }
+  }
 }
 
 .clicked{
   color: map-get($color, 'black');
+}
+
+.shrink{
+  margin-left: 0vw !important; 
+}
+
+
+// --Arrow----------
+
+.container{
+  cursor: pointer;
+  .rightArrow{
+    // border: 1px solid blue;
+    background-color: rgba($color: #fff, $alpha: .4);
+
+    height: 50vh;
+    width: 5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 8rem;
+    color: map-get($color, 'black');
+    opacity: 0;
+    z-index: 50;
+    position: absolute;
+    top: 25%;
+    right: 0;
+
+    &:hover{
+      opacity: .8;
+    }
+
+    @include notebook{
+      // border: 1px solid green;
+      font-size: $titleL;
+      top: 40%;
+    }    
+    @include pad{
+      display: none;
+    }
+  }
+  .leftArrow{
+    background-color: rgba($color: #fff, $alpha: .4);
+
+    height: 50vh;
+    width: 5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 8rem;
+    color: map-get($color, 'black');
+    opacity: 0;
+    z-index: 50;
+    position: absolute;
+    top: 25%;
+    left: 17vw;
+
+
+    &:hover{
+      opacity: .8;
+    }
+
+    @include notebook{
+      // border: 1px solid green;
+      font-size: $titleL;
+      top: 40%;
+    }  
+    @include pad{
+      display: none;
+    }
+
+  }
+}
+// -----Back-------
+
+.back{
+  position: fixed;
+  top: 12vh;
+  right: 5vw;
+  color: map-get($color, 'darkGray');
+  font-size: $paragraph;
+
+  display: flex;
+  align-items: center;
+  a{
+    display: flex;
+    text-decoration: none;
+    // border: 1px solid maroon;
+    img{
+      // border: 1px solid blue;
+      width: 100%;
+      @include pad{
+        width: 120%;
+      }
+    }
+    &:hover{
+      &::after{
+        content: 'back';
+        font-size: $titleS;
+        color: map-get($color, 'darkGray');
+        line-height: 1.5;
+        padding-left: 10px;
+
+        @include notebook{
+          font-size: $paragraph;
+        }
+        @include pad{
+          display: none;
+        }
+      }
+    }
+    
+  }
+  
+
+  @include notebook{
+    top: 18vh;
+    right: 5vw;
+  }
+  @include pad{
+    top: 17vh;
+    right: 10vw;
+  }
 }
