@@ -18,6 +18,7 @@
 </head>
 <body>
 
+  <!-- -----header----- -->
   <header class="indexSideBar">
     <a class="logoForIndex" href="./homepage.html">
         <img src="./img/logo_bowu_white.png">
@@ -61,8 +62,8 @@
         </div>
     </div>
 
-  <div class="features">
-    <i class="fas fa-search"></i>
+    <div class="features" style="position: fixed;">
+      <i class="fas fa-search"></i>
     <div class="personal"><a href="">個人展間</a>
     </div>
 
@@ -81,23 +82,31 @@
         <span class="line3"></span>
     </div>
     <p>Music on/ off</p>
-</div>
+  </div>
+
+  <!-- -----header over----- -->
 
 
-<!-- container -->
 
+<!-- wrapper -->
+
+<div class="universeContainer">
   <div class="title">
     <h1>Universe</h1>
   </div>
 
   <div class="back">
-    <a href="./homepage_new.html"><img src="./img/Group 188.png" alt=""></a>
-    <p>BACK</p>
+    <a href="./homepage_new.html">
+      <img src="./img/Group 188.png" alt="">
+      <!-- <p>BACK</p>  -->
+    </a>
+    
   </div>
 
   
   <div class="container">
-    <a href=""><span class="material-icons">arrow_forward_ios</span></a>
+    <span class="material-icons rightArrow">arrow_forward_ios</span>
+    <span class="material-icons leftArrow">arrow_back_ios</span>
 
     <div class="big1">
       <a href="moon.html">
@@ -106,7 +115,6 @@
       </a>
     </div>
     <div class="big2">
-      <!-- <img src="img/forest/擷取.PNG" alt=""> -->
     </div>
     <div class="big3"></div>
     <div class="small1"></div>
@@ -119,62 +127,45 @@
     <!-- <div class="small8"></div>
     <div class="small9"></div> -->
   </div>
-<!-- 
-  <div class="swiper-container">
-    <div class="swiper-pagination"></div>
-  </ div> -->
 
+
+  <!-- button -->
 
   <ul class="button">
-    <li>    
-      <a href="#">
-      <!-- <span class="material-icons uni">radio_button_checked</span> -->
+  <li>    
+    <a href="#" style="color: #2E2824;">
       <span></span>
       <p>宇宙</p>
       </a>
     </li>
     <li>    
-      <a href="#">
-        <!-- <span class="material-icons uni">radio_button_checked</span> -->
+      <a href="./ocean.html">
         <span></span>
         <p>海洋</p>
       </a>    
     </li>
     <li>    
       <a href="./forest.html">
-        <!-- <span class="material-icons uni">radio_button_checked</span> -->
         <span></span>
         <p>森林</p>
       </a>  
     </li>
     <li>
       <a href="#">
-        <!-- <span class="material-icons uni">radio_button_checked</span> -->
         <span></span>
         <p>地底</p>
       </a>
     </li>
   
-  </div>
+  </ul>
 
+
+</div>
   
   <script src="./js&jq/script.js"></script>
   <script src="./js&jq/button.js"></script>
 
-  <!-- <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script> -->
 
-  <!-- <script>
-    var swiper = new Swiper('.swiper-container', {
-      slidesPerView: 1,
-      spaceBetween: 30,
-      mousewheel: true,
-      speed: 1000,
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-      },
-	});
-  </script> -->
 
 </body>
 </html>
