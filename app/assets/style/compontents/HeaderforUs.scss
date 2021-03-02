@@ -30,11 +30,8 @@
       @content;
     }
   }
-  .black{
-    background-color: #2E2824 !important;
-  }
-  
-  header{
+ 
+  .indexSideBar{
     padding-bottom: 8vh;
     width: 15.6vw;
     height: 100vh;
@@ -65,7 +62,7 @@
     }
   
     menu{
-      color: map-get($color, 'white');
+      color: map-get($color, 'brown');
         p{
           text-align: center;
           font-size: $paragraph;
@@ -81,7 +78,7 @@
       .indexMenuline1{
         margin-top: 1.5vh;
         display: block;
-        background-color: map-get($color, 'white');
+        background-color: map-get($color, 'brown');
         width: 4vw;
         height: 1.8px;
         @include mobile{
@@ -94,7 +91,7 @@
       }
       .indexMenuline2{
         display: block;
-        background-color: map-get($color, 'white');
+        background-color: map-get($color, 'brown');
         width: 2vw;
         height: 1.5px;
         margin-top: .8vh;
@@ -129,7 +126,7 @@
     }
     a{
       text-decoration: none;
-      color: map-get($color, 'white');
+      color: map-get($color, ''brown'');
       line-height: 25px;
     }
     b{
@@ -437,7 +434,7 @@ footer{
         .login {
             border-bottom: 0 solid #e5e5e5;
             font-size: 50px;
-           }
+          }
     }
 
     footer{
