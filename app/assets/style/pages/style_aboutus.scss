@@ -94,7 +94,7 @@ body{
     
     
 .aboutus-img{
-    background-image: url(../img/Museums-5-Miyahata-Ruins-Museum-810x644.svg);
+    background-image: url(../../img/Museums-5-Miyahata-Ruins-Museum-810x644.svg);
     background-size: cover;
     float: right;
     color: white;
@@ -150,7 +150,7 @@ body{
     height: 1825px;
     .bc1{
         display: block;
-        background-image:url(../img/Story_us.png);
+        background-image:url(../../img/Story_us.png);
         height: 727px;
         width: 424px;
 
@@ -187,7 +187,7 @@ body{
             
         }
         .bc2-gary{
-            background-image:url(../img/src_bg_8.jpg);
+            background-image:url(../../img/src_bg_8.jpg);
             background-size: cover;
             width: 580px;
             height: 750px;
@@ -199,14 +199,14 @@ body{
         width: 150px;
         margin-left: 15.6vw;
         .comma1{
-            background-image:url(../img/comma.svg);
+            background-image:url(../../img/comma.svg);
             margin-right: 16px;
             width: 67px;
             height: 123px;
             
         }
         .comma2{
-            background-image:url(../img/comma.svg);
+            background-image:url(../../img/comma.svg);
             width: 67px;
             height: 123px;
         }
@@ -259,7 +259,7 @@ body{
         }
     }
     .pic{
-        background-image:url(../img/src_bg_5.jpg);
+        background-image:url(../../img/src_bg_5.jpg);
         background-position: 90%;
         width: 21.6vw;
         height: 600px;
@@ -280,7 +280,7 @@ body{
 }
 
 .bock-JoinUs{
-    background-image:url(../img/JoinUs.svg);
+    background-image:url(../../img/JoinUs.svg);
     height: 400px;
     color: map-get($map: $color, $key: 'dark');
     text-align: center;
@@ -324,7 +324,7 @@ body{
     // border:1px solid cornflowerblue;
     
     .pic2{
-    background-image:url(../img/postcard.svg);
+    background-image:url(../../img/postcard.svg);
     width: 433px;
     height: 467px;
     margin-left: 15.6vw;

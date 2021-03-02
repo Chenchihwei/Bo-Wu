@@ -1,5 +1,8 @@
-@import url('../css/reset.css');
-@import '_variables.scss';
+@import '../base/reset';
+@import '../base/variables';
+@import '../base/mixin';
+@import '../base/font';
+@import '../base/base';
 // header{
 //     position: fixed;
 //     left: 0;
@@ -407,9 +410,6 @@ footer{
             img{
                 height:26.5px;
             }
-            a{
-
-            }
         }
     }
 
@@ -492,7 +492,7 @@ footer{
     .login {
         border-bottom: 0 solid #e5e5e5;
         font-size: 50px;
-       }
+    }
 }
 
 footer{
@@ -513,9 +513,6 @@ footer{
         order: 3;
         img{
             height:26.5px;
-        }
-        a{
-
         }
     }
 }

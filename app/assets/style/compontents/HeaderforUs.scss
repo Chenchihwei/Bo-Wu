@@ -1,5 +1,8 @@
-@import url("reset.css");
-@import '_variables.scss';
+@import '../base/reset';
+@import '../base/variables';
+@import '../base/mixin';
+@import '../base/font';
+@import '../base/base';
 // header{
 //     position: fixed;
 //     left: 0;
