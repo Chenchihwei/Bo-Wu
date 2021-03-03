@@ -11,7 +11,9 @@ function menu_open() {
         $('header').removeClass('black');
     }
 };
-
+menu.addEventListener('click', function () {
+    menu_open();
+})
 menuGold.addEventListener('click', function () {
     menu_open();
 })
