@@ -297,52 +297,7 @@ footer{
 }
 
 
-.features {
-    display: flex;
-    width: 250px;
-    height: 27px;
-    color: white;
-    // margin-left: 1330px;
-    // margin-top: 50px;
-    // margin-bottom: 36px;
-    align-items: center;
-    position: absolute;
-    top: 50px;
-    right:1.822vw;
-    // outline: 2px solid chocolate;
-    a{
-        text-decoration: none;
-        color: white;
-    }
-    .fa-search {
-     font-size: 26px;
-     margin: 0;
-    }
-    .personal {
-     width: 64px;
-     height: 23px;
-     margin-left: 20px;
-     border-bottom: 2px solid #e5e5e5;
-     // outline: 2px solid chocolate;
-    }
-    .login {
-     width: 56px;
-     height: 23px;
-     margin-left: 20px;
-     display: flex;
-     border-bottom: 2px solid #e5e5e5;
-     // outline: 2px solid chocolate;
-    }
-    .fa-user-friends {
-     font-size: 15px;
-     margin: 0;
-     margin-left: 4px;
-    }
-    .fa-bell {
-     font-size: 20px;
-     margin-left: 15px;
-    }
-   }
+
 
 .musicControlBtn{
     display: flex;
