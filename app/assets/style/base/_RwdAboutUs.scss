@@ -1,0 +1,785 @@
+@media screen and(max-width:1280px){
+    
+    .bock-AboutUs{
+        
+        height: 720px;
+        overflow: hidden;
+
+        
+        
+    .aboutus-img{
+
+        float: right;
+        color: white;
+        font-size: $paragraph;
+        
+        width: 66vw;
+        height: 720px;
+    
+        //右邊選單
+        ul{
+    
+            float: right;
+            display: inline-flex;
+            li{
+            
+            padding-right: 10px;
+            }
+            
+        }
+        p{
+            width: 337px;
+            height: 119px;
+            font-size: 1.5rem;
+    
+            margin-top: 148px;
+            margin-left: 293px;
+            margin-bottom: 140px;
+        }
+        span{
+            display: flex;
+            h1{
+                font-size: $titleL;
+                
+                margin-left: -86px;
+            }
+            h2{
+                font-size: $titleL;
+            }
+        }
+    
+    
+    }
+    
+    
+    }
+    
+    .bock-story{
+        height: 1221px;
+        .bc1{
+            display: block;
+            background-image:url(../img/Image.svg);
+            height: 485px;
+            width: 283px;
+    
+            margin-left: 232px;
+        }
+        h1{
+            font-size: $titleL;
+            margin-top: -269px;
+            padding-left: 398px;
+    
+        }
+        p{
+            width: 337px;
+            height: 119px;
+            margin-top: 31px;
+            margin-left: 561px;
+            font-size: $paragraph ;
+            justify-content: center;    
+        }
+        .bc2{
+            display: block;
+            width: 408px;
+            height: 526px;
+            
+            .bc2-img{
+                width: 386px;
+                height: 500px;
+                margin-top: -474px;
+                margin-left: 22px;
+                
+            }
+            .bc2-gary{
+                width: 386px;
+                height: 500px;
+                position: relative;
+            }
+           
+            margin-top: 110px;
+            margin-left: 673px;
+        }
+        .comma{
+            display: flex;
+            width: 150px;
+            margin-left: 15.6vw;
+            .comma1{
+                background-image:url(../img/comma.svg);
+                width: 67px;
+                height: 123px;
+                margin-right: 16px;
+            }
+            .comma2{
+                background-image:url(../img/comma.svg);
+                width: 67px;
+                height: 123px;
+            }
+            
+            margin-top: -379px;
+            margin-bottom: 65.9px;
+        }
+        h2{
+            font-size: 1.5rem;
+            width: 440px;
+            margin-top: -30px;
+            margin-left: 200px;
+        }
+        
+    }
+    
+    .bock-member{
+        // margin-top: 31px;
+        height: 682px;
+        // overflow: hidden;
+        .darkblock{
+            width: 1070px;
+            height: 425px;
+            background-color:map-get($color,'black');
+            overflow: hidden;
+            h1{
+                color: map-get($color, $key:'white' );
+                font-size: 2.875rem ;
+                width: 184px;
+                
+                margin-top: 109px;
+                margin-left: 15.6vw;
+            
+                
+            }
+            .text{
+                display: flex;
+                margin-top: 209px;
+                margin-left: 668px;
+                align-items: center;
+                .line{
+                    width: 182px;
+                    height: 5px;
+                    background-color:map-get($color, $key:'white' );
+                }
+                P{
+                    color: map-get($color, $key:'white');
+                    font-size: $paragraph;
+                }
+            }
+        }
+        .pic{
+            background-image:url(../img/member.svg);
+            width: 282px;
+            height: 400px;
+            margin-left: 15.6vw;
+    
+            margin-top: -225px;
+        }
+        h3{
+            width: 337px;
+            height: 119px;
+            margin-left: 39vw;
+            font-size: $paragraph;
+            margin-top: -134px;
+            padding-top: 3px;
+            padding-left: 2px;
+        }
+    
+    }
+    
+    .bock-JoinUs{
+        background-image:url(../img/JoinUs.svg);
+        height: 400px;
+        color: map-get($map: $color, $key: 'dark');
+        text-align: center;
+        overflow: hidden;
+        
+        h1{
+            margin-top: 90px;
+            font-size: $titleM;
+        }
+        p{
+            font-size: $paragraph;
+            margin-top: 10px;
+        }
+        .text{
+            font-size: $paragraph;
+            align-items: center;
+            display: flex;
+            // height: 27px;
+            margin-top: 34px;
+            
+            span{
+                
+                margin-right: 10px;
+                margin-left: 477px;
+                
+                
+            }
+            
+            .line{
+                width: 182px;
+                height: 5px;
+                background-color:map-get($color, $key:'black' );
+            }
+        }
+    
+    }
+    
+    .bock-postcard{
+        height: 663px;
+        overflow: hidden;
+        // border:1px solid cornflowerblue;
+        
+        .pic2{
+        background-image:url(../img/postcard.svg);
+        width: 433px;
+        height: 467px;
+        margin-left: 15.6vw;
+        margin-top: 83px;
+        position: relative;
+        }
+        .gray-block{
+            width: 213px;
+            height: 360px;
+            margin-left: 36vw;
+    
+            margin-top: -322px;
+        }
+        h1{
+            width: 230px;
+            margin-top: -465px;
+            margin-left: 51vw;
+            margin-bottom: 70px;
+            font-size: 2.875rem;
+    
+        }
+        p{
+            width: 441px;
+            margin-left: 60vw;
+        }
+        .text{
+            
+            display: flex;
+            align-items:center;
+            justify-content: center;
+            
+            margin-left: 60vw;
+            width: 315px;
+            height: 27px;
+            .line{
+                width: 182px;
+                height: 5px;
+                background-color:map-get($map: $color, $key: 'black');
+            }
+            span{
+                font-size: 1.2rem;
+            }
+            
+        }
+    
+    
+    
+    }
+    
+    footer{
+        height: 166px;
+        background-color: map-get($color, 'black');
+        font-family: 'Montserrat',sans-serif;
+        overflow: hidden;
+        .text{
+            display: flex;
+            color:map-get($color, 'white');
+            
+            justify-content: space-around;
+            
+            font-size: $paragraph;
+    
+            margin-top: 68px;
+            
+            ul{
+                display: flex;
+                width: 500px;
+                height:55px;
+                line-height: 2.6;
+                justify-content:space-evenly;
+                a{
+                    text-decoration: none;
+                    color:map-get($color, 'white');
+                    
+                }
+            }
+            .footerLogo{
+                font-weight: bold;
+                a{
+                    display: flex;
+                    align-items:center;
+                    text-decoration: none;
+                    color:map-get($color, 'white');
+                    text-align: center;
+                    font-size: 1rem;
+                }
+            }
+            ol{
+                display: flex;
+                width: 500px;
+                justify-content: space-evenly;
+                align-items:center;
+                img{
+                    height:35px;
+                }
+                a{
+                    text-decoration: none;
+                    color:map-get($color, 'white');
+                }
+            }
+        }
+    }
+    
+}
+@media screen and(max-width:768px){
+    
+    *{
+        // outline: 1px solid steelblue;
+        background-size: cover;
+    }
+.bock-AboutUs{
+    
+    height: 432px;
+
+    
+.aboutus-img{
+    width: 506px;
+    
+    p{
+        width: 202px;
+        height: 71px;
+        font-size: 1rem;
+
+        margin-top: 145px;
+        margin-left: 171px;
+        margin-bottom: 39px;
+    }
+    span{
+        h1{
+            height: 54px;
+            font-size: $titleM;
+            
+            margin-left: -52px;
+        }
+        h2{
+            font-size: $titleM;
+        }
+    }
+}
+
+
+}
+
+.bock-story{
+    height: 731px;
+    .bc1{
+        width: 170px;
+        height: 291px;
+
+        margin-left: 139px;
+    }
+    h1{
+        font-size: 3rem;
+        margin-top: -149px;
+        padding-left: 238px;
+
+    }
+    p{
+        width: 202px;
+        height: 71px;
+        margin-top: 24px;
+        margin-left: 336px;
+        font-size: 0.75rem ;
+        line-height: 1.6;    
+    }
+    .bc2{
+        width: 244px;
+        height: 316px;
+        margin-top: 66px;
+        margin-left: 404px;
+        .bc2-img{
+            width: 231px;
+            height: 300px;
+            margin-top: -275px;
+            margin-left: 14px;
+            
+        }
+        .bc2-gary{
+            margin-top: 100px;
+            width: 231px;
+            height: 300px;
+            
+        }
+    }
+    .comma{
+        width: 100px;
+        margin-left: 121px;
+        margin-top: -315px;
+        margin-bottom: 65.9px;
+        .comma1{
+            background-image:url(../img/comma.svg);
+            width: 48px;
+            height: 76px;
+            margin-right: 16px;
+        }
+        .comma2{
+            background-image:url(../img/comma.svg);
+            width: 48px;
+            height: 76px;
+        }
+        
+        
+    }
+    h2{
+        font-size: 1rem;
+        width: 256px;
+        height: 156px;
+        margin-top: -30px;
+        margin-left: 120px;
+    }
+    
+}
+
+.bock-member{
+    height: 409px;
+    .darkblock{
+        width: 643px;
+        height: 255px;
+        h1{
+            font-size: 1.5rem ;
+            width: 96px;
+            height: 32px;
+            
+            margin-top: 71px;
+            margin-left: 122px;
+        
+            
+        }
+        .text{
+            margin-top: 118px;
+            margin-left: 401.3px;
+            
+            .line{
+                width: 110px;
+                height: 5px;
+            }
+            P{
+                font-size: 1rem;
+            }
+        }
+    }
+    .pic{
+        width: 168px;
+        height: 240px;
+        margin-top: -135px;
+        margin-left: 122px;
+    }
+    h3{
+        width: 202px;
+        height: 71px;
+        margin-left: 321px;
+        font-size: 1rem;
+        margin-top: -85px;
+        padding-top: 3px;
+        padding-left: 2px;
+    }
+
+}
+
+.bock-JoinUs{
+    height: 240px;
+    h1{
+        margin-top: 47px;
+        font-size: 3rem;
+    }
+    p{
+        font-size: $fontSize;
+        margin-top: 10px;
+    }
+    .text{
+        font-size:0.875rem;
+        margin-top: 34px;
+        
+        span{
+            margin-right: 10px;
+            margin-left: 477px;
+        }
+        
+        .line{
+            width: 110px;
+            height: 5px;
+        }
+    }
+
+}
+
+.bock-postcard{
+    height: 381px;
+    .pic2{
+    width: 259px;
+    height: 280px;
+    margin-top: 51px;
+    margin-left: 84px;
+    }
+    .gray-block{
+        width: 128px;
+        height: 216px;
+        margin-top: -193px;
+        margin-left: 259px;
+        background-color:map-get($map: $color, $key: 'gray');
+        
+    }
+    h1{
+        width: 120px;
+        margin-top: -294px;
+        margin-left: 380px;
+        margin-bottom: 70px;
+        font-size: 1.5rem;
+
+    }
+    p{
+        width: 265px;
+        height: 160px;
+        margin-left: 394px;
+        font-size: $fontSize;
+    }
+    .text{
+        margin-top: 10px;
+        margin-left: 394px;
+        width: 200px;
+        height: 19px;
+        .line{
+            width: 110px;
+            height: 5px;
+        }
+        span{
+            font-size: 0.85rem;
+        }
+        
+    }
+
+
+
+}
+
+}
+@media screen and(max-width:414px){
+    
+    *{
+        outline: 1px solid steelblue;
+        background-size: cover;
+    }
+.bock-AboutUs{
+    
+    height: 307px;
+
+    .indexSideBar{
+        width: 10vw;
+        a{
+            width: 60%;
+        }
+    }
+.aboutus-img{
+    width: 333px;
+    
+    p{
+        width: 254px;
+        
+        margin-top: 100px;
+        margin-left: 33px;
+        margin-bottom: 39px;
+    }
+    span{
+        margin-left: 53px;
+        
+        h1{
+            color: azure;
+            font-size: $titleS;
+        }
+        h2{
+            font-size: $titleS;
+        }
+    }
+}
+
+
+}
+
+.bock-story{
+    height: 624px;
+    .bc1{
+        width: 146px;
+        height: 247px;
+
+        margin-left: 36px;
+    }
+    h1{
+        font-size: 2rem;
+        margin-top: -149px;
+        padding-left: 202px;
+
+    }
+    p{
+        width: 176px;   
+        margin-top: 14px;
+        margin-left: 202px;
+        font-size: 0.5rem ;   
+    }
+    .bc2{
+        width: 243px;
+        height: 317px;
+        margin-top: 14px;
+        margin-left: 135px;
+        .bc2-img{
+            width: 231px;
+            height: 300px;
+            margin-top: -275px;
+            margin-left: 14px;
+            
+        }
+        .bc2-gary{
+            margin-top: 52px;
+            width: 231px;
+            height: 300px;
+            
+        }
+    }
+    .comma{
+        width: 100px;
+        margin-left: 76px;
+        margin-top: -250px;
+        margin-bottom: 50px;
+        .comma1{
+            width: 14px;
+            height: 26px;
+            margin-right: 3px;
+        }
+        .comma2{
+            width: 14px;
+            height: 26px;
+        }
+        
+        
+    }
+    h2{
+        font-size: 1.1rem;
+        width: 276px;
+        height: 186px;
+        margin-top: -30px;
+        margin-left: 92px;
+        position: relative;
+    }
+    
+}
+
+.bock-member{
+    height: 363px;
+    .darkblock{
+        width: 414px;
+        height: 164px;
+        h1{
+            margin-top: 22px;
+            margin-left: 36px;
+        }
+        .text{
+            margin-top: 118px;
+            margin-left: 212px;
+            .line{
+                width: 63px;
+            }
+            P{
+                font-size: 1rem;
+            }
+        }
+    }
+    .pic{
+        width: 168px;
+        height: 240px;
+        margin-top: -100px;
+        margin-left: 36px;
+    }
+    h3{
+        width: 166px;
+        height: 120px;
+        margin-left: 212px;
+        margin-top: -120px;
+        padding-top: 1px;
+        padding-left: 1px;
+    }
+
+}
+
+.bock-JoinUs{
+    height: 310px;
+    h1{
+        margin-top: 50px;
+        font-size: 5rem;
+    }
+    p{
+        height: 94px;
+        font-size: 1.5rem;
+        margin-top: 10px;
+    }
+    .text{
+        font-size:0.875rem;
+        margin-top: 20px;
+        
+        span{
+            margin-right: 10px;
+            margin-left: 100px;
+        }
+        
+        .line{
+            width: 110px;
+            height: 5px;
+        }
+    }
+
+}
+
+.bock-postcard{
+    height: 418px;
+    .pic2{
+    margin-top: 68px;
+    margin-left: 35px;
+    }
+    .gray-block{
+        margin-top: -193px;
+        margin-left: 200px;       
+    }
+    h1{
+        width: 80px;
+        margin-top: -294px;
+        margin-left: 316px;
+        margin-bottom: 70px;
+        font-size: 1rem;
+
+    }
+    p{
+        width: 265px;
+        height: 179px;
+        margin-left: 106px;
+        position: relative;
+
+    }
+    .text{
+        margin-top: 10px;
+        margin-left: 174px;
+        width: 200px;
+        height: 19px;
+        .line{
+            width: 110px;
+            height: 5px;
+        }
+        span{
+            font-size: 0.85rem;
+        }
+        
+    }
+
+
+
+}
+
+}
