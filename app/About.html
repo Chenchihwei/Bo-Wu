@@ -181,12 +181,12 @@
         </div>
     </div>
     @@include('./compontents/footer.html')
-    <script src="./assets/js/script.js"></script>
+    <!-- <script src="./assets/js/script.js"></script> -->
      <script>
         let menu_bar = document.getElementsByClassName('menu_bar')[0];
-        let menu = document.getElementsByClassName('menu')[0];
+        let menuGold = document.getElementsByClassName('menuGold')[0];
         
-        menu.addEventListener('click', function () {            
+        menuGold.addEventListener('click', function () {            
             let not_none = menu_bar.classList.contains("none");
 
             if (not_none) 
