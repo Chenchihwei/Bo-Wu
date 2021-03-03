@@ -1,7 +1,3 @@
-@import '../base/reset';
-@import '../base/variables';
-@import '../base/mixin';
-@import '../base/font';
 @import '../base/base';
 @import url(//fonts.googleapis.com/earlyaccess/notosanstc.css);
 
@@ -257,9 +253,7 @@ header{
                                 .save{
                                     margin-bottom: 10px;
                                 }
-                                .delete{
-                                    
-                                }
+                              
                             }
                        }
                    }

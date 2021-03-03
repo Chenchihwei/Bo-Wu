@@ -1,0 +1,408 @@
+@import '../base/base';
+// header{
+//     position: fixed;
+//     left: 0;
+//     top: 0;
+//     height: 100vh;
+//     width: 15.6vw;
+//     background-color: map-get($color ,'black');
+// }
+
+// break-point
+
+@mixin notebook{
+@media(max-width:$break-point-lg){
+    @content;
+}
+}
+@mixin pad{
+@media (max-width:$break-point-md) {
+    @content;
+}
+}
+@mixin mobile {
+@media (max-width:$break-point-xs) {
+    @content;
+}
+}
+
+
+// header
+
+.indexSideBar{
+padding-top: 5vh;
+padding-bottom: 8vh;
+box-sizing: border-box;
+
+width: 15.6vw;
+height: 100%;
+background-color: map-get($color, 'black');
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: space-between;
+
+position: fixed;
+top: 0;
+left: 0;
+z-index: 3;
+
+@include pad{
+    justify-content: unset;
+    width: 16vw;
+}
+@include mobile{
+    width: 23vw;
+}
+
+img{
+    width: 80px;
+    @include pad{
+        width: 60px;
+    }
+    @include mobile{
+        width: 50px;
+    }
+}
+
+ul{
+    font-weight: bold;
+    font-size: $paragraph;
+    display: flex;
+    align-content: center;
+    writing-mode: vertical-lr;
+    text-orientation: sideways;
+    transform: rotate(-180deg);
+    color: rgb(255, 240, 240);
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+    @include pad{
+        visibility: hidden;
+    }
+
+}
+
+li:first-child{
+    padding-bottom: 15px;
+      // &:hover{
+      //     margin-left: 5px;
+      // }
+}
+
+a{
+    text-decoration: none;
+    color: map-get($color, 'white');
+    line-height: 25px;
+    &:hover{
+        color: map-get($color,'lightBrown');
+        transition: .5s;
+    }
+}
+
+b{
+    width: 25px;
+    height: 1px;
+    background-color: map-get($color, 'brown');
+    margin-bottom: 15px;
+}
+}
+.indexSideBarGold{
+    padding-top: 5vh;
+    padding-bottom: 8vh;
+    box-sizing: border-box;
+    
+    width: 15.6vw;
+    height: 100%;
+    background-color: transparent;
+    color: map-get($map: $color, $key: "brown");
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    
+    @include pad{
+        justify-content: unset;
+        width: 16vw;
+    }
+    @include mobile{
+        width: 23vw;
+    }
+    
+    img{
+        width: 80px;
+        @include pad{
+            width: 60px;
+        }
+        @include mobile{
+            width: 50px;
+        }
+    }
+    
+    ul{
+        font-weight: bold;
+        font-size: $paragraph;
+        display: flex;
+        align-content: center;
+        writing-mode: vertical-lr;
+        text-orientation: sideways;
+        transform: rotate(-180deg);
+        color: map-get($color,'brown');
+        font-family: 'Montserrat', sans-serif;
+        overflow-x: hidden;
+        @include pad{
+            visibility: hidden;
+        }
+    
+    }
+    
+    li:first-child{
+        padding-bottom: 15px;
+          // &:hover{
+          //     margin-left: 5px;
+          // }
+    }
+    
+    a{
+        text-decoration: none;
+        color: map-get($color, 'brown');
+        line-height: 25px;
+        &:hover{
+            color: map-get($color,'lightBrown');
+            transition: .5s;
+        }
+    }
+    
+    b{
+        width: 25px;
+        height: 1px;
+        background-color: map-get($color, 'brown');
+        margin-bottom: 15px;
+    }
+    }
+.menu{
+color: map-get($color, 'white');
+cursor: pointer;
+
+&:hover p{
+    transform: translateY(5px);
+    color: map-get($color, 'lightBrown');
+    transition: .2s;
+}
+&:hover .indexMenuline1{
+    background-color: map-get($color, 'lightBrown');
+    transition: .2s;
+}
+  &:hover .indexMenuline2{
+      background-color: map-get($color, 'lightBrown');
+      transition: .2s;
+  }
+  @include pad{
+      margin-top: 5vh;
+  }
+  p{
+      text-align: center;
+      font-size: $paragraph;
+      
+      @include pad{
+          writing-mode: vertical-lr;
+          transform: rotate(-180deg);
+          margin-bottom: 4vw;
+          margin-left: .5vw;
+
+          &:hover{
+              transform: none;
+          }
+      }
+  }
+  z-index: 2;
+}
+.menuGold{
+    color: map-get($color, 'brown');
+    cursor: pointer;
+    
+    &:hover p{
+        transform: translateY(5px);
+        color: map-get($color, 'lightBrown');
+        transition: .2s;
+    }
+    &:hover .indexMenuline1{
+        background-color: map-get($color, 'lightBrown');
+        transition: .2s;
+    }
+      &:hover .indexMenuline2{
+          background-color: map-get($color, 'lightBrown');
+          transition: .2s;
+      }
+      @include pad{
+          margin-top: 5vh;
+      }
+      p{
+          text-align: center;
+          font-size: $paragraph;
+          
+          @include pad{
+              writing-mode: vertical-lr;
+              transform: rotate(-180deg);
+              margin-bottom: 4vw;
+              margin-left: .5vw;
+    
+              &:hover{
+                  transform: none;
+              }
+          }
+      }
+      z-index: 2;
+    }
+.menuGold{
+    color: map-get($color, 'brown');
+    cursor: pointer;
+    
+    &:hover p{
+        transform: translateY(5px);
+        color: map-get($color, 'lightBrown');
+        transition: .2s;
+    }
+    &:hover .indexMenuline1{
+        background-color: map-get($color, 'brown');
+        transition: .2s;
+    }
+      &:hover .indexMenuline2{
+          background-color: map-get($color, 'brown');
+          transition: .2s;
+      }
+      @include pad{
+          margin-top: 5vh;
+      }
+      p{
+          text-align: center;
+          font-size: $paragraph;
+          
+          @include pad{
+              writing-mode: vertical-lr;
+              transform: rotate(-180deg);
+              margin-bottom: 4vw;
+              margin-left: .5vw;
+    
+              &:hover{
+                  transform: none;
+              }
+          }
+      }
+      z-index: 2;
+    }
+.indexMenuline1{
+  margin-top: 1.5vh;
+  display: block;
+  background-color: map-get($color, 'white');
+  width: 4vw;
+  height: 1.8px;
+
+  z-index: 2;
+  @include pad{
+      transform: rotate(90deg) translateY(1vw) translateX(1vw);
+  }
+  @include mobile{
+      width: 5vw;
+      height: 1.8px;    
+  }
+}
+.indexMenuline2{
+  display: block;
+  background-color: map-get($color, 'white');
+  width: 2vw;
+  height: 1.5px;
+  margin-top: .8vh;
+
+  z-index: 2;
+  @include pad{
+      transform: rotate(90deg) translateY(-1vw) translateX(-1vw);
+  }
+  @include mobile{
+    width: 3vw;
+    height: 1.5px;
+    transform: rotate(90deg) translateY(-1vw) translateX(-1.5vw);
+}
+}
+
+.indexMenuline1Gold{
+    margin-top: 1.5vh;
+    display: block;
+    background-color: map-get($color, 'brown');
+    width: 4vw;
+    height: 1.8px;
+  
+    z-index: 2;
+    @include pad{
+        transform: rotate(90deg) translateY(1vw) translateX(1vw);
+    }
+    @include mobile{
+        width: 5vw;
+        height: 1.8px;    
+    }
+}
+.indexMenuline2Gold{
+    display: block;
+    background-color: map-get($color, 'brown');
+    width: 2vw;
+    height: 1.5px;
+    margin-top: .8vh;
+  
+    z-index: 2;
+    @include pad{
+        transform: rotate(90deg) translateY(-1vw) translateX(-1vw);
+    }
+    @include mobile{
+      width: 3vw;
+      height: 1.5px;
+      transform: rotate(90deg) translateY(-1vw) translateX(-1.5vw);
+  }
+}
+
+
+// @media screen and (max-width: 414px){
+//   .menu_bar{
+//     flex-direction: column;
+//     padding-top: 20vh;
+//     .menu_personal_exhibits{
+//       font-size: 16px;
+//     }
+//     .menu_child{
+      
+//       a{
+//         font-size: 48px;
+//       }
+      
+//     }
+  
+//     .join{
+
+//       a{
+//         font-size: 24px;
+//       }
+//     }
+//   }
+
+
+//   .features{
+//     width: 40vw;
+//     right: 0;
+//     top: 4%;
+//     .personal{
+//         display: none;
+//     }
+//     .login_manger{
+//         display: none;
+//     }
+//     .login {
+//         border-bottom: 0 solid #e5e5e5;
+//         font-size: 50px;
+//        }
+// }
+
+
+
