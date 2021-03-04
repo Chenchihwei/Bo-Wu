@@ -1,51 +1,58 @@
-// footer
-
+//新版本 03/04
 footer{
-    position: relative;
-    z-index: 5;
-    width: 100%;
-    height: 250px;
+    height: 166px;
     background-color: map-get($color, 'black');
-    color:map-get($color, 'white');
     font-family: 'Montserrat',sans-serif;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    font-size: $paragraph;
-    padding-left: 15.6vw;
-    box-sizing: border-box;
-    ul{
+    overflow: hidden;
+    .text{
         display: flex;
-        width: 500px;
-        justify-content: space-evenly;
-        a{
-            text-decoration: none;
-            color:map-get($color, 'white');
-        }
-    }
-    .footerLogo{
-        font-weight: bold;
-        a{
+        color:map-get($color, 'white');
+        
+        justify-content: space-around;
+        
+        font-size: $paragraph;
+
+        margin-top: 68px;
+        
+        ul{
             display: flex;
+            width: 500px;
+            height:55px;
+            line-height: 2.6;
+            justify-content:space-evenly;
+            a{
+                text-decoration: none;
+                color:map-get($color, 'white');
+                
+            }
+        }
+        .footerLogo{
+            font-weight: bold;
+            a{
+                display: flex;
+                align-items:center;
+                text-decoration: none;
+                color:map-get($color, 'white');
+                text-align: center;
+                font-size: 1rem;
+            }
+        }
+        ol{
+            display: flex;
+            width: 500px;
+            justify-content: space-evenly;
             align-items:center;
-            text-decoration: none;
-            color:map-get($color, 'white');
-        }
-    }
-    ol{
-        display: flex;
-        width: 500px;
-        justify-content: space-evenly;
-        align-items:center;
-        img{
-            height:35px;
-        }
-        a{
-            text-decoration: none;
-            color:map-get($color, 'white');
+            img{
+                height:35px;
+            }
+            a{
+                text-decoration: none;
+                color:map-get($color, 'white');
+            }
         }
     }
 }
+
 
 @media screen and (max-width: 768px){
     footer{
@@ -143,8 +150,52 @@ footer{
         img{
             height:26.5px;
         }
-        a{
-
-        }
     }
 }}
+//舊版本
+// footer{
+//     position: relative;
+//     z-index: 5;
+//     width: 100%;
+//     height: 250px;
+//     background-color: map-get($color, 'black');
+//     color:map-get($color, 'white');
+//     font-family: 'Montserrat',sans-serif;
+//     display: flex;
+//     justify-content: space-around;
+//     align-items: center;
+//     font-size: $paragraph;
+//     padding-left: 15.6vw;
+//     box-sizing: border-box;
+//     ul{
+//         display: flex;
+//         width: 500px;
+//         justify-content: space-evenly;
+//         a{
+//             text-decoration: none;
+//             color:map-get($color, 'white');
+//         }
+//     }
+//     .footerLogo{
+//         font-weight: bold;
+//         a{
+//             display: flex;
+//             align-items:center;
+//             text-decoration: none;
+//             color:map-get($color, 'white');
+//         }
+//     }
+//     ol{
+//         display: flex;
+//         width: 500px;
+//         justify-content: space-evenly;
+//         align-items:center;
+//         img{
+//             height:35px;
+//         }
+//         a{
+//             text-decoration: none;
+//             color:map-get($color, 'white');
+//         }
+//     }
+// }
