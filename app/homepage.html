@@ -13,8 +13,8 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
+    <!-- <link rel="stylesheet" href="../dist/assets/css/all.css"> -->
     <link rel="stylesheet" href="../dist/assets/css/pages/homepage.css">
-    <link rel="stylesheet" href="../dist/assets/css/all.css">
     <title>Homepage_BoWuMuseum</title>
 </head>
 
@@ -37,23 +37,23 @@
             
             <div class="menuGsapLine"></div>
 
-            <a href="../app/exhibition.html" class="menu_personal_exhibits">PERSONAL EXHIBITS</a>
+            <a href="./exhibition.html" class="menu_personal_exhibits">PERSONAL EXHIBITS</a>
 
             <div class="menu_about menu_child">
-                <a href="../app/About.html">
-                    <img src="../app/assets/img/menu_about.png">
+                <a href="./About.html">
+                    <img src="./assets/img/menu_about.png">
                     About
                 </a>
             </div>
 
             <div class="menu_exhibits menu_child">
-                <a href="../app/exhibition.html">
-                    <img src="../app/assets/img/menu_exhibits.png" alt="">Exhibits</a>
+                <a href="./exhibition.html">
+                    <img src="./assets/img/menu_exhibits.png" alt="">Exhibits</a>
             </div>
 
             <div class="menu_postcard menu_child">
                 <a href="../app/postcard.html">
-                    <img src="../app/assets/img/menu_postcard.png" alt="">PostCard</a>
+                    <img src="./assets/img/menu_postcard.png" alt="">PostCard</a>
             </div>
 
             <div class="notthings menu_child">
@@ -69,7 +69,7 @@
         <ul>
             <li> <a href="#">SHARE</a> </li>
             <b></b>
-            <li> <a href="../app/About.html">CONTACT US</a> </li>
+            <li> <a href="./About.html">CONTACT US</a> </li>
         </ul>
     </header>
     
@@ -81,7 +81,7 @@
     </nav> -->
 
     <div id="searchBarALL">
-        <div class="searchBarBlack" v-show="searchBarBg"></div>
+        <div class="searchBarBlack" v-show="searchBarBg" @click="searchBarClose"></div>
         <div class="features">
 
             <i class="fas fa-search" @click="searchBarOpen"></i>
@@ -90,8 +90,8 @@
             <div id="searchBar" v-show="searchBarPage">
                 <div class="searchBarTop">
                     
-                    <img class="searchBarGobackBtn" @click="searchBarClose" src="../app/assets/img/icon_goBack.png">
-                    <img class="searchBarArrow" src="../app/assets/img/Icon_arrowRight.png">
+                    <img class="searchBarGobackBtn" @click="searchBarClose" src="./assets/img/icon_goBack.png">
+                    <img class="searchBarArrow" src="./assets/img/Icon_arrowRight.png">
 
                     <div class="searchTitle">
                         <i class="fas fa-search"></i>
@@ -106,7 +106,7 @@
             </div>
 
             <div class="personal">
-                <a href="../app/exhibition.html">個人展間</a>
+                <a href="./exhibition.html">個人展間</a>
             </div>
 
             <div class="login"><a href="" class="login_manger">登入</a>
@@ -172,7 +172,7 @@
                         <div class="exBtn">
                             <div class="slidePlace">
                                 <div class="slideMask">
-                                    <a href="../app/universe.html"><div class="exBtnUni"></div></a>
+                                    <a href="./universe.html"><div class="exBtnUni"></div></a>
                                 </div>
                             </div>
                         </div>
@@ -195,7 +195,7 @@
                         <p class="animation-p">　　以水的循環為故事主軸，藉由一滴小水滴的旅行，呈現台灣從冷冽的高山溪流到一望無際的海濱外洋等等，多樣的水域生態環境。 並逐一介紹棲息於其中的各式物種。</p>
 
                         <div class="exBtn">
-                            <a href="../app/ocean.html"><div class="exBtnOce"></div></a>
+                            <a href="./ocean.html"><div class="exBtnOce"></div></a>
                         </div>
                     </main>
                 </div>
@@ -216,7 +216,7 @@
                         <p class="animation-p">　　臺灣蓊蓊鬱鬱，群峰綿亙，自古即有「福爾摩沙」美譽。富饒的森林資源素為臺灣珍貴寶藏，孕育豐富又多采多姿的動、植物生態。</p>
 
                         <div class="exBtn">
-                            <a href="../app/forest.html"><div class="exBtnFor"></div></a>
+                            <a href="./forest.html"><div class="exBtnFor"></div></a>
                         </div>
                     </main>
                 </div>
@@ -237,7 +237,7 @@
                         <p class="animation-p">　　化石和礦物是地球上最珍貴的寶藏及資源，也是發掘地球歷史真相的證物。想窺探世界發展的足跡？地底展間絕對是你的第一選擇</p>
 
                         <div class="exBtn">
-                            <a href="../app/ground.html"><div class="exBtnGro"></div></a>
+                            <a href="./ground.html"><div class="exBtnGro"></div></a>
                         </div>
                     </main>
                 </div>
@@ -468,23 +468,13 @@
                     this.searchBarBg = false;
                 },
             },
-            updated() {
-                //         $('.features').click(function(){
-                //     $(this).not('#searchBar').function(){
-                //         $('#searchBar').css('display','none');
-                //     }
-                
-                // })
+            updated(){
+
             },
         });
 
         // sb.$mount('.features')
 
-    </script>
-
-    <script>
-        
-        
     </script>
 
 </body>
