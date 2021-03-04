@@ -1,22 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-
+    
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AboutUs</title>
-    <!-- <link rel="stylesheet" href="./style.css"> -->
-    <link rel="stylesheet" href="./css/Header_Us.css">
-    <link rel="stylesheet" href="./css/style_aboutus.css">
-    <link rel="stylesheet" href="./css/Rwd1280_AboutUs.css">
-    <link rel="stylesheet" href="./css/header_footer.css">
-    <link rel="stylesheet" href="./css/HeaderforUs.css">
+    <link rel="stylesheet" href="../dist/assets/css/all.css">
+    <link rel="stylesheet" href="../dist/assets/css/pages/style_aboutus.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600&family=Montserrat:wght@300&&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
-    <script src="./js&jq/jquery-3.5.1.js"></script>
+    <script src="./assets/js/jquery-3.5.1.js" ></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
 </head>
 
 <body>
+
+    @@include('./compontents/head_gold.html')
+
     <div class="bock-AboutUs">
         <!-- <nav class="indexSideBar">
             <a class="logoForIndex" href="#">
@@ -34,7 +38,7 @@
                 <li> <a href="#">CONTACT US</a> </li>
             </ul>
         </nav> -->
-        <header>
+        <!-- <header>
             <a href="./homepage.html">
                 <img src="./img/logo_bowu_gold.png">
             </a>
@@ -59,7 +63,7 @@
                 </div>
                 <div class="menu_postcard menu_child">
                     <a href="./postcard.html">
-                        <img src="./img/menu_postcard.png" alt="">PostCard</a>
+                        <img src="./assets/img/menu_postcard.png" alt="">PostCard</a>
                 </div>
                 <div class="notthings menu_child">
                     <a href=""></a>
@@ -76,11 +80,12 @@
                 <li> <a href="#">CONTACT US</a> </li>
             </ul>
 
-        </header>
+        </header> -->
+        
         <div class="aboutus-img">
 
             <!-- 右上搜尋欄 -->
-            <div class="features">
+            <!-- <div class="features">
                 <i class="fas fa-search"></i>
                 <div class="personal"><a href="./exhibition.html">個人展間</a>
                 </div>
@@ -91,8 +96,8 @@
                 </div>
 
                 <i class="fas fa-bell"></i>
-            </div>
-
+            </div> -->
+            @@include('./compontents/searchBarWhite.html')
             <!-- 右上搜尋欄 End -->
             <p>
                 葧塢 BO WU<br>
@@ -105,7 +110,6 @@
             </span>
         </div>
     </div>
-
     <div class="bock-story">
         <div class="bc1">
 
@@ -176,32 +180,112 @@
             <div class="line"></div><span>VIEW MORE</span>
         </div>
     </div>
-    <div class="bock6">
+    @@include('./compontents/footer.html')
+    <script src="./assets/js/script.js"></script>
+     <!-- <script>
+        let menu_bar = document.getElementsByClassName('menu_bar')[0];
+        let menuGold = document.getElementsByClassName('menuGold')[0];
+        
+        menuGold.addEventListener('click', function () {            
+            let not_none = menu_bar.classList.contains("none");
 
-    </div>
-    <footer>
-        <ul>
-            <li><a href="./About.html">AboutUs</a></li>
-            <li><a href="./exhibition.html">Exhibits</a></li>
-            <li><a href="./postcard.html">PostCard</a></li>
-        </ul>
+            if (not_none) 
+            {
+                menu_bar.classList.remove("none");
+                gsap.to(".indexMenuline1", {
+                    duration: .5, 
+                    y: '1vh',
+                    rotation:45, 
+                    ease: "ease", 
+                    transformOrigin:"50% 50%"}
+                );
+                gsap.to(".indexMenuline2", {
+                    duration: .5, 
+                    width: '4vw', 
+                    rotation:-45, 
+                    ease: "ease", 
+                    transformOrigin:"50% 50%"},
+                );
+                gsap.to(".menu p", {
+                    opacity:0},
+                );
+                gsap.to(".menu_bar", {
+                    opacity:0},
+                );
+                gsap.to(".menu_bar", {
+                    left : 0,
+                    duration: 1,
+                    opacity:1,
+                    ease: "ease",}
+                );
+                gsap.to(".menuGsapLine", {
+                    right: 0,
+                    duration: 1,
+                    ease: "ease"}
+                );
+                gsap.to(".menu_child a",{
+                    opacity:1,
+                    stagger: 0.3,
+                    ease: "ease",
+                    delay : .5}
+                );
+                gsap.to(".menu_personal_exhibits",{
+                    opacity:1,
+                    ease: "ease",
+                    delay : 1.2}
+                );
+                gsap.to(".join",{
+                    opacity:1,
+                    ease: "ease",
+                    delay : 1.5}
+                );
+            } else {
+                menu_bar.classList.add("none");
+                gsap.to(".indexMenuline1", {
+                    duration: .5, 
+                    y: '0vh',
+                    rotation: 0, 
+                    ease: "ease", 
+                    }
+                );
+                gsap.to(".indexMenuline2", {
+                    duration: .5, 
+                    rotation: 0, 
+                    width: '2vw', 
+                    ease: "ease", 
+                    },
+                );
+                gsap.to(".menu p", {
+                    opacity:1 },
+                );
+                gsap.to(".menu_personal_exhibits",{
+                    opacity:0,
+                    ease: "ease",}
+                );
+                gsap.to(".join",{
+                    opacity:0,
+                    ease: "ease",}
+                );
+                gsap.to(".menuGsapLine", {
+                    right: '-200vw',
+                    duration: 1,
+                    ease: "ease"}
+                );
+                gsap.to(".menu_child a",{
+                    opacity:0,
+                    stagger: 0.3,
+                    ease: "ease",
+                    delay : .5}
+                );
+                gsap.to(".menu_bar", {
+                    opacity:0,
+                    ease: "ease",}
+                );
+            };
 
-        <div class="footerLogo">
-            <a href="#">
-                <img src="./img/logo_bowu_white.png" width="55px" height="55px">
-                <p>　BO WU MUSEUM</p>
-            </a>
-        </div>
-
-        <ol>
-            <li><a href="#">Rules</a></li>
-            <li><a href="#"><img src="./img/IconFacebook.png"></a></li>
-            <li><a href="#"><img src="./img/IconInstagram.png"></a></li>
-            <li><a href="#"><img src="./img/IconYoutube.png"></a></li>
-        </ol>
-    </footer>
-    <script src="./js&jq/script.js"></script>
-    <script></script>
+            
+        });
+    </script> -->
 </body>
-
+   
 </html>

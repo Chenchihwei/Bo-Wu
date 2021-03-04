@@ -1,0 +1,125 @@
+// 右上方 會員按鈕區
+
+.features {
+    display: flex;
+    width: 250px;
+    height: 27px;
+    color: map-get($color, 'black');
+  
+    align-items: center;
+    position: fixed;
+    top: 50px;
+    right:1vw;
+    z-index: 2;
+  
+    a{
+        text-decoration: none;
+        color: map-get($color, 'black');
+        font-size: $paragraph;
+        font-family: 'Noto Serif TC';
+        @include pad{
+            color:map-get($color ,'white');
+        }
+        @include mobile{
+            font-size: 14px;
+        }
+    }
+    .fa-search {
+        font-size: 23px;
+        margin: 0;
+        @include mobile{
+            font-size: 20px;
+        }
+    }
+    .personal {
+        width: 64px;
+        height: 23px;
+        margin-left: 20px;
+        border-bottom: 3px solid #e5e5e5;
+     // outline: 2px solid chocolate;
+        @include mobile{
+            display: none;
+            border-bottom: 1.5px solid #e5e5e5;
+        }
+    }
+    .login {
+        width: 56px;
+        height: 23px;
+        margin-left: 20px;
+        display: flex;
+        border-bottom: 3px solid #e5e5e5;
+     // outline: 2px solid chocolate;
+        @include mobile{
+            height: 20px;
+            border-bottom: 1.5px solid #e5e5e5;
+        }
+    }
+    .fa-user-friends {
+        font-size: 15px;
+        margin: 0;
+        margin-left: 4px;
+    }
+    .fa-bell {
+        font-size: 20px;
+        margin-left: 15px;
+        margin-bottom: 6px;
+  
+        @include mobile{
+            display: none;
+        }
+    }
+    @include pad{
+        color:map-get($color ,'white');
+    }
+    @include mobile{
+        right: -35vw;
+        top: 36px;
+    }
+}
+
+.featuresWhite {
+    display: flex;
+    width: 250px;
+    height: 27px;
+    color: white;
+    // margin-left: 1330px;
+    // margin-top: 50px;
+    // margin-bottom: 36px;
+    align-items: center;
+    position: absolute;
+    top: 50px;
+    right:1.822vw;
+    // outline: 2px solid chocolate;
+    a{
+        text-decoration: none;
+        color: white;
+    }
+    .fa-search {
+     font-size: 26px;
+     margin: 0;
+    }
+    .personal {
+     width: 64px;
+     height: 23px;
+     margin-left: 20px;
+     border-bottom: 2px solid #e5e5e5;
+     // outline: 2px solid chocolate;
+    }
+    .login {
+     width: 56px;
+     height: 23px;
+     margin-left: 20px;
+     display: flex;
+     border-bottom: 2px solid #e5e5e5;
+     // outline: 2px solid chocolate;
+    }
+    .fa-user-friends {
+     font-size: 15px;
+     margin: 0;
+     margin-left: 4px;
+    }
+    .fa-bell {
+     font-size: 20px;
+     margin-left: 15px;
+    }
+}

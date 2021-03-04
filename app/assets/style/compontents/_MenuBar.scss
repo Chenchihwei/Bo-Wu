@@ -1,0 +1,223 @@
+// == menu page ==
+.menu_bar{
+
+    width: 84.4vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background-color: map-get($color, 'black');
+    padding-left: 15.6vw;
+    display: flex;
+    padding-top: 41vh;
+    
+    @include pad{
+        padding-top: 20vh;
+        flex-direction: column;
+    }
+    .menuGsapLine{
+        display: block;
+        width: 82.71vw;
+        height: 1px;
+        background-color: #F1F1F1;
+        position: absolute;
+        right: -200vw;
+        top: 41vh;
+        @include pad{
+            display: none;
+        }
+    }
+    .menu_personal_exhibits{
+        text-decoration: none;
+        font-family: 'Montserrat';
+        font-weight: bold;
+        color: #ffffff;
+        position: absolute;
+        right: 5vw;
+        top: 5vh;
+        opacity: 0;
+        z-index: 5;
+        font-size: $titleS;
+        letter-spacing: 0.3rem;
+        @include notebook{
+            font-size: 1.3rem;
+        }
+        @include pad{
+            right: 0;
+            left: 23vw;
+            top: 10vh;
+            font-size: 1.5rem;
+        }
+        @include mobile{
+            left: 18vw;
+            top: 7vh;
+            font-size: 1rem;
+            letter-spacing: 0.2rem;
+        }
+    }
+    
+    .menu_child{
+        a{
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            width: 22.7vw;
+            font-size: 70px;
+            color:#646464;
+            border-top: 1px solid transparent;
+            box-sizing: border-box;
+            padding-top: 5.5vh;
+            opacity: 0;
+            
+            &:hover{
+                border-top: 3px solid #FBFBF6;
+                color: #fff; 
+                @include pad{
+                    border-top: 1px solid transparent;
+                    transition: 1s;
+                }
+            }
+            &:hover img{
+                display: block;
+                animation: menuImgDown 1s ease-out forwards;
+                @keyframes menuImgDown{
+                    0%{transform: translateY(5px); opacity: 0; }
+                    100%{transform: translateY(0px); opacity: 1; }
+                }
+
+                @include pad{
+                    display: none;
+                }
+            }
+            
+            img{
+                display: none;
+                position: absolute;
+                z-index: -1;
+                width: 22vw; 
+                height: 35vw;
+                margin-left: 0.5vw;
+                opacity: 70%;
+            }
+
+            @include notebook{
+                font-size: 3.4rem;
+            }
+            @include pad{
+                margin-left: 15vw;
+                line-height: 10vh;
+                text-align: left;
+                font-size: 5rem;
+            }
+            @include mobile{
+                font-size: 3rem;
+            }
+        }
+    }
+    .menu_exhibits {
+        a{
+            &:hover img{
+                display: block;
+                animation: menuImgUp 1s ease-out forwards;
+                @keyframes menuImgUp{
+                                0%{transform: translateY(0px); opacity: 0; }
+                                100%{transform: translateY(5px); opacity: 1; }
+                            }
+                
+                @include pad{
+                    display: none;
+                    }
+            }
+        }
+    }
+    .notthings{
+        a{
+            width: 16.25vw;
+            &:hover{
+            border-top: 1px solid #F1F1F1;
+            }
+        }
+    }
+
+    .menu_about{
+        margin-left: 1.69vw;
+
+        @include pad{
+            margin-left: 0;
+        }
+        a{
+            img{
+            top: 32vh;
+            }
+        }    
+    }
+
+    .menu_exhibits{
+        a{
+            img{
+            top: 6.5vh;
+            }
+        }    
+    }
+
+    .menu_postcard{
+        a{
+            img{
+            top: 30vh;
+            }
+        }    
+    }
+    .join{
+        height: 40px;
+        position: absolute;
+        right: 5vw;
+        top: 87vh;
+        display: flex;
+        z-index: 5;
+
+        opacity: 0;
+        letter-spacing: 0.3rem;
+        @include pad{
+            right: 10vw;
+        }
+        .line{
+            width: 15vw;
+            height: 3px;
+            background-color: map-get($color, 'lightBrown');
+            margin-top: 17.5px;
+            margin-right: 16px;
+            z-index: 6;
+            @include pad{
+                width: 25vw;
+                height: 2px;
+                margin-top: 20px;
+            }
+            @include mobile{
+                width: 15vw;
+            }
+        }
+        a{
+            line-height: 40px;
+            text-decoration: none;
+            font-family: 'Montserrat';
+            font-weight: bold;
+            color: #ffffff;
+            font-size: $titleS;
+            @include notebook{
+                font-size: 1.3rem;
+            }
+            @include pad{
+                font-size: 1.5rem;
+            }
+            @include mobile{
+                font-size: 1rem;
+            }
+        }
+    }
+}
+
+.none{
+    display: none !important;
+    transition: 2s;
+}

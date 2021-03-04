@@ -1,0 +1,270 @@
+@import '../base/base';
+@import '../utilities/button';
+
+@mixin pad{
+  @media(max-width:$break-point-lg){
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (max-width:$break-point-md) {
+    @content;
+  }
+}
+@mixin mobileS {
+  @media (max-width:$break-point-xs) {
+    @content;
+  }
+}
+
+
+// function ---------------
+@function PxToVw($px) {
+	@return $px/1920 * 100vw;
+}
+
+
+body{
+  // outline: 1px solid red;
+  color: map-get($color, 'black');
+  display: flex;
+  // overflow-y: scroll;
+  overflow-x: hidden;
+  font-family: $fontFamily;
+  color: map-get($color, 'black');
+}
+
+.title{
+  // outline: 1px solid hotpink;
+  width: 50vw;
+  // margin: 0 auto;
+  padding-top: 80px;
+  position: fixed;
+
+  @include pad{
+    display: none;
+  }
+
+  @include mobile{
+    display: block;
+    width: 100%;
+    position: static;
+    background-color: map-get($color, 'black');
+  }
+
+  h1{
+    font-size: 70px;
+    color: map-get($color, 'white');
+    // padding-left: 5vw;
+
+    text-shadow: 3px 3px map-get($color, 'black');
+    margin: 0;
+    z-index: 3;
+    @include pad{
+    font-size: $titleM;
+    }
+    @include mobileS{
+      font-size: 2rem;
+      
+    }
+  }
+  .gray{
+    width: PxToVw(1100);
+    height: 30px;
+    background-color: map-get($color, 'yellow');
+    opacity: .5;
+
+    // margin-left: 2vw;
+    position: absolute;
+    top: 130px;
+    @include pad{
+      font-size: $titleM;
+      top: 100px;
+    }
+    @include mobile{
+      width: 80%;
+      margin: 0 auto;
+      margin-left: 2vw;
+    }
+    @include mobileS{
+      width: 70%;
+      height: 30px;
+      top: 90px;
+
+      margin-left: 5vw;
+
+    }
+  }
+}
+
+.wrapper{
+  // outline: 1px solid maroon;
+  width: 100vw;
+  height: 100vh;
+  padding-left: 15.6vw;
+
+  .container{
+    display: flex;
+    @include mobile{
+      flex-direction: column;
+    }
+
+    .container_left{
+      background-color: map-get($color, 'black');
+      width: 50%;
+      height: 100vh;
+      .like{
+        position: absolute;
+        top: 25vh;
+        left: 18vw;
+        display: flex;
+        @include mobileS{
+          top: 20vh;
+        }
+
+        span{
+          font-size: $titleS;
+          color: map-get($color, 'white');
+          &:hover{
+            color: map-get($color, 'red');
+          }
+          @include pad{
+            font-size: $titleS;
+          }
+        }
+        p{
+          color: map-get($color, 'white');
+          font-size: 2.5rem;
+          line-height: $paragraph;
+          margin-left: 1rem;
+          @include pad{
+            font-size: $titleS;
+          }
+        }
+      }
+      .work{
+        // border: 2px solid red;
+        margin-top: 35vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img{
+          width: 65%;
+          @include pad{
+            margin: 0 auto;
+          }
+          @include mobile{
+            width: 65%;
+            margin: 0 auto;
+          }
+        }
+        @include mobile{
+          margin-top: 20vh;
+        }
+      }
+      @include mobile{
+        width: 100%;
+        height: 50vh;
+      }
+      @include mobile{
+        // margin-top: 15vh;
+      }
+    }
+    .container_right{
+      background-color: map-get($color, 'white');
+      width: 50%;
+      height: 100vh;
+      .workTitle{
+        width: 500px;
+        display: block;
+        margin: 0 auto;
+
+        margin-top: 30vh;
+        @include pad{
+          width: 300px;
+        }
+
+        h5{
+          // border: 1px solid blue;
+          font-size: $titleS;
+          font-weight: bold;
+          margin: 0 auto 3rem -3rem;
+          @include pad{
+            font-size: $titleS;
+            margin-left: 0;
+          }
+          @include mobile{
+            font-size: $titleS;
+            margin: -3rem 0 5rem -9rem;
+          }
+          @include mobileS{
+            margin: -10rem 0 5rem 1rem;            
+            font-size: 2rem;
+          }
+
+        }
+        h2{
+          // border: 1px solid blue;
+          font-size: $titleM;
+          filter: drop-shadow(3px 3px 6px rgba(0, 0, 0, 0.5));
+          margin-bottom: 3rem;
+          @include pad{
+            font-size: $titleS;
+          }
+
+          @include mobile{
+            margin: -3rem 0 1rem -9rem;
+            font-size: $titleS;
+          }
+          @include mobileS{
+            margin: -3rem 0 1rem 1rem;            
+            font-size: 2rem;
+          }
+
+
+        }
+        p{
+          // border: 1px solid blue;
+          font-size: $paragraph*1.5;
+          height: 30vh;
+          text-indent: 2*$paragraph;
+          line-height: 1.5;
+          overflow: auto;
+          margin-left: 2rem;
+          @include pad{
+            font-size: $paragraph;
+            overflow: auto;
+          }
+          @include mobile{
+            overflow: auto;
+          }
+          @include mobileS{
+            height: 30rem;
+            font-size: $paragraph;
+          }
+        }
+        @include mobile{
+          margin: 11rem auto 0;
+          color: map-get($color, 'white');
+        }
+
+      }
+
+      @include mobile{
+        background-color: map-get($color, 'darkGray');
+        width: 100%;
+        z-index: -2;
+      }
+    }
+  }
+
+  @include mobile{
+    // display: none;
+  }
+
+}
+
+// footer{
+
+// }

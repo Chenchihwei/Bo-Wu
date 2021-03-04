@@ -1,146 +1,73 @@
-@import '../base/reset';
-@import '../base/variables';
-@import '../base/mixin';
-@import '../base/font';
 @import '../base/base';
-
-$p:1.875rem;
-
-// *{
-//     outline: 1px solid steelblue;
-// }
+@import '../compontents/compontents';
+@import '../utilities/utilities';
 
 body{
-	background-color: #f6f6f6;
-	
+    background-color: #f6f6f6;
 }
 
 .bock-AboutUs{
     
     height: 1080px;
-    // display: flex;
-    // justify-content: space-between;
-    // align-items:flex-end;
     overflow: hidden;
-
-
-    //備用左邊欄
-    // .indexSideBar {
-    //     padding-top: 5vh;
-    //     padding-bottom: 8vh;
-    //     width: 15.6vw;
-    //     display: flex;
-    //     flex-direction: column;
-    //     align-items: center;
-    //     justify-content: space-between;
-    
-    //     ul{
-    //         font-weight: bold;
-    //         font-size: $paragraph;
-    //         display: flex;
-    //         align-content: center;
-    //         writing-mode: vertical-lr;
-    //         text-orientation: sideways;
-    //         transform: rotate(-180deg);
-    //         color: white;
-    //         font-family: 'Montserrat', sans-serif;
-    //     }
-    //     li:first-child{
-    //         padding-bottom: 15px;
-    //     }
-    //     a{
-    //         text-decoration: none;
-    //         color: #BA967D;
-    //         line-height: 25px;
-    //     }
-    //     b{
-    //         width: 25px;
-    //         height: 1px;
-    //         background-color: #ba967d;
-    //         margin-bottom: 15px;
-    //     }
-    // }
-    
-    
-    // .logoForIndex{
-    //     img{
-    //             width: 100px;
-    //     }
-    // }
-    
-    // .indexMenu{
-    //     color: map-get($color, 'brown');
-    //     p{
-    //         text-align: center;
-    //         font-size: $paragraph;
-    //     }
-    // }
-    
-    // .indexMenuline1{
-    //     margin-top: 1.5vh;
-    //     display: block;
-    //     background-color: #BA967D;
-    //     width: 4vw;
-    //     height: 1.8px;
-    // }
-    
-    // .indexMenuline2{
-    //     display: block;
-    //     background-color: #BA967D;
-    //     width: 2vw;
-    //     height: 1.5px;
-    //     margin-top: .8vh;
-    // }
-    
-    
+    @include notebook{
+        height: 720px;
+    }
 .aboutus-img{
-    background-image: url(../img/Museums-5-Miyahata-Ruins-Museum-810x644.svg);
+    background-image: url(../../img/Museums-5-Miyahata-Ruins-Museum-810x644.svg);
     background-size: cover;
     float: right;
     color: white;
     font-size: $fontSize;
-    
     width: 66vw;
     height: 100%;
 
-    //右邊選單
-    ul{
-
-        float: right;
-        display: inline-flex;
-
-        // margin-top: 53px;
-        li{
-        
-        padding-right: 10px;
-        }
-        
+    @include notebook{
+        height: 720px;
     }
+    @include pad{
+        height: 432px;
+    }
+    @include mobile{
+        height: 307px;
+    }
+    //右方區塊
     p{
         width: 26vw;
-        font-size: $p;
-
         margin-top: 148px;
         margin-left: 293px;
         margin-bottom: 140px;
+
+
+        @include pad{
+            margin-top: 145px;
+            margin-left: 171px;
+            margin-bottom: 39px;
+        }
+        @include mobile{
+            margin-top: 100px;
+            margin-left: 33px;
+        }
     }
     span{
         display: flex;
         h1{
             color: #000;
-            
-            height: 17vh;
             font-size: $titleL;
-            
             margin-left: -86px;
+
+            @include notebook{
+                margin-left: -46px;
+            }
+            @include pad{
+            font-size: $titleM;
+            margin-left: -52px;
+            }
         }
         h2{
-            height: 17vh;
             font-size: $titleL;
         }
     }
-
-
 }
 
 
@@ -148,27 +75,45 @@ body{
 
 .bock-story{
     height: 1825px;
+
+    @include notebook{
+        height: 1221px;
+    }
     .bc1{
         display: block;
-        background-image:url(../img/Story_us.png);
+        background-image:url(../../img/Story_us.png);
+        background-size: contain;
         height: 727px;
         width: 424px;
-
         margin-left: 15.6vw;
+
+        @include notebook{
+            height: 485px;
+            width: 283px;
+
+            margin-left: 232px;
+        }
     }
     h1{
         font-size: $titleL;
         margin-top: -269px;
         padding-left: 573px;
 
+        @include notebook{
+            padding-left: 433px;
+        }
     }
     p{
         width: 505px;
         height: 170px;
         margin-top: 31px;
         margin-left: 750px;
-        font-size: $p ;
-        justify-content: center;    
+        font-size: $paragraph ;
+        justify-content: center;   
+        
+        @include notebook{
+            margin-left: 561px;
+        }
     }
     .bc2{
         display: block;
@@ -178,44 +123,67 @@ body{
         margin-top: 110px;
         margin-left: 51vw;
         
+        @include notebook{
+            width: 408px;
+            height: 526px;
+        }
         .bc2-img{
-            background-color:#003b4a;
+            background-color:map-get($color,'gblue');
             width: 576px;
             height: 729px;
             margin-top: -690px;
             margin-left: 36px;
+
+            @include notebook{
+                width: 386px;
+                height: 500px;
+                margin-top: -473px;
+                margin-left: 52px;
+
+            }
             
         }
         .bc2-gary{
-            background-image:url(../img/src_bg_8.jpg);
+            background-image:url(../../img/src_bg_8.jpg);
             background-size: cover;
             width: 580px;
             height: 750px;
             position: relative;
+
+            @include notebook{
+                width: 386px;
+                height: 500px;
+                margin-top: -40px;
+                margin-left: 22px;
+            }
         }
     }
     .comma{
         display: flex;
         width: 150px;
         margin-left: 15.6vw;
+        margin-top: -379px;
+        margin-bottom: 65.9px;
+
+
         .comma1{
-            background-image:url(../img/comma.svg);
+            background-image:url(../../img/comma.png);
             margin-right: 16px;
             width: 67px;
             height: 123px;
+
             
         }
         .comma2{
-            background-image:url(../img/comma.svg);
+            background-image:url(../../img/comma.png);
             width: 67px;
             height: 123px;
         }
         
-        margin-top: -379px;
-        margin-bottom: 65.9px;
+        
     }
     h2{
-        font-size: 1.6rem;
+        font-size: $fontSize;
         width: 660px;
         margin-top: -30px;
         margin-left: 15.6vw;
@@ -224,22 +192,28 @@ body{
 }
 
 .bock-member{
-    // margin-top: 31px;
     height: 1023px;
-    // overflow: hidden;
+    @include notebook{
+        height: 682px;
+    }
     .darkblock{
         width: 82vw;
         height: 638px;
         background-color:map-get($color,'black');
         overflow: hidden;
+        @include notebook{
+            height: 425px;
+        }
         h1{
             color: map-get($color, $key:'white' );
-            font-size: 3.5rem ;
+            font-size: $titleM ;
             width: 280px;
-            
             margin-top: 109px;
             margin-left: 15.6vw;
-        
+
+            // @include notebook{
+                
+            // }
             
         }
         .text{
@@ -247,55 +221,73 @@ body{
             margin-top: 51.9vh;
             margin-left: 51.1vw;
             align-items: center;
+            @include notebook{
+                margin-top: 209px;
+                margin-left: 741px;
+            }
             .line{
                 width: 182px;
                 height: 5px;
                 background-color:map-get($color, $key:'white' );
+
+                @include notebook{
+                    width: 132px;
+                }
             }
             P{
                 color: map-get($color, $key:'white');
-                font-size: $p;
+                font-size: $titleS;
+                margin-left: 11.7px;
+
+                @include notebook{
+                    font-size:medium;
+                }
             }
         }
     }
     .pic{
-        background-image:url(../img/src_bg_5.jpg);
+        background-image:url(../../img/src_bg_5.jpg);
         background-position: 90%;
         width: 21.6vw;
         height: 600px;
         margin-left: 15.6vw;
-
         margin-top: -20.8vw;
+
+        @include notebook{
+            margin-top: -232px;
+            height: 400px;
+            background-size:cover;
+        } 
     }
     h3{
         width: 25.7vw;
         margin-left: 39vw;
-        font-size: 1.5vw;
-        // text-align: center;
+        font-size: $fontSize;
         margin-top: -134px;
         padding-top: 3px;
         padding-left: 2px;
+
+
     }
 
 }
 
 .bock-JoinUs{
-    background-image:url(../img/JoinUs.svg);
+    background-image:url(../../img/JoinUs.svg);
     height: 400px;
     color: map-get($map: $color, $key: 'dark');
     text-align: center;
     overflow: hidden;
-    
     h1{
         margin-top: 90px;
-        font-size: 6.25rem;
+        font-size: $titleL;
     }
     p{
-        font-size: 1.875rem;
+        font-size: $paragraph;
         margin-top: 10px;
     }
     .text{
-        font-size: $p;
+        font-size: $paragraph;
         align-items: center;
         display: flex;
         // height: 27px;
@@ -305,14 +297,18 @@ body{
             
             margin-right: 10px;
             margin-left: 42.4vw;
-            
-            
+
         }
         
         .line{
             width: 182px;
             height: 5px;
             background-color:map-get($color, $key:'black' );
+
+            @include notebook{
+                width: 132px;
+                height: 3px;
+            }
         }
     }
 
@@ -321,10 +317,12 @@ body{
 .bock-postcard{
     height: 999px;
     overflow: hidden;
-    // border:1px solid cornflowerblue;
+    @include notebook{
+        height: 663px;
+    }
     
     .pic2{
-    background-image:url(../img/postcard.svg);
+    background-image:url(../../img/postcard.svg);
     width: 433px;
     height: 467px;
     margin-left: 15.6vw;
@@ -334,24 +332,36 @@ body{
     .gray-block{
         width: 320px;
         height: 541px;
-        
-        background-color:map-get($map: $color, $key: 'gray');
+        background-color:map-get($color,'gblue');
 
         margin-top: -322px;
         margin-left: 21.4vw;
+
+        @include notebook{
+            width: 231px;
+            height: 360px;
+
+            margin-left: 36vw;
+        }
     }
     h1{
-        width: 230px;
         margin-top: -465px;
         margin-left: 46.4vw;
         margin-bottom: 70px;
-        font-size: 2.875rem;
+        font-size: $titleM;
+        @include notebook{
+            margin-left: 51vw;
 
-    }
+        }}
     p{
         width: 33.7vw;
         margin-left: 49vw;
-        font-size: $p;
+        font-size: $paragraph;
+
+        @include notebook{
+            margin-left: 60vw;
+
+        }
     }
     .text{
         
@@ -360,15 +370,25 @@ body{
         justify-content: center;
         
         margin-left: 46.7vw;
+        margin-top: 20px;
         width: 315px;
         height: 27px;
+
+        @include notebook{
+            margin-left: 60vw;
+        }
         .line{
             width: 182px;
             height: 5px;
             background-color:map-get($map: $color, $key: 'black');
+            
+            @include notebook{
+
+            }
         }
         span{
-            font-size: 1.2rem;
+            font-size: $paragraph;
+            margin-left: 11.7px;
         }
         
     }
