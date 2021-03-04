@@ -128,7 +128,7 @@ function pageStyle() {
 
 //轉譯 back
 function backStyle() {
-    return src('app/assets/style/back/*.scss')
+    return src('app/assets/style/back/back.scss')
         .pipe(sourcemaps.init())
         .pipe(
             sass({
