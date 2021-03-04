@@ -3,6 +3,19 @@
 .collection{
     .postcard{
         .main{
+            .btn{
+                ul{
+                    li{
+                        ol{
+                            display: none;
+                        }
+                        &:nth-child(5):hover ol{
+                            display: block;
+                        }
+                    }
+                    
+                }
+            }
             .content{
                 .collection_list{
                     .line{

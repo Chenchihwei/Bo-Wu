@@ -10,9 +10,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
     <link rel="stylesheet" href="./css/back.css">
     <!-- <link rel="stylesheet" href="./css/back_memberlist.css"> -->
+    <script src="./js&jq/jquery-3.5.1.js"></script>
 </head>
 
-<body>
+<body onload="doQuery()">
     <header>
         <img src="./img/back/logo_bowu_white.png" alt="">
         <h2>BOWU BACKEND MANGEMENT SYSTEM</h2>
@@ -55,21 +56,19 @@
                 <h2>展間管理</h2>
                 <div class="line"></div>
                 <select name="" class="select">
-                    <option value="">編號</option>
-                    <option value="">姓名</option>
+                    <option value="id">編號</option>
+                    <option value="name">姓名</option>
                 </select>
                 <input type="text" class="search_text">
                 <input type="submit" class="search_btn" value="search">
                 <div class="member_content">
                     <table class="table table-striped">
-                        <tr class="table-dark">
+                        <!-- <tr class="table-dark">
                             <th>展間編號</th>
                             <th>會員編號</th>
                             <th>姓名</th>
                             <th>黑名單</th>
                             <th>作品數</th>
-                            <td></td>
-                            <td></td>
                         </tr>
                         <tr class="table-light">
                             <td>001</td>
@@ -77,41 +76,56 @@
                             <td>陳松輝</td>
                             <td>白名單</td>
                             <td>3</td>
-                            <td></td>
-                            <td><a href="">編輯</a></td>
-                        </tr>
-                        <tr class="table-light">
-                            <td>001</td>
-                            <td>001</td>
-                            <td>陳松輝</td>
-                            <td>白名單</td>
-                            <td>3</td>
-                            <td></td>
-                            <td><a href="">編輯</a></td>
-                        </tr>
-                        <tr class="table-light">
-                            <td>001</td>
-                            <td>001</td>
-                            <td>陳松輝</td>
-                            <td>白名單</td>
-                            <td>3</td>
-                            <td></td>
-                            <td><a href="">編輯</a></td>
-                        </tr>
-                        <tr class="table-light">
-                            <td>001</td>
-                            <td>001</td>
-                            <td>陳松輝</td>
-                            <td>白名單</td>
-                            <td>3</td>
-                            <td></td>
-                            <td><a href="">編輯</a></td>
-                        </tr>
+                        </tr> -->
                     </table>
                 </div>
             </div>
         </div>
     </div>
+    <script>
+        //完整列表
+        function doQuery(str) {
+            //Typing your code...
+            $.ajax({
+                method: "POST",
+                url: "php/back/exhibition_list.php",
+                data: {
+                    Name: str
+                },
+                dataType: "text",
+                success: function (response) {
+                    //更新html內容
+                    // document.getElementsByClassName('table')[0].insertAdjacentHTML("beforeend", response);
+                    document.getElementsByClassName('table')[0].innerHTML = response;
+                },
+                error: function (exception) {
+                    alert("發生錯誤: " + exception.status);
+                }
+            });
+        };
+
+        //搜尋姓名、編號
+        $('.search_btn').click(search);
+        function search(str) {
+            $.ajax({
+                method: "POST",
+                url: "php/back/exhibition_search.php",
+                data: {
+                    'textbox': $('.search_text').val(),
+                    'select': $('.select').val(),
+                },
+                dataType: "text",
+                success: function (response) {
+                    //更新html內容
+                    document.getElementsByClassName('table')[0].innerHTML = response;
+                    // document.getElementsByClassName('table')[0].insertAdjacentHTML("beforeend", response);
+                },
+                error: function (exception) {
+                    alert("發生錯誤: " + exception.status);
+                }
+            });
+        };
+    </script>
 </body>
 
 </html>
