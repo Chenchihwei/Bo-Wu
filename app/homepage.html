@@ -80,17 +80,41 @@
         <img src="./img/IconBell.png">
     </nav> -->
 
-    <div class="features">
-        <i class="fas fa-search"></i>
-        <div class="personal">
-            <a href="../app/exhibition.html">個人展間</a>
-        </div>
+    <div id="searchBarALL">
+        <div class="searchBarBlack" v-show="searchBarBg"></div>
+        <div class="features">
 
-        <div class="login"><a href="" class="login_manger">管理</a>
-            <i class="fas fa-user-friends"></i>
-        </div>
+            <i class="fas fa-search" @click="searchBarOpen"></i>
 
-        <i class="fas fa-bell"></i>
+            
+            <div id="searchBar" v-show="searchBarPage">
+                <div class="searchBarTop">
+                    
+                    <img class="searchBarGobackBtn" @click="searchBarClose" src="../app/assets/img/icon_goBack.png">
+                    <img class="searchBarArrow" src="../app/assets/img/Icon_arrowRight.png">
+
+                    <div class="searchTitle">
+                        <i class="fas fa-search"></i>
+                        <p> Search </p>
+                    </div>
+
+                    <input type="text" name="searchArea" id="searchBarInput">
+                    
+                </div>  
+                
+                <div class="searchLine"></div>
+            </div>
+
+            <div class="personal">
+                <a href="../app/exhibition.html">個人展間</a>
+            </div>
+
+            <div class="login"><a href="" class="login_manger">登入</a>
+                <i class="fas fa-user-friends"></i>
+            </div>
+
+            <i class="fas fa-bell"></i>
+        </div>
     </div>
 
     <div class="pageBar">
@@ -225,13 +249,7 @@
     </div>
 
     <script>
-        // var swiperH = new Swiper(".swiper-container-h", {
-        //     effect: 'fade',
-        //     slidesPerView: 1,
-        //     pagination: {
-        //     el: ".swiper-pagination-h",
-        //     },
-        // });
+
         var swiperV = new Swiper(".swiper-container-v", {
             direction: "vertical",
             effect: 'fade',
@@ -252,16 +270,7 @@
             hide: true,
             },
         });
-        // var swiper3D = new Swiper('.swiper-container-3D', {
-		// 	slidesPerView: auto,
-		// 	spaceBetween: 30,
-		// 	mousewheel: true,
-		// 	speed: 1000,
-		// 	pagination: {
-		// 		el: '.swiper-pagination-3D',
-		// 		clickable: true,
-		// 	},
-		// });
+
     </script>
 
     <script>
@@ -272,7 +281,12 @@
             let not_none = menu_bar.classList.contains("none");
 
             if (not_none) {
+                
                 menu_bar.classList.remove("none");
+
+                let featureDisappear = document.getElementsByClassName('features')[0];
+                featureDisappear.style.visibility= 'hidden';
+
                 gsap.to(".indexMenuline1", {
                     duration: .5, 
                     y: '1vh',
@@ -322,6 +336,10 @@
                 );
             } else {
                 menu_bar.classList.add("none");
+
+                let featureDisappear = document.getElementsByClassName('features')[0];
+                featureDisappear.style.visibility= 'visible';
+
                 gsap.to(".indexMenuline1", {
                     duration: .5, 
                     y: '0vh',
@@ -379,23 +397,94 @@
                     let audio = document.getElementById('music1');
                     let bar = document.querySelectorAll(".bar");
                     let iframe = document.getElementById('iframeAudio');
+
                     if (audio.paused) {
-                    audio.play();
-                    this.Music = 'Music on';
-                    bar.forEach((item) => {
-                        item.classList.remove('hide');
+                        audio.play();
+                        
+                        this.Music = 'Music on';
+                        bar.forEach((item) => {
+                            item.classList.remove('hide');
                     });
                     } else {
-                    audio.pause();
-                    this.Music = 'Music off';
-                    bar.forEach((item) => {
-                        item.classList.add('hide');
+                        audio.pause();
+                        this.Music = 'Music off';
+                        bar.forEach((item) => {
+                            item.classList.add('hide');
                     });
-                    iframe.remove();
+                        iframe.remove();
                     }
                 },
             },
         });  
+    </script>
+
+    <script>
+        var sb = new Vue({
+            el: '#searchBarALL',
+            data: {
+                searchBarPage: false,
+                searchBarBg: false,
+            },
+            methods: {
+                searchBarOpen(){
+                    this.searchBarPage = true;
+                    this.searchBarBg = true;
+
+                    var searchBarMove = gsap.timeline();
+                    var searchBarBgMove = gsap.timeline();
+
+                    searchBarMove.to("#searchBar", {
+                        right: '0',
+                        duration: .3,
+                        opacity: 1,
+                        ease: "ease"
+                    });
+                    searchBarBgMove.to(".searchBarBlack", {
+                        width: '77vw',
+                        transformOrigin:"0% 100%",
+                        duration: .3,
+                        ease: "ease"
+                    });
+                },
+                searchBarClose(){
+                    
+                    var searchBarMove = gsap.timeline();
+                    var searchBarBgMove = gsap.timeline();
+
+                    gsap.to("#searchBar", {
+                        right: '-3vw',
+                        duration: .3,
+                        opacity: 0,
+                        ease: "ease"
+                    });
+                    searchBarBgMove.to(".searchBarBlack", {
+                        width: '80vw',
+                        transformOrigin:"0% 100%",
+                        duration: .3,
+                        ease: "ease"
+                    });
+                    // 沒效果???
+                    this.searchBarPage = false;
+                    this.searchBarBg = false;
+                },
+            },
+            updated() {
+                //         $('.features').click(function(){
+                //     $(this).not('#searchBar').function(){
+                //         $('#searchBar').css('display','none');
+                //     }
+                
+                // })
+            },
+        });
+
+        // sb.$mount('.features')
+
+    </script>
+
+    <script>
+        
+        
     </script>
 
 </body>
