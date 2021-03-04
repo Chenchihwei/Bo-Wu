@@ -9,7 +9,58 @@
     background-color: #707070;
     margin-bottom: 30px;
 }
+
 .work{
+    .workmessage{
+        width: 70vw;
+        height: 70vh;
+        position: fixed;
+        top: 15vh;
+        left:20vw;
+        background-color: rgb(216, 216, 216);
+        z-index: 2;
+        overflow-y: auto;
+        .message_content{
+            height: 2.5vw;
+            display: flex;
+            .bidding_message{
+                width: 35vw;
+                text-align: center;
+            }
+            .bidding_price{
+                width: 35vw;
+                text-align: center;
+            }
+            a{
+                display: block;
+                width: 35vw;
+                font-size: 30px;
+                line-height: 2.5vw;
+                text-decoration: none;
+                color: black;
+            }
+            .message_click{
+                background-color: rgb(42, 41, 41);
+                color: rgb(255, 255, 255);
+            }
+        }
+        .message_table{
+            th{
+                text-align: center;
+                font-size: 2rem;
+                height: 3vw;
+                vertical-align:middle;
+            }
+            td{
+                font-size: 2rem;
+                text-align: center;
+                vertical-align:middle;
+                img{
+                    width: 4vw;
+                }
+            }
+        }
+    }
     .main{
         
         .uncheck_list{

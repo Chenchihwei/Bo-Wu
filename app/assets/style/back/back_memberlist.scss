@@ -1,14 +1,14 @@
-// @mixin h2() {
-//     font-size: 3.2rem;
-//     color:#0D0D0E;
-//     margin-bottom: 10px;
-// }
-// @mixin bottom_line($w) {
-//     width: $w;
-//     height: 2px;
-//     background-color: #707070;
-//     margin-bottom: 30px;
-// }
+@mixin h2() {
+    font-size: 3.2rem;
+    color:#0D0D0E;
+    margin-bottom: 10px;
+}
+@mixin bottom_line($w) {
+    width: $w;
+    height: 2px;
+    background-color: #707070;
+    margin-bottom: 30px;
+}
 .exhibition_memberlist{
     .main{
         .member_list{
@@ -33,7 +33,9 @@
                         td{
                             font-size: 2rem;
                             vertical-align:middle;
-
+                            input{
+                                width: 5vw;
+                            }
                         }
                     }
                 }

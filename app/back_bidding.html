@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <link rel="stylesheet" href="./css/back.css">
+    <script src="./js&jq/jquery-3.5.1.js"></script>
+    <!-- <link rel="stylesheet" href="./css/back_bidding.css"> -->
+</head>
+
+<body onload="uncheck();work_list();">
+    <div class="close none"></div>
+    <header>
+        <img src="./img/back/logo_bowu_white.png" alt="">
+        <h2>BOWU BACKEND MANGEMENT SYSTEM</h2>
+        <a href="" class="logout">登出</a>
+    </header>
+    <div class="work">
+        <div class="bidding">
+            <div class="main">
+                <div class="btn">
+                    <ul>
+                        <li>
+
+                        </li>
+                        <li>
+                            <a href="./back_memberlist.html">會員管理</a>
+                        </li>
+                        <li>
+                            <a href="./back_work.html">展品管理</a>
+                        </li>
+                        <li>
+                            <a href="./back_exhibition.html">展間管理</a>
+                        </li>
+                        <li>
+                            <a href="./back_collection_universe.html">館藏管理</a>
+                            <ol>
+                                <li><a href="./back_collection_universe.html">宇宙館藏</a></li>
+                                <li><a href="./back_collection_ocean.html">海洋館藏</a></li>
+                                <li><a href="./back_collection_forest.html">森林館藏</a></li>
+                                <li><a href="./back_collection_underground.html">地底館藏</a></li>
+                            </ol>
+                        </li>
+                        <li>
+                            <a href="./back_postcard.html">明信片管理</a>
+                        </li>
+                        <li>
+                            <a href="./back_bidding.html" class="click">競標管理</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="content">
+                    <div class="work_list">
+                        <h2>競標品</h2>
+                        <div class="line"></div>
+                        <div class="search">
+                            <select name="" class="select">
+                                <option value="work_id">展品編號</option>
+                                <option value="work_name">展品名稱</option>
+                                <option value="member_id">作者編號</option>
+                            </select>
+                            <input type="text" class="search_text">
+                            <input type="submit" class="search_btn" value="search">
+                        </div>
+                        <input type="checkbox" class="worklist_allcheck" style="margin-bottom: 1vw;">全選
+                        <button type="submit" class="btn btn_exhibition btn-outline-success"
+                            style="margin-left:1vw;margin-right: 1vw;">上架</button>
+                        <button type="submit" class="btn btn_unexhibition btn-outline-danger">下架</button>
+                        <div class="member_content">
+                            <table class="table table-striped">
+                                <!-- <tr class="table-dark">
+                                    <th></th>
+                                    <th>展品編號</th>
+                                    <th>展品圖片</th>
+                                    <th>展品名稱</th>
+                                    <th>作者編號</th>
+                                    <th>起始金額</th>
+                                    <th>目前金額</th>
+                                    <th>競標時間</th>
+                                    <th>目前狀態</th>
+                                    <th>得標編號</th>
+                                    <th></th>
+                                </tr>
+                                <tr class="table-light">
+                                    <td><input type="checkbox" class="work_checkbox"></td>
+                                    <td>
+                                        <p class="work_id">001</p>
+                                    </td>
+                                    <td><img src="./img/exhibition/exh_1.jpg" alt=""></td>
+                                    <td>花瓶</td>
+                                    <td>001</td>
+                                    <td>200</td>
+                                    <td>300</td>
+                                    <td>21/02/15 14:00</td>
+                                    <td>上架中</td>
+                                    <td>001</td>
+                                    <td><a href="">明細</a></td>
+                                </tr> -->
+                            </table>
+                        </div>
+                    </div>
+                    <div class="uncheck_list">
+                        <h2>待審核</h2>
+                        <div class="line"></div>
+                        <input type="checkbox" class="uncheck_allcheck">全選
+                        <button type="submit" class="btn btn_pass btn-outline-success">通過</button>
+                        <button type="submit" class="btn btn_return btn-outline-danger">退回</button>
+                        <div class="member_content">
+                            <table class="table table-striped">
+                                <!-- <tr class="table-dark">
+                                    <th></th>
+                                    <th>展品編號</th>
+                                    <th>展品圖片</th>
+                                    <th>展品名稱</th>
+                                    <th>展品簡介</th>
+                                    <th>作者編號</th>
+                                    <td>競標金額</td>
+                                    <td>競標時間</td>
+                                    <th></th>
+                                </tr>
+                                <tr class="table-light">
+                                    <td><input type="checkbox" class="uncheck_checkbox"></td>
+                                    <td>
+                                        <p class="work_id">001</p>
+                                    </td>
+                                    <td><img src="./img/exhibition/exh_1.jpg" alt=""></td>
+                                    <td>花瓶</td>
+                                    <td>這是花瓶</td>
+                                    <td>001</td>
+                                    <td>
+                                        <p class='edit_p'>200</p>
+                                        <input type='text' style='width:5vw;' name='' class='edit_text none'>
+                                    </td>
+                                    <td>
+                                        <p class='edit_p'>2021/02/15 14:00</p>
+                                        <input type='text' style='width:5vw;' name='' class='edit_text none'>
+                                    </td>
+                                    <td width='40'>
+                                        <a href='###' class='edit'>編輯</a>
+                                        <a href='###' class='save none'>儲存</a>
+                                    </td>
+                                </tr> -->
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="workmessage none">
+                <div class="message_content">
+                    <div class="bidding_message"><a href="###" class="message_a message_click">競標留言</a></div>
+                    <div class="bidding_price"><a href="###" class="price_a">競標金額</a></div>
+                </div>
+                <table class="message_table table table-striped">
+                    <tr class="table-dark">
+                        <th>展品編號</th>
+                        <th>留言者</th>
+                        <th>留言內容</th>
+                        <th>留言時間</th>
+                        <th>狀態</th>
+                    </tr>
+                    <tr class="table-light">
+                        <td>101</td>
+                        <td>001</td>
+                        <td>花瓶</td>
+                        <td>2020/10/10 12:15:00</td>
+                        <td><a href="">封鎖</a></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        //查看留言
+        $('table').on('click', '.details', function () {
+            $('.close').removeClass('none');
+            $('.workmessage').removeClass('none');
+            let work_id = $(this).parents('tr').children('td').children('.work_id').html();
+            message_ajax(work_id);
+
+            $('.message_a').click(function () {
+                $('.price_a').removeClass('message_click');
+                $('.message_a').addClass('message_click');
+                message_ajax(work_id);
+            });
+
+            $('.price_a').click(function () {
+                $('.message_a').removeClass('message_click');
+                $('.price_a').addClass('message_click');
+                price_ajax(work_id);
+            });
+        });
+        $('.close').click(function () {
+            $('.workmessage').addClass('none');
+            $('.close').addClass('none');
+        });
+
+        function price_ajax(work_id) {
+            $.ajax({
+                method: "POST",
+                url: "php/back/bidding_price.php",
+                data: {
+                    'work_id': work_id,
+                },
+                dataType: "text",
+                success: function (response) {
+                    //更新html內容
+                    document.getElementsByClassName('table')[2].innerHTML = response;
+                },
+                error: function (exception) {
+                    alert("發生錯誤: " + exception.status);
+                }
+            });
+        };
+
+        function message_ajax(work_id) {
+            $.ajax({
+                method: "POST",
+                url: "php/back/bidding_message.php",
+                data: {
+                    'work_id': work_id,
+                },
+                dataType: "text",
+                success: function (response) {
+                    //更新html內容
+                    document.getElementsByClassName('table')[2].innerHTML = response;
+                },
+                error: function (exception) {
+                    alert("發生錯誤: " + exception.status);
+                }
+            });
+        };
+
+        //封鎖留言
+        $('table').on('click', '.message_show', function () {
+            let message_id = $(this).parents('tr').children('td').children('.message_id').html();
+            let work_id = $(this).parents('tr').children('td').children('.work_id').html();
+            let message_show = $(this).html();
+            let yes = confirm('確定更改嗎?')
+            if (yes) {
+                if (message_show == '封鎖') {
+                    message_show = 2;
+                    $(this).html('取消封鎖');
+                } else {
+                    message_show = 1;
+                    $(this).html('封鎖');
+                };
+
+                $.ajax({
+                    method: "POST",
+                    url: "php/back/bidding_message_update.php",
+                    data: {
+                        'message_id': message_id,
+                        'message_show': message_show,
+                    },
+                    dataType: "text",
+                    success: function (response) {
+                        alert('修改成功');
+                    },
+                    error: function (exception) {
+                        alert("發生錯誤: " + exception.status);
+                    }
+                });
+            } else {
+
+            };
+
+        });
+
+        //待審核列表
+        function uncheck(str) {
+            //Typing your code...
+            $.ajax({
+                method: "POST",
+                url: "php/back/bidding_uncheck.php",
+                data: {
+                    Name: str
+                },
+                dataType: "text",
+                success: function (response) {
+                    //更新html內容
+                    document.getElementsByClassName('table')[1].innerHTML = response;
+                },
+                error: function (exception) {
+                    alert("發生錯誤: " + exception.status);
+                }
+            });
+        };
+
+        //展品列表
+        function work_list(str) {
+            //Typing your code...
+            $.ajax({
+                method: "POST",
+                url: "php/back/bidding_list.php",
+                data: {
+                    Name: str
+                },
+                dataType: "text",
+                success: function (response) {
+                    //更新html內容
+                    document.getElementsByClassName('table')[0].innerHTML = response;
+                },
+                error: function (exception) {
+                    alert("發生錯誤: " + exception.status);
+                }
+            });
+        };
+
+
+        //展品checkbox
+        let work_checkbox = document.getElementsByClassName('work_checkbox');
+        $(".worklist_allcheck").click(function () {
+            if ($(".worklist_allcheck").prop("checked")) {//如果全選按鈕有被選擇的話（被選擇是true）
+                for (let i = 0; i < work_checkbox.length; i++) {
+                    $(work_checkbox[i]).prop("checked", true);
+                };
+            } else {
+                for (let i = 0; i < work_checkbox.length; i++) {
+                    $(work_checkbox[i]).prop("checked", false);
+                };
+            }
+        });
+
+        $('body').on('click', '.work_checkbox', function () {
+            let count = 0;
+            for (let i = 0; i < work_checkbox.length; i++) {
+                if ($(work_checkbox[i]).prop("checked")) {
+                    count += 1;
+                };
+            };
+            if (count === work_checkbox.length) {
+                $(".worklist_allcheck").prop("checked", true);
+            } else {
+                $(".worklist_allcheck").prop("checked", false);
+            };
+        });
+
+        //上架展品
+        $('.btn_exhibition').click(function () {
+            let yes = confirm('確定上架嗎?');
+            if (yes) {
+                for (let i = 0; i < work_checkbox.length; i++) {
+                    if ($(work_checkbox[i]).prop('checked')) {
+                        let exhibition_id = $(work_checkbox[i]).parents('tr').children('td').children('.work_id').html();
+                        $(work_checkbox[i]).parents('tr').children('td').children('.exhibition_status').html('上架中');
+                        let exhibition_status = 1;
+                        exhibition(exhibition_id, exhibition_status);
+                    } else { };
+                };
+                alert('上架成功');
+            } else { };
+        });
+
+        //下架展品
+        $('.btn_unexhibition').click(function () {
+            let yes = confirm('確定下架嗎?');
+            if (yes) {
+                for (let i = 0; i < work_checkbox.length; i++) {
+                    if ($(work_checkbox[i]).prop('checked')) {
+                        let exhibition_id = $(work_checkbox[i]).parents('tr').children('td').children('.work_id').html();
+                        $(work_checkbox[i]).parents('tr').children('td').children('.exhibition_status').html('下架中');
+                        let exhibition_status = 2;
+                        exhibition(exhibition_id, exhibition_status);
+                    } else { };
+                };
+                alert('下架成功');
+            } else { };
+        });
+
+        function exhibition(work_id, exhibition_status) {
+            $.ajax({
+                method: "POST",
+                url: "php/back/bidding_list_exhibition.php",
+                data: {
+                    'work_id': work_id,
+                    'exhibition_status': exhibition_status,
+                },
+                dataType: "text",
+                success: function (response) {
+                    $(".worklist_allcheck").prop("checked", false);
+                    $(".work_checkbox").prop("checked", false);
+                },
+                error: function (exception) {
+                    alert("發生錯誤: " + exception.status);
+                }
+            });
+        };
+
+        //搜尋作者、編號、名稱
+        $('.search_btn').click(search);
+        function search(str) {
+            $.ajax({
+                method: "POST",
+                url: "php/back/bidding_list_search.php",
+                data: {
+                    'textbox': $('.search_text').val(),
+                    'select': $('.select').val(),
+                },
+                dataType: "text",
+                success: function (response) {
+                    //更新html內容
+                    document.getElementsByClassName('table')[0].innerHTML = response;
+                    // document.getElementsByClassName('table')[0].insertAdjacentHTML("beforeend", response);
+                },
+                error: function (exception) {
+                    alert("發生錯誤: " + exception.status);
+                }
+            });
+        };
+
+        //待審核checkbox
+        let uncheck_checkbox = document.getElementsByClassName('uncheck_checkbox');
+        $(".uncheck_allcheck").click(function () {
+            if ($(".uncheck_allcheck").prop("checked")) {//如果全選按鈕有被選擇的話（被選擇是true）
+                for (let i = 0; i < uncheck_checkbox.length; i++) {
+                    $(uncheck_checkbox[i]).prop("checked", true);
+                };
+            } else {
+                for (let i = 0; i < uncheck_checkbox.length; i++) {
+                    $(uncheck_checkbox[i]).prop("checked", false);
+                };
+            }
+        });
+        $('body').on('click', '.uncheck_checkbox', function () {
+            let count = 0;
+            for (let i = 0; i < uncheck_checkbox.length; i++) {
+                if ($(uncheck_checkbox[i]).prop("checked")) {
+                    count += 1;
+                };
+            };
+            if (count === uncheck_checkbox.length) {
+                $(".uncheck_allcheck").prop("checked", true);
+            } else {
+                $(".uncheck_allcheck").prop("checked", false);
+            };
+        });
+
+        //審核通過
+        $('.btn_pass').click(function () {
+            let yes = confirm('確定通過嗎?');
+            if (yes) {
+                for (let i = 0; i < uncheck_checkbox.length; i++) {
+                    if ($(uncheck_checkbox[i]).prop('checked')) {
+                        let verify_id = $(uncheck_checkbox[i]).parents('tr').children('td').children('.uncheck_work_id').html();
+                        // console.log(verify_id);
+                        let verify_status = 1;
+                        verify(verify_id, verify_status);
+                    } else { };
+                };
+            } else { };
+        });
+
+        //審核退回
+        $('.btn_return').click(function () {
+            let yes = confirm('確定退回嗎?');
+            if (yes) {
+                for (let i = 0; i < uncheck_checkbox.length; i++) {
+                    if ($(uncheck_checkbox[i]).prop('checked')) {
+                        let verify_id = $(uncheck_checkbox[i]).parents('tr').children('td').children('.uncheck_work_id').html();
+                        // console.log(verify_id);
+                        let verify_status = 3;
+                        verify(verify_id, verify_status);
+                    } else { };
+                };
+            } else { };
+        });
+
+        function verify(verify_id, verify_status) {
+            $.ajax({
+                method: "POST",
+                url: "php/back/bidding_verify.php",
+                data: {
+                    'verify_id': verify_id,
+                    'verify_status': verify_status,
+                },
+                dataType: "text",
+                success: function (response) {
+                    uncheck();
+                    work_list();
+                    $('.uncheck_allcheck').prop("checked", false);
+                    $('.uncheck_checkbox').prop("checked", false);
+                },
+                error: function (exception) {
+                    alert("發生錯誤: " + exception.status);
+                }
+            });
+        };
+
+        //編輯
+        $('body').on('click', '.edit', function edit(e) {
+            $(this).addClass('none');
+            $(this).parent('td').children('.save').removeClass('none');
+            $(this).parents('tr').children('td').children('.edit_text').removeClass('none');
+            $(this).parents('tr').children('td').children('.edit_p').addClass('none');
+
+
+            let tr = e.target.closest('tr');
+            let td = e.target.closest('td');
+            let edit_p = tr.querySelectorAll('.edit_p');
+            let edit_text = tr.querySelectorAll("input.edit_text");
+            for (let i = 0; i < edit_text.length; i++) {
+                edit_text[i].value = edit_p[i].innerHTML;
+            };
+        });
+
+
+
+        //儲存
+        $('body').on('click', '.save', function save(e) {
+            $(this).addClass('none');
+            $(this).parent('td').children('.edit').removeClass('none');
+            $(this).parents('tr').children('td').children('.edit_text').addClass('none');
+            $(this).parents('tr').children('td').children('.edit_p').removeClass('none');
+
+
+            let tr = e.target.closest('tr');
+            let td = e.target.closest('td');
+            let edit_p = tr.querySelectorAll('.edit_p');
+            let edit_text = tr.querySelectorAll("input.edit_text");
+            for (let i = 0; i < edit_text.length; i++) {
+                edit_p[i].innerHTML = edit_text[i].value;
+            };
+            let edit_id = tr.querySelector('.uncheck_work_id').innerHTML;
+            let edit_price = edit_p[0].innerHTML;
+            let edit_time = edit_p[1].innerHTML;
+
+            $.ajax({
+                method: "POST",
+                url: "php/back/bidding_list_edit.php",
+                data: {
+                    'edit_id': edit_id,
+                    'edit_price': edit_price,
+                    'edit_time': edit_time,
+                },
+                dataType: "text",
+                success: function (response) {
+                    alert('修改成功');
+                },
+                error: function (exception) {
+                    alert("發生錯誤: " + exception.status);
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

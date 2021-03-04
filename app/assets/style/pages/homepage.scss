@@ -568,6 +568,9 @@ body {
             display: none;
         }
     }
+    @include notebook{
+        right: -1vw;
+    }
     @include pad{
         color:map-get($color ,'white');
     }
@@ -881,11 +884,33 @@ body {
     background-color: #fff;
     z-index: 6;
     box-shadow: 3px 3px 20px black;
+    @include pad{
+        width: 35vw;
+    }
+}
+
+.searchBarBlack{
+    display: block;
+    width: 80vw;
+    height: 100vh;
+    background-color: rgb(51, 51, 51);
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 4;
+    opacity: .8;
+    @include pad{
+        width: 65vw;
+    }
 }
 .searchBarTop{
     position: absolute;
     top: 48px;
-    right: 6vw;
+    right: 5vw;
+    @include notebook{
+        right: 4vw;
+    }
 }
 .searchBarGobackBtn{
     position: fixed;
@@ -914,9 +939,7 @@ body {
     margin-bottom: 3px;
     opacity: .5;
 }
-/* .searchPlace{
-    display: flex;
-} */
+
 .searchBarArrow{
     width: 16px;
     height: 16px;
@@ -932,6 +955,9 @@ body {
     border-bottom: 2px solid #707070;
     /* map-get($color, 'darkGray'); */
     font-size: 16px;
+    @include notebook{
+        width: 210px;
+    }
 }
 .searchLine{
     width: 100%;
@@ -941,18 +967,6 @@ body {
     top: 21vh;
 }
 
-.searchBarBlack{
-    display: block;
-    width: 80vw;
-    height: 100vh;
-    background-color: rgb(51, 51, 51);
-
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 4;
-    opacity: .5;
-}
 // search Bar popUp end
 
 
