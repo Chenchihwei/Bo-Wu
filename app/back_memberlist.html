@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <link rel="stylesheet" href="./css/back.css">
+    <!-- <link rel="stylesheet" href="./css/back_memberlist.css"> -->
+    <script src="./js&jq/jquery-3.5.1.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+</head>
+
+<body onload='doQuery()'>
+    <header>
+        <img src="./img/back/logo_bowu_white.png" alt="">
+        <h2>BOWU BACKEND MANGEMENT SYSTEM</h2>
+        <a href="" class="logout">登出</a>
+    </header>
+    <div class="exhibition_memberlist">
+        <div class="main">
+            <div class="btn">
+                <ul>
+                    <li>
+
+                    </li>
+                    <li>
+                        <a href="./back_memberlist.html" class="click">會員管理</a>
+                    </li>
+                    <li>
+                        <a href="./back_work.html">展品管理</a>
+                    </li>
+                    <li>
+                        <a href="./back_exhibition.html">展間管理</a>
+                    </li>
+                    <li>
+                        <a href="./back_collection_universe.html">館藏管理</a>
+                        <ol>
+                            <li><a href="./back_collection_universe.html">宇宙館藏</a></li>
+                            <li><a href="./back_collection_ocean.html">海洋館藏</a></li>
+                            <li><a href="./back_collection_forest.html">森林館藏</a></li>
+                            <li><a href="./back_collection_underground.html">地底館藏</a></li>
+                        </ol>
+                    </li>
+                    <li>
+                        <a href="./back_postcard.html">明信片管理</a>
+                    </li>
+                    <li>
+                        <a href="./back_bidding.html">競標管理</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="member_list">
+                <h2>會員管理</h2>
+                <div class="line"></div>
+                <select name="" class="select">
+                    <option value="id">編號</option>
+                    <option value="name">姓名</option>
+                </select>
+                <input type="text" class="search_text">
+                <input type="submit" class="search_btn" value="search">
+                <div class="member_content">
+                    <table class="table table-striped">
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        //完整列表
+        function doQuery(str) {
+            //Typing your code...
+            $.ajax({
+                method: "POST",
+                url: "php/back/member_list.php",
+                data: {
+                    Name: str
+                },
+                dataType: "text",
+                success: function (response) {
+                    //更新html內容
+                    // document.getElementsByClassName('table')[0].insertAdjacentHTML("beforeend", response);
+                    document.getElementsByClassName('table')[0].innerHTML = response;
+                },
+                error: function (exception) {
+                    alert("發生錯誤: " + exception.status);
+                }
+            });
+        };
+
+
+        //搜尋姓名、編號
+        $('.search_btn').click(search);
+        function search(str) {
+            $.ajax({
+                method: "POST",
+                url: "php/back/member_search.php",
+                data: {
+                    'textbox': $('.search_text').val(),
+                    'select': $('.select').val(),
+                },
+                dataType: "text",
+                success: function (response) {
+                    //更新html內容
+                    document.getElementsByClassName('table')[0].innerHTML = response;
+                    // document.getElementsByClassName('table')[0].insertAdjacentHTML("beforeend", response);
+                },
+                error: function (exception) {
+                    alert("發生錯誤: " + exception.status);
+                }
+            });
+        };
+
+
+        //排序
+        $('body').on('click', '.th_p', function () {
+            let th_p = this.innerHTML;
+            sort(th_p);
+        });
+        function sort(sort) {
+            $.ajax({
+                method: "POST",
+                url: "php/back/member_sort.php",
+                data: {
+                    'sort': sort,
+                },
+                dataType: "text",
+                success: function (response) {
+                    //更新html內容
+                    // console.log(response);
+                    document.getElementsByClassName('table')[0].innerHTML = response;
+                },
+                error: function (exception) {
+                    alert("發生錯誤: " + exception.status);
+                }
+            });
+        };
+
+
+
+
+        //編輯
+        $('body').on('click', '.edit', function edit(e) {
+            $(this).addClass('none');
+            $(this).parent('td').children('.save').removeClass('none');
+            $(this).parents('tr').children('td').children('.edit_text').removeClass('none');
+            $(this).parents('tr').children('td').children('.edit_select').removeClass('none');
+            $(this).parents('tr').children('td').children('.edit_textarea').removeClass('none');
+            $(this).parents('tr').children('td').children('.edit_p').addClass('none');
+            $(this).parents('tr').children('td').children('.select_p').addClass('none');
+            $(this).parents('tr').children('td').children('.produce').addClass('none');
+
+
+            let tr = e.target.closest('tr');
+            let td = e.target.closest('td');
+            let edit_p = tr.querySelectorAll('.edit_p');
+            let edit_text = tr.querySelectorAll("input.edit_text");
+            for (let i = 0; i < edit_text.length; i++) {
+                edit_text[i].value = edit_p[i].innerHTML;
+            };
+            let produce = tr.getElementsByClassName('produce')[0];
+            tr.querySelector('.edit_textarea').value = produce.innerHTML;
+
+            let select_p = tr.querySelectorAll('.select_p');
+            let edit_select = tr.querySelectorAll('.edit_select');
+            if (select_p[0].innerHTML === '高級會員') {
+                edit_select[0].value = 1;
+                if (select_p[1].innerHTML === '黑名單') {
+                    edit_select[1].value = 1;
+                } else if (select_p[1].innerHTML === '白名單') {
+                    edit_select[1].value = 2;
+                };
+            } else if (select_p[0].innerHTML === '普通會員') {
+                edit_select[0].value = 2;
+                if (select_p[1].innerHTML === '黑名單') {
+                    edit_select[1].value = 1;
+                } else if (select_p[1].innerHTML === '白名單') {
+                    edit_select[1].value = 2;
+                };
+            };
+        });
+
+
+        //儲存
+        $('body').on('click', '.save', function save(e) {
+            $(this).addClass('none');
+            $(this).parent('td').children('.edit').removeClass('none');
+            $(this).parents('tr').children('td').children('.edit_text').addClass('none');
+            $(this).parents('tr').children('td').children('.edit_select').addClass('none');
+            $(this).parents('tr').children('td').children('.edit_textarea').addClass('none');
+            $(this).parents('tr').children('td').children('.edit_p').removeClass('none');
+            $(this).parents('tr').children('td').children('.select_p').removeClass('none');
+            $(this).parents('tr').children('td').children('.produce').removeClass('none');
+
+            let tr = e.target.closest('tr');
+            let td = e.target.closest('td');
+            let edit_p = tr.querySelectorAll('.edit_p');
+            let edit_text = tr.querySelectorAll("input.edit_text");
+            for (let i = 0; i < edit_text.length; i++) {
+                edit_p[i].innerHTML = edit_text[i].value;
+            };
+            let produce = tr.getElementsByClassName('produce')[0];
+            produce.innerHTML = tr.querySelector('.edit_textarea').value;
+            let select_p = tr.querySelectorAll('.select_p');
+            let edit_select = tr.querySelectorAll('.edit_select');
+            if (edit_select[0].value == 1) {
+                select_p[0].innerHTML = '高級會員';
+                if (edit_select[1].value == 1) {
+                    // console.log(edit_select[1].value);
+                    select_p[1].innerHTML = '黑名單';
+                } else if (edit_select[1].value == 2) {
+                    console.log(edit_select[1].value);
+                    select_p[1].innerHTML = '白名單';
+                };
+            } else if (edit_select[0].value == 2) {
+                select_p[0].innerHTML = '普通會員';
+                if (edit_select[1].value == 1) {
+                    select_p[1].innerHTML = '黑名單';
+                } else if (edit_select[1].value == 2) {
+                    console.log(edit_select[1].value);
+                    select_p[1].innerHTML = '白名單';
+                };
+            };
+
+            let edit_id = tr.querySelector('.edit_id').innerHTML;
+            let edit_name = edit_p[0].innerHTML;
+            let edit_account = edit_p[1].innerHTML;
+            let edit_password = edit_p[2].innerHTML;
+            let edit_email = edit_p[3].innerHTML;
+            let edit_level = select_p[0].innerHTML;
+            let edit_blacklist = select_p[1].innerHTML;
+            let edit_produce = produce.innerHTML;
+
+
+            // console.log(edit_id);
+            // console.log(edit_account);
+            // console.log(edit_password);
+            // console.log(edit_email);
+
+            $.ajax({
+                method: "POST",
+                url: "php/back/member_edit.php",
+                data: {
+                    'edit_id': edit_id,
+                    'edit_name': edit_name,
+                    'edit_account': edit_account,
+                    'edit_password': edit_password,
+                    'edit_email': edit_email,
+                    'edit_level': edit_level,
+                    'edit_blacklist': edit_blacklist,
+                    'edit_produce': edit_produce,
+                },
+                dataType: "text",
+                success: function (response) {
+                    alert('修改成功');
+                },
+                error: function (exception) {
+                    alert("發生錯誤: " + exception.status);
+                }
+            });
+        });
+
+
+
+    </script>
+</body>
+
+</html>

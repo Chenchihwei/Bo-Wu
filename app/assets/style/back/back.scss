@@ -2,6 +2,15 @@
 html{
     font-size: 62.5%;
 }
+.close{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    z-index: 1;
+    background-color: rgba(26, 25, 25, 0.712);
+    left: 0;
+    top: 0;
+}
 header{
     display: flex;
     width: 100%;
