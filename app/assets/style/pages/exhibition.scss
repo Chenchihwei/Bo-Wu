@@ -1,8 +1,4 @@
-@import '../base/reset';
-@import '../base/variables';
-@import '../base/mixin';
-@import '../base/font';
-@import '../base/base';
+@import "../base/base";
 
 @mixin product_like($left, $right) {
     position: absolute;
