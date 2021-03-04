@@ -5,10 +5,17 @@ Tibame-work
 | 名字 | username |
 | ----- | --------------- |
 | 智威: | chenchihwei |
+<<<<<<< HEAD
 | 昱寧: | yuning420 |
 | 松輝: | henry4968 |
 | 上瑞: | shang-jui |
 | 立揚: | lloyd83238 |
+=======
+| 育寧: | j23063519 |
+| 松輝: | yuria1215 |
+| 上瑞: | joshtinhan |
+| 力揚: | weiyi-li00 |
+>>>>>>> origin/master
 | 惠真: | b8211142002 |
 
 ## 共同規定
