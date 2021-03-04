@@ -9,12 +9,14 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
     <!-- <link rel="stylesheet" href="./css/header_footer.css"> -->
-    <link rel=" stylesheet" href="./css/exhibition.css">
-    <script src="./js&jq/jquery-3.5.1.js"></script>
+    <link rel=" stylesheet" href="./assets/css/all.css">
+    <link rel=" stylesheet" href="./assets/css/pages/exhibition.css">
+    <script src="./assets/js/jquery-3.5.1.js"></script>
 </head>
 
 <body>
-    <header>
+    @@include('./compontents/head.html')
+    <!-- <header>
         <a href="#">
             <img src="./img/logo_bowu_white.png">
         </a>
@@ -31,9 +33,9 @@
             <li> <a href="#">CONTACT US</a> </li>
         </ul>
 
-    </header>
+    </header> -->
 
-    <div class="menu_bar none">
+    <!-- <div class="menu_bar none">
         <a href="" class="menu_personal_exhibits">PERSONAL EXHIBITS</a>
         <div class="menu_about menu_child">
             <a href="">
@@ -56,9 +58,10 @@
             <div class="line"></div>
             <a href="##">JOIN US NOW</a>
         </div>
-    </div>
+    </div> -->
 
-    <div class="features">
+    @@include('./compontents/searchbar.html')
+    <!-- <div class="features">
         <i class="fas fa-search"></i>
         <div class="personal"><a href="">個人展間</a>
         </div>
@@ -69,7 +72,7 @@
         </div>
 
         <i class="fas fa-bell"></i>
-    </div>
+    </div> -->
 
     <div class="main_exhibition">
         <div class="exhibition_title">
@@ -83,10 +86,11 @@
         <div class="exhibition_img">
             <i class="fas fa-chevron-left"></i>
             <ul>
-                <li class="pic_cover_left"><a href=""><img src="./img/exhibition/level_1_1.png" alt=""></a></li>
-                <li class="pic_cover"><a href=""><img src="./img/exhibition/level_1_2.png" alt=""></a></li>
-                <li class="pic_cover_1"><a href=""><img src="./img/exhibition/level_1_3.png" alt=""></a></li>
-                <li class="pic_cover_right"><a href=""><img src="./img/exhibition/level_1_4.png" alt=""></a></li>
+                <li class="pic_cover_left"><a href=""><img src="./assets/img/exhibition/level_1_1.png" alt=""></a></li>
+                <li class="pic_cover"><a href=""><img src="./assets/img/exhibition/level_1_2.png" alt=""></a></li>
+                <li class="pic_cover_1"><a href=""><img src="./assets/img/exhibition/level_1_3.png" alt=""></a></li>
+                <li class="pic_cover_right"><a href=""><img src="./assets/img/exhibition/level_1_4.png" alt=""></a>
+                </li>
             </ul>
             <i class="fas fa-chevron-right"></i>
         </div>
@@ -95,7 +99,7 @@
                 <div class="pic1">
                     <ul>
                         <li>
-                            <img src="./img/exhibition/exh_4.jpg" alt="">
+                            <img src="./assets/img/exhibition/exh_4.jpg" alt="">
                             <div class="product_like">
                                 <i class="far fa-heart"></i>
                                 <i class="fas fa-heart none"></i>
@@ -104,7 +108,7 @@
                             </div>
                         </li>
                         <li>
-                            <img src="./img/exhibition/exh_1.jpg" alt="">
+                            <img src="./assets/img/exhibition/exh_1.jpg" alt="">
                             <div class="product_like">
                                 <i class="far fa-heart"></i>
                                 <i class="fas fa-heart none"></i>
@@ -117,7 +121,7 @@
                 <div class="pic2">
                     <ul>
                         <li>
-                            <img src="./img/exhibition/exh_16.jpg" alt="">
+                            <img src="./assets/img/exhibition/exh_16.jpg" alt="">
                             <div class="product_like">
                                 <i class="far fa-heart"></i>
                                 <i class="fas fa-heart none"></i>
@@ -126,7 +130,7 @@
                             </div>
                         </li>
                         <li>
-                            <img src="./img/exhibition/exh_6.jpg" alt="">
+                            <img src="./assets/img/exhibition/exh_6.jpg" alt="">
                             <div class="product_like">
                                 <i class="far fa-heart"></i>
                                 <i class="fas fa-heart none"></i>
@@ -139,7 +143,7 @@
                 <div class="pic3">
                     <ul>
                         <li>
-                            <img src="./img/exhibition/exh_14.jpg" alt="">
+                            <img src="./assets/img/exhibition/exh_14.jpg" alt="">
                             <div class="product_like">
                                 <i class="far fa-heart"></i>
                                 <i class="fas fa-heart none"></i>
@@ -148,7 +152,7 @@
                             </div>
                         </li>
                         <li>
-                            <img src="./img/exhibition/exh_13.jpg" alt="">
+                            <img src="./assets/img/exhibition/exh_13.jpg" alt="">
                             <div class="product_like">
                                 <i class="far fa-heart"></i>
                                 <i class="fas fa-heart none"></i>
@@ -157,7 +161,7 @@
                             </div>
                         </li>
                         <li>
-                            <img src="./img/exhibition/exh_15.jpg" alt="">
+                            <img src="./assets/img/exhibition/exh_15.jpg" alt="">
                             <div class="product_like">
                                 <i class="far fa-heart"></i>
                                 <i class="fas fa-heart none"></i>
@@ -187,7 +191,7 @@
         </div>
     </div>
     <div class="exhibition_content none">
-        <img src="./img/exhibition/exh_4.jpg" alt="">
+        <img src="./assets/img/exhibition/exh_4.jpg" alt="">
         <div class="product">
             <h1>Tea-pot</h1>
             <h2>Andy</h2>
@@ -203,23 +207,24 @@
 
     </div>
 
-    <div class="musicControlBtn">
+    <!-- <div class="musicControlBtn">
         <div class="musicControlBtnSpan">
             <span class="line1"></span>
             <span class="line2"></span>
             <span class="line3"></span>
         </div>
         <p>Music on/ off</p>
-    </div>
+    </div> -->
 
-    <footer>
+    <!-- <footer>
         <ul>
             <li><a href="#">AboutUs</a></li>
             <li><a href="#">Exhibits</a></li>
             <li><a href="#">PostCard</a></li>
-        </ul>
+        </ul> -->
 
-        <div class="footerLogo">
+    @@include('./compontents/footer.html')
+    <!-- <div class="footerLogo">
             <a href="#">
                 <img src="./img/logo_bowu_white.png" width="55px" height="55px">
                 <p>　BO WU MUSEUM</p>
@@ -232,9 +237,9 @@
             <li><a href="#"><img src="./img/IconInstagram.png"></a></li>
             <li><a href="#"><img src="./img/IconYoutube.png"></a></li>
         </ol>
-    </footer>
-    <script src="./js&jq/script.js"></script>
-    <script src="./js&jq/exhibition.js"></script>
+    </footer> -->
+    <script src="./assets/js/script.js"></script>
+    <script src="./assets/js/exhibition.js"></script>
     <script>
 
     </script>
