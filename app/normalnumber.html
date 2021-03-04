@@ -5,169 +5,117 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
-	<link rel="stylesheet" href="css/header_footer.css">
-	<link rel="stylesheet" href="css/normalnumber.css">
+	<!-- <link rel="stylesheet" href="css/header_footer.css"> -->
+	<!-- <link rel="stylesheet" href="./assets/style/all.scss"> -->
+	<link rel="stylesheet" href="../dist/assets/css/all.css">
+
+	<!-- <link rel="stylesheet" href="./css/hightlevel.css"> -->
+	<link rel="stylesheet" href="../dist/assets/css/pages/normal.css">
+
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
-	<!-- <link rel="stylesheet" href="/css/normalnumber_rwd.css"> -->
-	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 	<!-- <script src="./js&jq/jquery-3.5.1.js"></script> -->
+	<script src="./assets/js/jquery-3.5.1.js"></script>
+	<!-- <link rel="stylesheet" href="/css/hightlevelnumber_rwd.css"> -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<script src="./assets/js/vue.js"></script>
 
 </head>
 
 <body>
-	<div class="wrapper">
-		<!-- <div class="leftbar">
-			<img src="img/normalnumber/logo_bowu_w.png" class="logo"></img>
-			<div>MENU</div>
-			<p>SHARE | CONTACT US</p>
-		</div> -->
+	<div id="app">
+		<vue-header></vue-header>
 
-		<header>
-			<a href="./homepage.html">
-				<img src="./img/logo_bowu_white.png">
-			</a>
+		@@include('./compontents/head.html')
+		@@include('./compontents/SearchBar.html')
 
-			<menu class="menu">
-				<p>MENU</p>
-				<span class="indexMenuline1"></span>
-				<span class="indexMenuline2"></span>
-			</menu>
+		<div class="wrapper">
 
-			<ul>
-				<li> <a href="#">SHARE</a> </li>
-				<b></b>
-				<li> <a href="./About.html">CONTACT US</a> </li>
-			</ul>
+			<div class="rightbar">
 
-		</header>
-		<div class="menu_bar none">
-			<a href="" class="menu_personal_exhibits">PERSONAL EXHIBITS</a>
-			<div class="menu_about menu_child">
-				<a href="">
-					<img src="./img/menu_about.png" alt="">
-					About
-				</a>
-			</div>
-			<div class="menu_exhibits menu_child">
-				<a href="./exhibition.html">
-					<img src="./img/menu_exhibits.png" alt="">Exhibits</a>
-			</div>
-			<div class="menu_postcard menu_child">
-				<a href="./postcard.html">
-					<img src="./img/menu_postcard.png" alt="">PostCard</a>
-			</div>
-			<div class="notthings menu_child">
-				<a href=""></a>
-			</div>
-			<div class="join">
-				<div class="line"></div>
-				<a href="##">JOIN US NOW</a>
-			</div>
-		</div>
-		<div class="rightbar">
+			
 
-			<div class="features">
-				<i class="fas fa-search"></i>
-				<div class="personal"><a href="./exhibition.html">個人展間</a>
+				<div class="select">
+					<a href="#" class="select_normalnumber">一般會員</a>
+					<a href="hightlevelnumber.html" class="select_hightlevel">高級會員</a>
 				</div>
 
-
-				<div class="login"><a href="./normalnumber.html" class="login_manger">管理</a>
-					<i class="fas fa-user-friends"></i>
-				</div>
-
-				<i class="fas fa-bell"></i>
-			</div>
-
-
-
-			<!-- <div class="features">
-				<i class="fas fa-search"></i>
-				<div class="personal">個人展間</div>
-				<div class="login">管理<i class="fas fa-user-friends"></i></div>
-				<i class="fas fa-bell"></i>
-			</div> -->
-
-			<div class="select">
-				<a href="#" class="select_normalnumber">一般會員</a>
-				<a href="hightlevelnumber.html" class="select_hightlevel">高級會員</a>
-			</div>
-
-			<div class="main">
-				<div class="left">
-					<div class="name">Name<img src="img/highlevelnumber/Group 250.png"></div>
-					<div class="artimg">
-						<img class="art" src="img/highlevelnumber/art.png">
-					</div>
-					<div class="mastername">MasterPieces Name<img src="img/highlevelnumber/Group 250.png"></div>
-					<div class="intro">
-						<p> Lorem ipsum dolor sit amet, consectetur adipiscing
-							elit, sed do eiusmod tempor incididunt ut labore et</p><img
-							src="img/highlevelnumber/Group 250.png">
-					</div>
-					<div class="visit">
-						<div class="good">
-							<p class="p1">24K</p>
-							<p class="p2">給讚人數</p>
+				<div class="main">
+					<div class="left">
+						<div class="name">Name<img src="./assets/img/highlevelnumber/Group 250.png"></div>
+						<div class="artimg">
+							<img class="art" src="./assets/img/normalnumber/art.png">
 						</div>
-						<div class="tour">
-							<p class="p1">1,890</p>
-							<p class="p2">瀏覽人次</p>
+						<div class="mastername">MasterPieces Name<img src="./assets/img/highlevelnumber/Group 250.png">
 						</div>
-						<div class="message">
-							<p class="p1">90</p>
-							<p class="p2">留言數</p>
+						<div class="intro">
+							<p> Lorem ipsum dolor sit amet, consectetur adipiscing
+								elit, sed do eiusmod tempor incididunt ut labore et</p><img
+								src="./assets/img/highlevelnumber/Group 250.png">
+						</div>
+						<div class="visit">
+							<div class="good">
+								<p class="p1">24K</p>
+								<p class="p2">給讚人數</p>
+							</div>
+							<div class="tour">
+								<p class="p1">1,890</p>
+								<p class="p2">瀏覽人次</p>
+							</div>
+							<div class="message">
+								<p class="p1">90</p>
+								<p class="p2">留言數</p>
+							</div>
 						</div>
 					</div>
-				</div>
 
-				<div class="right">
+					<div class="right">
 
 
-					<div class="authority">
-						<div class="authority_top">
-							<h1>作品儲存區</h1>
-						</div>
-
-						<div class="authority_down">
-							<div class="authority_image">
-								<img src="img/highlevelnumber/authority_work2.png" alt="">
-								<img src="img/highlevelnumber/authority_work3.png" alt="">
-								<img src="img/highlevelnumber/authority_work4.png" alt="">
-								<img src="img/highlevelnumber/authority_work5.png" alt="">
-								<img src="img/highlevelnumber/authority_work6.png" alt="">
-								<img src="img/highlevelnumber/authority_work7.png" alt="">
-								<img src="img/highlevelnumber/authority_work8.png" alt="">
-								<img src="img/highlevelnumber/authority_work9.png" alt="">
-								<img src="img/highlevelnumber/authority_work1.png" alt="">
-								<img src="img/highlevelnumber/authority_work2.png" alt="">
-								<img src="img/highlevelnumber/authority_work3.png" alt="">
-								<img src="img/highlevelnumber/authority_work4.png" alt="">
-								<img src="img/highlevelnumber/authority_work5.png" alt="">
-								<img src="img/highlevelnumber/authority_work6.png" alt="">
-								<img src="img/highlevelnumber/authority_work7.png" alt="">
-								<img src="img/highlevelnumber/authority_work8.png" alt="">
-								<img src="img/highlevelnumber/authority_work9.png" alt="">
-								<img src="img/highlevelnumber/authority_work1.png" alt="">
+						<div class="authority">
+							<div class="authority_top">
+								<h1>作品儲存區</h1>
 							</div>
 
-
-
-							<div class="authority_btn">
-								<div class="authority_btn_down">
-									<div class="work_btn"><span class="material-icons">library_add</span>ADD WORK</div>
-									<div class="trash_btn"><i class="fas fa-trash"></i>DELETE</div>
+							<div class="authority_down">
+								<div class="authority_image">
+									<img src="./assets/img/highlevelnumber/authority_work1.png" alt="">
+									<img src="./assets/img/highlevelnumber/authority_work2.png" alt="">
+									<img src="./assets/img/highlevelnumber/authority_work3.png" alt="">
+									<img src="./assets/img/highlevelnumber/authority_work4.png" alt="">
+									<img src="./assets/img/highlevelnumber/authority_work5.png" alt="">
+									<img src="./assets/img/highlevelnumber/authority_work6.png" alt="">
+									<img src="./assets/img/highlevelnumber/authority_work7.png" alt="">
+									<img src="./assets/img/highlevelnumber/authority_work8.png" alt="">
+									<img src="./assets/img/highlevelnumber/authority_work9.png" alt="">
+									<img src="./assets/img/highlevelnumber/authority_work1.png" alt="">
+									<img src="./assets/img/highlevelnumber/authority_work2.png" alt="">
+									<img src="./assets/img/highlevelnumber/authority_work3.png" alt="">
+									<img src="./assets/img/highlevelnumber/authority_work4.png" alt="">
+									<img src="./assets/img/highlevelnumber/authority_work5.png" alt="">
+									<img src="./assets/img/highlevelnumber/authority_work6.png" alt="">
+									<img src="./assets/img/highlevelnumber/authority_work7.png" alt="">
+									<img src="./assets/img/highlevelnumber/authority_work8.png" alt="">
+									<img src="./assets/img/highlevelnumber/authority_work9.png" alt="">
 								</div>
+
+
+
+								<div class="authority_btn">
+									<div class="authority_btn_down">
+										<div class="work_btn"><span class="material-icons">library_add</span>ADD WORK
+										</div>
+										<div class="trash_btn"><i class="fas fa-trash"></i>DELETE</div>
+									</div>
+								</div>
+
 							</div>
-
 						</div>
-					</div>
 
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-	<!-- <div class="bottombar">
+		<!-- <div class="bottombar">
 		<p>AboutUs</p>
 		<p>Exhibits</p>
 		<p>PostCard</p>
@@ -178,28 +126,23 @@
 		<i class="fab fa-instagram"></i>
 		<i class="fab fa-youtube"></i>
 	</div> -->
-	<footer>
-		<ul>
-			<li><a href="./About.html">AboutUs</a></li>
-			<li><a href="./exhibition.html">Exhibits</a></li>
-			<li><a href="./postcard.html">PostCard</a></li>
-		</ul>
 
-		<div class="footerLogo">
-			<a href="./homepage.html">
-				<img src="./img/logo_bowu_white.png" width="55px" height="55px">
-				<p>　BO WU MUSEUM</p>
-			</a>
-		</div>
+	</div>
 
-		<ol>
-			<li><a href="./bidding.html">Rules</a></li>
-			<li><a href="#"><img src="./img/IconFacebook.png"></a></li>
-			<li><a href="#"><img src="./img/IconInstagram.png"></a></li>
-			<li><a href="#"><img src="./img/IconYoutube.png"></a></li>
-		</ol>
-	</footer>
-	<script src="./js&jq/script.js"></script>
+	@@include('./compontents/footer.html')
+	<script src="./assets/js/new.js"></script>
+
+	<script>
+		new Vue({
+			el: '#app',
+			data: {
+				message: 'Hello, VueJS!',
+			},
+		});
+	</script>
+
+	<script src="./assets/js/script.js"></script>
+	<script src="./assets/js/highlevel.js"></script>
 </body>
 
 </html>
