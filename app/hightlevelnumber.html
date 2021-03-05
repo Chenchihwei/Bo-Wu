@@ -5,21 +5,35 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
-	<link rel="stylesheet" href="css/header_footer.css">
-	<link rel="stylesheet" href="css/hightlevelnumber.css">
+	<!-- <link rel="stylesheet" href="css/header_footer.css"> -->
+	<!-- <link rel="stylesheet" href="./assets/style/all.scss"> -->
+	<link rel="stylesheet" href="./assets/css/all.css">
+
+	<!-- <link rel="stylesheet" href="./css/hightlevel.css"> -->
+	<link rel="stylesheet" href="./assets/css/pages/hightlevel.css">
+
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+	<!-- <script src="./js&jq/jquery-3.5.1.js"></script> -->
+	<script src="./assets/js/jquery-3.5.1.js"></script>
 	<!-- <link rel="stylesheet" href="/css/hightlevelnumber_rwd.css"> -->
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<script src="./assets/js/vue.js"></script>
 </head>
 
 <body>
-	<div class="wrapper">
-		<!-- <div class="leftbar">
+	<div id="app">
+		<vue-header></vue-header>
+
+		@@include('./compontents/head.html')
+		@@include('./compontents/SearchBar.html')
+
+		<div class="wrapper">
+			<!-- <div class="leftbar">
 			<a href="#"><img src="img/highlevelnumber/logo_bowu_w.png" class="logo"></a>
 			<div>MENU</div>
 			<p>SHARE | CONTACT US</p>
 		</div> -->
-		<header>
+			<!-- <header>
 			<a href="./homepage.html">
 				<img src="./img/logo_bowu_white.png">
 			</a>
@@ -36,222 +50,286 @@
 				<li> <a href="./About.html">CONTACT US</a> </li>
 			</ul>
 
-		</header>
-		<div class="menu_bar none">
-			<a href="" class="menu_personal_exhibits">PERSONAL EXHIBITS</a>
-			<div class="menu_about menu_child">
-				<a href="./About.html">
-					<img src="./img/menu_about.png" alt="">
-					About
-				</a>
-			</div>
-			<div class="menu_exhibits menu_child">
-				<a href="./exhibition.html">
-					<img src="./img/menu_exhibits.png" alt="">Exhibits</a>
-			</div>
-			<div class="menu_postcard menu_child">
-				<a href="./postcard.html">
-					<img src="./img/menu_postcard.png" alt="">PostCard</a>
-			</div>
-			<div class="notthings menu_child">
-				<a href=""></a>
-			</div>
-			<div class="join">
-				<div class="line"></div>
-				<a href="##">JOIN US NOW</a>
-			</div>
-		</div>
-		<div class="rightbar">
-			<!-- <div class="features">
+		</header> -->
+			<!-- <div class="menu_bar none">
+				<a href="" class="menu_personal_exhibits">PERSONAL EXHIBITS</a>
+				<div class="menu_about menu_child">
+					<a href="./About.html">
+						<img src="./img/menu_about.png" alt="">
+						About
+					</a>
+				</div>
+				<div class="menu_exhibits menu_child">
+					<a href="./exhibition.html">
+						<img src="./img/menu_exhibits.png" alt="">Exhibits</a>
+				</div>
+				<div class="menu_postcard menu_child">
+					<a href="./postcard.html">
+						<img src="./img/menu_postcard.png" alt="">PostCard</a>
+				</div>
+				<div class="notthings menu_child">
+					<a href=""></a>
+				</div>
+				<div class="join">
+					<div class="line"></div>
+					<a href="##">JOIN US NOW</a>
+				</div>
+			</div> -->
+			<div class="rightbar">
+				<!-- <div class="features">
 				<i class="fas fa-search"></i>
 				<div class="personal">個人展間</div>
 				<div class="login">管理<i class="fas fa-user-friends"></i></div>
 				<i class="fas fa-bell"></i>
 			</div> -->
 
-			<!-- <div class="features_rwd">
+				<!-- <div class="features_rwd">
 				<i class="fas fa-search"></i>
 				<i class="fas fa-user-friends"></i>
 				<i class="fas fa-pen"></i>
 			</div> -->
-			<div class="features">
-				<i class="fas fa-search"></i>
-				<div class="personal"><a href="./exhibition.html">個人展間</a>
+				<!-- <div class="features">
+					<i class="fas fa-search"></i>
+					<div class="personal"><a href="./exhibition.html">個人展間</a>
+					</div>
+
+
+					<div class="login"><a href="./hightlevelnumber.html" class="login_manger">管理</a>
+						<i class="fas fa-user-friends"></i>
+					</div>
+
+					<i class="fas fa-bell"></i>
+				</div> -->
+
+				<div class="select">
+					<a href="normalnumber.html" class="select_normalnumber">一般會員</a>
+					<a href="#" class="select_hightlevel">高級會員</a>
 				</div>
 
+				<div class="main">
+					<div class="left">
+						<div class="name">Name<img src="./assets/img/highlevelnumber/Group 250.png"></div>
 
-				<div class="login"><a href="./hightlevelnumber.html" class="login_manger">管理</a>
-					<i class="fas fa-user-friends"></i>
-				</div>
+						<div class="artimg">
+							<img class="art" src="./assets/img/normalnumber/art.png">
 
-				<i class="fas fa-bell"></i>
-			</div>
-
-			<div class="select">
-				<a href="normalnumber.html" class="select_normalnumber">一般會員</a>
-				<a href="#" class="select_hightlevel">高級會員</a>
-			</div>
-
-			<div class="main">
-				<div class="left">
-					<div class="name">Name<img src="img/highlevelnumber/Group 250.png"></div>
-					<div class="artimg">
-						<img class="art" src="img/normalnumber/art.png">
-						<h1>Tags</h1>
-						<div class="tag">
-							<button>web</button>
-							<button>illustration</button>
-							<button>graphics</button>
-							<button>ui</button>
-							<button>design</button>
-							<button>app</button>
-							<button>iphone</button>
-							<button>interface</button>
-							<button>icon</button>
-							<button>web design</button>
+							<h1>Tags</h1>
+							<div class="tag">
+								<button>web</button>
+								<button>illustration</button>
+								<button>graphics</button>
+								<button>ui</button>
+								<button>design</button>
+								<button>app</button>
+								<button>iphone</button>
+								<button>interface</button>
+								<button>icon</button>
+								<button>web design</button>
+							</div>
+						</div>
+						<div class="name_rwd">Name<img src="./assets/img/highlevelnumber/Group 250.png"></div>
+						<div class="mastername">MasterPieces Name<img src="./assets/img/highlevelnumber/Group 250.png">
+						</div>
+						<div class="intro">
+							<p> Lorem ipsum dolor sit amet, consectetur adipiscing
+								elit, sed do eiusmod tempor incididunt </p>
+							<img src="./assets/img/highlevelnumber/Group 250.png">
+						</div>
+						<div class="visit">
+							<div class="good">
+								<p class="p1">24K</p>
+								<p class="p2">給讚人數</p>
+							</div>
+							<div class="tour">
+								<p class="p1">1,890</p>
+								<p class="p2">瀏覽人次</p>
+							</div>
+							<div class="message">
+								<p class="p1">90</p>
+								<p class="p2">留言數</p>
+							</div>
 						</div>
 					</div>
-					<div class="name_rwd">Name<img src="img/highlevelnumber/Group 250.png"></div>
-					<div class="mastername">MasterPieces Name<img src="img/highlevelnumber/Group 250.png"></div>
-					<div class="intro">
-						<p> Lorem ipsum dolor sit amet, consectetur adipiscing
-							elit, sed do eiusmod tempor incididunt </p>
-						<img src="img/highlevelnumber/Group 250.png">
-					</div>
-					<div class="visit">
-						<div class="good">
-							<p class="p1">24K</p>
-							<p class="p2">給讚人數</p>
-						</div>
-						<div class="tour">
-							<p class="p1">1,890</p>
-							<p class="p2">瀏覽人次</p>
-						</div>
-						<div class="message">
-							<p class="p1">90</p>
-							<p class="p2">留言數</p>
-						</div>
-					</div>
-				</div>
 
-				<div class="right">
-					<div class="personal">
-						<h1>上架區</h1>
-						<div class="personal_works">
-							<div class="personal_works1">
-								<img src="img/highlevelnumber/left.png" alt="">
-								<input type="checkbox" class="checkrage" id="checkrage">
-								<div class="custom-checkbox"><i class="fas fa-check"></i></div>
+					<div class="right">
+						<div class="pull_stone">
+							<h1>上架區</h1>
+							<div class="personal_works">
+								<div class="personal_work">
+									<img class='personal_img' src="./assets/img/highlevelnumber/left.png" alt="">
+
+									<input type="checkbox" class="checkrage" data-img="0">
+									<div class="custom-checkbox"><i class="fas fa-check"></i></div>
+									<div class="countdown">
+										<div class="countdown_content">
+											<p>倒數時間：</p>
+											<p class="day">3</p>
+											<p>:</p>
+											<p class="hour">05</p>
+											<p>HR</p>
+										</div>
+									</div>
+								</div>
+
+								<div class="personal_work">
+									<img src="./assets/img/highlevelnumber/mid.png" alt="">
+
+									<input type="checkbox" class="checkrage" data-img="1">
+									<div class="custom-checkbox"><i class="fas fa-check"></i></div>
+									<div class="countdown">
+										<div class="countdown_content">
+											<p>倒數時間：</p>
+											<p class="day">3</p>
+											<p>:</p>
+											<p class="hour">05</p>
+											<p>HR</p>
+										</div>
+									</div>
+								</div>
+
+								<div class="personal_work">
+									<img src="./assets/img/highlevelnumber/right.png" alt="">
+
+									<input type="checkbox" class="checkrage" data-img="2">
+									<div class="custom-checkbox"><i class="fas fa-check"></i></div>
+									<div class="countdown">
+										<div class="countdown_content">
+											<p>倒數時間：</p>
+											<p class="day">3</p>
+											<p>:</p>
+											<p class="hour">05</p>
+											<p>HR</p>
+										</div>
+									</div>
+								</div>
+
+
 							</div>
 
-							<div class="personal_works2">
-								<img src="img/highlevelnumber/mid.png" alt="">
-								<input type="checkbox" class="checkrage" id="checkrage">
-								<div class="custom-checkbox"><i class="fas fa-check"></i></div>
-							</div>
 
-							<div class="personal_works3">
-								<img src="img/highlevelnumber/right.png" alt="">
-								<input type="checkbox" class="checkrage" id="checkrage">
-								<div class="custom-checkbox"><i class="fas fa-check"></i></div>
-							</div>
+
+
 							<!-- <img src="img/highlevelnumber/left.png" alt=""> -->
 							<!-- <img src="img/highlevelnumber/mid.png" alt="">
-							<img src="img/highlevelnumber/right.png" alt="">
-							<div class="personal_select"></div>
-							<div class="personal_countdown"></div>
-							<label for="test"> -->
+						<img src="img/highlevelnumber/right.png" alt="">
+						<div class="personal_select"></div>
+						<div class="personal_countdown"></div>
+						<label for="test"> -->
 
 							<!-- </label> -->
-						</div>
-						<div class="authority_pull">
-							<div class="personal_OffShelf">
-								<i class="fas fa-arrow-down"></i>
-								<p>P</p>
-								<p>U</p>
-								<p>L</p>
-								<p>L</p>
+
+							<div class="authority_pull">
+								<div class="personal_OffShelf">
+									<i class="fas fa-arrow-down"></i>
+									<p>P</p>
+									<p>U</p>
+									<p>L</p>
+									<p>L</p>
+								</div>
+								<div class="fillet_down"></div>
 							</div>
-							<div class="fillet_down"></div>
-						</div>
-					</div>
-
-
-					<div class="authority">
-						<div class="authority_top">
-							<h1>作品儲存區</h1>
 						</div>
 
-						<div class="authority_upload">
-							<div class="personal_OnShelf">
-								<i class="fas fa-arrow-up"></i>
-								<p>U</p>
-								<p>P</p>
-								<p>L</p>
-								<p>O</p>
-								<p>A</p>
-								<p>D</p>
+
+
+						<div class="authority">
+							<div class="authority_top">
+								<h1>作品儲存區</h1>
 							</div>
-							<div class="fillet_up"></div>
-						</div>
 
-						<div class="authority_down">
-							<div class="authority_image">
-								<img src="img/normalnumber/authority_work1.png" alt="">
-								<img src="img/normalnumber/authority_work2.png" alt="">
-								<img src="img/normalnumber/authority_work3.png" alt="">
-								<img src="img/normalnumber/authority_work4.png" alt="">
-								<img src="img/normalnumber/authority_work5.png" alt="">
-								<img src="img/normalnumber/authority_work6.png" alt="">
-								<img src="img/normalnumber/authority_work1.png" alt="">
-								<img src="img/normalnumber/authority_work2.png" alt="">
-								<img src="img/normalnumber/authority_work3.png" alt="">
-								<img src="img/normalnumber/authority_work4.png" alt="">
-								<img src="img/normalnumber/authority_work5.png" alt="">
-								<img src="img/normalnumber/authority_work6.png" alt="">
+							<div class="authority_upload">
+								<div class="personal_OnShelf">
+									<i class="fas fa-arrow-up"></i>
+									<p>U</p>
+									<p>P</p>
+									<p>L</p>
+									<p>O</p>
+									<p>A</p>
+									<p>D</p>
+								</div>
+								<div class="fillet_up"></div>
 							</div>
 
 
-
-
-							<div class="authority_btn">
-								<div class="authority_btn_down">
-									<div class="work_btn"><span class="material-icons">library_add</span>ADD WORK</div>
-									<div class="trash_btn"><i class="fas fa-trash"></i>DELETE</div>
+							<!-- ------彈窗------- -->
+							<div class="overlay">
+								<div class="popup">
+									<div class="popup_inside">
+										<h1>設定上架倒數時間：</h1>
+										<div class="selectlist">
+											<span class="material-icons">
+												arrow_drop_down
+											</span>
+										</div>
+										<div class="finish">
+											<p>DONE</p>
+											<span class="material-icons">
+												done_all
+											</span>
+										</div>
+									</div>
 								</div>
 							</div>
 
+
+							<div class="authority_down">
+								<div class="authority_image">
+									<img src="./assets/img/normalnumber/authority_work1.png" alt="">
+									<img src="./assets/img/normalnumber/authority_work2.png" alt="">
+									<img src="./assets/img/normalnumber/authority_work3.png" alt="">
+									<img src="./assets/img/normalnumber/authority_work4.png" alt="">
+									<img src="./assets/img/normalnumber/authority_work5.png" alt="">
+									<img src="./assets/img/normalnumber/authority_work6.png" alt="">
+									<img src="./assets/img/normalnumber/authority_work1.png" alt="">
+									<img src="./assets/img/normalnumber/authority_work2.png" alt="">
+									<img src="./assets/img/normalnumber/authority_work3.png" alt="">
+									<img src="./assets/img/normalnumber/authority_work4.png" alt="">
+									<img src="./assets/img/normalnumber/authority_work5.png" alt="">
+									<img src="./assets/img/normalnumber/authority_work6.png" alt="">
+								</div>
+
+
+
+
+								<div class="authority_btn">
+									<div class="authority_btn_down">
+										<div class="work_btn"><span class="material-icons">library_add</span>ADD WORK
+										</div>
+										<div class="trash_btn"><i class="fas fa-trash"></i>DELETE</div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+
+
+						<div class="backimage_select">
+							<p>展間背景圖選擇:</p>
+							<p class="nothing">無</p>
+							<img class="backimage_item" src="./assets/img/normalnumber/select2.png" alt="">
+							<img class="backimage_item" src="./assets/img/normalnumber/select3.png" alt="">
+							<img class="backimage_item" src="./assets/img/normalnumber/select4.png" alt="">
+							<img class="backimage_item" src="./assets/img/normalnumber/select5.png" alt="">
+							<p class="none_rwd">無背景</p>
 						</div>
 					</div>
-
-
-					<div class="backimage_select">
-						<p>展間背景圖選擇:</p>
-						<p class="nothing">無</p>
-						<img src="img/normalnumber/select2.png" alt="">
-						<img src="img/normalnumber/select3.png" alt="">
-						<img src="img/normalnumber/select4.png" alt="">
-						<img src="img/normalnumber/select5.png" alt="">
-						<p class="none_rwd">無背景</p>
-					</div>
-
-
 				</div>
 			</div>
 		</div>
 	</div>
+	</div>
 	<!-- <div class="bottombar">
-		<p>AboutUs</p>
-		<p>Exhibits</p>
-		<p>PostCard</p>
-		<img src="img/highlevelnumber/logo_bowu_w.png" alt="">
-		<h1>BO WU MUSEUM</h1>
-		<p>Rules</p>
-		<i class="fab fa-facebook-f"></i>
-		<i class="fab fa-instagram"></i>
-		<i class="fab fa-youtube"></i>
-	</div> -->
-	<footer>
+	<p>AboutUs</p>
+	<p>Exhibits</p>
+	<p>PostCard</p>
+	<img src="img/highlevelnumber/logo_bowu_w.png" alt="">
+	<h1>BO WU MUSEUM</h1>
+	<p>Rules</p>
+	<i class="fab fa-facebook-f"></i>
+	<i class="fab fa-instagram"></i>
+	<i class="fab fa-youtube"></i>
+</div> -->
+	<!-- <footer>
 		<ul>
 			<li><a href="./About.html">AboutUs</a></li>
 			<li><a href="./exhibition.html">Exhibits</a></li>
@@ -271,9 +349,26 @@
 			<li><a href="#"><img src="./img/IconInstagram.png"></a></li>
 			<li><a href="#"><img src="./img/IconYoutube.png"></a></li>
 		</ol>
-	</footer>
+	</footer> -->
+	</div>
 
-	<script src="./js&jq/script.js"></script>
+	@@include('./compontents/footer.html')
+	<script src="./assets/js/new.js"></script>
+
+	<script>
+		new Vue({
+			el: '#app',
+			data: {
+				message: 'Hello, VueJS!',
+			},
+		});
+	</script>
+
+	<script src="./assets/js/script.js"></script>
+	<script src="./assets/js/highlevel.js"></script>
+
 </body>
+
+
 
 </html>

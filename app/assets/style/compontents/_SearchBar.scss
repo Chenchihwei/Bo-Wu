@@ -4,30 +4,31 @@
     display: flex;
     width: 250px;
     height: 27px;
-    color: map-get($color, 'black');
-  
+    color: map-get($color, "black");
+
     align-items: center;
-    position: fixed;
+    // position: fixed;
+    position: absolute;
     top: 50px;
-    right:1vw;
+    right: 1vw;
     z-index: 2;
-  
-    a{
+
+    a {
         text-decoration: none;
-        color: map-get($color, 'black');
+        color: map-get($color, "black");
         font-size: $paragraph;
-        font-family: 'Noto Serif TC';
-        @include pad{
-            color:map-get($color ,'white');
+        font-family: "Noto Serif TC";
+        @include pad {
+            color: map-get($color, "white");
         }
-        @include mobile{
+        @include mobile {
             font-size: 14px;
         }
     }
     .fa-search {
         font-size: 23px;
         margin: 0;
-        @include mobile{
+        @include mobile {
             font-size: 20px;
         }
     }
@@ -36,8 +37,8 @@
         height: 23px;
         margin-left: 20px;
         border-bottom: 3px solid #e5e5e5;
-     // outline: 2px solid chocolate;
-        @include mobile{
+        // outline: 2px solid chocolate;
+        @include mobile {
             display: none;
             border-bottom: 1.5px solid #e5e5e5;
         }
@@ -48,8 +49,8 @@
         margin-left: 20px;
         display: flex;
         border-bottom: 3px solid #e5e5e5;
-     // outline: 2px solid chocolate;
-        @include mobile{
+        // outline: 2px solid chocolate;
+        @include mobile {
             height: 20px;
             border-bottom: 1.5px solid #e5e5e5;
         }
@@ -63,15 +64,15 @@
         font-size: 20px;
         margin-left: 15px;
         margin-bottom: 6px;
-  
-        @include mobile{
+
+        @include mobile {
             display: none;
         }
     }
-    @include pad{
-        color:map-get($color ,'white');
+    @include pad {
+        color: map-get($color, "white");
     }
-    @include mobile{
+    @include mobile {
         right: -35vw;
         top: 36px;
     }
@@ -88,38 +89,38 @@
     align-items: center;
     position: absolute;
     top: 50px;
-    right:1.822vw;
+    right: 1.822vw;
     // outline: 2px solid chocolate;
-    a{
+    a {
         text-decoration: none;
         color: white;
     }
     .fa-search {
-     font-size: 26px;
-     margin: 0;
+        font-size: 26px;
+        margin: 0;
     }
     .personal {
-     width: 64px;
-     height: 23px;
-     margin-left: 20px;
-     border-bottom: 2px solid #e5e5e5;
-     // outline: 2px solid chocolate;
+        width: 64px;
+        height: 23px;
+        margin-left: 20px;
+        border-bottom: 2px solid #e5e5e5;
+        // outline: 2px solid chocolate;
     }
     .login {
-     width: 56px;
-     height: 23px;
-     margin-left: 20px;
-     display: flex;
-     border-bottom: 2px solid #e5e5e5;
-     // outline: 2px solid chocolate;
+        width: 56px;
+        height: 23px;
+        margin-left: 20px;
+        display: flex;
+        border-bottom: 2px solid #e5e5e5;
+        // outline: 2px solid chocolate;
     }
     .fa-user-friends {
-     font-size: 15px;
-     margin: 0;
-     margin-left: 4px;
+        font-size: 15px;
+        margin: 0;
+        margin-left: 4px;
     }
     .fa-bell {
-     font-size: 20px;
-     margin-left: 15px;
+        font-size: 20px;
+        margin-left: 15px;
     }
 }
