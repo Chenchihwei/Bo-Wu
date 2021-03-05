@@ -51,6 +51,9 @@ function movePHP() {
     return src('app/assets/php/**/*.php').pipe(dest('dist/assets/php/'));
 }
 
+function moveMusic() {
+    return src('app/assets/music/**/*').pipe(dest('dist/assets/music/'));
+}
 function moveBackendFiles() {
     return src('app/back/**/*.php').pipe(dest('dist/backend'));
 }
@@ -164,7 +167,7 @@ function killDistCss() {
 
 exports.killCss = killDistCss;
 exports.Kill = killDist;
-exports.all = series(killDistCss,moveImg,moveJS,movePHP,parallel(commonStyle,pageStyle,backStyle,includeHTML));
+exports.all = series(killDistCss,moveImg,moveJS,movePHP,moveMusic,parallel(commonStyle,pageStyle,backStyle,includeHTML));
 
 //監聽scss
 
@@ -179,5 +182,6 @@ exports.w = function watchFiles() {
     watch('app/assets/img/**/*', moveImg);
     watch('app/assets/js/**/*.js', moveJS);
     watch('app/assets/php/**/*.php', movePHP);
+    watch('app/assets/music/**/*',moveMusic);
     watch('app/back/**/*.php', moveBackendFiles);
 };
