@@ -7,18 +7,27 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
     <!-- <link rel="stylesheet" href="./css/header_footer.css"> -->
-    <link rel=" stylesheet" href="./css/postcard.css">
-    <link rel="stylesheet" href="./css/signin.css" />
+    <link rel="stylesheet" href="./assets/css/all.css" />
+    <link rel="stylesheet" href='./assets/css/pages/signin.css'>
+    <link rel="stylesheet" href="./assets/css/pages/postcard.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-    <script src="./js&jq/jquery-3.5.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.js"></script>
+    <script src="./assets/js/jquery-3.5.1.js"></script>
+    <script src="./assets/js/jquery-ui.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
+    <!-- google -->
+    <!-- <meta name="google-signin-scope" content="profile email"> -->
+    <meta name="google-signin-client_id" content="5123688312-hh38n162r8fqfrd31n2a2hid0q7pk7uf.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <!-- google -->
 </head>
 
 <body>
-    <div class="features">
+    <!-- <div class="features">
         <i class="fas fa-search"></i>
         <div class="personal"><a href="./exhibition.html">個人展間</a>
         </div>
@@ -29,8 +38,8 @@
         </div>
 
         <i class="fas fa-bell"></i>
-    </div>
-    <div class="menu_bar none">
+    </div> -->
+    <!-- <div class="menu_bar none">
         <a href="" class="menu_personal_exhibits">PERSONAL EXHIBITS</a>
         <div class="menu_about menu_child">
             <a href="">
@@ -53,8 +62,9 @@
             <div class="line"></div>
             <a href="##">JOIN US NOW</a>
         </div>
-    </div>
-    <header>
+    </div> -->
+    @@include('./compontents/head.html')
+    <!-- <header>
         <a href="#">
             <img src="./img/logo_bowu_gold.png">
         </a>
@@ -70,7 +80,7 @@
             <b></b>
             <li> <a href="#">CONTACT US</a> </li>
         </ul>
-    </header>
+    </header> -->
     <div class="main_postcard">
         <div class="main_left">
             <div class="post_content">
@@ -80,14 +90,18 @@
                     <h2>Wanna get an unique postcard for yourself? Try this!</h2>
                     <p>STEPS : Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</p>
                     <ul>
-                        <li><span>>></span><a href="">背景圖</a><span>/</span></li>
-                        <li><a href="">圖樣</a><span>/</span></li>
-                        <li><a href="">內文</a></li>
+                        <li><span>>></span><a href="###" onclick="background()">背景圖</a><span>/</span></li>
+                        <li><a href="###" onclick="logo()">圖樣</a><span>/</span></li>
+                        <li><a href="###" onclick="message()">內文</a></li>
                     </ul>
                 </div>
                 <div class="pos_center">
                     <div class="font_color">
-                        <ul>
+                        <div class="color">
+                            <label>color</label>
+                            <input type="color" min="0" max="150" id="shadowColorInput" onchange="changeLineColor()">
+                        </div>
+                        <!-- <ul>
                             <i class="fas fa-pen"></i>
                             <li class="red"></li>
                             <li class="orange"></li>
@@ -97,26 +111,30 @@
                             <li class="indigo"></li>
                             <li class="purple"></li>
                             <li class="palette"></li>
-                        </ul>
+                        </ul> -->
                         <div class="size">
-                            <p>SIZE</p>
-                            <div class="line1"></div>
-                            <div class="line2"></div>
+                            <!-- <p>SIZE</p> -->
+                            <label>size</label>
+                            <input class="input-range" orient="vertical" type="range"  min="0" max="100" value="1" onchange="changeLineWidth()">
+                            <!-- <div class="line1"></div>
+                            <div class="line2"></div> -->
                         </div>
                     </div>
                     <section>
                         <div class="postcard">
                             <div class="postcard_send">
                                 <div class="postcard_bg">
+                                    <canvas id='canvas'></canvas>
                                     <div class="postcard_title">
-                                        <img src="./img/postcard/logo_bowu_white.png" alt="">
-                                        <h3>BOWU MUSEUM <br>
-                                            <span>by Name Surname</span>
-                                        </h3>
+                                    <img src="./assets/img/postcard/logo_bowu_white.png" alt="">
+                                    <h3>BOWU MUSEUM <br>
+                                        <span>by Name Surname</span>
+                                    </h3>
                                     </div>
-                                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+                                    
+                                    <!-- <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
                                         tempor.
-                                    </p>
+                                    </p> -->
                                 </div>
                             </div>
                             <div class="mobilesm_font_color">
@@ -141,8 +159,8 @@
                                 <textarea name="" class="pos_textbox" cols="30" rows="10"
                                     placeholder="Message:"></textarea>
                                 <div class="btn">
-                                    <button type="button" class="save"><i class="far fa-circle"></i> SAVE</button>
-                                    <button type="button" class="delete"><i class="fas fa-times"></i> DELETE</button>
+                                    <button type="button" class="save" onclick="messageSave()"><i class="far fa-circle"></i> SAVE</button>
+                                    <button type="button" class="delete" onclick="messageDel()"><i class="fas fa-times"></i> DEL</button>
                                 </div>
                             </div>
                         </div>
@@ -167,14 +185,14 @@
                     </section>
                     <div class="post_img">
                         <ul>
-                            <li><img src="./img/postcard/uni_bg_1.jpg" alt=""></li>
+                            <!-- <li><img src="./img/postcard/uni_bg_1.jpg" alt=""></li>
                             <li><img src="./img/postcard/uni_bg_2.jpg" alt=""></li>
                             <li><img src="./img/postcard/oce_bg_1.jpg" alt=""></li>
                             <li><img src="./img/postcard/for_bg_1.jpg" alt=""></li>
                             <li><img src="./img/postcard/gro_bg_1.jpg" alt=""></li>
                             <li><img src="./img/postcard/oce_bg_2.jpg" alt=""></li>
                             <li><img src="./img/postcard/oce_bg_3.jpg" alt=""></li>
-                            <li><img src="./img/postcard/oce_bg_4.jpg" alt=""></li>
+                            <li><img src="./img/postcard/oce_bg_4.jpg" alt=""></li> -->
                         </ul>
                     </div>
                 </div>
@@ -204,18 +222,17 @@
             </div>
         </div>
     </div>
-    <div class="musicControlBtn">
+    @@include('./compontents/searchbar.html')
+    @@include('./compontents/music.html')
+    <!-- <div class="musicControlBtn">
         <div class="musicControlBtnSpan">
             <span class="line1"></span>
             <span class="line2"></span>
             <span class="line3"></span>
         </div>
         <p>Music on/ off</p>
-    </div>
-
-
-
-    <div class="panel panel--static close">
+    </div> -->
+    <!-- <div class="panel panel--static close">
         <div class="panel__content left">
             <h1 class="panel__heading">Don't have an account?</h1>
             <p class="panel__copy">Ethical celiac hashtag taxidermy squid. Wayfarers distillery narwhal, kombucha jean
@@ -276,11 +293,9 @@
                 </div>
             </div>
         </div>
-    </div>
-
-
-
-    <footer>
+    </div> -->
+    @@include('./compontents/footer.html')
+    <!-- <footer>
         <ul>
             <li><a href="#">AboutUs</a></li>
             <li><a href="#">Exhibits</a></li>
@@ -300,14 +315,22 @@
             <li><a href="#"><img src="./img/IconInstagram.png"></a></li>
             <li><a href="#"><img src="./img/IconYoutube.png"></a></li>
         </ol>
-    </footer>
-    <script src="./js&jq/script.js"></script>
+    </footer> -->
 </body>
-<script>
+<!-- <script src="./assets/js/script.js"></script> -->
+<script src="./assets/js/postcard.js"></script>
+<script src="./assets/js/scriptBlack.js"></script>
+<script src="./assets/js/exhibition.js"></script>
+<script src="./assets/js/loginFB.js"></script>
+<script src="./assets/js/loginGoogle.js"></script>
+<script src='./assets/js/music.js'></script>
+<script src='./assets/js/verify.js'></script>
+<script src='./assets/js/logIn.js'></script>
+<!-- <script>
     let login = document.getElementsByClassName("login")[0];
-    console.log(login);
+    // console.log(login);
     let panel = document.getElementsByClassName("panel--static")[0];
-    console.log(panel);
+    // console.log(panel);
     let main = document.getElementsByClassName("main")[0];
     login.addEventListener('click', function () {
         console.log("hihi");
@@ -348,9 +371,6 @@
             }, 550, 'easeInOutBack');
         });
     })();
-</script>
-<script>
-
-</script>
+</script> -->
 
 </html>
