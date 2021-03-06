@@ -41,7 +41,7 @@
 				</div>
 
 				<div class="main">
-					<div class="left">
+					<div @v-show="!showInDetail" class="left">
 						<div v-show="!isShow" class="name">{{defaultText}}<img @click="inputName"
 								src="./assets/img/highlevelnumber/Group 250.png">
 						</div>
@@ -51,9 +51,8 @@
 						</div>
 
 						<div class="artimg">
-							<img class="art" src="./assets/img/normalnumber/art.png">
+							<img class="art" src="./assets/img/highlevelnumber/art.png">
 						</div>
-
 
 						<div v-show="!showPieces" class="mastername">
 							{{ masterName}}
@@ -90,7 +89,6 @@
 							</div>
 						</div>
 					</div>
-
 					<div class="right">
 
 
@@ -101,8 +99,10 @@
 
 							<div class="authority_down">
 								<div class="authority_image">
-									<img src="./assets/img/highlevelnumber/authority_work1.png" alt="">
-									<img src="./assets/img/highlevelnumber/authority_work2.png" alt="">
+									<img @click="selectWork('./assets/img/highlevelnumber/authority_work1.png')"
+										src="./assets/img/highlevelnumber/authority_work1.png" alt="">
+									<img @click="selectWork" src="./assets/img/highlevelnumber/authority_work2.png"
+										alt="">
 									<img src="./assets/img/highlevelnumber/authority_work3.png" alt="">
 									<img src="./assets/img/highlevelnumber/authority_work4.png" alt="">
 									<img src="./assets/img/highlevelnumber/authority_work5.png" alt="">
@@ -155,6 +155,13 @@
 	@@include('./compontents/footer.html')
 	<script src="./assets/js/new.js"></script>
 
+
+
+
+
+
+
+
 	<script>
 		// new Vue({
 		// 	el: '#app',
@@ -162,6 +169,31 @@
 		// 		message: 'Hello, VueJS!',
 		// 	},
 		// });
+
+
+
+
+
+		Vue.component('itemDemo', {
+			props: ['img'],
+
+			template: `<div>
+				
+				
+				</div>`,
+
+			data() {
+				return {
+					name: '1231231',
+
+
+				}
+			}
+
+
+
+
+		})
 
 		new Vue({
 			el: '#app',
@@ -172,6 +204,8 @@
 				showPieces: false,
 				introContent: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et',
 				showIntro: false,
+				showWork: false,
+				itemImg: '',
 			},
 			methods: {
 				inputName() {
@@ -201,6 +235,19 @@
 						this.showIntro = true;
 					} else {
 						this.showIntro = false;
+					}
+				},
+
+				selectWork(val) {
+					if (!this.showWork) {
+						console.log(123);
+						this.showWork = true;
+
+
+						this.itemImg = val;
+
+					} else {
+						this.showWork = false;
 					}
 				}
 			},
