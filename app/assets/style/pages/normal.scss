@@ -119,6 +119,11 @@
 					img {
 						cursor: pointer;
 					}
+					input {
+						width: PxToVw(400);
+						height: PxToVh(60);
+						font-size: 32px;
+					}
 				}
 				.artimg {
 					position: relative;
@@ -144,6 +149,11 @@
 					img {
 						cursor: pointer;
 					}
+					input {
+						width: PxToVw(655);
+						height: PxToVh(49);
+						font-size: 48px;
+					}
 				}
 				.intro {
 					width: PxToVw(655);
@@ -160,6 +170,10 @@
 					p {
 						display: block;
 						width: 460px;
+					}
+					input {
+						width: PxToVw(655);
+						font-size: 20px;
 					}
 				}
 				.visit {
@@ -269,7 +283,7 @@
 							height: 100%;
 							flex-direction: column;
 							.authority_btn_down {
-								margin-top: 60vh;
+								margin-top: 650px;
 								margin-right: 1vw;
 								display: flex;
 								flex-direction: column;
