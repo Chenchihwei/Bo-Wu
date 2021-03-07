@@ -17,6 +17,7 @@
 	<script src="./assets/js/jquery-3.5.1.js"></script>
 	<!-- <link rel="stylesheet" href="/css/hightlevelnumber_rwd.css"> -->
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<script src="./assets/js/jquery-3.5.1.js"></script>
 	<script src="./assets/js/vue.js"></script>
 
 </head>
@@ -32,7 +33,7 @@
 
 			<div class="rightbar">
 
-			
+
 
 				<div class="select">
 					<a href="#" class="select_normalnumber">一般會員</a>
@@ -40,18 +41,39 @@
 				</div>
 
 				<div class="main">
-					<div class="left">
-						<div class="name">Name<img src="./assets/img/highlevelnumber/Group 250.png"></div>
-						<div class="artimg">
-							<img class="art" src="./assets/img/normalnumber/art.png">
-						</div>
-						<div class="mastername">MasterPieces Name<img src="./assets/img/highlevelnumber/Group 250.png">
-						</div>
-						<div class="intro">
-							<p> Lorem ipsum dolor sit amet, consectetur adipiscing
-								elit, sed do eiusmod tempor incididunt ut labore et</p><img
+					<div @v-show="!showInDetail" class="left">
+						<div v-show="!isShow" class="name">{{defaultText}}<img @click="inputName"
 								src="./assets/img/highlevelnumber/Group 250.png">
 						</div>
+
+						<div v-show="isShow" class="name"><input type="text" v-model="defaultText"><img
+								@click="inputName" src="./assets/img/highlevelnumber/Group 250.png">
+						</div>
+
+						<div class="artimg">
+							<img class="art" src="./assets/img/highlevelnumber/art.png">
+						</div>
+
+						<div v-show="!showPieces" class="mastername">
+							{{ masterName}}
+							<img @click="inputmasterName" src="./assets/img/highlevelnumber/Group 250.png">
+						</div>
+
+						<div v-show="showPieces" class="mastername"><input type="text" v-model="masterName"><img
+								@click="inputmasterName" src="./assets/img/highlevelnumber/Group 250.png">
+						</div>
+
+
+						<div v-show="!showIntro" class="intro">
+							<p>{{introContent}}</p><img @click="inputIntro"
+								src="./assets/img/highlevelnumber/Group 250.png">
+						</div>
+
+						<div v-show="showIntro" class="intro">
+							<input type="text" v-model="introContent"><img @click="inputIntro"
+								src="./assets/img/highlevelnumber/Group 250.png">
+						</div>
+
 						<div class="visit">
 							<div class="good">
 								<p class="p1">24K</p>
@@ -67,7 +89,6 @@
 							</div>
 						</div>
 					</div>
-
 					<div class="right">
 
 
@@ -78,8 +99,10 @@
 
 							<div class="authority_down">
 								<div class="authority_image">
-									<img src="./assets/img/highlevelnumber/authority_work1.png" alt="">
-									<img src="./assets/img/highlevelnumber/authority_work2.png" alt="">
+									<img @click="selectWork('./assets/img/highlevelnumber/authority_work1.png')"
+										src="./assets/img/highlevelnumber/authority_work1.png" alt="">
+									<img @click="selectWork" src="./assets/img/highlevelnumber/authority_work2.png"
+										alt="">
 									<img src="./assets/img/highlevelnumber/authority_work3.png" alt="">
 									<img src="./assets/img/highlevelnumber/authority_work4.png" alt="">
 									<img src="./assets/img/highlevelnumber/authority_work5.png" alt="">
@@ -132,17 +155,107 @@
 	@@include('./compontents/footer.html')
 	<script src="./assets/js/new.js"></script>
 
+
+
+
+
+
+
+
 	<script>
+		// new Vue({
+		// 	el: '#app',
+		// 	data: {
+		// 		message: 'Hello, VueJS!',
+		// 	},
+		// });
+
+
+
+
+
+		Vue.component('itemDemo', {
+			props: ['img'],
+
+			template: `<div>
+				
+				
+				</div>`,
+
+			data() {
+				return {
+					name: '1231231',
+
+
+				}
+			}
+
+
+
+
+		})
+
 		new Vue({
 			el: '#app',
 			data: {
-				message: 'Hello, VueJS!',
+				defaultText: 'Name',
+				isShow: false,
+				masterName: 'MasterPieces Name',
+				showPieces: false,
+				introContent: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et',
+				showIntro: false,
+				showWork: false,
+				itemImg: '',
 			},
-		});
+			methods: {
+				inputName() {
+					// .style;
+
+					if (!this.isShow) {
+
+						this.isShow = true;
+					} else {
+						this.isShow = false;
+					}
+				},
+
+				inputmasterName() {
+					// .style;
+
+					if (!this.showPieces) {
+
+						this.showPieces = true;
+					} else {
+						this.showPieces = false;
+					}
+				},
+
+				inputIntro() {
+					if (!this.showIntro) {
+						this.showIntro = true;
+					} else {
+						this.showIntro = false;
+					}
+				},
+
+				selectWork(val) {
+					if (!this.showWork) {
+						console.log(123);
+						this.showWork = true;
+
+
+						this.itemImg = val;
+
+					} else {
+						this.showWork = false;
+					}
+				}
+			},
+		})
 	</script>
 
 	<script src="./assets/js/script.js"></script>
-	<script src="./assets/js/highlevel.js"></script>
+	<script src="./assets/js/normal.js"></script>
 </body>
 
 </html>

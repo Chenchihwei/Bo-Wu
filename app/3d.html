@@ -5,22 +5,28 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
-	<link rel="stylesheet" href="css/header_footer.css">
-	<link rel="stylesheet" href="css/3d.css">
+	<!-- <link rel="stylesheet" href="css/header_footer.css"> -->
+	<link rel="stylesheet" href="../dist/assets/css/all.css">
+	<link rel="stylesheet" href="../dist/assets/css/pages/3d.css">
 	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+	<script src="./assets/js/jquery-3.5.1.js"></script>
 </head>
 
 <body>
+	<div id="app">
+		<vue-header></vue-header>
 
-	<div class="wrapper">
+		@@include('./compontents/head.html')
+		@@include('./compontents/SearchBar.html')
+		<div class="wrapper">
 
-		<!-- <div class="leftbar">
+			<!-- <div class="leftbar">
 			<img class="logo" src="img/3d/logo_bowu_w.png" alt="">
 			<div class="menu">MENU</div>
 			<p>SHARE | CONTACT US</p>
 		</div> -->
-		<header>
+			<!-- <header>
 			<a href="./homepage.html">
 				<img src="./img/logo_bowu_white.png">
 			</a>
@@ -37,224 +43,224 @@
 				<li> <a href="#">CONTACT US</a> </li>
 			</ul>
 
-		</header>
-		<div class="rightbar">
-			<div class="top">
-				<h1>Exhibits Of Universe</h1>
-				<!-- <div class="features">
+		</header> -->
+			<div class="rightbar">
+				<div class="top">
+					<h1>Exhibits Of Universe</h1>
+					<!-- <div class="features">
 					<i class="fas fa-search"></i>
 					<div class="personal">個人展間</div>
 					<div class="login">登入 <i class="fas fa-user-friends"></i>
 					</div>
 					<i class="fas fa-bell"></i>
 				</div> -->
-				<div class="features">
-					<i class="fas fa-search"></i>
-					<div class="personal"><a href="">個人展間</a>
+					<div class="features">
+						<i class="fas fa-search"></i>
+						<div class="personal"><a href="">個人展間</a>
+						</div>
+
+
+						<div class="login"><a href="" class="login_manger">管理</a>
+							<i class="fas fa-user-friends"></i>
+						</div>
+
+						<i class="fas fa-bell"></i>
 					</div>
-
-
-					<div class="login"><a href="" class="login_manger">管理</a>
-						<i class="fas fa-user-friends"></i>
-					</div>
-
-					<i class="fas fa-bell"></i>
 				</div>
-			</div>
 
 
-			<div class="mid">
-				<div class="swiper-container">，
-					<div class="swiper-wrapper">
+				<div class="mid">
+					<div class="swiper-container">，
+						<div class="swiper-wrapper">
 
-						<div class="swiper-slide">
-							<div class="mid_firstart">
-								<div class="mid_firstart_number">01</div>
-								<div class="mid_firstart_name">MOON</div>
-								<div class="mid_firstart_link">OVERVIWE</div>
-								<div class="firstintro_rwd">
+							<div class="swiper-slide">
+								<div class="mid_firstart">
+									<div class="mid_firstart_number">01</div>
+									<div class="mid_firstart_name">MOON</div>
+									<div class="mid_firstart_link">OVERVIWE</div>
+									<div class="firstintro_rwd">
+										<div class="firstintro_top">
+
+											<img src="./assets/img/3d/Polygon 2.png 2.png" alt="">
+											<p> 威拉姆特隕石的正式名稱是威拉姆特，是在美國俄勒岡發現一顆鐵-鎳為主的隕石。它是美國最大的隕石，也是世界第六大的隕石
+											</p>
+										</div>
+
+										<div class="firstintro_mid">
+											<img src="./assets/img/3d/Polygon 3.png" alt="">
+											<p> 在發現的地點沒有隕石坑，因此有可能是落在現在的加拿大，然後在冰河時期隨著冰層的流動搬移到被發現的地方。</p>
+										</div>
+
+										<div class="firstintro_down">
+											<img src="./assets/img/3d/Polygon 3.png" alt="">
+											<p> 它目前展示在美國自然歷史博物館。</p>
+										</div>
+									</div>
+								</div>
+								<img class="moon" src="./assets/img/3d/Image.png" alt="">
+								<div class="firstintro">
 									<div class="firstintro_top">
 
-										<img src="img/3d/Polygon 2.png" alt="">
+										<img src="./assets/img/3d/Polygon 2.png" alt="">
 										<p> 威拉姆特隕石的正式名稱是威拉姆特，是在美國俄勒岡發現一顆鐵-鎳為主的隕石。它是美國最大的隕石，也是世界第六大的隕石
 										</p>
 									</div>
 
 									<div class="firstintro_mid">
-										<img src="img/3d/Polygon 3.png" alt="">
+										<img src="./assets/img/3d/Polygon 3.png" alt="">
 										<p> 在發現的地點沒有隕石坑，因此有可能是落在現在的加拿大，然後在冰河時期隨著冰層的流動搬移到被發現的地方。</p>
 									</div>
 
 									<div class="firstintro_down">
-										<img src="img/3d/Polygon 3.png" alt="">
+										<img src="./assets/img/3d/Polygon 3.png" alt="">
 										<p> 它目前展示在美國自然歷史博物館。</p>
 									</div>
 								</div>
 							</div>
-							<img class="moon" src="img/3d/Image.png" alt="">
-							<div class="firstintro">
-								<div class="firstintro_top">
 
-									<img src="img/3d/Polygon 2.png" alt="">
-									<p> 威拉姆特隕石的正式名稱是威拉姆特，是在美國俄勒岡發現一顆鐵-鎳為主的隕石。它是美國最大的隕石，也是世界第六大的隕石
-									</p>
+							<div class="swiper-slide">
+								<div class="mid_firstart">
+									<div class="mid_firstart_number">02</div>
+									<div class="mid_firstart_name">HEY</div>
+									<div class="mid_firstart_link">OVERVIWE</div>
+									<div class="firstintro_rwd">
+										<div class="firstintro_top">
+
+											<img src="./assets/img/3d/Polygon 2.png" alt="">
+											<p> 威拉姆特隕石的正式名稱是威拉姆特，是在美國俄勒岡發現一顆鐵-鎳為主的隕石。它是美國最大的隕石，也是世界第六大的隕石
+											</p>
+										</div>
+
+										<div class="firstintro_mid">
+											<img src="./assets/img/3d/Polygon 3.png" alt="">
+											<p> 在發現的地點沒有隕石坑，因此有可能是落在現在的加拿大，然後在冰河時期隨著冰層的流動搬移到被發現的地方。</p>
+										</div>
+
+										<div class="firstintro_down">
+											<img src="./assets/img/3d/Polygon 3.png" alt="">
+											<p> 它目前展示在美國自然歷史博物館。</p>
+										</div>
+									</div>
 								</div>
-
-								<div class="firstintro_mid">
-									<img src="img/3d/Polygon 3.png" alt="">
-									<p> 在發現的地點沒有隕石坑，因此有可能是落在現在的加拿大，然後在冰河時期隨著冰層的流動搬移到被發現的地方。</p>
-								</div>
-
-								<div class="firstintro_down">
-									<img src="img/3d/Polygon 3.png" alt="">
-									<p> 它目前展示在美國自然歷史博物館。</p>
-								</div>
-							</div>
-						</div>
-
-						<div class="swiper-slide">
-							<div class="mid_firstart">
-								<div class="mid_firstart_number">02</div>
-								<div class="mid_firstart_name">HEY</div>
-								<div class="mid_firstart_link">OVERVIWE</div>
-								<div class="firstintro_rwd">
+								<img class="moon" src="./assets/img/3d/Image.png" alt="">
+								<div class="firstintro">
 									<div class="firstintro_top">
 
-										<img src="img/3d/Polygon 2.png" alt="">
-										<p> 威拉姆特隕石的正式名稱是威拉姆特，是在美國俄勒岡發現一顆鐵-鎳為主的隕石。它是美國最大的隕石，也是世界第六大的隕石
+										<img src="./assets/img/3d/Polygon 2.png" alt="">
+										<p> 威拉姆特隕石的正式名稱是威拉姆特，是在美國俄勒岡發現一顆鐵-鎳為主的隕石。它是美 國最大的隕石，也是世界第六大的隕石
 										</p>
 									</div>
 
 									<div class="firstintro_mid">
-										<img src="img/3d/Polygon 3.png" alt="">
+										<img src="./assets/img/3d/Polygon 3.png" alt="">
 										<p> 在發現的地點沒有隕石坑，因此有可能是落在現在的加拿大，然後在冰河時期隨著冰層的流動搬移到被發現的地方。</p>
 									</div>
 
 									<div class="firstintro_down">
-										<img src="img/3d/Polygon 3.png" alt="">
+										<img src="./assets/img/3d/Polygon 3.png" alt="">
 										<p> 它目前展示在美國自然歷史博物館。</p>
 									</div>
 								</div>
 							</div>
-							<img class="moon" src="img/3d/Image.png" alt="">
-							<div class="firstintro">
-								<div class="firstintro_top">
 
-									<img src="img/3d/Polygon 2.png" alt="">
-									<p> 威拉姆特隕石的正式名稱是威拉姆特，是在美國俄勒岡發現一顆鐵-鎳為主的隕石。它是美 國最大的隕石，也是世界第六大的隕石
-									</p>
+							<div class="swiper-slide">
+								<div class="mid_firstart">
+									<div class="mid_firstart_number">03</div>
+									<div class="mid_firstart_name">MOON</div>
+									<div class="mid_firstart_link">OVERVIWE</div>
+									<div class="firstintro_rwd">
+										<div class="firstintro_top">
+
+											<img src="./assets/img/3d/Polygon 2.png" alt="">
+											<p> 威拉姆特隕石的正式名稱是威拉姆特，是在美國俄勒岡發現一顆鐵-鎳為主的隕石。它是美國最大的隕石，也是世界第六大的隕石
+											</p>
+										</div>
+
+										<div class="firstintro_mid">
+											<img src="./assets/img/3d/Polygon 3.png" alt="">
+											<p> 在發現的地點沒有隕石坑，因此有可能是落在現在的加拿大，然後在冰河時期隨著冰層的流動搬移到被發現的地方。</p>
+										</div>
+
+										<div class="firstintro_down">
+											<img src="./assets/img/3d/Polygon 3.png" alt="">
+											<p> 它目前展示在美國自然歷史博物館。</p>
+										</div>
+									</div>
 								</div>
-
-								<div class="firstintro_mid">
-									<img src="img/3d/Polygon 3.png" alt="">
-									<p> 在發現的地點沒有隕石坑，因此有可能是落在現在的加拿大，然後在冰河時期隨著冰層的流動搬移到被發現的地方。</p>
-								</div>
-
-								<div class="firstintro_down">
-									<img src="img/3d/Polygon 3.png" alt="">
-									<p> 它目前展示在美國自然歷史博物館。</p>
-								</div>
-							</div>
-						</div>
-
-						<div class="swiper-slide">
-							<div class="mid_firstart">
-								<div class="mid_firstart_number">03</div>
-								<div class="mid_firstart_name">MOON</div>
-								<div class="mid_firstart_link">OVERVIWE</div>
-								<div class="firstintro_rwd">
+								<img class="moon" src="./assets/img/3d/Image.png" alt="">
+								<div class="firstintro">
 									<div class="firstintro_top">
 
-										<img src="img/3d/Polygon 2.png" alt="">
-										<p> 威拉姆特隕石的正式名稱是威拉姆特，是在美國俄勒岡發現一顆鐵-鎳為主的隕石。它是美國最大的隕石，也是世界第六大的隕石
+										<img src="./assets/img/3d/Polygon 2.png" alt="">
+										<p> 威拉姆特隕石的正式名稱是威拉姆特，是在美國俄勒岡發現一顆鐵-鎳為主的隕石。它是美 國最大的隕石，也是世界第六大的隕石
 										</p>
 									</div>
 
 									<div class="firstintro_mid">
-										<img src="img/3d/Polygon 3.png" alt="">
+										<img src="./assets/img/3d/Polygon 3.png" alt="">
 										<p> 在發現的地點沒有隕石坑，因此有可能是落在現在的加拿大，然後在冰河時期隨著冰層的流動搬移到被發現的地方。</p>
 									</div>
 
 									<div class="firstintro_down">
-										<img src="img/3d/Polygon 3.png" alt="">
+										<img src="./assets/img/3d/Polygon 3.png" alt="">
 										<p> 它目前展示在美國自然歷史博物館。</p>
 									</div>
 								</div>
 							</div>
-							<img class="moon" src="img/3d/Image.png" alt="">
-							<div class="firstintro">
-								<div class="firstintro_top">
 
-									<img src="3d/Polygon 2.png" alt="">
-									<p> 威拉姆特隕石的正式名稱是威拉姆特，是在美國俄勒岡發現一顆鐵-鎳為主的隕石。它是美 國最大的隕石，也是世界第六大的隕石
-									</p>
+							<div class="swiper-slide">
+								<div class="mid_firstart">
+									<div class="mid_firstart_number">04</div>
+									<div class="mid_firstart_name">MOON</div>
+									<div class="mid_firstart_link">OVERVIWE</div>
+									<div class="firstintro_rwd">
+										<div class="firstintro_top">
+
+											<img src="./assets/img/3d/Polygon 2.png" alt="">
+											<p> 威拉姆特隕石的正式名稱是威拉姆特，是在美國俄勒岡發現一顆鐵-鎳為主的隕石。它是美國最大的隕石，也是世界第六大的隕石
+											</p>
+										</div>
+
+										<div class="firstintro_mid">
+											<img src="./assets/img/3d/Polygon 3.png" alt="">
+											<p> 在發現的地點沒有隕石坑，因此有可能是落在現在的加拿大，然後在冰河時期隨著冰層的流動搬移到被發現的地方。</p>
+										</div>
+
+										<div class="firstintro_down">
+											<img src="./assets/img/3d/Polygon 3.png" alt="">
+											<p> 它目前展示在美國自然歷史博物館。</p>
+										</div>
+									</div>
 								</div>
-
-								<div class="firstintro_mid">
-									<img src="3d/Polygon 3.png" alt="">
-									<p> 在發現的地點沒有隕石坑，因此有可能是落在現在的加拿大，然後在冰河時期隨著冰層的流動搬移到被發現的地方。</p>
-								</div>
-
-								<div class="firstintro_down">
-									<img src="3d/Polygon 3.png" alt="">
-									<p> 它目前展示在美國自然歷史博物館。</p>
-								</div>
-							</div>
-						</div>
-
-						<div class="swiper-slide">
-							<div class="mid_firstart">
-								<div class="mid_firstart_number">04</div>
-								<div class="mid_firstart_name">MOON</div>
-								<div class="mid_firstart_link">OVERVIWE</div>
-								<div class="firstintro_rwd">
+								<img class="moon" src="./assets/img/3d/Image.png" alt="">
+								<div class="firstintro">
 									<div class="firstintro_top">
 
-										<img src="3d/Polygon 2.png" alt="">
-										<p> 威拉姆特隕石的正式名稱是威拉姆特，是在美國俄勒岡發現一顆鐵-鎳為主的隕石。它是美國最大的隕石，也是世界第六大的隕石
+										<img src="./assets/img/3d/Polygon 2.png" alt="">
+										<p> 威拉姆特隕石的正式名稱是威拉姆特，是在美國俄勒岡發現一顆鐵-鎳為主的隕石。它是美 國最大的隕石，也是世界第六大的隕石
 										</p>
 									</div>
 
 									<div class="firstintro_mid">
-										<img src="3d/Polygon 3.png" alt="">
+										<img src="./assets/img/3d/Polygon 3.png" alt="">
 										<p> 在發現的地點沒有隕石坑，因此有可能是落在現在的加拿大，然後在冰河時期隨著冰層的流動搬移到被發現的地方。</p>
 									</div>
 
 									<div class="firstintro_down">
-										<img src="3d/Polygon 3.png" alt="">
+										<img src="./assets/img/3d/Polygon 3.png" alt="">
 										<p> 它目前展示在美國自然歷史博物館。</p>
 									</div>
 								</div>
 							</div>
-							<img class="moon" src="img/3d/Image.png" alt="">
-							<div class="firstintro">
-								<div class="firstintro_top">
 
-									<img src="3d/Polygon 2.png" alt="">
-									<p> 威拉姆特隕石的正式名稱是威拉姆特，是在美國俄勒岡發現一顆鐵-鎳為主的隕石。它是美 國最大的隕石，也是世界第六大的隕石
-									</p>
-								</div>
-
-								<div class="firstintro_mid">
-									<img src="3d/Polygon 3.png" alt="">
-									<p> 在發現的地點沒有隕石坑，因此有可能是落在現在的加拿大，然後在冰河時期隨著冰層的流動搬移到被發現的地方。</p>
-								</div>
-
-								<div class="firstintro_down">
-									<img src="3d/Polygon 3.png" alt="">
-									<p> 它目前展示在美國自然歷史博物館。</p>
-								</div>
-							</div>
+							<!-- <div class="swiper-slide">Slide 4</div> -->
 						</div>
-
-						<!-- <div class="swiper-slide">Slide 4</div> -->
+						<!-- Add Pagination -->
+						<div class="swiper-pagination"></div>
 					</div>
-					<!-- Add Pagination -->
-					<div class="swiper-pagination"></div>
 				</div>
-			</div>
 
-			<!-- <span class="music">
+				<!-- <span class="music">
 				<span class="music_btn">
 					<span> </span>
 					<span> </span>
@@ -264,34 +270,38 @@
 					Music on/off
 				</span>
 			</span> -->
-			<div class="musicControlBtn">
-				<div class="musicControlBtnSpan">
-					<span class="line1"></span>
-					<span class="line2"></span>
-					<span class="line3"></span>
+				<div class="musicControlBtn">
+					<div class="musicControlBtnSpan">
+						<span class="line1"></span>
+						<span class="line2"></span>
+						<span class="line3"></span>
+					</div>
+					<p>Music on/ off</p>
 				</div>
-				<p>Music on/ off</p>
 			</div>
 		</div>
-	</div>
 
 
+		@@include('./compontents/footer.html')
+		<script src="./assets/js/new.js"></script>
+
+
+		<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+		<!-- Initialize Swiper -->
+		<script>
+			var swiper = new Swiper('.swiper-container', {
+				slidesPerView: 1,
+				spaceBetween: 30,
+				mousewheel: true,
+				speed: 1000,
+				pagination: {
+					el: '.swiper-pagination',
+					clickable: true,
+				},
+			});
+		</script>
 
 </body>
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-
-<!-- Initialize Swiper -->
-<script>
-	var swiper = new Swiper('.swiper-container', {
-		slidesPerView: 1,
-		spaceBetween: 30,
-		mousewheel: true,
-		speed: 1000,
-		pagination: {
-			el: '.swiper-pagination',
-			clickable: true,
-		},
-	});
-</script>
 
 </html>
