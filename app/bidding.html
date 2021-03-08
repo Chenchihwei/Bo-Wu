@@ -77,9 +77,9 @@
             <div class="yourPrice">
               <div>您的出價:</div>
               <div class="price">
-                <img src="./assets/img/-.png" alt="">
-                <div>889</div>
-                <img src="./assets/img/+.png" alt="">
+                <button @click="price -= 1"><img src="./assets/img/-.png"></button>
+                <div>{{price}}</div>
+                <button @click="price += 1"><img src="./assets/img/+.png"></button>
               </div>
             </div>
             <button>我要競標</button>
@@ -122,6 +122,15 @@
                     return this.imgList.length
                 }
       },
+    })
+  </script>
+<!-- vue 出價 -->
+  <script>
+    new Vue({
+      el: '.yourPrice',
+      data:{
+        price: 888,
+      }
     })
   </script>
 <!-- vue 頁籤 -->
