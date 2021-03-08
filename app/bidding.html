@@ -25,7 +25,6 @@
 
 <body>
   @@include('./compontents/head.html')
-  <div id="app_bidd">
   <div class="rightBlock block">
     <div class="title">
       <h1>競標商品</h1>
@@ -34,14 +33,18 @@
       <p>et dolore magna aliqua.</p>
     </div>
     <div class="product">
-      <img src="./assets/img/Icon ionic-ios-arrow-forward.png" alt="">
+      <button class="slider_prev" @click="change(active-1)">
+        <img src="./assets/img/Icon ionic-ios-arrow-forward.png">
+      </button>
       <ul>
-        <li class="pic1"><img src="./assets/img/exh_5.jpg" alt=""></li>
-        <li class="pic2"><img src="./assets/img/exh_5.jpg" alt=""></li>
-        <li class="pic3"><img src="./assets/img/exh_6.jpg" alt=""></li>
-        <li class="pic4"><img src="./assets/img/exh_7.jpg" alt=""></li>
+        <li><img v-for="(src,index) in imgList" :src="src" v-show="index == active"></li>
+        <li><img v-for="(src,index) in imgList" :src="src" v-show="index == active"></li>
+        <li><img v-for="(src,index) in imgList" :src="src" v-show="index == active"></li>
+        <li><img v-for="(src,index) in imgList" :src="src" v-show="index == active"></li>
       </ul>
-      <img src="./assets/img/Icon ionic-ios-arrow-forward1.png" alt="">
+      <button class="slider_next" @click="change(active+1)">
+        <img src="./assets/img/Icon ionic-ios-arrow-forward1.png">
+      </button>
     </div>
     <div class="bidding">
       <div>競標狀態:
@@ -85,10 +88,47 @@
       </div>
       <div class="introRight">
         <div class="top">
-          <div>討論區</div>
-          <div>競標紀錄</div>
+          <div @click="content='my-component'">討論區</div>
+          <div @click="content='my-component1'">競標紀錄</div>
         </div>
-        <div class="content">
+        <component :is="content"></component>
+      </div>
+    </div>
+
+  </div>
+  @@include('./compontents/searchbar.html')
+  @@include('./compontents/music.html')
+  @@include('./compontents/footer.html')
+<!-- vue輪播 -->
+  <script>
+    new Vue({
+      el:'.product',
+      data:{
+          active:0,
+          imgList:[
+          "./assets/img/exh_5.jpg",
+          "./assets/img/exh_6.jpg",
+          "./assets/img/exh_7.jpg",
+          "./assets/img/exh_8.jpg",
+          ]
+      },
+      methods: {
+        change(index){
+                    this.active = (index + this.total) % this.total
+                }
+      },
+      computed:{
+        total(){
+                    return this.imgList.length
+                }
+      },
+    })
+  </script>
+<!-- vue 頁籤 -->
+<script>
+  Vue.component('my-component',{
+    template:`
+    <div class="content">
           <ul>
             <li>
               <p>Andy</p>
@@ -126,29 +166,23 @@
 
           </div>
         </div>
-      </div>
+    `
+  });
+  Vue.component('my-component1',{
+    template:`
+    <div class="content">
+      <h3>--component1--</h3>
     </div>
+    `
+  });
 
-  </div>
-  </div>
-  @@include('./compontents/searchbar.html')
-  @@include('./compontents/music.html')
-  @@include('./compontents/footer.html')
-
-  <script>
-    new Vue({
-      el:'app_bidd',
-      data:{
-
-      },
-      methods: {
-        
-      },
-      computed:{
-      },
-    })
-  </script>
-
+  new Vue({
+    el:'.introRight',
+    data:{
+      content:'my-component'
+    }
+  })
+</script>
 </body>
 <!-- <script src="./assets/js/script.js"></script> -->
 <script src="./assets/js/scriptBlack.js"></script>
