@@ -17,7 +17,8 @@ body {
     //取消卷軸
     overflow-y: hidden;
     overflow-x: hidden;
-    
+    //取消滑鼠
+    // cursor: none;
 }
 
 .bgcolorFor4Topic{
@@ -38,27 +39,45 @@ body {
         z-index: 1;
     }
 }
-
 .swiper-container{
     width: 100%;
     height: 100%;
 }
 
-// .swiper-slide {
+// 滑鼠設定
+.cursor{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 10px;
+    height: 10px;
+    transform: translate(-50%, -50%);
+    background-color: #886F5E;
+    border-radius: 50%;
+    pointer-events: none; 
+}
 
-//     /* Center slide text vertically */
-//     display: -webkit-box;
-//     display: -ms-flexbox;
-//     display: -webkit-flex;
-//     -webkit-box-pack: center;
-//     -ms-flex-pack: center;
-//     -webkit-justify-content: center;
+.cursor-outside{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 50px;
+    height: 50px;
+    border: 1px solid #BA967D;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    pointer-events: none; 
+}
 
-//     -webkit-box-align: center;
-//     -ms-flex-align: center;
-//     -webkit-align-items: center;
-
-// }
+// LINK STYLE
+.hover {
+    text-decoration: none;
+    color: #886F5E;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 
 // 左側選單 start
 .indexSideBar{
@@ -80,7 +99,7 @@ body {
 
     @include pad{
         justify-content: unset;
-        width: 16vw;
+        width: 20vw;
     }
     @include mobile{
         width: 23vw;
@@ -141,7 +160,8 @@ body {
 .menu{
     color: map-get($color, 'white');
     cursor: pointer;
-    
+    z-index: 2;
+
     &:hover p{
         transform: translateY(5px);
         color: map-get($color, 'lightBrown');
@@ -157,6 +177,7 @@ body {
     }
     @include pad{
         margin-top: 5vh;
+        display: none;
     }
     p{
         text-align: center;
@@ -173,7 +194,7 @@ body {
             }
         }
     }
-    z-index: 2;
+    
 }
 .indexMenuline1{
     margin-top: 1.5vh;
@@ -183,13 +204,13 @@ body {
     height: 1.8px;
 
     z-index: 2;
-    @include pad{
-        transform: rotate(90deg) translateY(1vw) translateX(1vw);
-    }
-    @include mobile{
-        width: 5vw;
-        height: 1.8px;    
-    }
+    // @include pad{
+    //     transform: rotate(90deg) translateY(1vw) translateX(1vw);
+    // }
+    // @include mobile{
+    //     width: 5vw;
+    //     height: 1.8px;    
+    // }
 }
 .indexMenuline2{
     display: block;
@@ -199,14 +220,42 @@ body {
     margin-top: .8vh;
 
     z-index: 2;
+    // @include pad{
+    //     transform: rotate(90deg) translateY(-1vw) translateX(-1vw);
+    // }
+    // @include mobile{
+    //     width: 3vw;
+    //     height: 1.5px;
+    //     transform: rotate(90deg) translateY(-1vw) translateX(-1.5vw);
+    // }
+}
+
+.smallSize_menuOpenCloseAni{
+    &:hover span{
+        opacity: .8;
+        transition: .5s;
+    }
+    
     @include pad{
-        transform: rotate(90deg) translateY(-1vw) translateX(-1vw);
+        display: flex;
+        width: auto;
+        height: 60px;
+        margin-top: 20px;
+
+    
+        .smallSize_indexMenuline1,.smallSize_indexMenuline2{
+            display: block;
+            width: 2px;
+            height: 60px;
+            background-color: #fff;
+            opacity: .5;
+        }
+        .smallSize_indexMenuline2{
+            margin-left: 10px;
+            height: 40px;
+        }
     }
-    @include mobile{
-        width: 3vw;
-        height: 1.5px;
-        transform: rotate(90deg) translateY(-1vw) translateX(-1.5vw);
-    }
+    
 }
 
 // == menu page ==
@@ -243,14 +292,69 @@ body {
             display: none;
         }
     }
+
+    .smallSizeCloseBtn{
+        @include pad{
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            top: 5%;
+            left: 6%;
+            cursor: pointer;
+            opacity: 0;
+
+            div::before, div::after {
+                content: '';
+                position: absolute;
+                width: 30px;
+                height: 2px;
+                background-color: #fff;
+                cursor: pointer;
+            }
+            div::before {
+                transform: rotate(-45deg);
+                cursor: pointer;
+            }
+            div::after {
+                transform: rotate(45deg);
+                cursor: pointer;
+            }
+        }
+    }
+
+    .exhibits-title-outer{
+        display: block;
+        overflow: hidden;
+
+        position: absolute;
+        right: 5vw;
+        top: 5vh;
+
+        &:hover{
+            .exhibits-title,.exhibits-titleHover{
+                transform: translateY(100%);
+            }
+        }
+
+        .exhibits-title,.exhibits-titleHover{
+            transition: transform .6s;
+        }
+        .exhibits-titleHover{
+            position: absolute;
+            top: -100%;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    }
     .menu_personal_exhibits{
         text-decoration: none;
         font-family: 'Montserrat';
         font-weight: bold;
         color: #ffffff;
-        position: absolute;
-        right: 5vw;
-        top: 5vh;
+        // position: absolute;
+        // right: 5vw;
+        // top: 5vh;
         opacity: 0;
 
         z-index: 5;
@@ -393,11 +497,23 @@ body {
         top: 87vh;
         display: flex;
         z-index: 5;
+        overflow: hidden;
 
         opacity: 0;
         letter-spacing: 0.3rem;
+
+        .join-titleHover,.join-title{
+            transition: transform .6s;
+        }
+
+        &:hover{
+            .join-title,.join-titleHover{
+                transform: translateY(-100%);
+            }
+        }
+
         @include pad{
-            right: 10vw;
+            right: 33vw;
         }
         .line{
             width: 15vw;
@@ -575,7 +691,7 @@ body {
         color:map-get($color ,'white');
     }
     @include mobile{
-        right: -35vw;
+        right: -30vw;
         top: 36px;
     }
 }
@@ -600,6 +716,10 @@ body {
         font-size: 20px;
         font-family: 'Montserrat', sans-serif;
         font-weight: bold;
+        display: block;
+        width: 21px;
+        height: 21px;
+
         @include pad{
             writing-mode: initial;
         }
@@ -620,15 +740,61 @@ body {
     @include mobile{
         right: 65vw;
     }
-
 }
+.indexNum-text{
+    position: relative;
+    overflow: hidden;
+    display: block;
+    width: 22px;
+    height: 27px;
+    opacity: 1;
+    
+    // .indexNumMove{
+    //     transform: translateX(-130%);
+    // }
+
+    .indexNum,.indexNumAni{
+        transition: transform .6s;
+        writing-mode: vertical-lr;
+        font-size: 20px;
+        font-family: 'Montserrat';
+        font-weight: bold;
+        opacity: 1;
+
+        @include pad{
+            writing-mode: initial;
+        }
+        @include mobile{
+            font-size: 18px;
+        }
+    }
+
+    .indexNumAni{
+        position: absolute;
+        top: 0;
+        left: 130%;
+        width: 100%;
+        height: 100%;
+    }
+    .indexNum{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+
 .pageBarLine{
     /* display: inline; */
-    width: 2px;
+    width: 3px;
     height: 180px;
     background-color: black;
     margin: 1vw auto;
-    border-radius: 5px;
+    display: block;
+    border-radius: 15px;
+
+    position: relative;
     z-index: 2;
 
     @include pad{
@@ -641,6 +807,20 @@ body {
         margin: auto 2vw;
     }
 } 
+
+.pageBarLineNow{
+    width: 3px;
+    height: 45px;
+    background-color: map-get($color,'gray_2');
+    @include pad{
+        width: 25px;
+        height: 2px;
+    }
+    @include mobile{
+        width: 13.75px;
+    }
+}
+
 // 頁面顯示bar end
 
 // 音樂btn start
@@ -672,14 +852,14 @@ body {
     height: 20px;
     width: 2px;
     background-color: black;
-    margin-right: 15px;
+    margin-right: 10px;
 }
 .line2{
     display: block;
     height: 40px;
     width: 2px;
     background-color: black;
-    margin-right: 15px;
+    margin-right: 10px;
 }
 .line3{
     display: block;
@@ -810,41 +990,48 @@ body {
         text-align: center;
     }
 
-    p{
-        color: map-get($color,'white');
-        font-size: .5rem;
-        font-family: 'Montserrat', sans-serif;
-        font-weight: bold;
-        letter-spacing: .5em;
-        padding-right: 2vw;
+    .title-outer{
+        position: relative;
+        overflow: hidden;
 
-        transform-style:preserve-3d;
-        transform-origin:bottom;
         &:hover{
-            transform:rotateX(180deg);
-            // animation: rotation3d 5s ease infinite;
-            // @keyframes rotation3d{
-            //     0%{transform:translate3d(0, 0, 50px)};
-            //     20%{transform:translate3d(0, 10, 50px)};
-            //     40%{transform:translate3d(0, 20, 50px)};
-            //     60%{transform:translate3d(0, 30, 50px)};
-            //     80%{transform:translate3d(0, 40, 50px)};
-            //     100%{transform:translate3d(0, 50, 50px)};
-            // }
-            // 沒反應???
+            .title,.titleHover{
+                transform: translateY(100%);
+            }
         }
-        @include pad{
-            color: black;
-            font-size: 1rem;
-            padding-right: 0;
-            letter-spacing: .3em;
-        }
-        @include mobile{
-            font-size: .8rem;
-            letter-spacing: .1em;
+
+        .titleHover,.title{
+            transition: transform .6s;
+
+            color: map-get($color,'white');
+            font-size: .5rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: bold;
+            letter-spacing: .5em;
+            padding-right: 2vw;
+
+            @include pad{
+                color: black;
+                font-size: 1rem;
+                padding-right: 0;
+                letter-spacing: .3em;
+            }
+            @include mobile{
+                font-size: .8rem;
+                letter-spacing: .1em;
+            }
         }
     }
+        .titleHover{
+            position: absolute;
+            top: -100%;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
 }
+
+
 .SeeMoreBar{
     background-color: transparent;
     width: 1px;
@@ -881,11 +1068,26 @@ body {
     width: 23vw;
     height: 100vh;
     
+    color: black;
     background-color: #fff;
     z-index: 6;
     box-shadow: 3px 3px 20px black;
     @include pad{
         width: 35vw;
+    }
+    @include mobile{
+        width: 65vw;
+    }
+
+    opacity: 0;
+    pointer-events: none;
+
+    transition: .6s ease;
+
+    &.-active{
+        opacity: 1;
+        pointer-events: auto;
+        right: 0;
     }
 }
 
@@ -898,10 +1100,20 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 4;
+    z-index: 3;
     opacity: .8;
     @include pad{
         width: 65vw;
+    }
+
+    opacity: 0;
+    pointer-events: none;
+
+    transition: .6s ease;
+
+    &.-active{
+        opacity: .8;
+        pointer-events: auto;
     }
 }
 .searchBarTop{
@@ -911,17 +1123,32 @@ body {
     @include notebook{
         right: 4vw;
     }
+    @include pad{
+        right: 5vw;
+    }
+    @include mobile{
+        right: 10vw;
+        top:36px;
+    }
 }
 .searchBarGobackBtn{
     position: fixed;
     top: 4vh;
     right: 2vw;
     width: 25px;
+    @include mobile{
+        right: 5vw;
+        width: 20px;
+    }
 }
 .searchBarArrow{
     position: fixed;
     top: 100px;
     right: 2vw;
+    @include mobile{
+        right: 5vw;
+        top: 85px;
+    }
 }
 .fa-search{
     font-size: 23px;
@@ -958,6 +1185,9 @@ body {
     @include notebook{
         width: 210px;
     }
+    @include pad{
+        width: 200px;
+    }
 }
 .searchLine{
     width: 100%;
@@ -965,6 +1195,12 @@ body {
     border-bottom: 1px solid #E5E5E5;
     position: absolute;
     top: 21vh;
+    @include pad{
+        top: 14vh;
+    }
+    @include mobile{
+        top: 20vh;
+    }
 }
 
 // search Bar popUp end
@@ -982,7 +1218,6 @@ body {
     position: absolute;
     right: -115px;
     top: calc((100% - 380px) / 2);
-    // align-content: center; 
     z-index: 1;
     @include pad{
         right: 7vw;
@@ -993,6 +1228,46 @@ body {
     @include mobile{
         bottom: -95.5px;
         right: 5vw;
+    }
+
+    a{
+        display: block;
+        text-decoration: none;
+        text-align: center;
+        line-height: 1.5rem;
+        color: #FFF;
+
+        .textAni{
+            display: none;
+        }
+    }
+    &:hover{
+        filter: brightness(.5);
+    }
+    &:hover .textAni{
+        display: block;
+        width: 150px;
+        height: 50px;
+        color: white;
+
+        position: absolute;
+        right: 40px;
+        top: calc((100% - 50px) / 2);
+
+        font-size: 1.2rem;
+        font-weight: bold;
+        font-family: 'Montserrat';
+        
+        z-index: 3;
+        transition: 1s;
+
+        &_CH{
+            // top: calc((100% - 50px) / 2);
+        }
+        &_EN{
+            // top: calc((100% - 100px) / 2);
+        }
+
     }
 }
 // --- 進入按鈕設定 end ---
@@ -1005,12 +1280,20 @@ body {
 
     $base-delay:.1s;
 
+    .exBtn__inner{
+        transform: scale(1);
+    }
+
+    .exBtn a{
+        transform: translateY(0);
+    }
+
     .animation-outer{
 
         &__inner{
             max-height: 1em;
             opacity: 1;
-            transition: 1s  $base-delay ease;
+            transition: 1s $base-delay ease;
         }
     }
 
@@ -1020,7 +1303,7 @@ body {
             &__inner{
                 max-height: 1em;
                 opacity: 1;
-                transition: 1s  $base-delay+.2s ease;
+                transition: 1s $base-delay+.2s ease;
             }
         }
     }
@@ -1028,7 +1311,7 @@ body {
     .animation-p{
         transform:none;
         opacity: 1;
-        transition:  1s  $base-delay+.4s;
+        transition: 1s $base-delay+.4s;
     }
 
     // 圖片按鈕動畫
@@ -1073,6 +1356,7 @@ body {
 
 .animation-outer{
     height: 1em;
+    width: 100%;
     &__inner{
         max-height: 0;
         transition: 1s ease;
@@ -1082,6 +1366,7 @@ body {
         left: 0;
         height: 100%;
         overflow: hidden;
+        width: 100%;
 
         &.-fake{
             opacity: 0 !important;
@@ -1106,6 +1391,15 @@ h2{
     transition: 1s ease;
 }
 
+.exBtn__inner{
+    transform: scale(1.5);
+    transition: 1s ease;
+}
+
+// .exBtn a{
+//     transform:translateY(100%);
+//     transition: 1s ease;
+// }
 
 // --- 宇宙 ---
 .uniWrapper {
@@ -1135,6 +1429,7 @@ h2{
         position: absolute;
         bottom: 30%;
         left: 25vw;
+        text-shadow: 1px 1px 3px map-get($color,'gray_2');
         @include mobile{
             font-size: $titleM;
         }
@@ -1223,6 +1518,7 @@ h2{
         position: absolute;
         bottom: 27%;
         left: 17vw;
+        text-shadow: 1px 1px 3px map-get($color,'gray_2');
         @include pad{
             bottom: 29%;
         }
@@ -1313,6 +1609,7 @@ h2{
         position: absolute;
         bottom: 50%;
         left: 17vw;
+        text-shadow: 2px 2px 3px map-get($color,'black');
         @include mobile{
             font-size: $titleM;
             bottom: 52%;
@@ -1407,6 +1704,7 @@ h2{
         position: absolute;
         bottom: 82%;
         left: 34vw;
+        text-shadow: 2px 2px 3px map-get($color,'black');
         @include pad{
             bottom: 43%;
             left: 20vw;
