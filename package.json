@@ -33,6 +33,7 @@
     "gulp-sass": "^4.1.0",
     "gulp-sourcemaps": "^3.0.0",
     "gulp-uglify": "^3.0.2",
-    "node-sass": "^5.0.0"
+    "node-sass": "^5.0.0",
+    "webpack": "^4.46.0"
   }
 }
