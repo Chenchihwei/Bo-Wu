@@ -135,3 +135,10 @@ Tibame-work
 1. 去node_modules/bootstrap-sass/assets/stylesheets/bootstrap_variables.scss 
 將原本的這一行修改為
 $icon-font-path: if($bootstrap-sass-asset-helper, "bootstrap/", "../../node_modules/bootstrap-sass/assets/fonts/bootstrap/") !default;
+
+# Web pack
+
+- webpack index.js -p 上線
+- webpack index.js -d 開發
+- webpack index.js -w 監看
+
