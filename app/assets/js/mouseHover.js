@@ -1,4 +1,4 @@
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
+{/* <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script> */}
 
 var circle = document.getElementsByClassName('cursor')[0];
 var circleOut = document.getElementsByClassName('cursor-outside')[0];
