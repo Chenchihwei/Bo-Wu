@@ -19,7 +19,7 @@ body {
     overflow-y: hidden;
     overflow-x: hidden;
     //取消滑鼠
-    // cursor: none;
+    cursor: none;
 }
 
 .bgcolorFor4Topic{
@@ -53,9 +53,10 @@ body {
     width: 10px;
     height: 10px;
     transform: translate(-50%, -50%);
-    background-color: #886F5E;
+    background-color: rgb(175, 175, 175);
     border-radius: 50%;
     pointer-events: none; 
+    z-index: 10;
 }
 
 .cursor-outside{
@@ -64,20 +65,21 @@ body {
     left: 0;
     width: 50px;
     height: 50px;
-    border: 1px solid #BA967D;
+    border: 1px solid #E5E5E5;
     transform: translate(-50%, -50%);
     border-radius: 50%;
     pointer-events: none; 
+    z-index: 10;
 }
 
 // LINK STYLE
-.hover {
+.mousehover{
     text-decoration: none;
-    color: #886F5E;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    color: #e5e5e5a2;
+    // position: absolute;
+    // top: 50%;
+    // left: 50%;
+    // transform: translate(-50%, -50%);
 }
 
 // 左側選單 start
@@ -230,7 +232,6 @@ body {
     //     transform: rotate(90deg) translateY(-1vw) translateX(-1.5vw);
     // }
 }
-
 .smallSize_menuOpenCloseAni{
     &:hover span{
         opacity: .8;
@@ -659,16 +660,48 @@ body {
             border-bottom: 1.5px solid #e5e5e5;
         }
     }
-    .login {
-        width: 56px;
-        height: 23px;
-        margin-left: 20px;
-        display: flex;
-        border-bottom: 3px solid #e5e5e5;
-     // outline: 2px solid chocolate;
-        @include mobile{
-            height: 20px;
-            border-bottom: 1.5px solid #e5e5e5;
+    .logInOption{
+        position: relative;
+
+        .login {
+            width: 56px;
+            height: 23px;
+            margin-left: 20px;
+            display: flex;
+            border-bottom: 3px solid #e5e5e5;
+         // outline: 2px solid chocolate;
+            
+            &:hover div,&:hover a{
+                display: block;
+            }
+            
+            @include mobile{
+                height: 20px;
+                border-bottom: 1.5px solid #e5e5e5;
+            }
+        }
+        .logOut{
+            display: none;
+
+            position: absolute;
+            top: 140%;
+            left: 20px;
+
+            width: 60px;
+            height: 25px;
+            background-color: #e5e5e56e;
+            border-radius: 13px;
+            text-align: center;
+            line-height: 25px;
+            a{
+                color: gray;
+            }
+            &:hover{
+                background-color: #e5e5e5e7;
+                a{
+                    color: black;
+                }
+            }
         }
     }
     .fa-user-friends {
@@ -1073,8 +1106,11 @@ body {
     background-color: #fff;
     z-index: 6;
     box-shadow: 3px 3px 20px black;
+    @include notebook{
+        width: 25vw;
+    }
     @include pad{
-        width: 35vw;
+        width: 38vw;
     }
     @include mobile{
         width: 65vw;
@@ -1118,37 +1154,37 @@ body {
     }
 }
 .searchBarTop{
-    position: absolute;
-    top: 48px;
-    right: 5vw;
+    padding: 5vh;
+    border-bottom: 1px solid #E5E5E5;
     @include notebook{
-        right: 4vw;
-    }
-    @include pad{
-        right: 5vw;
+        padding: 5vh 1vw 3vw 3vh;
     }
     @include mobile{
-        right: 10vw;
-        top:36px;
+        padding: 5vh 3vw 6vw 3vh;
     }
 }
-.searchBarGobackBtn{
-    position: fixed;
-    top: 4vh;
-    right: 2vw;
-    width: 25px;
-    @include mobile{
-        right: 5vw;
-        width: 20px;
-    }
-}
+// .searchBarGobackBtn{
+//     position: fixed;
+//     top: 4vh;
+//     right: 2vw;
+//     width: 25px;
+//     @include mobile{
+//         right: 5vw;
+//         width: 20px;
+//     }
+// }
 .searchBarArrow{
-    position: fixed;
-    top: 100px;
-    right: 2vw;
-    @include mobile{
-        right: 5vw;
-        top: 85px;
+    // position: fixed;
+    // top: 85px;
+    // right: 2vw;
+    width: 16px;
+    height: 16px;
+    margin-left: 20px;
+    @include notebook{
+        margin-left: 10px;
+    }
+    &:hover{
+        opacity: .5;
     }
 }
 .fa-search{
@@ -1168,41 +1204,87 @@ body {
     opacity: .5;
 }
 
-.searchBarArrow{
-    width: 16px;
-    height: 16px;
-}
-
 #searchBarInput{
     outline: none;
     border: none;
     margin-top: 21px;
-    /* line-height: 20px; */
-    width: 230px;
+    width: 235px;
     opacity: 1;
     border-bottom: 2px solid #707070;
-    /* map-get($color, 'darkGray'); */
     font-size: 16px;
     @include notebook{
-        width: 210px;
+        width: 220px;
     }
     @include pad{
         width: 200px;
     }
-}
-.searchLine{
-    width: 100%;
-    height: 1px;
-    border-bottom: 1px solid #E5E5E5;
-    position: absolute;
-    top: 21vh;
-    @include pad{
-        top: 14vh;
-    }
     @include mobile{
-        top: 20vh;
+        width: 180px;
     }
 }
+// .searchLine{
+//     width: 100%;
+//     height: 1px;
+//     border-bottom: 1px solid #E5E5E5;
+//     position: absolute;
+//     top: 21vh;
+//     @include pad{
+//         top: 14vh;
+//     }
+//     @include mobile{
+//         top: 20vh;
+//     }
+// }
+.notSearch{
+    position: absolute;
+    top: 40vh;
+    
+    display: block;
+    width: 100%;
+    height: auto;
+    text-align: center;
+    h4{
+        margin-top: 10px;
+        font-family: 'Montserrat';
+        line-height: 1.2rem;
+    }
+}
+.searchBar_Found{
+    display: block;
+    width: 100%;
+    height: auto;
+
+    li{
+        padding: 3.5vh 5vh;
+        border-bottom: 1px solid #E5E5E5;
+        display: flex;
+        align-items: center;
+        pointer-events: all;
+
+        @include notebook{
+            padding: 2.5vh 3vh;
+        }
+
+        .personalRoom{
+            display: block;
+            width: 3px;
+            height: 25px;
+            background-color: #886F5E;
+            margin-right: 10px;
+        }
+        &:hover{
+            background-color: #e5e5e58a;
+        }
+    }
+    a{
+        display: block;
+        width: 100%;
+        height: 100%;
+        color: black;
+    }
+    
+}
+
 
 // search Bar popUp end
 
@@ -1211,10 +1293,8 @@ body {
 
 // --- 進入按鈕設定 ---
 .exBtn{
-    // display: block;
-    // width: 200px;
-    // height: 380px;
     overflow: hidden;
+    box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.5);
 
     position: absolute;
     right: -115px;
@@ -1769,6 +1849,79 @@ h2{
     @include mobile{
         width: 215px;
         height: 135px;
+    }
+}
+
+// 最後一頁
+.lastWrapper {
+    width: 80vw;
+    height: 100vh;
+    box-sizing: border-box;
+
+    display: flex;
+    background-color: map-get($color,'black');
+    color: white;
+
+    @include pad{
+        width: 100vw;
+        height: 80vh;
+    }
+}
+
+.mainAreaLast{
+    position: relative;
+    width: 100%;
+
+    h1{
+        font-size: $titleL;
+        position: absolute;
+        top: 15vh;
+        left: 50vw;
+        z-index: 1;
+        text-shadow: 2px 2px 3px map-get($color,'black');
+        @include pad{
+            bottom: 43%;
+            left: 20vw;
+        }
+        @include mobile{
+            font-size: $titleM;
+            bottom: 37%;
+            left: 50vw;
+        }
+    }
+    p{
+        font-size: $paragraph;
+        font-family: "Noto Serif TC", serif;
+        position: absolute;
+        bottom: 8%;
+        left: 13vw;
+        line-height: 1.5rem;
+        display: block;
+        width: 1150px;
+        text-shadow: 1px 1px 1px darkgrey;
+        @include pad{
+            width: 400px;
+            bottom: 20%;
+            left: 20vw;
+        }
+        @include mobile{
+            width: 270px;
+            bottom: 11%;
+            left: 22vw;
+        }
+    }
+    .lastPic{
+        position: absolute;
+        top: 20vh;
+        right: -6vw;
+        margin: auto;
+        width: 1000px;
+        height: 450px;
+        overflow: hidden;
+    
+        background-image: url(../../img/src_bg_4.jpg);
+        background-position: center center;
+        background-size: cover;
     }
 }
 // 四大主題頁面 end

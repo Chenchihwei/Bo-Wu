@@ -27,15 +27,15 @@
     <div class="cursor-outside"></div>
 
     <!-- LINK STYLE -->
-    <a href="#" class="hover"></a>
+    <a href="#" class="mousehover"></a>
 
     <!-- 左側 header -->
     <header class="indexSideBar">
-        <a class="logoForIndex" href="../dist/homepage.html">
+        <a class="logoForIndex mousehover" href="../dist/homepage.html">
             <img src="../app/assets/img/logo_bowu_white.png">
         </a>
 
-        <menu class="menu">
+        <menu class="menu mousehover">
             <p>MENU</p>
             <div class="menuOpenCloseAni">
                 <span class="indexMenuline1"></span>
@@ -92,9 +92,9 @@
         </div>
 
         <ul>
-            <li> <a href="#">SHARE</a> </li>
+            <li> <a href="#" class="mousehover">SHARE</a> </li>
             <b></b>
-            <li> <a href="./About.html">CONTACT US</a> </li>
+            <li> <a href="./About.html" class="mousehover">CONTACT US</a> </li>
         </ul>
     </header>
 
@@ -108,27 +108,48 @@
             <div id="searchBar" :class="{'-active': searchBarPage}">
                 <div class="searchBarTop">
                     
-                    <img class="searchBarGobackBtn" @click="searchBarClose" src="./assets/img/icon_goBack.png">
-                    <img class="searchBarArrow" src="./assets/img/Icon_arrowRight.png">
-
+                    <!-- <img class="searchBarGobackBtn" @click="searchBarClose" src="./assets/img/icon_goBack.png"> -->
+                    
                     <div class="searchTitle">
                         <i class="fas fa-search"></i>
                         <p> Search </p>
                     </div>
-
+                    
                     <input type="text" name="searchArea" id="searchBarInput">
+                    <img class="searchBarArrow" src="./assets/img/Icon_arrowRight.png">
                     
                 </div>  
                 
-                <div class="searchLine"></div>
+                <!-- <div class="searchLine"></div> -->
+                
+                <div class="notSearch none">
+                    <img src="../app/assets/img/searchBarImg.png">
+                    <h4>
+                        Type something to search...
+                    </h4>
+                    <h4 class="none">
+                        No results found for query "..."
+                    </h4>
+                </div>
+
+                <ul class="searchBar_Found">
+                    <li class="searchBar_item"> <div class="personalRoom"></div> <a href="#">Andy's personal exhibits </a> </li>
+                    <li class="searchBar_item"> <a href="#">Andy's works </a> </li>
+                    <li class="searchBar_item"> <a href="#">A ....  </a> </li>
+                    <li class="searchBar_item"> <a href="#">A ....  </a> </li>
+                    <li class="searchBar_item"> <a href="#">A ....  </a> </li>
+                </ul>
             </div>
 
             <div class="personal">
                 <a href="./exhibition.html">個人展間</a>
             </div>
 
-            <div class="login"><a href="" class="login_manger">登入</a>
-                <i class="fas fa-user-friends"></i>
+            <div class="logInOption">
+                <div class="login"><a class="login_mangerr">登入</a>
+                    <i class="fas fa-user-friends"></i>
+                    <div class="logOut"><a href="">登 出</a></div>
+                </div>
             </div>
 
             <i class="fas fa-bell"></i>
@@ -188,14 +209,16 @@
                             <div class="animation-outer__inner">四大展間　———　宇宙。</div>
                             <div class="animation-outer__inner -fake">四大展間　———　宇宙。</div>
                         </h2>
-                        <p class="animation-p"">　　展示探索宇宙由近至遠的概念，從我們身處的太陽系開始，再推展至恆星，銀河系及更遙遠的星系，以至探索宇宙的演化及相關的科學。</p>
+                        <p class="animation-p">　　展示探索宇宙由近至遠的概念，從我們身處的太陽系開始，再推展至恆星，銀河系及更遙遠的星系，以至探索宇宙的演化及相關的科學。</p>
 
-                        <div class="exBtn">
-                            <a href="./universe.html">
-                                <!-- <h3 class="textAni _CH">進入展間</h3> -->
-                                <h3 class="textAni _EN">ENTER HERE</h3>
-                                <div class="exBtn__inner exBtnUni"></div>
-                            </a>
+                        <div class="mousehover">
+                            <div class="exBtn">
+                                <a href="./universe.html">
+                                    <!-- <h3 class="textAni _CH">進入展間</h3> -->
+                                    <h3 class="textAni _EN">ENTER HERE</h3>
+                                    <div class="exBtn__inner exBtnUni"></div>
+                                </a>
+                            </div>
                         </div>
                     </main>
                 </div>
@@ -264,6 +287,25 @@
                 </div>
                 <div class="bgcolorFor4Topic"></div>
             </div>
+
+            <!-- <div class="swiper-slide">
+                <div class="lastWrapper big-wrapper">
+                    <main class="mainAreaLast">
+                        <h1  class="animation-outer">
+                            <div class="animation-outer__inner">BOWU MUSEUM</div>
+                            <div class="animation-outer__inner -fake">BOWU MUSEUM</div>
+                        </h1> 
+
+                        <div class="lastPic"></div>
+
+                        <p class="animation-p">　　BO-WU是一間結合四大主題與來自各大藝術展覽者所建造的線上展覽館。取名由四個大寫字母組成，是為了有一種活潑的感覺；而中文則為博物的諧音。<br>
+                        　　葧是一種植物，塢是指四周高中間低的地方，如：船塢、山塢。希望帶給使用者一種生氣勃勃，自然舒服、停留、靜止、博覽萬物的氣息。<br><br>
+                        　　希望每個光臨BO-WU Museum 的人都可以找到屬於自己的空間。</p>
+                    </main>
+                </div>
+                <div class="bgcolorFor4Topic"></div>
+            </div> -->
+
         </div>
     </div>
 
@@ -292,17 +334,17 @@
             
             $(window).on('mousemove', moveCircle);
             
-            $('.hover').mouseenter(function(e) {
+            $('.mousehover').mouseenter(function(e) {
                 TweenMax.to(circle, 0.2, {
                     scale: 5,
-                    backgroundColor: '#886f5e79'
+                    backgroundColor: '#e5e5e5a2'
                 });
             });
             
-            $('.hover').mouseleave(function(e) {
+            $('.mousehover').mouseleave(function(e) {
                 TweenMax.to(circle, 0.2, {
                     scale: 1,
-                    backgroundColor: '#886F5E'
+                    backgroundColor: 'rgb(175, 175, 175)'
                 });
             });
             

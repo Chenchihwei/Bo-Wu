@@ -2,6 +2,10 @@
 @import '../compontents/compontents';
 @import '../utilities/utilities';
 
+*{
+    outline: 1px solid red;
+}
+
 body{
     background-color: #f6f6f6;
 }
