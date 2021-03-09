@@ -117,6 +117,34 @@
     <script src="./assets/js/scriptBlack.js"></script>
     <script src="./assets/js/button.js"></script>
     
+    <script>
+            function doQuery(str) {
+            //Typing your code...
+
+            // axios.get('./test.php').then((res)=>{
+            //   console.log(res.data); 
+            // })
+
+
+            $.ajax({
+                method: "post",
+                url: "./test_work.php",
+                data: {
+                    Name: str
+                },
+                dataType: "text",
+                success: function (response) {
+                    //更新html內容
+                    
+                    document.getElementsByClassName('imgAll')[0].insertAdjacentHTML ('beforeend',response) ;
+                },
+                error: function (exception) {
+                    alert("發生錯誤: " + exception.status);
+                }
+            });
+        };
+
+    </script>
 
 </body>
 </html>

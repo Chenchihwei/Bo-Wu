@@ -101,7 +101,7 @@
     font-size: 8rem;
     color: map-get($color, 'black');
     opacity: 0;
-    z-index: 50;
+    z-index: 2;
     position: absolute;
     top: 25%;
     right: 0;
@@ -131,7 +131,7 @@
     font-size: 8rem;
     color: map-get($color, 'black');
     opacity: 0;
-    z-index: 50;
+    z-index: 2;
     position: absolute;
     top: 25%;
     left: 17vw;
