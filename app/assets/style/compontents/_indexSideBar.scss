@@ -1,101 +1,100 @@
 @import '../base/base';
 
 @mixin notebook{
-@media(max-width:$break-point-lg){
-    @content;
-}
+    @media(max-width:$break-point-lg){
+        @content;
+    }
 }
 @mixin pad{
-@media (max-width:$break-point-md) {
-    @content;
-}
+    @media (max-width:$break-point-md) {
+        @content;
+    }
 }
 @mixin mobile {
-@media (max-width:$break-point-xs) {
-    @content;
+    @media (max-width:$break-point-xs) {
+        @content;
+    }
 }
-}
 
 
-// header
-
+// 左側選單 start
 .indexSideBar{
-padding-top: 5vh;
-padding-bottom: 8vh;
-box-sizing: border-box;
+    padding-top: 5vh;
+    padding-bottom: 8vh;
+    box-sizing: border-box;
 
-width: 15.6vw;
-height: 100%;
-background-color: map-get($color, 'black');
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: space-between;
+    width: 15.6vw;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
 
-position: fixed;
-top: 0;
-left: 0;
-z-index: 3;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 3;
 
-@include pad{
-    justify-content: unset;
-    width: 16vw;
-}
-@include mobile{
-    width: 23vw;
-}
-
-img{
-    width: 80px;
     @include pad{
-        width: 60px;
+        justify-content: unset;
+        width: 20vw;
     }
     @include mobile{
-        width: 50px;
+        width: 23vw;
+    }
+
+    img{
+        width: 80px;
+        @include pad{
+            width: 60px;
+        }
+        @include mobile{
+            width: 50px;
+        }
+    }
+
+    ul{
+        font-weight: bold;
+        font-size: $paragraph;
+        display: flex;
+        align-content: center;
+        writing-mode: vertical-lr;
+        text-orientation: sideways;
+        transform: rotate(-180deg);
+        color: white;
+        font-family: 'Montserrat', sans-serif;
+        overflow-x: hidden;
+        @include pad{
+            visibility: hidden;
+        }
+
+    }
+
+    li:first-child{
+        padding-bottom: 15px;
+        // &:hover{
+        //     margin-left: 5px;
+        // }
+    }
+
+    a{
+        text-decoration: none;
+        color: map-get($color, 'white');
+        line-height: 25px;
+        &:hover{
+            color: map-get($color,'lightBrown');
+            transition: .5s;
+        }
+    }
+
+    b{
+        width: 25px;
+        height: 1px;
+        background-color: map-get($color, 'brown');
+        margin-bottom: 15px;
     }
 }
 
-ul{
-    font-weight: bold;
-    font-size: $paragraph;
-    display: flex;
-    align-content: center;
-    writing-mode: vertical-lr;
-    text-orientation: sideways;
-    transform: rotate(-180deg);
-    color: rgb(255, 240, 240);
-    font-family: 'Montserrat', sans-serif;
-    overflow-x: hidden;
-    @include pad{
-        visibility: hidden;
-    }
-
-}
-
-li:first-child{
-    padding-bottom: 15px;
-      // &:hover{
-      //     margin-left: 5px;
-      // }
-}
-
-a{
-    text-decoration: none;
-    color: map-get($color, 'white');
-    line-height: 25px;
-    &:hover{
-        color: map-get($color,'lightBrown');
-        transition: .5s;
-    }
-}
-
-b{
-    width: 25px;
-    height: 1px;
-    background-color: map-get($color, 'brown');
-    margin-bottom: 15px;
-}
-}
 .indexSideBarGold{
     padding-top: 5vh;
     padding-bottom: 8vh;
@@ -103,12 +102,13 @@ b{
     
     width: 15.6vw;
     height: 100%;
-    background-color: transparent;
-    color: map-get($map: $color, $key: "brown");
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+
+    background-color: transparent;
+    color: map-get($map: $color, $key: "brown");
     
     position: fixed;
     top: 0;
@@ -117,7 +117,7 @@ b{
     
     @include pad{
         justify-content: unset;
-        width: 16vw;
+        width: 20vw;
     }
     @include mobile{
         width: 23vw;
@@ -173,47 +173,53 @@ b{
         background-color: map-get($color, 'brown');
         margin-bottom: 15px;
     }
-    }
+}
+
+
 .menu{
-color: map-get($color, 'white');
-cursor: pointer;
+    color: map-get($color, 'white');
+    cursor: pointer;
+    z-index: 2;
 
-&:hover p{
-    transform: translateY(5px);
-    color: map-get($color, 'lightBrown');
-    transition: .2s;
-}
-&:hover .indexMenuline1{
-    background-color: map-get($color, 'lightBrown');
-    transition: .2s;
-}
-  &:hover .indexMenuline2{
-      background-color: map-get($color, 'lightBrown');
-      transition: .2s;
-  }
-  @include pad{
-      margin-top: 5vh;
-  }
-  p{
-      text-align: center;
-      font-size: $paragraph;
-      
-      @include pad{
-          writing-mode: vertical-lr;
-          transform: rotate(-180deg);
-          margin-bottom: 4vw;
-          margin-left: .5vw;
+    &:hover p{
+        transform: translateY(5px);
+        color: map-get($color, 'lightBrown');
+        transition: .2s;
+    }
+    &:hover .indexMenuline1{
+        background-color: map-get($color, 'lightBrown');
+        transition: .2s;
+    }
+    &:hover .indexMenuline2{
+        background-color: map-get($color, 'lightBrown');
+        transition: .2s;
+    }
+    @include pad{
+        margin-top: 5vh;
+        display: none;
+    }
+    p{
+        text-align: center;
+        font-size: $paragraph;
+        
+        @include pad{
+            writing-mode: vertical-lr;
+            transform: rotate(-180deg);
+            margin-bottom: 4vw;
+            margin-left: .5vw;
 
-          &:hover{
-              transform: none;
-          }
-      }
-  }
-  z-index: 2;
+            &:hover{
+                transform: none;
+            }
+        }
+    }
+    
 }
+
 .menuGold{
     color: map-get($color, 'brown');
     cursor: pointer;
+    z-index: 2;
     
     &:hover p{
         transform: translateY(5px);
@@ -224,99 +230,48 @@ cursor: pointer;
         background-color: map-get($color, 'lightBrown');
         transition: .2s;
     }
-      &:hover .indexMenuline2{
-          background-color: map-get($color, 'lightBrown');
-          transition: .2s;
-      }
-      @include pad{
-          margin-top: 5vh;
-      }
-      p{
-          text-align: center;
-          font-size: $paragraph;
-          
-          @include pad{
-              writing-mode: vertical-lr;
-              transform: rotate(-180deg);
-              margin-bottom: 4vw;
-              margin-left: .5vw;
-    
-              &:hover{
-                  transform: none;
-              }
-          }
-      }
-      z-index: 2;
-    }
-.menuGold{
-    color: map-get($color, 'brown');
-    cursor: pointer;
-    
-    &:hover p{
-        transform: translateY(5px);
-        color: map-get($color, 'lightBrown');
+    &:hover .indexMenuline2{
+        background-color: map-get($color, 'lightBrown');
         transition: .2s;
     }
-    &:hover .indexMenuline1{
-        background-color: map-get($color, 'brown');
-        transition: .2s;
+    @include pad{
+        margin-top: 5vh;
+        display: none;
     }
-      &:hover .indexMenuline2{
-          background-color: map-get($color, 'brown');
-          transition: .2s;
-      }
-      @include pad{
-          margin-top: 5vh;
-      }
-      p{
-          text-align: center;
-          font-size: $paragraph;
-          
-          @include pad{
-              writing-mode: vertical-lr;
-              transform: rotate(-180deg);
-              margin-bottom: 4vw;
-              margin-left: .5vw;
+    p{
+        text-align: center;
+        font-size: $paragraph;
+        
+        @include pad{
+            writing-mode: vertical-lr;
+            transform: rotate(-180deg);
+            margin-bottom: 4vw;
+            margin-left: .5vw;
     
-              &:hover{
-                  transform: none;
-              }
-          }
-      }
-      z-index: 2;
+            &:hover{
+                transform: none;
+            }
+        }
     }
-.indexMenuline1{
-  margin-top: 1.5vh;
-  display: block;
-  background-color: map-get($color, 'white');
-  width: 4vw;
-  height: 1.8px;
+}
 
-  z-index: 2;
-  @include pad{
-      transform: rotate(90deg) translateY(1vw) translateX(1vw);
-  }
-  @include mobile{
-      width: 5vw;
-      height: 1.8px;    
-  }
+.indexMenuline1{
+    margin-top: 1.5vh;
+    display: block;
+    background-color: map-get($color, 'white');
+    width: 4vw;
+    height: 1.8px;
+
+    z-index: 2;
 }
 .indexMenuline2{
-  display: block;
-  background-color: map-get($color, 'white');
-  width: 2vw;
-  height: 1.5px;
-  margin-top: .8vh;
-
-  z-index: 2;
-  @include pad{
-      transform: rotate(90deg) translateY(-1vw) translateX(-1vw);
-  }
-  @include mobile{
-    width: 3vw;
+    display: block;
+    background-color: map-get($color, 'white');
+    width: 2vw;
     height: 1.5px;
-    transform: rotate(90deg) translateY(-1vw) translateX(-1.5vw);
-}
+    margin-top: .8vh;
+
+    z-index: 2;
 }
 
 .indexMenuline1Gold{
@@ -325,15 +280,7 @@ cursor: pointer;
     background-color: map-get($color, 'brown');
     width: 4vw;
     height: 1.8px;
-  
     z-index: 2;
-    @include pad{
-        transform: rotate(90deg) translateY(1vw) translateX(1vw);
-    }
-    @include mobile{
-        width: 5vw;
-        height: 1.8px;    
-    }
 }
 .indexMenuline2Gold{
     display: block;
@@ -341,58 +288,332 @@ cursor: pointer;
     width: 2vw;
     height: 1.5px;
     margin-top: .8vh;
-  
     z-index: 2;
-    @include pad{
-        transform: rotate(90deg) translateY(-1vw) translateX(-1vw);
-    }
-    @include mobile{
-      width: 3vw;
-      height: 1.5px;
-      transform: rotate(90deg) translateY(-1vw) translateX(-1.5vw);
-  }
 }
 
+.smallSize_menuOpenCloseAni{
+    &:hover span{
+        opacity: .8;
+        transition: .5s;
+    }
+    
+    @include pad{
+        display: flex;
+        width: auto;
+        height: 60px;
+        margin-top: 20px;
 
-// @media screen and (max-width: 414px){
-//   .menu_bar{
-//     flex-direction: column;
-//     padding-top: 20vh;
-//     .menu_personal_exhibits{
-//       font-size: 16px;
-//     }
-//     .menu_child{
-      
-//       a{
-//         font-size: 48px;
-//       }
-      
-//     }
-  
-//     .join{
+    
+        .smallSize_indexMenuline1,.smallSize_indexMenuline2{
+            display: block;
+            width: 2px;
+            height: 60px;
+            background-color: #fff;
+            opacity: .5;
+        }
+        .smallSize_indexMenuline2{
+            margin-left: 10px;
+            height: 40px;
+        }
+    }
+    
+}
 
-//       a{
-//         font-size: 24px;
-//       }
-//     }
-//   }
+// == menu page ==
+
+.menu_bar{
+    width: 84.4vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background-color: map-get($color, 'black');
+    padding-left: 15.6vw;
+    display: flex;
+    padding-top: 41vh;
+
+    @include pad{
+        padding-top: 20vh;
+        flex-direction: column;
+    }
+
+    .menuGsapLine{
+        display: block;
+        width: 82.71vw;
+        height: 1px;
+        background-color: #F1F1F1;
+
+        position: absolute;
+        right: -200vw;
+        top: 41vh;
+
+        @include pad{
+            display: none;
+        }
+    }
+
+    .smallSizeCloseBtn{
+        @include pad{
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            top: 5%;
+            left: 6%;
+            cursor: pointer;
+            opacity: 0;
+
+            div::before, div::after {
+                content: '';
+                position: absolute;
+                width: 30px;
+                height: 2px;
+                background-color: #fff;
+                cursor: pointer;
+            }
+            div::before {
+                transform: rotate(-45deg);
+                cursor: pointer;
+            }
+            div::after {
+                transform: rotate(45deg);
+                cursor: pointer;
+            }
+        }
+    }
+
+    .exhibits-title-outer{
+        display: block;
+        overflow: hidden;
+
+        position: absolute;
+        right: 5vw;
+        top: 5vh;
+
+        &:hover{
+            .exhibits-title,.exhibits-titleHover{
+                transform: translateY(100%);
+            }
+        }
+
+        .exhibits-title,.exhibits-titleHover{
+            transition: transform .6s;
+        }
+        .exhibits-titleHover{
+            position: absolute;
+            top: -100%;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    }
+    .menu_personal_exhibits{
+        text-decoration: none;
+        font-family: 'Montserrat';
+        font-weight: bold;
+        color: #ffffff;
+        // position: absolute;
+        // right: 5vw;
+        // top: 5vh;
+        opacity: 0;
+
+        z-index: 5;
+
+        font-size: $titleS;
+        letter-spacing: 0.3rem;
+
+        @include notebook{
+            font-size: 1.3rem;
+        }
+        @include pad{
+            right: 0;
+            left: 23vw;
+            top: 10vh;
+            font-size: 1.5rem;
+        }
+        @include mobile{
+            left: 18vw;
+            top: 7vh;
+            font-size: 1rem;
+            letter-spacing: 0.2rem;
+        }
+    }
+    
+    .menu_child{
+        a{
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            width: 22.7vw;
+            font-size: 70px;
+            color:#646464;
+            border-top: 1px solid transparent;
+            box-sizing: border-box;
+            padding-top: 5.5vh;
+            opacity: 0;
+            
+            &:hover{
+                border-top: 3px solid #FBFBF6;
+                color: #fff; 
+                @include pad{
+                    border-top: 1px solid transparent;
+                    transition: 1s;
+                }
+            }
+            &:hover img{
+                display: block;
+                animation: menuImgDown 1s ease-out forwards;
+                @keyframes menuImgDown{
+                    0%{transform: translateY(5px); opacity: 0; }
+                    100%{transform: translateY(0px); opacity: 1; }
+                }
+
+                @include pad{
+                    display: none;
+                }
+            }
+            
+            img{
+                display: none;
+                position: absolute;
+                z-index: -1;
+                width: 22vw; 
+                height: 35vw;
+                margin-left: 0.5vw;
+                opacity: 70%;
+            }
+
+            @include notebook{
+                font-size: 3.4rem;
+            }
+            @include pad{
+                margin-left: 15vw;
+                line-height: 10vh;
+                text-align: left;
+                font-size: 5rem;
+            }
+            @include mobile{
+                font-size: 3rem;
+            }
+        }
+    }
+    .menu_exhibits {
+        a{
+            &:hover img{
+                display: block;
+                animation: menuImgUp 1s ease-out forwards;
+                @keyframes menuImgUp{
+                                0%{transform: translateY(0px); opacity: 0; }
+                                100%{transform: translateY(5px); opacity: 1; }
+                            }
+                
+                @include pad{
+                    display: none;
+                    }
+            }
+        }
+    }
+    .notthings{
+        a{
+            width: 16.25vw;
+            &:hover{
+            border-top: 1px solid #F1F1F1;
+            }
+        }
+    }
+
+    .menu_about{
+        margin-left: 1.69vw;
+
+        @include pad{
+            margin-left: 0;
+        }
+        a{
+            img{
+            top: 32vh;
+            }
+        }    
+    }
+
+    .menu_exhibits{
+        a{
+            img{
+            top: 6.5vh;
+            }
+        }    
+    }
+
+    .menu_postcard{
+        a{
+            img{
+            top: 30vh;
+            }
+        }    
+    }
+    .join{
+        height: 40px;
+        position: absolute;
+        right: 5vw;
+        top: 87vh;
+        display: flex;
+        z-index: 5;
+        overflow: hidden;
+
+        opacity: 0;
+        letter-spacing: 0.3rem;
+
+        .join-titleHover,.join-title{
+            transition: transform .6s;
+        }
+
+        &:hover{
+            .join-title,.join-titleHover{
+                transform: translateY(-100%);
+            }
+        }
+
+        @include pad{
+            right: 33vw;
+        }
+        .line{
+            width: 15vw;
+            height: 3px;
+            background-color: map-get($color, 'lightBrown');
+            margin-top: 17.5px;
+            margin-right: 16px;
+            z-index: 6;
+            @include pad{
+                width: 25vw;
+                height: 2px;
+                margin-top: 20px;
+            }
+            @include mobile{
+                width: 15vw;
+            }
+        }
+        a{
+            line-height: 40px;
+            text-decoration: none;
+            font-family: 'Montserrat';
+            font-weight: bold;
+            color: #ffffff;
+            font-size: $titleS;
+            @include notebook{
+                font-size: 1.3rem;
+            }
+            @include pad{
+                font-size: 1.5rem;
+            }
+            @include mobile{
+                font-size: 1rem;
+            }
+        }
 
 
-//   .features{
-//     width: 40vw;
-//     right: 0;
-//     top: 4%;
-//     .personal{
-//         display: none;
-//     }
-//     .login_manger{
-//         display: none;
-//     }
-//     .login {
-//         border-bottom: 0 solid #e5e5e5;
-//         font-size: 50px;
-//        }
-// }
+    }
+}
 
-
-
+.none{
+    display: none !important;
+    transition: 2s;
+}

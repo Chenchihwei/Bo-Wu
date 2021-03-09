@@ -559,178 +559,8 @@ body {
     display: none !important;
     transition: 2s;
 }
-
 // 左側選單 end
 
-// 右上方選單 start
-
-// .asideTopBar{
-//     position: fixed;
-//     top: 0;
-//     right: 0;
-
-//     display: flex;
-//     width: 13vw;
-//     margin: 0 2vw 0 0;
-//     justify-content: space-between;
-//     align-items: center;
-
-//     color: map-get($color, 'black');
-//     font-size: .8rem;
-//     margin-top: 4.6vh;
-//     z-index: 2;
-
-//     img{
-//         width: 20px;
-//     }
-
-//     a{
-//         border-bottom: 3px solid map-get($color, 'gray');
-//         padding-bottom: .8vh;
-//     }
-//     @include pad{
-//         width: 28vw;
-//         margin: 5vh 4vw 0 0;
-//         color: map-get($color, 'white');
-//     }
-//     @include mobile{
-//         width: 55vw;
-//     }
-// }
-// .personalExhibition{
-//     ::after{
-//         content: "";
-//         display: block;
-//         width: 65px;
-//         height: 2px;
-//         background-color: #E5E5E5;
-//         margin-top: 3px;
-//     }
-// }
-// .logInBtn{
-//     ::after{
-//         content: "";
-//         display: block;
-//         width: 60px;
-//         height: 2px;
-//         background-color: #E5E5E5;
-//         margin-top: 3px;
-//     }
-// }
-
-.features {
-    display: flex;
-    width: 250px;
-    height: 27px;
-    color: map-get($color, 'black');
-
-    align-items: center;
-    position: fixed;
-    top: 50px;
-    right:1vw;
-    z-index: 3;
-
-    a{
-        text-decoration: none;
-        color: map-get($color, 'black');
-        font-size: $paragraph;
-        font-family: 'Noto Serif TC';
-        @include pad{
-            color:map-get($color ,'white');
-        }
-        @include mobile{
-            font-size: 14px;
-        }
-    }
-    .fa-search {
-        font-size: 23px;
-        margin: 0;
-        @include mobile{
-            font-size: 20px;
-        }
-    }
-    .personal {
-        width: 64px;
-        height: 23px;
-        margin-left: 20px;
-        border-bottom: 3px solid #e5e5e5;
-     // outline: 2px solid chocolate;
-        @include mobile{
-            display: none;
-            border-bottom: 1.5px solid #e5e5e5;
-        }
-    }
-    .logInOption{
-        position: relative;
-
-        .login {
-            width: 56px;
-            height: 23px;
-            margin-left: 20px;
-            display: flex;
-            border-bottom: 3px solid #e5e5e5;
-         // outline: 2px solid chocolate;
-            
-            &:hover div,&:hover a{
-                display: block;
-            }
-            
-            @include mobile{
-                height: 20px;
-                border-bottom: 1.5px solid #e5e5e5;
-            }
-        }
-        .logOut{
-            display: none;
-
-            position: absolute;
-            top: 140%;
-            left: 20px;
-
-            width: 60px;
-            height: 25px;
-            background-color: #e5e5e56e;
-            border-radius: 13px;
-            text-align: center;
-            line-height: 25px;
-            a{
-                color: gray;
-            }
-            &:hover{
-                background-color: #e5e5e5e7;
-                a{
-                    color: black;
-                }
-            }
-        }
-    }
-    .fa-user-friends {
-        font-size: 15px;
-        margin: 0;
-        margin-left: 4px;
-    }
-    .fa-bell {
-        font-size: 20px;
-        margin-left: 15px;
-        margin-bottom: 6px;
-
-        @include mobile{
-            display: none;
-        }
-    }
-    @include notebook{
-        right: -1vw;
-    }
-    @include pad{
-        color:map-get($color ,'white');
-    }
-    @include mobile{
-        right: -30vw;
-        top: 36px;
-    }
-}
-
-// 右上方選單 end
 
 // 頁面顯示bar start 
 .pageBar{
@@ -854,7 +684,6 @@ body {
         width: 13.75px;
     }
 }
-
 // 頁面顯示bar end
 
 // 音樂btn start
@@ -1064,8 +893,6 @@ body {
             height: 100%;
         }
 }
-
-
 .SeeMoreBar{
     background-color: transparent;
     width: 1px;
@@ -1092,9 +919,123 @@ body {
 }
 // 滑動看更多 end
 
+// 右上方選單 start
+
+.features {
+    display: flex;
+    width: 250px;
+    height: 27px;
+    color: map-get($color, 'black');
+
+    align-items: center;
+    position: fixed;
+    top: 50px;
+    right:1vw;
+    z-index: 3;
+
+    a{
+        text-decoration: none;
+        color: map-get($color, 'black');
+        font-size: $paragraph;
+        font-family: 'Noto Serif TC';
+        @include pad{
+            color:map-get($color ,'white');
+        }
+        @include mobile{
+            font-size: 14px;
+        }
+    }
+    .fa-search {
+        font-size: 23px;
+        margin: 0;
+        @include mobile{
+            font-size: 20px;
+        }
+    }
+    .personal {
+        width: 64px;
+        height: 23px;
+        margin-left: 20px;
+        border-bottom: 3px solid #e5e5e5;
+     // outline: 2px solid chocolate;
+        @include mobile{
+            display: none;
+            border-bottom: 1.5px solid #e5e5e5;
+        }
+    }
+    .logInOption{
+        position: relative;
+
+        .login {
+            width: 56px;
+            height: 23px;
+            margin-left: 20px;
+            display: flex;
+            border-bottom: 3px solid #e5e5e5;
+         // outline: 2px solid chocolate;
+            
+            &:hover div,&:hover a{
+                display: block;
+            }
+            
+            @include mobile{
+                height: 20px;
+                border-bottom: 1.5px solid #e5e5e5;
+            }
+        }
+        .logOut{
+            display: none;
+
+            position: absolute;
+            top: 140%;
+            left: 20px;
+
+            width: 60px;
+            height: 25px;
+            background-color: #e5e5e56e;
+            border-radius: 13px;
+            text-align: center;
+            line-height: 25px;
+            a{
+                color: gray;
+            }
+            &:hover{
+                background-color: #e5e5e5e7;
+                a{
+                    color: black;
+                }
+            }
+        }
+    }
+    .fa-user-friends {
+        font-size: 15px;
+        margin: 0;
+        margin-left: 4px;
+    }
+    .fa-bell {
+        font-size: 20px;
+        margin-left: 15px;
+        margin-bottom: 6px;
+
+        @include mobile{
+            display: none;
+        }
+    }
+    @include notebook{
+        right: -1vw;
+    }
+    @include pad{
+        color:map-get($color ,'white');
+    }
+    @include mobile{
+        right: -30vw;
+        top: 36px;
+    }
+}
+// 右上方選單 end
+
 
 // search Bar popUp
-
 #searchBar{
     position: fixed;
     top:0;
