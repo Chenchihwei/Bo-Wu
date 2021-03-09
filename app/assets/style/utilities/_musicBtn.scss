@@ -1,141 +1,141 @@
 // 音樂btn start
 .musicControlBtn{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  
-    position: fixed;
-    right: 7.5vw;
-    bottom: 3vw;
-  
-    z-index: 2;
-    p{
-        font-size: .8rem;
-        font-family: 'Montserrat',sans-serif,
-    }
-    @include mobile{
-        display: none;
-    }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  position: fixed;
+  right: 7.5vw;
+  bottom: 3vw;
+
+  z-index: 2;
+  p{
+      font-size: .8rem;
+      font-family: 'Montserrat',sans-serif,
   }
-  .musicControlBtnSpan{
-    display: flex;
-    align-items: flex-end;
-    padding-bottom: 5px;
+  @include mobile{
+      display: none;
   }
-  .line1{
-    display: block;
-    height: 20px;
-    width: 2px;
-    background-color: black;
-    margin-right: 15px;
+}
+.musicControlBtnSpan{
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 5px;
+}
+.line1{
+  display: block;
+  height: 20px;
+  width: 2px;
+  background-color: black;
+  margin-right: 10px;
+}
+.line2{
+  display: block;
+  height: 40px;
+  width: 2px;
+  background-color: black;
+  margin-right: 10px;
+}
+.line3{
+  display: block;
+  height: 25px;
+  width: 2px;
+  background-color: black;
+}  
+
+.bar{
+  animation: equalize 4s 0s infinite;
+  &:nth-child(1) { 
+      animation-delay: -1.9s;
   }
-  .line2{
-    display: block;
-    height: 40px;
-    width: 2px;
-    background-color: black;
-    margin-right: 15px;
+  &:nth-child(2) { 
+      animation-delay: -2s;
   }
-  .line3{
-    display: block;
-    height: 25px;
-    width: 2px;
-    background-color: black;
-  }  
-  
-  .bar{
-    animation: equalize 4s 0s infinite;
-    &:nth-child(1) { 
-        animation-delay: -1.9s;
-    }
-    &:nth-child(2) { 
-        animation-delay: -2s;
-    }
-    &:nth-child(3) { 
-        animation-delay: -2.3s;
-    }
+  &:nth-child(3) { 
+      animation-delay: -2.3s;
   }
-    @keyframes equalize {
-        0% {
-        height: 5.5vh;
-        }
-        4% {
-        height: 5.0vh;
-        }
-        8% {
-        height: 4.5vh;
-        }
-        12% {
-        height: 4.0vh;
-        }
-        16% {
-        height: 3.5vh;
-        }
-        20% {
-        height: 4.0vh;
-        }
-        24% {
-        height: 4.5vh;
-        }
-        28% {
-        height: 2.0vh;
-        }
-        32% {
-        height: 3.0vh;
-        }
-        36% {
-        height: 5.5vh;
-        }
-        40% {
-        height: 3.0vh;
-        }
-        44% {
-        height: 4.0vh;
-        }
-        48% {
-        height: 5.0vh;
-        }
-        52% {
-        height: 3.0vh;
-        }
-        56% {
-        height: 2.0vh;
-        }
-        60% {
-        height: 3.0vh;
-        }
-        64% {
-        height: 4.0vh;
-        }
-        68% {
-        height: 5.0vh;
-        }
-        72% {
-        height: 5.5vh;
-        }
-        76% {
-        height: 5.7vh;
-        }
-        80% {
-        height: 3.0vh;
-        }
-        84% {
-        height: 2.0vh;
-        }
-        88% {
-        height: 3.0vh;
-        }
-        92% {
-        height: 4.0vh;
-        }
-        96% {
-        height: 4.5vh;
-        }
-        100% {
-        height: 5.0vh;
-        }
-    }
-    .hide{
-        animation: none;
-    }
-  // 音樂btn end
+}
+  @keyframes equalize {
+      0% {
+      height: 5.5vh;
+      }
+      4% {
+      height: 5.0vh;
+      }
+      8% {
+      height: 4.5vh;
+      }
+      12% {
+      height: 4.0vh;
+      }
+      16% {
+      height: 3.5vh;
+      }
+      20% {
+      height: 4.0vh;
+      }
+      24% {
+      height: 4.5vh;
+      }
+      28% {
+      height: 2.0vh;
+      }
+      32% {
+      height: 3.0vh;
+      }
+      36% {
+      height: 5.5vh;
+      }
+      40% {
+      height: 3.0vh;
+      }
+      44% {
+      height: 4.0vh;
+      }
+      48% {
+      height: 5.0vh;
+      }
+      52% {
+      height: 3.0vh;
+      }
+      56% {
+      height: 2.0vh;
+      }
+      60% {
+      height: 3.0vh;
+      }
+      64% {
+      height: 4.0vh;
+      }
+      68% {
+      height: 5.0vh;
+      }
+      72% {
+      height: 5.5vh;
+      }
+      76% {
+      height: 5.7vh;
+      }
+      80% {
+      height: 3.0vh;
+      }
+      84% {
+      height: 2.0vh;
+      }
+      88% {
+      height: 3.0vh;
+      }
+      92% {
+      height: 4.0vh;
+      }
+      96% {
+      height: 4.5vh;
+      }
+      100% {
+      height: 5.0vh;
+      }
+  }
+  .hide{
+      animation: none;
+  }
+// 音樂btn end

@@ -122,7 +122,7 @@
                 
                 <!-- <div class="searchLine"></div> -->
                 
-                <div class="notSearch none">
+                <div class="notSearch">
                     <img src="../app/assets/img/searchBarImg.png">
                     <h4>
                         Type something to search...
@@ -132,7 +132,7 @@
                     </h4>
                 </div>
 
-                <ul class="searchBar_Found">
+                <ul class="searchBar_Found none">
                     <li class="searchBar_item"> <div class="personalRoom"></div> <a href="#">Andy's personal exhibits </a> </li>
                     <li class="searchBar_item"> <a href="#">Andy's works </a> </li>
                     <li class="searchBar_item"> <a href="#">A ....  </a> </li>
@@ -171,19 +171,18 @@
     </div>
 
     <!-- 音樂按鈕 -->
-    <div class="musicControlBtn" id="app">
+    @@include('./compontents/music.html')
+    <!-- <div class="musicControlBtn" id="app">
         <div class="musicControlBtnSpan" @click="open">
             <span class="bar line1 hide"></span>
             <span class="bar line2 hide"></span>
             <span class="bar line3 hide"></span>
             <div class="audio">
-            <!-- <iframe src="music/music1.mp3" allow="autoplay" style="display:none" id="iframeAudio">
-            </iframe>  -->
                 <audio loop="loop" id="music1" src="music/music1.mp3"></audio>
             </div>    
         </div>
         <p>{{Music}}</p>
-    </div>
+    </div> -->
 
     <!-- 捲動看更多 -->
     <div class="scrollToSeeMore">
@@ -308,7 +307,23 @@
 
         </div>
     </div>
+    <script>
+        $.ajax({
+            method: "POST",
+            url: "php/front/homepage.php",
+            data: {
 
+            },
+            dataType: "text",
+            success: function (response) {
+                //更新html內容
+                console.log(response)
+            },
+            error: function (exception) {
+                alert("發生錯誤: " + exception.status);
+            }
+        });
+    </script>
     <script>
         var circle = document.getElementsByClassName('cursor')[0];
         var circleOut = document.getElementsByClassName('cursor-outside')[0];
@@ -631,7 +646,7 @@
 
     </script>
 
-    <script>
+    <!-- <script>
         var vm = new Vue({
             el: '#app',
             data: {
@@ -661,7 +676,8 @@
                 },
             },
         });  
-    </script>
+    </script> -->
+    <script src='./assets/js/music.js'></script>
 
     <script>
         var sb = new Vue({

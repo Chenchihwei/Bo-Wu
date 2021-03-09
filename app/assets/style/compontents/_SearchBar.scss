@@ -4,31 +4,30 @@
     display: flex;
     width: 250px;
     height: 27px;
-    color: map-get($color, "black");
+    color: map-get($color, 'black');
 
     align-items: center;
-    // position: fixed;
-    position: absolute;
+    position: fixed;
     top: 50px;
-    right: 1vw;
-    z-index: 2;
+    right:1vw;
+    z-index: 3;
 
-    a {
+    a{
         text-decoration: none;
-        color: map-get($color, "black");
+        color: map-get($color, 'black');
         font-size: $paragraph;
-        font-family: "Noto Serif TC";
-        @include pad {
-            color: map-get($color, "white");
+        font-family: 'Noto Serif TC';
+        @include pad{
+            color:map-get($color ,'white');
         }
-        @include mobile {
+        @include mobile{
             font-size: 14px;
         }
     }
     .fa-search {
         font-size: 23px;
         margin: 0;
-        @include mobile {
+        @include mobile{
             font-size: 20px;
         }
     }
@@ -37,22 +36,54 @@
         height: 23px;
         margin-left: 20px;
         border-bottom: 3px solid #e5e5e5;
-        // outline: 2px solid chocolate;
-        @include mobile {
+     // outline: 2px solid chocolate;
+        @include mobile{
             display: none;
             border-bottom: 1.5px solid #e5e5e5;
         }
     }
-    .login {
-        width: 56px;
-        height: 23px;
-        margin-left: 20px;
-        display: flex;
-        border-bottom: 3px solid #e5e5e5;
-        // outline: 2px solid chocolate;
-        @include mobile {
-            height: 20px;
-            border-bottom: 1.5px solid #e5e5e5;
+    .logInOption{
+        position: relative;
+
+        .login {
+            width: 56px;
+            height: 23px;
+            margin-left: 20px;
+            display: flex;
+            border-bottom: 3px solid #e5e5e5;
+         // outline: 2px solid chocolate;
+            
+            &:hover div,&:hover a{
+                display: block;
+            }
+            
+            @include mobile{
+                height: 20px;
+                border-bottom: 1.5px solid #e5e5e5;
+            }
+        }
+        .logOut{
+            display: none;
+
+            position: absolute;
+            top: 140%;
+            left: 20px;
+
+            width: 60px;
+            height: 25px;
+            background-color: #e5e5e56e;
+            border-radius: 13px;
+            text-align: center;
+            line-height: 25px;
+            a{
+                color: gray;
+            }
+            &:hover{
+                background-color: #e5e5e5e7;
+                a{
+                    color: black;
+                }
+            }
         }
     }
     .fa-user-friends {
@@ -65,15 +96,18 @@
         margin-left: 15px;
         margin-bottom: 6px;
 
-        @include mobile {
+        @include mobile{
             display: none;
         }
     }
-    @include pad {
-        color: map-get($color, "white");
+    @include notebook{
+        right: -1vw;
     }
-    @include mobile {
-        right: -35vw;
+    @include pad{
+        color:map-get($color ,'white');
+    }
+    @include mobile{
+        right: -30vw;
         top: 36px;
     }
 }
