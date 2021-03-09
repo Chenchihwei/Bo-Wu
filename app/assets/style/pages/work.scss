@@ -1,0 +1,239 @@
+@import '../base/base';
+@import '../base/reset';
+@import '../utilities/button';
+
+
+@mixin notebook{
+  @media(max-width:$break-point-lg){
+    @content;
+  }
+}
+
+@mixin pad {
+  @media (max-width:$break-point-md) {
+    @content;
+  }
+}
+@mixin mobile{
+  @media (max-width:$break-point-xs) {
+    @content;
+  }
+}
+
+
+body{
+  // outline: 1px solid green;
+  color: map-get($color, 'black');
+  display: inline-block;
+  // overflow-y: scroll;
+  overflow-x: scroll;
+  font-family: $fontFamily;
+}
+
+body::-webkit-scrollbar{
+  display: none;
+}
+
+.title{
+  // outline: 1px solid hotpink;
+  border-bottom: 20px solid #7e7e7e;
+  width: 1100px;
+  margin-left: 20vw;
+  padding-top: 80px;
+
+  position: sticky;
+  @include notebook{
+    margin-left: 18vw;
+    width: 60vw;
+  }
+  @include mobile{
+    padding-top: 10vh;
+  }
+
+  h1{
+    font-size: $titleM;
+    margin: 0;
+    margin-bottom: 30px;  
+    @include notebook{
+      font-size: $titleS;
+    }
+    @include mobile{
+      margin-bottom: 10px;
+    }
+  }
+}
+
+.container{
+  // outline: 2px solid cadetblue;
+  height: 60vh;
+  margin-top: 4rem;
+  margin-left: 20vw;
+  margin-bottom: 5.5rem;
+  padding: 0;
+  
+  @include pad{
+    width: auto;
+  }
+  @include mobile(){
+    overflow: hidden;
+    height: 100vh;
+    margin-top: 2rem;
+  }
+
+  .imgAll{
+    display: grid;
+    grid-template-columns: repeat(8, 10vw);
+    grid-template-rows: repeat(3, 20vh);
+    grid-gap: 15px;
+
+    grid-template-areas: 
+    "big1 big1 big1 small1 small2 big3 big3 small7"
+    "big1 big1 big1 big2 big2 big3 big3 small6 "
+    "big1 big1 big1 big2 big2 small3 small4 small5";
+
+    justify-items: center;
+
+    @include notebook{
+    // margin-left: 18vw;
+      grid-gap: 10px;
+
+      height: 60vh;
+      width: 100vw;  
+    }
+  @include pad{
+    height: 100vh;
+    width: 80vw;
+
+    grid-gap: 15px;
+  
+    grid-template-columns: repeat(4, 20vw);
+    grid-template-rows: repeat(6, 20vh);
+    grid-template-areas: 
+    'big1 big1 big1 big1'
+    'big1 big1 big1 big1'
+    'big1 big1 big1 big1'
+    'small1 small2 big2 big2'
+    'big3 big3 big2 big2'
+    'big3 big3 small3 small4';
+  }
+  @include mobile{
+    height: 100vh;
+    width: 80vw;
+
+    grid-template-columns: repeat(2, 30vw);
+    grid-template-rows: repeat(7, 20vh);
+    grid-gap: 10px;
+
+    grid-template-areas: 
+    'big2 big2'
+    'big2 big2'
+    'small1 small2'
+    'big3 big3'
+    'big3 big3'
+    'small5 small6';
+
+  }
+  img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  a{
+    width: 100%;
+    height: 100%;
+    grid-area: big1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img{
+      width: 90%;
+      height: 80%;
+    
+      transition: 1s;
+      p{
+        color: #666;
+        opacity: 0;
+        text-align: center;
+        line-height: 1.2rem;
+        height: 100%;
+        transition: 1.3s;
+        margin-top: 3rem;
+        &:hover{
+          color: map-get($color, 'white');
+          opacity: 1;
+        }
+      }
+      &:hover{
+        transform: scale(1.05);
+      }
+    }
+  
+  }
+  
+
+  img:nth-child(2){
+    // background: #666;
+    grid-area: big2;
+  }
+  
+  img:nth-child(3){
+    // background: #666;
+    grid-area: big3;
+  }
+  
+  img:nth-child(4){
+    // background: #999;
+    grid-area: small1;
+    transition: 1.3s;
+    &:hover{
+      transform: scale(1.1);
+    }
+  }
+
+  img:nth-child(5){
+    // background: #999;
+    grid-area: small2;
+  }
+  
+  img:nth-child(6){
+    // background: #999;
+    grid-area: small3;
+  }
+  
+  img:nth-child(7){
+    // background: #999;
+    grid-area: small4;
+  }
+  
+  img:nth-child(8){
+    // background: #999;
+    grid-area: small5;
+  }
+  
+  img:nth-child(9){
+    // background: #999;
+    grid-area: small6;
+  }
+  
+  img:nth-child(10){
+    // background: #999;
+    grid-area: small7;
+  }
+  
+  .small8{
+    background: #999;
+    grid-area: small8;
+  }
+  
+  .small9{
+    background: #999;
+    grid-area: small9;
+  }
+  }
+
+
+}
+
