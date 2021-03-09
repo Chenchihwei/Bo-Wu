@@ -7,8 +7,8 @@ $(document).ready(function () {
 
   $('.container span').click(function () { 
     console.log('按到了');
-    $('.container').toggleClass('shrink');
-  
+    // $('container').toggleClass('shrink');
+    $('container').scrollLeft();
   });
 
 //   $(".container span").click(function() {

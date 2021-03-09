@@ -4,13 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../dist/assets/css/all.css">
+  <link rel="stylesheet" href="../dist/assets/css/pages/signin.css">
   <link rel="stylesheet" href="../dist/assets/css/pages/work.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
-  <script src="./js&jq/jquery-3.5.1.min.js"></script>
+  <script src="./assets/js/jquery-3.5.1.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <meta name="google-signin-client_id" content="5123688312-hh38n162r8fqfrd31n2a2hid0q7pk7uf.apps.googleusercontent.com">
+
+
 
 
 
@@ -22,17 +30,10 @@
   @@include('./compontents/head.html')
 
 
-    @@include('./compontents/searchbar.html')
+  @@include('./compontents/searchbar.html')
 
 
-  <div class="musicControlBtn">
-    <div class="musicControlBtnSpan">
-        <span class="line1"></span>
-        <span class="line2"></span>
-        <span class="line3"></span>
-    </div>
-    <p>Music on/ off</p>
-  </div>
+  @@include('./compontents/music.html')
 
 
     <!-- -----header over----- -->
@@ -40,6 +41,14 @@
 
 <!-- wrapper -->
 
+
+<script src="./assets/js/scriptBlack.js"></script>
+<script src="./assets/js/exhibition.js"></script>
+<script src="./assets/js/loginFB.js"></script>
+<script src="./assets/js/loginGoogle.js"></script>
+<script src='./assets/js/music.js'></script>
+<script src='./assets/js/verify.js'></script>
+<script src='./assets/js/logIn.js'></script>
 
 
 

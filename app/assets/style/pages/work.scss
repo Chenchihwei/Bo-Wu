@@ -70,6 +70,7 @@ body::-webkit-scrollbar{
   margin-left: 20vw;
   margin-bottom: 5.5rem;
   padding: 0;
+  // overflow-x: scroll;
   
   @include pad{
     width: auto;
