@@ -1,10 +1,12 @@
 @import '../base/base';
 @import '../compontents/compontents';
 @import '../utilities/utilities';
+@import '../utilities/mouseHover';
 
-*{
-    outline: 1px solid red;
-}
+
+// *{
+//     outline: 1px solid red;
+// }
 
 body{
     background-color: #f6f6f6;

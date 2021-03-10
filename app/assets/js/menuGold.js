@@ -1,10 +1,10 @@
 //gold
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js">
-</script>
+{/* <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"> */}
+// </script>
 
 let menu_bar = document.getElementsByClassName('menu_bar')[0];
-let menu = document.getElementsByClassName('menuGold')[0];
+let menuGold = document.getElementsByClassName('menuGold')[0];
 let smallSizeMenu = document.getElementsByClassName('smallSize_menuOpenCloseAni')[0];
 let smallSizeCloseBtn = document.getElementsByClassName('smallSizeCloseBtn')[0];
 
@@ -33,7 +33,7 @@ menuGold.addEventListener('click', function () {
             ease: "ease", 
             transformOrigin:"50% 50%"},
         );
-        gsap.to(".menu p", {
+        gsap.to(".menuGold p", {
             opacity:0},
         );
         gsap.to(".menu_bar", {
@@ -86,7 +86,7 @@ menuGold.addEventListener('click', function () {
             ease: "ease", 
             },
         );
-        gsap.to(".menu p", {
+        gsap.to(".menuGold p", {
             opacity:1 },
         );
         gsap.to(".menu_personal_exhibits",{

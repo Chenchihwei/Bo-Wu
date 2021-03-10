@@ -1,4 +1,4 @@
-<div class="featuresWhite">
+<!-- <div class="featuresWhite">
     <i class="fas fa-search"></i>
     <div class="personal"><a href="./exhibition.html">個人展間</a>
     </div>
@@ -9,4 +9,62 @@
     </div>
 
     <i class="fas fa-bell"></i>
+</div> -->
+
+<div id="searchBarALL">
+    <div class="searchBarBlack" @click="searchBarClose" :class="{'-active': searchBarBg}"></div>
+    <div class="features">
+
+        <i class="fas fa-search" @click="searchBarOpen"></i>
+
+        <div id="searchBar" :class="{'-active': searchBarPage}">
+            <div class="searchBarTop">
+                
+                <!-- <img class="searchBarGobackBtn" @click="searchBarClose" src="./assets/img/icon_goBack.png"> -->
+                
+                <div class="searchTitle">
+                    <i class="fas fa-search"></i>
+                    <p> Search </p>
+                </div>
+                
+                <input type="text" name="searchArea" id="searchBarInput">
+                <img class="searchBarArrow" src="./assets/img/Icon_arrowRight.png">
+                
+            </div>  
+            
+            <!-- <div class="searchLine"></div> -->
+            
+            <div class="notSearch none">
+                <img src="../app/assets/img/searchBarImg.png">
+                <h4>
+                    Type something to search...
+                </h4>
+                <h4 class="none">
+                    No results found for query "..."
+                </h4>
+            </div>
+
+            <ul class="searchBar_Found">
+                <li class="searchBar_item"> <div class="personalRoom"></div> <a href="#">Andy's personal exhibits </a> </li>
+                <li class="searchBar_item"> <a href="#">Andy's works </a> </li>
+                <li class="searchBar_item"> <a href="#">A ....  </a> </li>
+                <li class="searchBar_item"> <a href="#">A ....  </a> </li>
+                <li class="searchBar_item"> <a href="#">A ....  </a> </li>
+            </ul>
+        </div>
+
+        <div class="personal">
+            <a href="./exhibition.html">個人展間</a>
+        </div>
+
+        <div class="logInOption">
+            <div class="login"><a class="login_mangerr">登入</a>
+                <a href="###" class="manger close">管理</a> 
+                <i class="fas fa-user-friends"></i>
+                <div class="logOut"><a href="">登 出</a></div>
+            </div>
+        </div>
+
+        <i class="fas fa-bell"></i>
+    </div>
 </div>

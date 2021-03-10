@@ -8,19 +8,22 @@
     <title>AboutUs</title>
     <link rel="stylesheet" href="../dist/assets/css/all.css">
     <link rel="stylesheet" href="../dist/assets/css/pages/style_aboutus.css">
+    <link rel="stylesheet" href="">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600&family=Montserrat:wght@300&&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
     <script src="./assets/js/jquery-3.5.1.js" ></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
-    <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
 </head>
 
 <body>
-
+    
+    @@include('./compontents/mouseHover.html')
+    
     @@include('./compontents/head_gold.html')
-
+    
+    @@include('./compontents/searchBarWhite.html')
+    
     <div class="bock-AboutUs">
         <!-- <nav class="indexSideBar">
             <a class="logoForIndex" href="#">
@@ -97,7 +100,6 @@
 
                 <i class="fas fa-bell"></i>
             </div> -->
-            @@include('./compontents/searchBarWhite.html')
             <!-- 右上搜尋欄 End -->
             <p>
                 葧塢 BO WU<br>
@@ -181,7 +183,9 @@
         </div>
     </div>
     @@include('./compontents/footer.html')
-    <script src="./assets/js/script.js"></script>
+    <script src="./assets/js/menuGold.js"></script>
+    <script src="./assets/js/mouseHover.js"></script>
+
      <!-- <script>
         let menu_bar = document.getElementsByClassName('menu_bar')[0];
         let menuGold = document.getElementsByClassName('menuGold')[0];
