@@ -8,7 +8,7 @@ echo '<tr class="table-dark">
         <th>展品名稱</th>
         <th>展品簡介</th>
         <th>展品作者</th>
-        <td>審核狀態</td>
+        <th>審核狀態</th>
     </tr>';
 
 foreach($data as $index => $row){
