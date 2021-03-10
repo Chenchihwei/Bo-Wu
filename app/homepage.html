@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="./css/reset.css"> -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600&family=Montserrat:wght@300&&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
@@ -56,25 +55,25 @@
                 <div></div>
             </div>
 
-            <div class="exhibits-title-outer">
+            <div class="exhibits-title-outer mousehover">
                 <div class="exhibits-titleHover"><a href="./exhibition.html" class="menu_personal_exhibits">PERSONAL EXHIBITS</a></div>
                 <div class="exhibits-title"><a href="./exhibition.html" class="menu_personal_exhibits">PERSONAL EXHIBITS</a></div>
             </div>
 
             <div class="menu_about menu_child">
-                <a href="../dist/About.html">
+                <a class="mousehover" href="../dist/About.html">
                     <img src="./assets/img/menu_about.png">
                     About
                 </a>
             </div>
 
             <div class="menu_exhibits menu_child">
-                <a href="../dist/exhibition.html">
+                <a class="mousehover" href="../dist/exhibition.html">
                     <img src="./assets/img/menu_exhibits.png" alt="">Exhibits</a>
             </div>
 
             <div class="menu_postcard menu_child">
-                <a href="../dist/postcard.html">
+                <a class="mousehover" href="../dist/postcard.html">
                     <img src="./assets/img/menu_postcard.png" alt="">PostCard</a>
             </div>
 
@@ -82,7 +81,7 @@
                 <a href=""></a>
             </div>
 
-            <div class="join">
+            <div class="join mousehover">
                 <div class="line"></div>
                 <div class="join-title-outer">
                     <div class="join-title"><a href="##">JOIN US NOW</a></div>
@@ -122,7 +121,7 @@
                 
                 <!-- <div class="searchLine"></div> -->
                 
-                <div class="notSearch none">
+                <div class="notSearch">
                     <img src="../app/assets/img/searchBarImg.png">
                     <h4>
                         Type something to search...
@@ -132,7 +131,7 @@
                     </h4>
                 </div>
 
-                <ul class="searchBar_Found">
+                <ul class="searchBar_Found none">
                     <li class="searchBar_item"> <div class="personalRoom"></div> <a href="#">Andy's personal exhibits </a> </li>
                     <li class="searchBar_item"> <a href="#">Andy's works </a> </li>
                     <li class="searchBar_item"> <a href="#">A ....  </a> </li>
@@ -171,19 +170,18 @@
     </div>
 
     <!-- 音樂按鈕 -->
-    <div class="musicControlBtn" id="app">
+    @@include('./compontents/music.html')
+    <!-- <div class="musicControlBtn" id="app">
         <div class="musicControlBtnSpan" @click="open">
             <span class="bar line1 hide"></span>
             <span class="bar line2 hide"></span>
             <span class="bar line3 hide"></span>
             <div class="audio">
-            <!-- <iframe src="music/music1.mp3" allow="autoplay" style="display:none" id="iframeAudio">
-            </iframe>  -->
                 <audio loop="loop" id="music1" src="music/music1.mp3"></audio>
             </div>    
         </div>
         <p>{{Music}}</p>
-    </div>
+    </div> -->
 
     <!-- 捲動看更多 -->
     <div class="scrollToSeeMore">
@@ -308,7 +306,25 @@
 
         </div>
     </div>
+    <script>
+        $.ajax({
+            method: "POST",
+            url: "php/front/homepage.php",
+            data: {
 
+            },
+            dataType: "text",
+            success: function (response) {
+                //更新html內容
+                console.log(response)
+            },
+            error: function (exception) {
+                // alert("發生錯誤: " + exception.status);
+            }
+        });
+    </script>
+
+    <!-- 滑鼠設定 -->
     <script>
         var circle = document.getElementsByClassName('cursor')[0];
         var circleOut = document.getElementsByClassName('cursor-outside')[0];
@@ -350,6 +366,7 @@
             
     </script>
 
+    <!-- Swiper -->
     <script>
         var swiperV = new Swiper(".swiper-container-v", {
             direction: "vertical",
@@ -410,6 +427,7 @@
     </script>
 
 
+    <!-- menu -->
     <script>
         let menu_bar = document.getElementsByClassName('menu_bar')[0];
         let menu = document.getElementsByClassName('menu')[0];
@@ -521,7 +539,6 @@
                 );
             };
 
-            
         });
 
         smallSizeMenu.addEventListener('click', function () {            
@@ -631,7 +648,8 @@
 
     </script>
 
-    <script>
+    <!-- 音樂 -->
+    <!-- <script>
         var vm = new Vue({
             el: '#app',
             data: {
@@ -661,8 +679,10 @@
                 },
             },
         });  
-    </script>
+    </script> -->
+    <script src='./assets/js/music.js'></script>
 
+    <!-- searchBar -->
     <script>
         var sb = new Vue({
             el: '#searchBarALL',

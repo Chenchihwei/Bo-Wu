@@ -4,31 +4,30 @@
     display: flex;
     width: 250px;
     height: 27px;
-    color: map-get($color, "black");
+    color: map-get($color, 'black');
 
     align-items: center;
-    // position: fixed;
-    position: absolute;
+    position: fixed;
     top: 50px;
-    right: 1vw;
-    z-index: 2;
+    right:1vw;
+    z-index: 3;
 
-    a {
+    a{
         text-decoration: none;
-        color: map-get($color, "black");
+        color: map-get($color, 'black');
         font-size: $paragraph;
-        font-family: "Noto Serif TC";
-        @include pad {
-            color: map-get($color, "white");
+        font-family: 'Noto Serif TC';
+        @include pad{
+            color:map-get($color ,'white');
         }
-        @include mobile {
+        @include mobile{
             font-size: 14px;
         }
     }
     .fa-search {
         font-size: 23px;
         margin: 0;
-        @include mobile {
+        @include mobile{
             font-size: 20px;
         }
     }
@@ -37,22 +36,54 @@
         height: 23px;
         margin-left: 20px;
         border-bottom: 3px solid #e5e5e5;
-        // outline: 2px solid chocolate;
-        @include mobile {
+     // outline: 2px solid chocolate;
+        @include mobile{
             display: none;
             border-bottom: 1.5px solid #e5e5e5;
         }
     }
-    .login {
-        width: 56px;
-        height: 23px;
-        margin-left: 20px;
-        display: flex;
-        border-bottom: 3px solid #e5e5e5;
-        // outline: 2px solid chocolate;
-        @include mobile {
-            height: 20px;
-            border-bottom: 1.5px solid #e5e5e5;
+    .logInOption{
+        position: relative;
+
+        .login {
+            width: 56px;
+            height: 23px;
+            margin-left: 20px;
+            display: flex;
+            border-bottom: 3px solid #e5e5e5;
+         // outline: 2px solid chocolate;
+            
+            &:hover div,&:hover a{
+                display: block;
+            }
+            
+            @include mobile{
+                height: 20px;
+                border-bottom: 1.5px solid #e5e5e5;
+            }
+        }
+        .logOut{
+            display: none;
+
+            position: absolute;
+            top: 140%;
+            left: 20px;
+
+            width: 60px;
+            height: 25px;
+            background-color: #e5e5e56e;
+            border-radius: 13px;
+            text-align: center;
+            line-height: 25px;
+            a{
+                color: gray;
+            }
+            &:hover{
+                background-color: #e5e5e5e7;
+                a{
+                    color: black;
+                }
+            }
         }
     }
     .fa-user-friends {
@@ -65,15 +96,18 @@
         margin-left: 15px;
         margin-bottom: 6px;
 
-        @include mobile {
+        @include mobile{
             display: none;
         }
     }
-    @include pad {
-        color: map-get($color, "white");
+    @include notebook{
+        right: -1vw;
     }
-    @include mobile {
-        right: -35vw;
+    @include pad{
+        color:map-get($color ,'white');
+    }
+    @include mobile{
+        right: -30vw;
         top: 36px;
     }
 }
@@ -124,3 +158,199 @@
         margin-left: 15px;
     }
 }
+
+
+// search Bar popUp
+#searchBar{
+    position: fixed;
+    top:0;
+    right: -3vw;
+    width: 23vw;
+    height: 100vh;
+    
+    color: black;
+    background-color: #fff;
+    z-index: 6;
+    box-shadow: 3px 3px 20px black;
+    @include notebook{
+        width: 25vw;
+    }
+    @include pad{
+        width: 38vw;
+    }
+    @include mobile{
+        width: 65vw;
+    }
+
+    opacity: 0;
+    pointer-events: none;
+
+    transition: .6s ease;
+
+    &.-active{
+        opacity: 1;
+        pointer-events: auto;
+        right: 0;
+    }
+}
+
+.searchBarBlack{
+    display: block;
+    width: 80vw;
+    height: 100vh;
+    background-color: rgb(51, 51, 51);
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    opacity: .8;
+    @include pad{
+        width: 65vw;
+    }
+
+    opacity: 0;
+    pointer-events: none;
+
+    transition: .6s ease;
+
+    &.-active{
+        opacity: .8;
+        pointer-events: auto;
+    }
+}
+.searchBarTop{
+    padding: 5vh;
+    border-bottom: 1px solid #E5E5E5;
+    @include notebook{
+        padding: 5vh 1vw 3vw 3vh;
+    }
+    @include mobile{
+        padding: 5vh 3vw 6vw 3vh;
+    }
+}
+// .searchBarGobackBtn{
+//     position: fixed;
+//     top: 4vh;
+//     right: 2vw;
+//     width: 25px;
+//     @include mobile{
+//         right: 5vw;
+//         width: 20px;
+//     }
+// }
+.searchBarArrow{
+    // position: fixed;
+    // top: 85px;
+    // right: 2vw;
+    width: 16px;
+    height: 16px;
+    margin-left: 20px;
+    @include notebook{
+        margin-left: 10px;
+    }
+    &:hover{
+        opacity: .5;
+    }
+}
+.fa-search{
+    font-size: 23px;
+    display: flex;
+}
+.searchTitle{
+    display: flex;
+    align-items: center;
+    height: 30px;
+    font-size: 24px;
+}
+.searchTitle p{
+    z-index: 6;
+    margin-left: 10px;
+    margin-bottom: 3px;
+    opacity: .5;
+}
+
+#searchBarInput{
+    outline: none;
+    border: none;
+    margin-top: 21px;
+    width: 235px;
+    opacity: 1;
+    border-bottom: 2px solid #707070;
+    font-size: 16px;
+    @include notebook{
+        width: 220px;
+    }
+    @include pad{
+        width: 200px;
+    }
+    @include mobile{
+        width: 180px;
+    }
+}
+// .searchLine{
+//     width: 100%;
+//     height: 1px;
+//     border-bottom: 1px solid #E5E5E5;
+//     position: absolute;
+//     top: 21vh;
+//     @include pad{
+//         top: 14vh;
+//     }
+//     @include mobile{
+//         top: 20vh;
+//     }
+// }
+.notSearch{
+    position: absolute;
+    top: 40vh;
+    
+    display: block;
+    width: 100%;
+    height: auto;
+    text-align: center;
+    h4{
+        margin-top: 10px;
+        font-family: 'Montserrat';
+        line-height: 1.2rem;
+    }
+}
+.searchBar_Found{
+    display: block;
+    width: 100%;
+    height: auto;
+
+    li{
+        padding: 3.5vh 5vh;
+        border-bottom: 1px solid #E5E5E5;
+        display: flex;
+        align-items: center;
+        pointer-events: all;
+
+        @include notebook{
+            padding: 2.5vh 3vh;
+        }
+
+        .personalRoom{
+            display: block;
+            width: 3px;
+            height: 25px;
+            background-color: #886F5E;
+            margin-right: 10px;
+        }
+        &:hover{
+            background-color: #e5e5e58a;
+        }
+    }
+    a{
+        display: block;
+        width: 100%;
+        height: 100%;
+        color: black;
+    }
+    
+}
+
+
+// search Bar popUp end
+
