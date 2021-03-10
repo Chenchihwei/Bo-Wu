@@ -82,7 +82,10 @@ body{
             }
         }
         h2{
-            font-size: $titleM;
+            font-size: $titleL;
+            @include mobile{
+                font-size: $titleM;
+            }
         }
     }
 }
