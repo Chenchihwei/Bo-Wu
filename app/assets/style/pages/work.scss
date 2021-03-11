@@ -49,6 +49,8 @@ body::-webkit-scrollbar{
   }
   @include mobile{
     padding-top: 10vh;
+    margin-left: 30vw;
+
   }
 
   h1{
@@ -77,6 +79,7 @@ body::-webkit-scrollbar{
     width: auto;
   }
   @include mobile(){
+    margin-left: 30vw;
     overflow: hidden;
     height: 100vh;
     margin-top: 2rem;
