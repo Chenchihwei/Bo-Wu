@@ -4,6 +4,7 @@
   let block = document.getElementsByClassName('block');
   // let leftblock = document.getElementsByClassName("leftBlock")[0];
   // let rightblock = document.getElementsByClassName("rightBlock")[0];
+  
   logIn.addEventListener('click', function () {
     if (panel.classList.contains("close")) {
       panel.classList.remove('close');
@@ -40,11 +41,18 @@
         }, 550, 'easeInOutBack');
       });
 
-      loginBtn.on('click', function () {
+      function open_login (){
         signupContent.hide('fast');
         loginContent.show('fast');
         slidingPanel.animate({
-          'left': '54%'
+          'left': '47%'
         }, 550, 'easeInOutBack');
+      }
+
+      loginBtn.on('click', function () {
+        open_login()
       });
+
+      open_login()
+      
     })();

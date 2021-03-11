@@ -203,7 +203,7 @@
         function price_ajax(work_id) {
             $.ajax({
                 method: "POST",
-                url: "php/back/bidding_price.php",
+                url: "./assets/php/back/bidding_price.php",
                 data: {
                     'work_id': work_id,
                 },
@@ -221,7 +221,7 @@
         function message_ajax(work_id) {
             $.ajax({
                 method: "POST",
-                url: "php/back/bidding_message.php",
+                url: "./assets/php/back/bidding_message.php",
                 data: {
                     'work_id': work_id,
                 },
@@ -253,7 +253,7 @@
 
                 $.ajax({
                     method: "POST",
-                    url: "php/back/bidding_message_update.php",
+                    url: "./assets/php/back/bidding_message_update.php",
                     data: {
                         'message_id': message_id,
                         'message_show': message_show,
@@ -277,7 +277,7 @@
             //Typing your code...
             $.ajax({
                 method: "POST",
-                url: "php/back/bidding_uncheck.php",
+                url: "./assets/php/back/bidding_uncheck.php",
                 data: {
                     Name: str
                 },
@@ -297,7 +297,7 @@
             //Typing your code...
             $.ajax({
                 method: "POST",
-                url: "php/back/bidding_list.php",
+                url: "./assets/php/back/bidding_list.php",
                 data: {
                     Name: str
                 },
@@ -376,7 +376,7 @@
         function exhibition(work_id, exhibition_status) {
             $.ajax({
                 method: "POST",
-                url: "php/back/bidding_list_exhibition.php",
+                url: "./assets/php/back/bidding_list_exhibition.php",
                 data: {
                     'work_id': work_id,
                     'exhibition_status': exhibition_status,
@@ -397,7 +397,7 @@
         function search(str) {
             $.ajax({
                 method: "POST",
-                url: "php/back/bidding_list_search.php",
+                url: "./assets/php/back/bidding_list_search.php",
                 data: {
                     'textbox': $('.search_text').val(),
                     'select': $('.select').val(),
@@ -474,7 +474,7 @@
         function verify(verify_id, verify_status) {
             $.ajax({
                 method: "POST",
-                url: "php/back/bidding_verify.php",
+                url: "./assets/php/back/bidding_verify.php",
                 data: {
                     'verify_id': verify_id,
                     'verify_status': verify_status,
@@ -532,7 +532,7 @@
 
             $.ajax({
                 method: "POST",
-                url: "php/back/bidding_list_edit.php",
+                url: "./assets/php/back/bidding_list_edit.php",
                 data: {
                     'edit_id': edit_id,
                     'edit_price': edit_price,

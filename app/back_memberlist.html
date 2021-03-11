@@ -75,7 +75,7 @@
             //Typing your code...
             $.ajax({
                 method: "POST",
-                url: "php/back/member_list.php",
+                url: "./assets/php/back/member_list.php",
                 data: {
                     Name: str
                 },
@@ -97,7 +97,7 @@
         function search(str) {
             $.ajax({
                 method: "POST",
-                url: "php/back/member_search.php",
+                url: "./assets/php/back/member_search.php",
                 data: {
                     'textbox': $('.search_text').val(),
                     'select': $('.select').val(),
@@ -123,7 +123,7 @@
         function sort(sort) {
             $.ajax({
                 method: "POST",
-                url: "php/back/member_sort.php",
+                url: "./assets/php/back/member_sort.php",
                 data: {
                     'sort': sort,
                 },
@@ -242,7 +242,7 @@
 
             $.ajax({
                 method: "POST",
-                url: "php/back/member_edit.php",
+                url: "./assets/php/back/member_edit.php",
                 data: {
                     'edit_id': edit_id,
                     'edit_name': edit_name,

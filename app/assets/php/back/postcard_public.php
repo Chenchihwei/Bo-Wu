@@ -7,7 +7,7 @@ echo '<tr class="table-dark">
         <th>素材圖片</th>
         <th><p class="th_p">素材名稱</p></th>
         <th><p class="th_p">種類</p></th>
-        <td><p class="th_p">上架狀態</p></td>
+        <th><p class="th_p">上架狀態</p></th>
         <th></th>
     </tr>';
 

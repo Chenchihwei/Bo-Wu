@@ -90,7 +90,7 @@
   cursor: pointer;
   .rightArrow{
     // border: 1px solid blue;
-    background-color: rgba($color: #fff, $alpha: .4);
+    background-color: rgba($color: #fff, $alpha: .6);
 
     height: 50vh;
     width: 5vw;
@@ -101,7 +101,7 @@
     font-size: 8rem;
     color: map-get($color, 'black');
     opacity: 0;
-    z-index: 2;
+    z-index: 10;
     position: absolute;
     top: 25%;
     right: 0;
