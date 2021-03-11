@@ -17,6 +17,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
     <!-- <link rel="stylesheet" href="../dist/assets/css/all.css"> -->
     <link rel="stylesheet" href="../dist/assets/css/pages/homepage.css">
+    <link rel="stylesheet" href="../dist/assets/css/pages/signin.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+    <meta name="google-signin-client_id" content="5123688312-hh38n162r8fqfrd31n2a2hid0q7pk7uf.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+
+
     <title>Homepage_BoWuMuseum</title>
 </head>
 
@@ -98,62 +105,8 @@
     </header>
 
     <!-- searchBar -->
-    <div id="searchBarALL">
-        <div class="searchBarBlack" @click="searchBarClose" :class="{'-active': searchBarBg}"></div>
-        <div class="features">
+    @@include('./compontents/searchbar.html')
 
-            <i class="fas fa-search" @click="searchBarOpen"></i>
-
-            <div id="searchBar" :class="{'-active': searchBarPage}">
-                <div class="searchBarTop">
-                    
-                    <!-- <img class="searchBarGobackBtn" @click="searchBarClose" src="./assets/img/icon_goBack.png"> -->
-                    
-                    <div class="searchTitle">
-                        <i class="fas fa-search"></i>
-                        <p> Search </p>
-                    </div>
-                    
-                    <input type="text" name="searchArea" id="searchBarInput">
-                    <img class="searchBarArrow" src="./assets/img/Icon_arrowRight.png">
-                    
-                </div>  
-                
-                <!-- <div class="searchLine"></div> -->
-                
-                <div class="notSearch">
-                    <img src="../app/assets/img/searchBarImg.png">
-                    <h4>
-                        Type something to search...
-                    </h4>
-                    <h4 class="none">
-                        No results found for query "..."
-                    </h4>
-                </div>
-
-                <ul class="searchBar_Found none">
-                    <li class="searchBar_item"> <div class="personalRoom"></div> <a href="#">Andy's personal exhibits </a> </li>
-                    <li class="searchBar_item"> <a href="#">Andy's works </a> </li>
-                    <li class="searchBar_item"> <a href="#">A ....  </a> </li>
-                    <li class="searchBar_item"> <a href="#">A ....  </a> </li>
-                    <li class="searchBar_item"> <a href="#">A ....  </a> </li>
-                </ul>
-            </div>
-
-            <div class="personal">
-                <a href="./exhibition.html">個人展間</a>
-            </div>
-
-            <div class="logInOption">
-                <div class="login"><a class="login_mangerr">登入</a>
-                    <i class="fas fa-user-friends"></i>
-                    <div class="logOut"><a href="">登 出</a></div>
-                </div>
-            </div>
-
-            <i class="fas fa-bell"></i>
-        </div>
-    </div>
 
     <!-- 顯示頁面 -->
     <div class="pageBar">
@@ -171,17 +124,6 @@
 
     <!-- 音樂按鈕 -->
     @@include('./compontents/music.html')
-    <!-- <div class="musicControlBtn" id="app">
-        <div class="musicControlBtnSpan" @click="open">
-            <span class="bar line1 hide"></span>
-            <span class="bar line2 hide"></span>
-            <span class="bar line3 hide"></span>
-            <div class="audio">
-                <audio loop="loop" id="music1" src="music/music1.mp3"></audio>
-            </div>    
-        </div>
-        <p>{{Music}}</p>
-    </div> -->
 
     <!-- 捲動看更多 -->
     <div class="scrollToSeeMore">
@@ -209,15 +151,13 @@
                         </h2>
                         <p class="animation-p">　　展示探索宇宙由近至遠的概念，從我們身處的太陽系開始，再推展至恆星，銀河系及更遙遠的星系，以至探索宇宙的演化及相關的科學。</p>
 
-                        <div class="mousehover">
-                            <div class="exBtn">
-                                <a href="./universe.html">
-                                    <!-- <h3 class="textAni _CH">進入展間</h3> -->
-                                    <h3 class="textAni _EN">ENTER HERE</h3>
-                                    <div class="exBtn__inner exBtnUni"></div>
-                                </a>
-                            </div>
+                        <div class="exBtn">
+                            <a href="./universe.html">
+                                <h3 class="textAni _EN">ENTER HERE</h3>
+                                <div class="exBtn__inner exBtnUni"></div>
+                            </a>
                         </div>
+
                     </main>
                 </div>
                 <div class="bgcolorFor4Topic"></div>
@@ -237,8 +177,12 @@
                         <p class="animation-p">　　以水的循環為故事主軸，藉由一滴小水滴的旅行，呈現台灣從冷冽的高山溪流到一望無際的海濱外洋等等，多樣的水域生態環境。 並逐一介紹棲息於其中的各式物種。</p>
 
                         <div class="exBtn">
-                            <a href="./ocean.html"><div class="exBtn__inner exBtnOce"></div></a>
+                            <a href="./ocean.html">
+                                <h3 class="textAni _EN">ENTER HERE</h3>
+                                <div class="exBtn__inner exBtnOce"></div>
+                            </a>
                         </div>
+
                     </main>
                 </div>
                 <div class="bgcolorFor4Topic"></div>
@@ -258,8 +202,12 @@
                         <p class="animation-p">　　臺灣蓊蓊鬱鬱，群峰綿亙，自古即有「福爾摩沙」美譽。富饒的森林資源素為臺灣珍貴寶藏，孕育豐富又多采多姿的動、植物生態。</p>
 
                         <div class="exBtn">
-                            <a href="./forest.html"><div class="exBtn__inner exBtnFor"></div></a>
+                            <a href="./forest.html">
+                                <h3 class="textAni _EN">ENTER HERE</h3>
+                                <div class="exBtn__inner exBtnFor"></div>
+                            </a>
                         </div>
+
                     </main>
                 </div>
                 <div class="bgcolorFor4Topic"></div>
@@ -279,7 +227,10 @@
                         <p class="animation-p">　　化石和礦物是地球上最珍貴的寶藏及資源，也是發掘地球歷史真相的證物。想窺探世界發展的足跡？地底展間絕對是你的第一選擇</p>
 
                         <div class="exBtn">
-                            <a href="./ground.html"><div class="exBtn__inner exBtnGro"></div></a>
+                            <a href="./ground.html">
+                                <h3 class="textAni _EN">ENTER HERE</h3>
+                                <div class="exBtn__inner exBtnGro"></div>
+                            </a>
                         </div>
                     </main>
                 </div>
@@ -307,21 +258,21 @@
         </div>
     </div>
     <script>
-        $.ajax({
-            method: "POST",
-            url: "php/front/homepage.php",
-            data: {
+        // $.ajax({
+        //     method: "POST",
+        //     url: "php/front/homepage.php",
+        //     data: {
 
-            },
-            dataType: "text",
-            success: function (response) {
-                //更新html內容
-                console.log(response)
-            },
-            error: function (exception) {
-                // alert("發生錯誤: " + exception.status);
-            }
-        });
+        //     },
+        //     dataType: "text",
+        //     success: function (response) {
+        //         //更新html內容
+        //         console.log(response)
+        //     },
+        //     error: function (exception) {
+        //         // alert("發生錯誤: " + exception.status);
+        //     }
+        // });
     </script>
 
     <!-- 滑鼠設定 -->
@@ -380,9 +331,6 @@
 
                     let indexNum = document.getElementsByClassName('indexNum')[0];
                     indexNum.innerText = '0'+ (index+1);
-                    let indexNumAni = document.getElementsByClassName('indexNumAni')[0];
-                    indexNumAni.innerText = '0'+ (index+1);
-
                     // $('.indexNum-text span').velocity({
                     //     transform: ["translateX(0%)", "translateX(-550%)"]
                     // }, {duration: 1000});
@@ -705,22 +653,28 @@
     
     <script>
         $(".textAni").textillate({
-            loop: true,
-            minDisplayTime: 2000,
-            initialDelay: 0,
             in: {
                 effect: 'flipInY',
-                callback: function () {}
             },
             out: {
                 effect: 'flipInY',
-                callback: function () {}
                 },
             // autoStart: true,
             type: 'char',
             callback: function () {},
         });
+        
+        $(".exBtn").hover(function(){
+            $(".textAni").textillate('start');
+        });
+
     </script>
+
+    <script src="./assets/js/exhibition.js"></script>
+    <script src="./assets/js/loginFB.js"></script>
+    <script src="./assets/js/loginGoogle.js"></script>
+    <script src='./assets/js/verify.js'></script>
+    <script src='./assets/js/logIn.js'></script>
 
     </body>
 </html>

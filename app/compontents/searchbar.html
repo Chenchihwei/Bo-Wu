@@ -71,64 +71,60 @@
 
 
 <div class="panel panel--static close" id="app2">
-    <div class="panel__content left">
-        <h1 class="panel__heading">Don't have an account?</h1>
-        <p class="panel__copy">Ethical celiac hashtag taxidermy squid. Wayfarers distillery narwhal, kombucha jean shorts
-        selvage meggings.</p>
-        <button type="button" class="btn btn--secondary signup">Sign up</button>
-    </div>
-    <div class="panel__content right">
-        <h1 class="panel__heading">Have an account?</h1>
-        <p class="panel__copy">Ethical celiac hashtag taxidermy squid. Wayfarers distillery narwhal, kombucha jean shorts
-        selvage meggings.</p>
-        <button type="button" class="btn btn--secondary login">Log in</button>
-    </div>
-
-    <div class="panel panel--sliding">
-        <div class="panel__content signup">
-            <h1 class="panel__heading">Sign up</h1>
-            <form id="signup" method="POST" action="./php/front/JoinR.php">
-                <div><input type="text" placeholder="Full name" id="name" class="input input--name" name='name' :class="{ 'is-invalid': usernameError }" v-model="name"/><p>{{userErrMsg}}</p></div>
-                <div><input type="text" placeholder="Email" id="mail" class="input input--email" name="mail" :class="{ 'is-invalid': mailError }" v-model="mail"/><p>{{mailErrMsg}}</p></div>
-                <div><input type="password" placeholder="Password" id='password' class="input input--password" name="password" :class="{ 'is-invalid': passwordError }" v-model="password"/><p>{{passErrMsg}}</p></div>
-                <br/>
-                <label class="rule"><input type="checkbox" class="input--agree" value="agree">已閱讀會員守則，並同意遵守</label>
-                <br />
-                <button class="btn btn--primary" @click='checkSign($event)'>Sign up</button>
-            </form>
-        <div class="faceGoogle">
-            <div class="googleTitle">
-                <div></div> 
-                <p>or sign in with</p>
-                <div></div>
-            </div>
-            <div class="pic">
-                <i class="fab fa-facebook-square" id="facebook" onclick="facebookLogIn()"></i>
-                <div class="g-signin2" onclick="ClickLogin()" data-onsuccess="onSignIn" data-theme="dark"></div>
-            </div>
+        <div class="panel__content left">
+            <h1 class="panel__heading">Don't have an account?</h1>
+            <p class="panel__copy">免費創辦帳號, 立即成為勃塢會員, 即可上傳自己創作之展覽品, 與各全國藝術家交流, 或是參觀展品<br><br>升級會員可享更多福利 !</p>
+            <button type="button" class="btn btn--secondary signup">Sign up</button>
         </div>
-    </div>
+        <div class="panel__content right">
+            <h1 class="panel__heading">Have an account?</h1>
+            <p class="panel__copy">已經有帳號了嗎?<br><br> 歡迎點此直接登入, 進入自己的會員展間, 管理館藏及訂閱高級會員</p>
+            <button type="button" class="btn btn--secondary login">Log in</button>
+        </div>
 
-        <div class="panel__content login">
-            <h1 class="panel__heading">Log in</h1>
-            <form id="login" method="POST" action="./php/front/LoginR.php">
-                <div><input type="text" placeholder="Email" id="mail" class="input input--email" name="mail" :class="{ 'is-invalid': mailError }" v-model="mail"/><p>{{mailErrMsg}}</p></div>
-                <div><input type="password" placeholder="Password" id='password' class="input input--password" name="password" :class="{ 'is-invalid': passwordError }" v-model="password"/><p>{{passErrMsg}}</p></div>
-                <button class="btn btn--primary" @click='checkLog($event)'>Log in</button>
-                <a href="###">Forgot password?</a>
-            </form>
+        <div class="panel panel--sliding">
+            <div class="panel__content signup">
+                <h1 class="panel__heading">Sign up </h1>
+                <form id="signup" method="POST" action="./php/front/JoinR.php">
+                    <div><input type="text" placeholder="Full name" id="name" class="input input--name" name='name' :class="{ 'is-invalid': usernameError }" v-model="name"/><p>{{userErrMsg}}</p></div>
+                    <div><input type="text" placeholder="Email" id="mail" class="input input--email" name="mail" :class="{ 'is-invalid': mailError }" v-model="mail"/><p>{{mailErrMsg}}</p></div>
+                    <div><input type="password" placeholder="Password" id='password' class="input input--password" name="password" :class="{ 'is-invalid': passwordError }" v-model="password"/><p>{{passErrMsg}}</p></div>
+                    <label class="rule"><input type="checkbox" class="input--agree" value="agree">已閱讀會員守則，並同意遵守</label>
+                    <button class="btn btn--primary" @click='checkSign($event)'>Sign up</button>
+                </form>
             <div class="faceGoogle">
                 <div class="googleTitle">
-                    <div></div>
-                    <p>or sign in with</p>
+                    <div></div> 
+                    <p>or SIGN IN with</p>
                     <div></div>
                 </div>
                 <div class="pic">
                     <i class="fab fa-facebook-square" id="facebook" onclick="facebookLogIn()"></i>
-                    <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+                    <div class="g-signin2" onclick="ClickLogin()" data-onsuccess="onSignIn" data-theme="dark"></div>
                 </div>
             </div>
         </div>
 
+            <div class="panel__content login">
+                <h1 class="panel__heading">Log in</h1>
+                <form id="login" method="POST" action="./php/front/LoginR.php">
+                    <div><input type="text" placeholder="Email" id="mail" class="input input--email" name="mail" :class="{ 'is-invalid': mailError }" v-model="mail"/><p>{{mailErrMsg}}</p></div>
+                    <div><input type="password" placeholder="Password" id='password' class="input input--password" name="password" :class="{ 'is-invalid': passwordError }" v-model="password"/><p>{{passErrMsg}}</p></div>
+                    <button class="btn btn--primary" @click='checkLog($event)'>Log in</button>
+                    <a href="###">Forgot password?</a>
+                </form>
+                <div class="faceGoogle">
+                    <div class="googleTitle">
+                        <div></div>
+                        <p>or LOG IN with</p>
+                        <div></div>
+                    </div>
+                    <div class="pic">
+                        <i class="fab fa-facebook-square" id="facebook" onclick="facebookLogIn()"></i>
+                        <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
