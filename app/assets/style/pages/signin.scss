@@ -6,26 +6,26 @@
 $width-panel-static: 50%;
 $height-panel-static: 40%;
 $background-panel-static: rgba(0, 0, 0, 0.8);
-$color-panel-static: #ddd;
-$color-panel-heading: #e26a6a;
+$color-panel-static: #2E2824;
+$color-panel-heading: #886F5E;
 
 $width-panel-sliding: 50%;
-$height-panel-sliding: 110%;
+$height-panel-sliding: 115%;
 $offset-top-panel-sliding: ($height-panel-sliding - 100%) / 2;
-$offset-left-panel-sliding: 4%;
+$offset-left-panel-sliding: 47%;
 $background-panel-sliding: #fefefe;
 $shadow-panel-sliding: 3px -2px 6px 0px rgba(0, 0, 0, 0.4);
 
-$padding-panel-content: 3rem;
+$padding-panel-content: 2rem;
 
 /** [Buttons] *****/
 $margin-button: 1rem 0;
 $padding-button: 0.5rem 1.5rem;
 $color-button-primary: #fefefe;
-$color-button-secondary: #ccc;
-$background-button-primary: #E26A6A;
+$color-button-secondary: #886F5E;
+$background-button-primary: #886F5E;
 $background-button-secondary: transparent;
-$border-button-secondary: 2px solid #ccc;
+$border-button-secondary: 2px solid #886F5E;
 
 /** [Content] *****/
 $size-heading: 1.2rem;
@@ -45,7 +45,7 @@ $size-copy: 0.7rem;
 }
 
 html {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 *, *:before, *:after {
 //   box-sizing: inherit;
@@ -61,7 +61,6 @@ body {
     display: none !important;
 }
 
-  
 .panel {
     font-family: 'Montserrat';
     border-radius: 3px;
@@ -75,27 +74,33 @@ body {
         min-height: 300px;
         background: $background-panel-static;
         color: $color-panel-static;
-        background-image: url(../../img/src_bg_7.jpg);
+        background-image: url(../../img/src_bg_5.jpg);
+        background-position: center center;
         z-index:1000;
         animation: scale-up-hor-center 0.7s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
         
         @keyframes scale-up-hor-center {
             0% {
-                transform: scaleX(0.1);
+                opacity: 0;
             }
             100% {
-                transform: scaleX(1);
+                opacity: 1;
             }
-          }
+        }
+
         .panel__content {
             padding: $padding-panel-content;
             text-align: center;
+            width: 50%;
+            line-height: 1rem;
         }
             h1{
                 margin-bottom: 2vh;
             }
             p{
-                margin-bottom: 2vh;
+                width: 280px;
+                text-align: center;
+                margin: 5vh auto;
             }
     }
     
@@ -108,8 +113,9 @@ body {
         background: $background-panel-sliding;
         box-shadow: $shadow-panel-sliding;
         
-        .panel__content {
-            &.login {
+        .panel__content{
+            &.login,&.signup {
+                width: 80%;
                 display: none;
             }
         }
@@ -130,7 +136,7 @@ body {
     
     form {
         width: 100%;
-        margin-top: 2.5em;
+        margin-top: 1em;
         div{
             position: relative;
             input {
@@ -169,7 +175,7 @@ body {
             justify-content: center;
             color:black;
             div{
-                width: 3vw;
+                width: 5vw;
                 border:1px solid black;
             }
             p{
@@ -179,11 +185,12 @@ body {
         .pic{
             display: flex;
             justify-content: space-evenly;
-            margin-top: 1vh;
+            margin-top: 2vh;
+            margin-left: 3vw;
             .fab{
                 font-size: 2vw;
                 &:hover{
-                    color: orange;
+                    color: #BA967D;
                 }
             }
         }

@@ -57,6 +57,9 @@ var vm = new Vue({
     },
   },
   methods: {
+    LoginClose(){
+      
+    }
     checkSign(event){
       if (document.getElementById('name').value == '') {
         alert("請填寫[姓名]");

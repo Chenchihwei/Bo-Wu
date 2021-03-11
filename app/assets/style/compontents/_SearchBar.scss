@@ -184,8 +184,14 @@
 
     opacity: 0;
     pointer-events: none;
-
     transition: .6s ease;
+
+    &:not(.-active){
+        *{
+            pointer-events: none !important;
+        }
+    }
+
 
     &.-active{
         opacity: 1;
