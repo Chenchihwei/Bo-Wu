@@ -5,7 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BoWu_Bidding</title>
-
+  <!-- Link Swiper's CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
   <link rel="stylesheet" href="./assets/css/all.css" />
   <link rel="stylesheet" href='./assets/css/pages/signin.css'>
   <link rel="stylesheet" href="./assets/css/pages/bidding.css" />
@@ -25,6 +26,8 @@
   <script src="https://apis.google.com/js/platform.js" async defer></script>
   <!-- google -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+  
+  
 </head>
 
 <body>
@@ -37,18 +40,25 @@
       <h2>Buy the goods you like!</h2>
       <p>et dolore magna aliqua.</p>
     </div>
-    <div class="product">
-      <button class="slider_prev" @click="change(active-1)">
+    <div class="swiper-container">
+      <button class="swiper-button-prev"></button>
+      <!-- <button class="slider_prev" @click="change(active-1)">
         <img src="./assets/img/Icon ionic-ios-arrow-forward.png">
-      </button>
-      <ul>
-        <li v-for="(src,index) in imgList" v-show="index == active">
+      </button> -->
+      <ul class="swiper-wrapper">
+        <li class="swiper-slide" v-for="(src,index) in imgList">
           <img :data-id="dataId[index]" :src="src" @click="getData">
         </li>
       </ul>
-      <button class="slider_next" @click="change(active+1)">
+      <!-- <ul class="swiper-wrapper">
+        <li class="swiper-slide" v-for="(src,index) in imgList" v-show="index == active">
+          <img :data-id="dataId[index]" :src="src" @click="getData">
+        </li>
+      </ul> -->
+      <button class="swiper-button-next"></button>
+      <!-- <button class="slider_next" @click="change(active+1)">
         <img src="./assets/img/Icon ionic-ios-arrow-forward1.png">
-      </button>
+      </button> -->
     </div>
     <div class="bidding">
       <div>競標狀態:
@@ -222,6 +232,21 @@
       //   },
       // },
     });
+  </script>
+  <!-- Swiper JS -->
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script>
+    var swiper = new Swiper('.swiper-container', {
+      slidesPerView: 4,
+      centeredSlides: false,
+      spaceBetween: 0,
+
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+    
   </script>
 </body>
 <!-- <script src="./assets/js/script.js"></script> -->
