@@ -1,6 +1,6 @@
 // 滑鼠設定
 body{
-    cursor: none;
+    cursor: none !important;
 }
 
 .cursor{
@@ -13,7 +13,7 @@ body{
     background-color: rgb(175, 175, 175);
     border-radius: 50%;
     pointer-events: none; 
-    z-index: 10;
+    z-index: 1010;
 }
 
 .cursor-outside{
@@ -26,7 +26,7 @@ body{
     transform: translate(-50%, -50%);
     border-radius: 50%;
     pointer-events: none; 
-    z-index: 10;
+    z-index: 1010;
 }
 
 // LINK STYLE
