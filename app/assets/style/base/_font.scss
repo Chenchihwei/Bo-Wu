@@ -1,9 +1,9 @@
 // font---------
 $fontSize: 1rem;
 $fontFamily: (
-  'PT Serif', serif, 
-  'Noto Serif TC',serif,
-  'Montserrat',sans-serif,
+  'mainFont' : 'PT Serif', serif,
+  'mainFontChinese' :'Noto Serif TC',serif,
+  'SecFont' :'Montserrat',sans-serif,
 );
 $titleL: 4rem;
 $titleM: 3rem;
