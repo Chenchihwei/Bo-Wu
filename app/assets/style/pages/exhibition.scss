@@ -294,6 +294,7 @@
         font-family: Lato;
         position: relative;
         padding-right: 1vw;
+        overflow-y: auto;
         h1{
             font-weight: bold;
             font-size: 2rem;
@@ -572,6 +573,7 @@
         width: 50vw;
         height: 85vw;
         flex-direction: column;
+        overflow-y: auto;
         img{
             display: block;
             width: 40vw;
@@ -583,6 +585,7 @@
         .product{
             width: 42vw;
             margin: 0 auto;
+            overflow-y: visible;
             .product_like{
                 bottom: -44vh;
                 width: 40vw;
