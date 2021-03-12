@@ -87,7 +87,7 @@
             //Typing your code...
             $.ajax({
                 method: "POST",
-                url: "php/back/exhibition_list.php",
+                url: "./assets/php/back/exhibition_list.php",
                 data: {
                     Name: str
                 },
@@ -108,7 +108,7 @@
         function search(str) {
             $.ajax({
                 method: "POST",
-                url: "php/back/exhibition_search.php",
+                url: "./assets/php/back/exhibition_search.php",
                 data: {
                     'textbox': $('.search_text').val(),
                     'select': $('.select').val(),

@@ -1,5 +1,3 @@
-// @import'_variables.scss';
-// @import'header_footer.scss';
 @import "../base/base";
 @mixin notebook {
   @media (max-width:$break-point-xl){
@@ -31,6 +29,9 @@ body{
   font-family: $fontFamily;
   display: flex;
   flex-wrap: wrap;
+  @include notebook{
+    width: 768px !important;
+  }
   .rightBlock{
     margin-left: 15.6vw;
     margin-top: 7.4vh;
@@ -62,23 +63,79 @@ body{
         padding-left: 2.3vw;
       }
     }
-    .product{
+    // .product{
+    //   padding: 0 2.3vw;
+    //   display: flex;
+    //   align-items: center;
+    //   justify-content: center;
+    //   // img{
+    //   //   cursor: pointer;
+    //   //   @include ipad{
+    //   //     width: 3%;
+    //   //   }
+    //   // }
+    //   ul{
+    //     display: flex;
+    //     margin: 0 2vw;
+    //     li{
+    //       max-width: 17vw;
+    //       position: relative;
+    //       transition: transform 1s ease;
+    //       &:hover{
+    //         transform: scale(1.1);
+    //         z-index: 100;
+    //       }
+    //       img{
+    //         cursor: pointer;
+    //         box-shadow:3px 3px 5px 6px #cccccc;
+    //         width: 332px !important; 
+    //         height: 453px !important;
+    //         // background-size: cover;
+    //         border-radius: 10px;
+    //       }
+    //       @include ipad{
+    //         max-width: 30vw;
+    //       }  
+    //     }
+    //     .pic1{
+    //       position: relative;
+    //       left: 5%;
+    //     }
+    //     .pic2{
+    //       position: relative;
+    //       left: 2%;
+    //       z-index: 4;
+    //       @include ipad{
+    //         left: 0%;
+    //       }
+    //     }
+    //     .pic3{
+    //       position: relative;
+    //       right: 2%;
+    //       z-index: 3;
+    //       @include ipad{
+    //         right: 5%;
+    //       }
+    //     }
+    //     .pic4{
+    //       position: relative;
+    //       right: 5%;
+    //       @include ipad{
+    //         display: none;
+    //       }
+    //     }
+    //   }
+    // }
+    .swiper-container{
+      width: 70vw;
+      height: 520px;
+      margin: 0;
       padding: 0 2.3vw;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      img{
-        cursor: pointer;
-        @include ipad{
-          width: 3%;
-        }
-      }
-      ul{
+      .swiper-slide{
+        max-width: 17vw;
         display: flex;
-        margin: 0 2vw;
-        li{
-          max-width: 17vw;
-          position: relative;
+        justify-content:center;
+        align-items:center;
           transition: transform 1s ease;
           &:hover{
             transform: scale(1.1);
@@ -87,41 +144,32 @@ body{
           img{
             cursor: pointer;
             box-shadow:3px 3px 5px 6px #cccccc;
-            width: 100%;
+            max-width:335px;
+            width: 332px !important; 
+            height: 453px !important;
+            // background-size: cover;
             border-radius: 10px;
           }
           @include ipad{
             max-width: 30vw;
           }  
         }
-        .pic1{
-          position: relative;
-          left: 5%;
+        .swiper-button-prev{
+          width: 30px;
+          height: 52px;
+          background-color:none !important;
+          border:0;
+          color:map-get($color,'black');
         }
-        .pic2{
-          position: relative;
-          left: 2%;
-          z-index: 4;
-          @include ipad{
-            left: 0%;
-          }
+        .swiper-button-next{
+
+          width: 30px;
+          height: 52px;
+          background-color:none !important;
+          border:0;
+          color:map-get($color,'black');
+          z-index: 5 !important;
         }
-        .pic3{
-          position: relative;
-          right: 2%;
-          z-index: 3;
-          @include ipad{
-            right: 5%;
-          }
-        }
-        .pic4{
-          position: relative;
-          right: 5%;
-          @include ipad{
-            display: none;
-          }
-        }
-      }
     }
     .bidding{
       margin-top:3.2vh;

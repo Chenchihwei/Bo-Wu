@@ -1,18 +1,18 @@
 @import '../base/base';
 @import '../utilities/button';
 
-@mixin pad{
+@mixin notebook{
   @media(max-width:$break-point-lg){
     @content;
   }
 }
 
-@mixin mobile {
+@mixin pad {
   @media (max-width:$break-point-md) {
     @content;
   }
 }
-@mixin mobileS {
+@mixin mobile{
   @media (max-width:$break-point-xs) {
     @content;
   }
@@ -42,15 +42,19 @@ body{
   padding-top: 80px;
   position: fixed;
 
-  @include pad{
+  @include notebook{
     display: none;
   }
 
-  @include mobile{
+  @include pad{
     display: block;
     width: 100%;
     position: static;
     background-color: map-get($color, 'black');
+    padding-top: 130px;
+  }
+  @include mobile(){
+    padding-top: 90px;
   }
 
   h1{
@@ -61,12 +65,15 @@ body{
     text-shadow: 3px 3px map-get($color, 'black');
     margin: 0;
     z-index: 3;
-    @include pad{
+    @include notebook{
     font-size: $titleM;
     }
-    @include mobileS{
-      font-size: 2rem;
-      
+    @include pad{
+      font-size: $titleM;
+      margin-left: 6vw;
+    }
+    @include mobile(){
+      font-size: $titleS;
     }
   }
   .gray{
@@ -78,19 +85,21 @@ body{
     // margin-left: 2vw;
     position: absolute;
     top: 130px;
-    @include pad{
+    @include notebook{
       font-size: $titleM;
       top: 100px;
     }
-    @include mobile{
-      width: 80%;
+    @include pad{
+      width: 65%;
+      height: 8vh;
       margin: 0 auto;
       margin-left: 2vw;
+      margin-top: 50px;
     }
-    @include mobileS{
+    @include mobile{
       width: 70%;
       height: 30px;
-      top: 90px;
+      top: 55px;
 
       margin-left: 5vw;
 
@@ -104,9 +113,13 @@ body{
   height: 100vh;
   padding-left: 15.6vw;
 
+  @include pad{
+    padding-left: 20vw;
+  }
+
   .container{
     display: flex;
-    @include mobile{
+    @include pad{
       flex-direction: column;
     }
 
@@ -119,7 +132,11 @@ body{
         top: 25vh;
         left: 18vw;
         display: flex;
-        @include mobileS{
+        @include pad{
+          top: 35vh;
+          left: 25vw;
+        }
+        @include mobile{
           top: 20vh;
         }
 
@@ -129,18 +146,27 @@ body{
           &:hover{
             color: map-get($color, 'red');
           }
-          @include pad{
+          @include notebook{
             font-size: $titleS;
           }
+          @include mobile(){
+            font-size: 1rem;
+          }
+        
         }
         p{
           color: map-get($color, 'white');
           font-size: 2.5rem;
           line-height: $paragraph;
           margin-left: 1rem;
-          @include pad{
+          @include notebook{
             font-size: $titleS;
           }
+          @include mobile(){
+            margin-left: .5rem;
+            font-size: 1rem;
+          }
+
         }
       }
       .work{
@@ -151,23 +177,28 @@ body{
         align-items: center;
         img{
           width: 65%;
-          @include pad{
+          @include notebook{
             margin: 0 auto;
           }
-          @include mobile{
+          @include pad{
             width: 65%;
-            margin: 0 auto;
+          }
+          @include mobile(){
+            width: 55%;
           }
         }
-        @include mobile{
+        @include pad{
           margin-top: 20vh;
         }
+        @include mobile(){
+          margin-top: 15vh;
+        }
       }
-      @include mobile{
+      @include pad{
         width: 100%;
         height: 50vh;
       }
-      @include mobile{
+      @include pad{
         // margin-top: 15vh;
       }
     }
@@ -181,8 +212,14 @@ body{
         margin: 0 auto;
 
         margin-top: 30vh;
-        @include pad{
+        @include notebook{
           width: 300px;
+        }
+        @include pad{
+          width: 500px;
+        }
+        @include mobile(){
+          width: auto;
         }
 
         h5{
@@ -190,16 +227,16 @@ body{
           font-size: $titleS;
           font-weight: bold;
           margin: 0 auto 3rem -3rem;
-          @include pad{
+          @include notebook{
             font-size: $titleS;
             margin-left: 0;
           }
-          @include mobile{
+          @include pad{
             font-size: $titleS;
-            margin: -3rem 0 5rem -9rem;
+            margin:-1rem 0 5rem 0;
           }
-          @include mobileS{
-            margin: -10rem 0 5rem 1rem;            
+          @include mobile{
+            margin: -10rem 0 5rem 4rem;            
             font-size: 2rem;
           }
 
@@ -209,16 +246,16 @@ body{
           font-size: $titleM;
           filter: drop-shadow(3px 3px 6px rgba(0, 0, 0, 0.5));
           margin-bottom: 3rem;
-          @include pad{
+          @include notebook{
             font-size: $titleS;
           }
 
-          @include mobile{
-            margin: -3rem 0 1rem -9rem;
+          @include pad{
+            margin:-3rem 0 3rem 0rem;
             font-size: $titleS;
           }
-          @include mobileS{
-            margin: -3rem 0 1rem 1rem;            
+          @include mobile{
+            margin: -3rem 0 1rem 4rem;            
             font-size: 2rem;
           }
 
@@ -232,39 +269,74 @@ body{
           line-height: 1.5;
           overflow: auto;
           margin-left: 2rem;
-          @include pad{
+          @include notebook{
             font-size: $paragraph;
+            overflow: auto;
+          }
+          @include pad{
             overflow: auto;
           }
           @include mobile{
-            overflow: auto;
-          }
-          @include mobileS{
-            height: 30rem;
-            font-size: $paragraph;
+            height: 60vh;
+            font-size: 1rem;
+            padding: 1rem 2rem 0;
           }
         }
-        @include mobile{
+        @include pad{
           margin: 11rem auto 0;
           color: map-get($color, 'white');
         }
 
       }
 
-      @include mobile{
+      @include pad{
         background-color: map-get($color, 'darkGray');
         width: 100%;
         z-index: -2;
       }
     }
   }
-
-  @include mobile{
-    // display: none;
-  }
-
 }
 
-// footer{
+.bottom{
+  // display: none;
+  @include pad{
+    display: block;
+    width: 80vw;
+    height: 10vh;
+  }
+  .button{
+    opacity: 1;
+    width: 35vw;
 
-// }
+    left: 40vw;
+    a{
+      color: map-get($color, 'gray_2');
+      text-decoration: none;
+      span{
+        &::before{
+          width: 5vw;
+          margin-left: 3vw;
+        }
+      }
+    }
+
+    @include mobile(){
+      width: 50vw;
+      left: 35vw;
+    }
+
+  }
+}
+
+// button -------------------
+
+.back{
+  // outline: 1px solid yellow;
+  position: absolute;
+  top: 20vh;
+  @include mobile(){
+    width: 3%;
+  }
+}
+

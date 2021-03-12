@@ -154,7 +154,7 @@
             if ($('.fileupload').get(0).files[0]) {
                 $.ajax({
                     type: 'post',
-                    url: "php/back/collection_upload.php",
+                    url: "./assets/php/back/collection_upload.php",
                     data: upimg,
                     cache: false,
                     processData: false,
@@ -182,7 +182,7 @@
             let subject = 1;
             $.ajax({
                 method: "POST",
-                url: "php/back/collection_insert.php",
+                url: "./assets/php/back/collection_insert.php",
                 data: {
                     'path': path,
                     'img_name': img_name,
@@ -206,7 +206,7 @@
             let exhibition_status = 1;
             $.ajax({
                 method: "POST",
-                url: "php/back/collection_universe_list.php",
+                url: "./assets/php/back/collection_universe_list.php",
                 data: {
                     'exhibition_status': exhibition_status,
                 },
@@ -227,7 +227,7 @@
             let exhibition_status = 2;
             $.ajax({
                 method: "POST",
-                url: "php/back/collection_universe_list.php",
+                url: "./assets/php/back/collection_universe_list.php",
                 data: {
                     'exhibition_status': exhibition_status,
                 },
@@ -341,7 +341,7 @@
         function exhibition(work_id, exhibition_status) {
             $.ajax({
                 method: "POST",
-                url: "php/back/collection_exhibition.php",
+                url: "./assets/php/back/collection_exhibition.php",
                 data: {
                     'work_id': work_id,
                     'exhibition_status': exhibition_status,
@@ -366,7 +366,7 @@
         function search_on(str) {
             $.ajax({
                 method: "POST",
-                url: "php/back/collection_universe_search.php",
+                url: "./assets/php/back/collection_universe_search.php",
                 data: {
                     'select': $('.select_on').val(),
                     'textbox': $('.search_text_on').val(),
@@ -389,7 +389,7 @@
             let status = 2; //上架狀態
             $.ajax({
                 method: "POST",
-                url: "php/back/collection_universe_search.php",
+                url: "./assets/php/back/collection_universe_search.php",
                 data: {
                     'select': $('.select_under').val(),
                     'textbox': $('.search_text_under').val(),
@@ -455,7 +455,7 @@
             let edit_produce = produce.innerHTML;
             $.ajax({
                 method: "POST",
-                url: "php/back/collection_edit.php",
+                url: "./assets/php/back/collection_edit.php",
                 data: {
                     'edit_id': edit_id,
                     'edit_name': edit_name,

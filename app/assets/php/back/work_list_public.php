@@ -8,7 +8,7 @@ echo '<tr class="table-dark">
         <th><p class="th_p">展品名稱</p></th>
         <th>展品簡介</th>
         <th><p class="th_p">展品作者</p></th>
-        <td><p class="th_p">上架狀態</p></td>
+        <th><p class="th_p">上架狀態</p></th>
         <th><p class="th_p">按讚數</p></th>
         <th><p class="th_p">瀏覽數</p></th>
         <th></th>

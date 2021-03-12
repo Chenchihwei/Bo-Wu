@@ -19,6 +19,12 @@ body{
     @include notebook{
         height: 720px;
     }
+    @include pad{
+        height: 432px;
+    }
+    @include mobile{
+        height: 307px;
+    }
 .aboutus-img{
     background-image: url(../../img/Museums-5-Miyahata-Ruins-Museum-810x644.svg);
     background-size: cover;
@@ -43,12 +49,11 @@ body{
         margin-top: 148px;
         margin-left: 293px;
         margin-bottom: 140px;
-
-
         @include pad{
             margin-top: 145px;
             margin-left: 171px;
             margin-bottom: 39px;
+            
         }
         @include mobile{
             margin-top: 100px;
@@ -57,6 +62,9 @@ body{
     }
     span{
         display: flex;
+        @include pad{
+            margin-left: 53px;
+        }
         h1{
             color: #000;
             font-size: $titleL;
@@ -66,17 +74,21 @@ body{
                 margin-left: -46px;
             }
             @include pad{
-            font-size: $titleM;
-            margin-left: -52px;
+                margin-left: -45px;
+            }
+            @include mobile{
+                color:aliceblue;
+                font-size: $titleM;
             }
         }
         h2{
             font-size: $titleL;
+            @include mobile{
+                font-size: $titleM;
+            }
         }
     }
 }
-
-
 }
 
 .bock-story{
@@ -85,10 +97,16 @@ body{
     @include notebook{
         height: 1221px;
     }
+    @include pad{
+        height: 731px;
+    }
+    @include mobile{
+    height: 624px;
+    }
     .bc1{
         display: block;
         background-image:url(../../img/Story_us.png);
-        background-size: contain;
+        background-size: cover;
         height: 727px;
         width: 424px;
         margin-left: 15.6vw;
@@ -96,8 +114,18 @@ body{
         @include notebook{
             height: 485px;
             width: 283px;
-
             margin-left: 232px;
+        }
+        @include pad{
+            width: 170px;
+            height: 291px;          
+            margin-left: 139px;
+        }
+        @include mobile{
+            width: 146px;
+            height: 247px;
+    
+            margin-left: 36px;
         }
     }
     h1{
@@ -107,6 +135,15 @@ body{
 
         @include notebook{
             padding-left: 433px;
+        }
+        @include pad{
+            margin-top: -149px;
+            padding-left: 224px;
+        }
+        @include mobile{
+            font-size: $titleM;
+            margin-top: -170px;
+            padding-left: 202px;
         }
     }
     p{
@@ -119,6 +156,19 @@ body{
         
         @include notebook{
             margin-left: 561px;
+        }
+        @include pad{
+            margin-top: 24px;
+            margin-left: 336px;
+            width: 349px;
+            height: 71px;
+            line-height: 1.2;
+        }
+        @include mobile{
+            font-size: $fontSize;
+            width: 176px;
+            margin-top: 14px;
+            margin-left: 202px;
         }
     }
     .bc2{
@@ -133,6 +183,16 @@ body{
             width: 408px;
             height: 526px;
         }
+        @include pad{
+            width: 244px;
+            height: 316px;
+            margin-top: 66px;
+            margin-left: 404px;
+        }
+        @include mobile{
+            margin-top: 14px;
+            margin-left: 135px;
+        }
         .bc2-img{
             background-color:map-get($color,'gblue');
             width: 576px;
@@ -145,7 +205,17 @@ body{
                 height: 500px;
                 margin-top: -473px;
                 margin-left: 52px;
-
+            }
+            @include pad{
+                width: 231px;
+                height: 300px;
+                margin-top: -275px;
+                margin-left: 42px;
+            }
+            @include mobile{
+                background-color:map-get($color,'gray');
+                margin-left: 14px;
+                opacity: .5;
             }
             
         }
@@ -162,6 +232,15 @@ body{
                 margin-top: -40px;
                 margin-left: 22px;
             }
+            @include pad{
+                margin-top: 100px;
+                width: 231px;
+                height: 300px;
+            }
+            @include mobile{
+                margin-top: 52px;
+                opacity: .5;
+            }
         }
     }
     .comma{
@@ -170,20 +249,50 @@ body{
         margin-left: 15.6vw;
         margin-top: -379px;
         margin-bottom: 65.9px;
-
+        @include pad{
+            width: 99px;
+            margin-left: 121px;
+            margin-top: -315px;
+            
+        }
+        @include mobile{
+            width: 100px;
+            margin-left: 76px;
+            margin-top: -250px;
+            margin-bottom: 50px;
+            opacity: .7;
+        }
 
         .comma1{
             background-image:url(../../img/comma.png);
+            background-size:cover;
             margin-right: 16px;
             width: 67px;
             height: 123px;
-
-            
-        }
+            @include pad{
+                width: 48px;
+                height: 76px;
+            }
+            @include mobile{
+                width: 14px;
+                height: 26px;
+                margin-right: 3px;
+            } }
         .comma2{
             background-image:url(../../img/comma.png);
+            background-size:cover;
             width: 67px;
             height: 123px;
+            
+            @include pad{
+                width: 48px;
+                height: 76px;
+            }
+            @include mobile{
+                width: 14px;
+                height: 26px;
+                margin-right: 3px;
+            }
         }
         
         
@@ -193,6 +302,15 @@ body{
         width: 660px;
         margin-top: -30px;
         margin-left: 15.6vw;
+        @include pad{
+            width: 256px;
+            margin-left: 120px;
+        }
+        @include mobile{
+            margin-top: -30px;
+            margin-left: 92px;
+            position: relative;
+        }
     }
     
 }
@@ -202,6 +320,12 @@ body{
     @include notebook{
         height: 682px;
     }
+    @include pad{
+        height: 409px;
+    }
+    @include mobile{
+    height: 363px;
+    }
     .darkblock{
         width: 82vw;
         height: 638px;
@@ -210,6 +334,13 @@ body{
         @include notebook{
             height: 425px;
         }
+        @include pad{
+            height: 255px;
+        }
+        @include mobile{
+            width: 100%;
+            height: 164px;
+        }
         h1{
             color: map-get($color, $key:'white' );
             font-size: $titleM ;
@@ -217,9 +348,15 @@ body{
             margin-top: 109px;
             margin-left: 15.6vw;
 
-            // @include notebook{
-                
-            // }
+             @include pad{
+                margin-top: 71px;
+                margin-left: 122px;
+             }
+             @include mobile{
+                font-size: $titleS;
+                margin-top: 22px;
+                margin-left: 36px;
+             }
             
         }
         .text{
@@ -231,6 +368,14 @@ body{
                 margin-top: 209px;
                 margin-left: 741px;
             }
+            @include pad{
+                margin-top: 118px;
+                margin-left: 401px;
+            }
+            @include mobile{
+                margin-top: 90px;
+                margin-left: 231px;
+            }
             .line{
                 width: 182px;
                 height: 5px;
@@ -238,6 +383,13 @@ body{
 
                 @include notebook{
                     width: 132px;
+                }
+                @include pad{
+                    width: 110px;
+                    height: 3px;
+                }
+                @include mobile{
+                width: 63px;
                 }
             }
             P{
@@ -247,6 +399,9 @@ body{
 
                 @include notebook{
                     font-size:medium;
+                }
+                @include pad{
+                    font-size: $fontSize;
                 }
             }
         }
@@ -264,6 +419,16 @@ body{
             height: 400px;
             background-size:cover;
         } 
+        @include pad{
+            height: 240px;
+            margin-top: -135px;
+            margin-left: 122px;
+        }
+        @include mobile{
+            width: 168px;
+            margin-top: -100px;
+            margin-left: 36px;
+        }
     }
     h3{
         width: 25.7vw;
@@ -272,7 +437,17 @@ body{
         margin-top: -134px;
         padding-top: 3px;
         padding-left: 2px;
-
+        @include pad{
+            margin-left: 321px;
+            margin-top: -85px;
+        }
+        @include mobile{
+            margin-left: 220px;
+            margin-top: -120px;
+            padding-top: 1px;
+            padding-left: 1px;
+            width: 166px;
+        }
 
     }
 
@@ -284,19 +459,32 @@ body{
     color: map-get($map: $color, $key: 'dark');
     text-align: center;
     overflow: hidden;
+    @include pad{
+        height: 240px;
+    }
+    @include mobile{
+    background-size:cover;
+    height: 310px;
+    }
     h1{
         margin-top: 90px;
         font-size: $titleL;
+        @include pad{
+            margin-top: 36px;
+        }
+        @include mobile{
+            margin-top: 67px;
+        }
     }
     p{
         font-size: $paragraph;
         margin-top: 10px;
+        line-height: 1.5;
     }
     .text{
         font-size: $paragraph;
         align-items: center;
         display: flex;
-        // height: 27px;
         margin-top: 34px;
         
         span{
@@ -315,6 +503,9 @@ body{
                 width: 132px;
                 height: 3px;
             }
+            @include pad{
+                width: 110px;
+            }
         }
     }
 
@@ -326,14 +517,30 @@ body{
     @include notebook{
         height: 663px;
     }
-    
+    @include pad{
+        height: 381px;
+    }
+    @include mobile{
+        height: 418px;
+
+    }
     .pic2{
     background-image:url(../../img/postcard.svg);
+    background-size:cover;
     width: 433px;
     height: 467px;
     margin-left: 15.6vw;
     margin-top: 83px;
     position: relative;
+    @include pad{
+        width: 259px;
+        height: 280px;
+        margin-top: 51px;
+    }
+    @include mobile{
+        margin-top: 68px;
+        margin-left: 35px;
+    }
     }
     .gray-block{
         width: 320px;
@@ -346,8 +553,18 @@ body{
         @include notebook{
             width: 231px;
             height: 360px;
-
             margin-left: 36vw;
+        }
+        @include pad{
+            width: 128px;
+            height: 216px;
+            margin-top: -193px;
+            margin-left: 259px;
+        }
+        @include mobile{
+            
+            margin-top: -193px;
+            margin-left: 200px;
         }
     }
     h1{
@@ -357,16 +574,31 @@ body{
         font-size: $titleM;
         @include notebook{
             margin-left: 51vw;
-
-        }}
+        }
+        @include pad{
+            margin-top: -294px;
+        }
+        @include mobile{
+            font-size: $titleS;
+            margin-top: -294px;
+            margin-left: 200px;
+            position: relative;
+        }
+    }
     p{
         width: 33.7vw;
+        line-height: 1.5;
         margin-left: 49vw;
         font-size: $paragraph;
 
         @include notebook{
             margin-left: 60vw;
-
+        }
+        @include mobile{
+            width: 265px;
+            height: 179px;
+            margin-left: 106px;
+            position: relative
         }
     }
     .text{
@@ -383,13 +615,23 @@ body{
         @include notebook{
             margin-left: 60vw;
         }
+        @include mobile{
+            
+            margin-top: 10px;
+            margin-left: 122px;
+            // width: 200px;
+            height: 19px;
+        }
         .line{
             width: 182px;
             height: 5px;
             background-color:map-get($map: $color, $key: 'black');
             
             @include notebook{
-
+                height: 3px;
+            }
+            @include pad{
+                width: 110px;
             }
         }
         span{

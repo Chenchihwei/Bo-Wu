@@ -1,7 +1,7 @@
 @import '../base/base';
 @import '../base/reset';
 @import '../utilities/button';
-@import '../utilities/mouseHover.scss';
+@import '../utilities/mouseHover';
 
 
 @mixin notebook{
@@ -44,10 +44,11 @@ body::-webkit-scrollbar{
 
   position: sticky;
   @include notebook{
-    margin-left: 18vw;
+    margin-left: 23vw;
     width: 60vw;
   }
   @include mobile{
+    margin-left: 30vw;
     padding-top: 10vh;
   }
 
@@ -75,10 +76,12 @@ body::-webkit-scrollbar{
   
   @include pad{
     width: auto;
+    margin-left: 23vw;
   }
   @include mobile(){
-    overflow: hidden;
+    // overflow: hidden;
     height: 100vh;
+    margin-left: 30vw;
     margin-top: 2rem;
   }
 
@@ -104,11 +107,10 @@ body::-webkit-scrollbar{
     }
   @include pad{
     height: 100vh;
-    width: 80vw;
-
+    width: 75vw;
     grid-gap: 15px;
   
-    grid-template-columns: repeat(4, 20vw);
+    grid-template-columns: repeat(4, 17vw);
     grid-template-rows: repeat(6, 20vh);
     grid-template-areas: 
     'big1 big1 big1 big1'
@@ -120,10 +122,10 @@ body::-webkit-scrollbar{
   }
   @include mobile{
     height: 100vh;
-    width: 80vw;
+    width: 65vw;
 
     grid-template-columns: repeat(2, 30vw);
-    grid-template-rows: repeat(7, 20vh);
+    grid-template-rows: repeat(8, 20vh);
     grid-gap: 10px;
 
     grid-template-areas: 
@@ -132,13 +134,25 @@ body::-webkit-scrollbar{
     'small1 small2'
     'big3 big3'
     'big3 big3'
-    'small5 small6';
+    'small5 small6'
+    'small7 small4'
+    'small3 big1';
 
   }
   img{
     width: 100%;
     height: 100%;
     object-fit: cover;
+    opacity: 0;
+
+    animation: show 1s linear forwards;
+    transition: 1s;
+    &:hover{
+      // transform: scale(1.05);
+      width: 105%;
+      height: 105%;
+      z-index: 4;
+    }
   }
 
   a{
@@ -169,7 +183,7 @@ body::-webkit-scrollbar{
         }
       }
       &:hover{
-        transform: scale(1.05);
+        // transform: scale(1.05);
       }
     }
   
@@ -179,50 +193,58 @@ body::-webkit-scrollbar{
   img:nth-child(2){
     // background: #666;
     grid-area: big2;
+    animation-delay: .5s;
   }
   
   img:nth-child(3){
     // background: #666;
     grid-area: big3;
+    animation-delay: .7s;
   }
   
   img:nth-child(4){
     // background: #999;
     grid-area: small1;
-    transition: 1.3s;
-    &:hover{
-      transform: scale(1.1);
-    }
+    animation-delay: .1s;
+
   }
 
   img:nth-child(5){
     // background: #999;
     grid-area: small2;
+    animation-delay: .3s;
+
   }
   
   img:nth-child(6){
     // background: #999;
     grid-area: small3;
+    animation-delay: .9s;
   }
   
   img:nth-child(7){
     // background: #999;
     grid-area: small4;
+    animation-delay: 1.1s;
   }
   
   img:nth-child(8){
     // background: #999;
     grid-area: small5;
+    animation-delay: 1.3s;
+
   }
   
   img:nth-child(9){
     // background: #999;
     grid-area: small6;
+    animation-delay: 1.5s;
   }
   
   img:nth-child(10){
     // background: #999;
     grid-area: small7;
+    animation-delay: 1.7s;
   }
   
   .small8{
@@ -236,6 +258,12 @@ body::-webkit-scrollbar{
   }
   }
 
+}
 
+
+@keyframes show {
+  0%{ transform: scale(0.3); opacity: 0;}
+  // 50%{ transform: scale(0.8); opacity: .5;}
+  100%{ transform: scale(1); opacity: 1;}
 }
 

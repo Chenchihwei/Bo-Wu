@@ -8,8 +8,8 @@ echo '<tr class="table-dark">
         <th>展品名稱</th>
         <th>展品簡介</th>
         <th>作者編號</th>
-        <td>競標金額</td>
-        <td>競標時間</td>
+        <th>競標金額</th>
+        <th>競標時間</th>
         <th></th>
     </tr>';
 
