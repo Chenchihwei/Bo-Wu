@@ -299,7 +299,7 @@ body{
 }
 
 .bottom{
-  display: none;
+  // display: none;
   @include pad{
     display: block;
     width: 80vw;

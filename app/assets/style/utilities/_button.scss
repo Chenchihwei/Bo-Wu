@@ -33,8 +33,19 @@
   bottom:5vh;
 
   position: fixed;
+
+  @include pad{
+    width: 40vw;
+    left: 37vw;
+  }
+  @include mobile(){
+    width: 60vw;
+    left: 30vw;
+  }
+
   a{ 
     text-align: none;
+    text-decoration: none;
     color: map-get($color, 'darkGray');
     
     span{
@@ -55,6 +66,10 @@
         background-color: #707070;
         border: 1px solid #707070 !important;
         color: #707070;
+        @include pad{
+          width: 5vw;
+          margin-left: 3vw;
+        }
       }
     }
     &:hover{
@@ -67,12 +82,7 @@
 
   }
 
-  @include pad{
-    opacity: 0;
-    &:hover{
-      opacity: 1;    
-    }
-  }
+
 }
 
 .clicked{
@@ -201,5 +211,8 @@
   @include pad{
     top: 17vh;
     right: 10vw;
+  }
+  @include mobile(){
+    display: none;
   }
 }

@@ -44,13 +44,12 @@ body::-webkit-scrollbar{
 
   position: sticky;
   @include notebook{
-    margin-left: 18vw;
+    margin-left: 23vw;
     width: 60vw;
   }
   @include mobile{
-    padding-top: 10vh;
     margin-left: 30vw;
-
+    padding-top: 10vh;
   }
 
   h1{
@@ -77,11 +76,12 @@ body::-webkit-scrollbar{
   
   @include pad{
     width: auto;
+    margin-left: 23vw;
   }
   @include mobile(){
-    margin-left: 30vw;
-    overflow: hidden;
+    // overflow: hidden;
     height: 100vh;
+    margin-left: 30vw;
     margin-top: 2rem;
   }
 
@@ -107,11 +107,10 @@ body::-webkit-scrollbar{
     }
   @include pad{
     height: 100vh;
-    width: 80vw;
-
+    width: 75vw;
     grid-gap: 15px;
   
-    grid-template-columns: repeat(4, 20vw);
+    grid-template-columns: repeat(4, 17vw);
     grid-template-rows: repeat(6, 20vh);
     grid-template-areas: 
     'big1 big1 big1 big1'
@@ -123,10 +122,10 @@ body::-webkit-scrollbar{
   }
   @include mobile{
     height: 100vh;
-    width: 80vw;
+    width: 65vw;
 
     grid-template-columns: repeat(2, 30vw);
-    grid-template-rows: repeat(7, 20vh);
+    grid-template-rows: repeat(8, 20vh);
     grid-gap: 10px;
 
     grid-template-areas: 
@@ -135,7 +134,9 @@ body::-webkit-scrollbar{
     'small1 small2'
     'big3 big3'
     'big3 big3'
-    'small5 small6';
+    'small5 small6'
+    'small7 small4'
+    'small3 big1';
 
   }
   img{
