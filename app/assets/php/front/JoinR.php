@@ -40,7 +40,10 @@
         $statement->bindValue(5, $_POST["password"]);
         $statement->bindValue(6, $_POST["mail"]);
         $statement->execute();
-        echo "<script>alert('加入成功，請重新登入!'); location.href = '../../member_pre.html';</script>"; 
+       
+        
+        echo "<script>alert('加入成功，請重新登入!'); location.href = '../../member_pre.html';</script>";
+        
     }else{
         echo "<script>alert('帳號已申請過!'); location.href = '../../member_pre.html';</script>"; 
     }

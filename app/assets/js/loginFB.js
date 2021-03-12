@@ -17,10 +17,6 @@ function fbInit() {
       if(response.status === 'connected'){
         console.log(response);
         let accesstoken = response.authResponse.accessToken;
-        //for cart.js CheckOut API
-        // if (typeof getToken == "function"){
-        //   getToken(accesstoken);
-        // }
       }
     });
   };
@@ -65,30 +61,34 @@ function login() {
             'fields': 'id,name,email,picture.width(200).height(200)'
       }, function (res) {
         console.log(res)
-        window.alert(res.name+'您已經成功登入囉!');
         AjaxFB(res);
         signClose();
+        controlSignBar('1');
+        window.alert(res.name+'您已經成功登入囉!');
       });
     }
   }, {
-      scope: 'email',
-      auth_type: 'rerequest'
-    });
+    scope: 'email',
+    auth_type: 'rerequest'
+  });
 };
 function Fblogout(){
-    // //按登出按鈕時先檢查狀態是否為登入
-    FB.getLoginStatus(function (response) {
-      console.log(response.status);
-      if(response.status === 'connected') {
-       FB.logout(function () {
-          window.localStorage.clear();
-          console.log("log out");
-          window.alert("您已經成功登出囉!");
-          // window.location = "./index.html";
-          window.location.href = "./";
-        });
-      }
-    });
+  // //按登出按鈕時先檢查狀態是否為登入
+  FB.getLoginStatus(function (response) {
+    console.log(response.status);
+    if(response.status === 'connected') {
+      FB.logout(function () {
+        window.localStorage.clear();
+        console.log("log out");
+        window.alert("您已經成功登出囉!");
+        // window.location = "./index.html";
+        //清除localStorage
+    
+        item = getLocalstorage();
+        window.location.href = "./";
+      });
+    }
+  });
 }
 //AJAX丟給PHP
 function AjaxFB(res){
@@ -99,10 +99,13 @@ function AjaxFB(res){
       'fbname':res.name,
       'fbmail':res.email,
       'fbid':res.id,
+      'fbimg':res.picture.data.url,
     },
     dataType: "text",
     success: function(data){
-      alert(JSON.stringify(data));
+      // alert(JSON.stringify(data));
+      inStorage(data,'facebook',1,res.picture.data.url,res.name);
+      item = getLocalstorage();
     },
     error: function(errMsg) {
       alert(JSON.stringify(errMsg));
@@ -110,12 +113,3 @@ function AjaxFB(res){
   });
 };
 
-//視窗消失
-function signClose(){
-  let panel = document.getElementsByClassName("panel--static")[0];
-  let leftblock = document.getElementsByClassName("leftBlock")[0];
-  let rightblock = document.getElementsByClassName("rightBlock")[0];
-  panel.classList.add('close');
-  leftblock.style.opacity = '1';
-  rightblock.style.opacity = '1';
-}

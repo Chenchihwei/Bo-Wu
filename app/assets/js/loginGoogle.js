@@ -20,24 +20,22 @@ function onSignIn(googleUser) {
 
     AjaxGoogle(profile);
     //視窗消失
-    let panel = document.getElementsByClassName("panel--static")[0];
-    let leftblock = document.getElementsByClassName("leftBlock")[0];
-    let rightblock = document.getElementsByClassName("rightBlock")[0];
-    panel.classList.add('close');
-    leftblock.style.opacity = '1';
-    rightblock.style.opacity = '1';
-
+    signClose();
+    //寫入localstorage
+    controlSignBar(1);
     alert(profile.getName()+"登入成功");
-
   }
 };
 //登出
 function signOut() {
-    var auth2 = gapi.auth2.getAuthInstance();
-    auth2.signOut().then(function () {
-      alert("登出成功");
-    });
-  }
+  var auth2 = gapi.auth2.getAuthInstance();
+  auth2.signOut().then(function () {
+    alert("登出成功");
+    //清除localStorage
+    
+    item = getLocalstorage();
+  });
+}
 //AJAX丟給PHP
 function AjaxGoogle(profile){
   $.ajax({
@@ -47,10 +45,13 @@ function AjaxGoogle(profile){
       'googlename':profile.getName(),
       'googlemail':profile.getEmail(),
       'googleid':profile.getId(),
+      'googleimg':profile.getImageUrl(),
     },
     dataType: "text",
     success: function(data){
-      alert(JSON.stringify(data));
+      // alert(JSON.stringify(data));
+      inStorage(data,'google',1,profile.getImageUrl(),profile.getName());
+      item = getLocalstorage();
     },
     error: function(errMsg) {
       alert(JSON.stringify(errMsg));
