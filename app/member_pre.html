@@ -25,49 +25,7 @@
 
 <body>
   @@include('./compontents/head.html')
-  <!-- <header>
-    <a href="./homepage.html">
-      <img src="./img/logo_bowu_white.png">
-    </a>
-
-    <menu class="menu">
-      <p>MENU</p>
-      <span class="indexMenuline1"></span>
-      <span class="indexMenuline2"></span>
-    </menu>
-
-    <ul>
-      <li> <a href="#">SHARE</a> </li>
-      <b></b>
-      <li> <a href="./About.html">CONTACT US</a> </li>
-    </ul>
-
-  </header> -->
-
-  <!-- <div class="menu_bar none">
-    <a href="" class="menu_personal_exhibits">PERSONAL EXHIBITS</a>
-    <div class="menu_about menu_child">
-        <a href="./About.html">
-            <img src="./img/menu_about.png" alt="">
-            About
-        </a>
-    </div>
-    <div class="menu_exhibits menu_child">
-        <a href="./exhibition.html">
-            <img src="./img/menu_exhibits.png" alt="">Exhibits</a>
-    </div>
-    <div class="menu_postcard menu_child">
-        <a href="./postcard.html">
-            <img src="./img/menu_postcard.png" alt="">PostCard</a>
-    </div>
-    <div class="notthings menu_child">
-        <a href=""></a>
-    </div>
-    <div class="join">
-        <div class="line"></div>
-        <a href="##">JOIN US NOW</a>
-    </div>
-  </div> -->
+  
 
   <div class="leftBlock block">
     <div class="title">
@@ -78,35 +36,31 @@
     <div class="introduce">
       <div class="imgBlock">
         <div class="imgShow">
-          <img src="./assets/img/exh_8.jpg" alt="" />
-          <button>競標</button>
+          <!-- <img src="./assets/img/exh_8.jpg" alt="" /> -->
+          <!-- <button>競標</button> -->
         </div>
         <div class="selectImg">
-          <img src="./assets/img/left.png" alt="" class="left" />
           <ul>
-            <li><img src="./assets/img/exh_5.jpg" alt="" /></li>
-            <li><img src="./assets/img/exh_6.jpg" alt="" /></li>
-            <li><img src="./assets/img/exh_8.jpg" alt="" /></li>
-            <li><img src="./assets/img/exh_8.jpg" alt="" /></li>
-            <li><img src="./assets/img/exh_8.jpg" alt="" /></li>
+            <!-- <li><img src="./assets/img/exh_5.jpg" alt="" /></li>
+              <li><img src="./assets/img/exh_6.jpg" alt="" /></li>
+              <li><img src="./assets/img/exh_8.jpg" alt="" /></li>
+              <li><img src="./assets/img/exh_8.jpg" alt="" /></li>
+              <li><img src="./assets/img/exh_8.jpg" alt="" /></li> -->
           </ul>
-          <img src="./assets/img/right.png" alt="" class="right" />
         </div>
+        <img src="./assets/img/left.png" alt="" class="left" />
+        <img src="./assets/img/right.png" alt="" class="right" />
       </div>
       <div class="introText">
         <div class="text">
-          <h3>Maker name</h3>
-          <h2>ExhibitName</h2>
+          <h3></h3>
+          <h2></h2>
           <p>
-            Introductione here....<br />
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor.Introductione
-            here.... Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-            tempor.Introductione here....
           </p>
         </div>
         <div class="share">
           <button class="subscribeBtn">訂閱</button>
-          <button class="shareBtn">SHARE</button>
+          <button data-social="facebook"class="shareBtn">Share</button>
         </div>
       </div>
     </div>
@@ -117,13 +71,13 @@
       <div class="commentLeft">
         <div class="count">
           <img src="./assets/img/Heart.png" alt="" />
-          <p>609</p>
+          <p></p>
         </div>
       </div>
       <div class="commentRight">
         <div class="commentRightTop">
           <ul>
-            <li>
+            <!-- <li>
               <img src="./assets/img/Ellipse 77.png" alt="" />
               <h4>Andy</h4>
               <p>Lorem ipsuur adipisiaecati quod, intur in consectetur, eius culpa pellat quis.</p>
@@ -137,7 +91,7 @@
               <img src="./assets/img/Ellipse 79.png" alt="" />
               <h4>Andy</h4>
               <p>Lorem ipsuur adipisiaecati quod, intur in consectetur, eius culpa pellat quis.</p>
-            </li>
+            </li> -->
           </ul>
           <button>LEAVE A MESSAGE</button>
         </div>
@@ -152,13 +106,13 @@
     </div>
     <div class="message">
       <form action="">
-        <textarea name="" id="" cols="30" rows="10"></textarea>
+        <textarea name="" id="" cols="30" rows="10" placeholder="Message:"></textarea>
       </form>
       <button>Save & Sand</button>
     </div>
   </div>
 
-  <div class="biddingEdit">
+  <!-- <div class="biddingEdit">
     <div class="editTitle">
       <p>展品競標編輯</p>
       <img src="./assets/img/Group 188.png" alt="">
@@ -178,99 +132,13 @@
       </label>
       <button>Save & Sand</button>
     </div>
-  </div>
+  </div> -->
 
   @@include('./compontents/searchbar.html')
-  <!-- <div class="features">
-    <i class="fas fa-search"></i>
-    <div class="personal"><a href="./exhibition.html">個人展間</a>
-    </div>
 
-
-    <div class="login"><a href="###" class="login_manger">管理</a> 
-      <i class="fas fa-user-friends"></i>
-    </div>
-
-    <i class="fas fa-bell"></i>
-  </div> -->
 
   @@include('./compontents/music.html')
-  <!-- <div class="musicControlBtn" id="app">
-    <div class="musicControlBtnSpan" @click="open">
-      <span class="bar line1 hide"></span>
-      <span class="bar line2 hide"></span>
-      <span class="bar line3 hide"></span>
-      <div class="audio">
-        <audio loop="loop" id="music1" src="music/music1.mp3"></audio>
-      </div>
-    </div>
-    <p>{{Music}}</p>
-  </div> -->
 
-  <!-- <div class="panel panel--static close" id="app2">
-    <div class="panel__content left">
-      <h1 class="panel__heading">Don't have an account?</h1>
-      <p class="panel__copy">Ethical celiac hashtag taxidermy squid. Wayfarers distillery narwhal, kombucha jean shorts
-        selvage meggings.</p>
-      <button type="button" class="btn btn--secondary signup">Sign up</button>
-    </div>
-    <div class="panel__content right">
-      <h1 class="panel__heading">Have an account?</h1>
-      <p class="panel__copy">Ethical celiac hashtag taxidermy squid. Wayfarers distillery narwhal, kombucha jean shorts
-        selvage meggings.</p>
-      <button type="button" class="btn btn--secondary login">Log in</button>
-    </div>
-
-    <div class="panel panel--sliding">
-      <div class="panel__content signup">
-        <h1 class="panel__heading">Sign up</h1>
-        <form id="signup" method="POST" action="./php/front/JoinR.php">
-          
-          <div><input type="text" placeholder="Full name" id="name" class="input input--name" name='name' :class="{ 'is-invalid': usernameError }" v-model="name"/><p>{{userErrMsg}}</p></div>
-          <div><input type="text" placeholder="Email" id="mail" class="input input--email" name="mail" :class="{ 'is-invalid': mailError }" v-model="mail"/><p>{{mailErrMsg}}</p></div>
-          <div><input type="password" placeholder="Password" id='password' class="input input--password" name="password" :class="{ 'is-invalid': passwordError }" v-model="password"/><p>{{passErrMsg}}</p></div>
-          <br/>
-          <label class="rule"><input type="checkbox" class="input--agree" value="agree">已閱讀會員守則，並同意遵守</label>
-          <br />
-          <button class="btn btn--primary" @click='checkSign($event)'>Sign up</button>
-        </form>
-        <div class="faceGoogle">
-          <div class="googleTitle">
-            <div></div> 
-            <p>or sign in with</p>
-            <div></div>
-          </div>
-          <div class="pic">
-            <i class="fab fa-facebook-square" id="facebook" onclick="facebookLogIn()"></i>
-            <div class="g-signin2" onclick="ClickLogin()" data-onsuccess="onSignIn" data-theme="dark"></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="panel__content login">
-        <h1 class="panel__heading">Log in</h1>
-        <form id="login" method="POST" action="./php/front/LoginR.php">
-          <div><input type="text" placeholder="Email" id="mail" class="input input--email" name="mail" :class="{ 'is-invalid': mailError }" v-model="mail"/><p>{{mailErrMsg}}</p></div>
-          <div><input type="password" placeholder="Password" id='password' class="input input--password" name="password" :class="{ 'is-invalid': passwordError }" v-model="password"/><p>{{passErrMsg}}</p></div>
-          <button class="btn btn--primary" @click='checkLog($event)'>Log in</button>
-          <a href="###">Forgot password?</a>
-        </form>
-        <div class="faceGoogle">
-          <div class="googleTitle">
-            <div></div>
-            <p>or sign in with</p>
-            <div></div>
-          </div>
-          <div class="pic">
-            <i class="fab fa-facebook-square" id="facebook" onclick="facebookLogIn()"></i>
-            <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="status"></div>
-    </div>
-  </div> -->
 
 </body>
 <!-- <script src="./assets/js/script.js"></script> -->

@@ -18,11 +18,14 @@
     $memberName = "";
     $memberLevel = "";
     $memberBlacklist = "";
+    $member_img="";
     foreach($data as $index => $row){
         $memberID = $row["member_id"];
         $memberName = $row["account"];
         $memberLevel = $row['level'];
         $memberBlacklist = $row['blacklist'];
+        $member_img = $row['member_img'];
+        $name = $row['name'];
     }
 
     //判斷是否有會員資料?
@@ -34,7 +37,26 @@
       $Member->setMemberInfo($memberID, $memberName);
 
       //導回產品頁        
-      echo "<script>alert('登入成功!'); location.href = '../../member_pre.html';</script>"; 
+        echo "<script>let task = {
+              'id':".$memberID.",";
+        echo "'status': 'normal',
+              'sign': 1,
+              'pic':'".$member_img."', 
+              'name':'".$name."',
+              };
+              let tasks = JSON.parse(localStorage.getItem('tasks'));
+              if(tasks){ // 若存在
+              tasks.unshift(task);
+              }else{ // 若不存在
+                tasks = [task];
+              }
+              localStorage.setItem('tasks', JSON.stringify(tasks));</script>
+          ";
+
+
+
+      echo "<script>alert('登入成功!');location.href = '../../member_pre.html';</script>"; 
+
     }else{
       //跳出提示停留在登入頁
       echo "<script>alert('帳號或密碼錯誤!'); location.href = '../../member_pre.html';</script>"; 
