@@ -65,6 +65,10 @@ $break-points: (
 * {
 	text-decoration: none;
 }
+.unexhibition_img_choose{
+	outline: 1px solid white;
+	outline-offset: -10px;
+};
 
 .wrapper {
 	display: flex;
@@ -334,7 +338,9 @@ $break-points: (
 						margin-top: 25px;
 						margin-left: 14px;
 						display: flex;
-
+						flex-wrap: wrap;
+						height:23vh;
+						overflow-y: auto;
 						img {
 							margin-right: 1px;
 							width: 180px;
@@ -727,6 +733,19 @@ $break-points: (
 						.authority_image {
 							width: PxToVw(574);
 							margin-left: 30px;
+							display: flex;
+							flex-wrap:wrap;
+							.authority_div{
+								margin-left: 5px;
+								position: relative;
+								p{
+									font-size: 20px;
+									position: absolute;
+									left: 50%;
+									top: 50%;
+									transform: translate(-50%,-50%);
+								}
+							}
 							img {
 								width: 180px;
 								height: 178px;
