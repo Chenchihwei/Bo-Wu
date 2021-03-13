@@ -58,7 +58,8 @@
         </div>
 
         <div class="logInOption">
-            <div class="login"><a class="login_mangerr">登入</a>
+            <div class="login">
+                <a class="login_manger">登入</a>
                 <a href="###" class="manger close">管理</a> 
                 <i class="fas fa-user-friends"></i>
                 <div class="logOut"><a href="">登 出</a></div>
@@ -82,7 +83,7 @@
             <button type="button" class="btn btn--secondary login">Log in</button>
         </div>
 
-        <div class="panel panel--sliding">
+        <!-- <div class="panel panel--sliding">
             <div class="panel__content signup">
                 <h1 class="panel__heading">Sign up </h1>
                 <form id="signup" method="POST" action="./php/front/JoinR.php">
@@ -125,6 +126,57 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
+        <div class="panel panel--sliding">
+            <div class="panel__content signup">
+              <h1 class="panel__heading">Sign up</h1>
+              <form id="signup" method="POST" action="./php/front/JoinR.php">
+                
+                <div><input type="text" placeholder="Full name" id="name" class="input input--name" name='name' :class="{ 'is-invalid': usernameError }" v-model="name"/><p>{{userErrMsg}}</p></div>
+                <div><input type="text" placeholder="Email" id="mail" class="input input--email" name="mail" :class="{ 'is-invalid': mailError }" v-model="mail"/><p>{{mailErrMsg}}</p></div>
+                <div><input type="password" placeholder="Password" id='password' class="input input--password" name="password" :class="{ 'is-invalid': passwordError }" v-model="password"/><p>{{passErrMsg}}</p></div>
+                <br/>
+                <label class="rule"><input type="checkbox" class="input--agree" value="agree">已閱讀會員守則，並同意遵守</label>
+                <br />
+                <button class="btn btn--primary" @click='checkSign($event)'>Sign up</button>
+              </form>
+              <div class="faceGoogle">
+                <div class="googleTitle">
+                  <div></div> 
+                  <p>or sign in with</p>
+                  <div></div>
+                </div>
+                <div class="pic">
+                  <!-- <div class="fb-login-button" onclick="facebookLogIn()" data-width="120px" data-size="large" data-button-type="login_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false"></div> -->
+                  <i class="fab fa-facebook-square" id="facebook" onclick="facebookLogIn()"></i>
+                  <div class="g-signin2" onclick="ClickLogin()" data-onsuccess="onSignIn" data-theme="dark"></div>
+                </div>
+              </div>
+            </div>
+      
+            <div class="panel__content login">
+              <h1 class="panel__heading">Log in</h1>
+              <form id="login" method="POST" action="./php/front/LoginR.php">
+                <div><input type="text" placeholder="Email" id="mail" class="input input--email" name="mail" :class="{ 'is-invalid': mailError }" v-model="mail"/><p>{{mailErrMsg}}</p></div>
+                <div><input type="password" placeholder="Password" id='password' class="input input--password" name="password" :class="{ 'is-invalid': passwordError }" v-model="password"/><p>{{passErrMsg}}</p></div>
+                <button class="btn btn--primary" @click='checkLog($event)'>Log in</button>
+                <a href="###">Forgot password?</a>
+              </form>
+              <div class="faceGoogle">
+                <div class="googleTitle">
+                  <div></div>
+                  <p>or sign in with</p>
+                  <div></div>
+                </div>
+                <div class="pic">
+                  <i class="fab fa-facebook-square" id="facebook" onclick="facebookLogIn()"></i>
+                  <div class="g-signin2" onclick="ClickLogin()" data-onsuccess="onSignIn" data-theme="dark"></div>
+                </div>
+              </div>
+            </div>
+      
+            <div class="status"></div>
+          </div>
     </div>
 </div>
+  

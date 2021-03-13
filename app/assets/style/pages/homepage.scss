@@ -124,10 +124,10 @@ a{
     }
 
     ul{
+        align-items: center;
         font-weight: normal;
         font-size: $paragraph;
         display: flex;
-        align-content: center;
         writing-mode: vertical-lr;
         text-orientation: sideways;
         transform: rotate(-180deg);

@@ -27,8 +27,13 @@ html{
     font-size: 8px;
   }
 }
+
 body {
   display: flex;
+  button{
+    outline: none;
+    cursor: pointer;
+  }
   @include ipad{
     flex-wrap: wrap;
   }
@@ -45,7 +50,8 @@ body {
     width: 43.43%;
     // height: 100vh;
     @include ipad{
-      flex-basis: 84.4%;
+      margin-left: 19.3vw;
+      flex-basis: 80.7%;
       height: initial
     }
     .title {
@@ -79,13 +85,18 @@ body {
           flex-direction: column;
         }
         .imgShow {
-          max-width: 23vw;
+          // background-image: url(../img/exh_8.jpg);
+          background-size: contain;
+          background-repeat:no-repeat;
+          width: 23vw;
+          height: 53vh;
           position: relative;
           margin-bottom: 3.7vh;
           overflow: hidden;
           @include ipad{
-            max-width: 45vw;
+            width: 45vw;
             height: 35vh;
+            margin-left: 7vw;
             margin-bottom: 1.7vh;
           }
           @include phone{
@@ -93,8 +104,11 @@ body {
             max-width: 50vw;
           }
           img {
-            max-width: 23vw;
-            margin-top: -6vh;
+            // background-image: url("./img/left.png");
+            // max-width: 23vw;
+            // margin-top: -6vh;
+            // max-height: 53vh;
+            // width: 100%;
             @include ipad{
               max-width: 100%;
               margin-top: -6vh;
@@ -125,39 +139,45 @@ body {
           }
         }
         .selectImg {
+          position: relative;
           display: flex;
           align-items: center;
           justify-content: start;
-          // max-width: 23vw;
+          max-width: 20vw;
           height: 10vh;
           margin-bottom: 12vh;
+          margin-left: 3vh;
           overflow: hidden;
           @include ipad {
             order: -1;
-            max-width: 90vw;
+            max-width: 37vw;
             margin-bottom: 2vh;
             justify-content: space-around;
+            margin-left: 19vw;
           }
           @include phone{
             order: -1;
-            max-width: 77vw;
+            max-width: 61vw;
             margin-bottom: 2vh;
+            margin-left: 12vw;
             justify-content: space-around;
           }
+          
           ul {
             display: flex;
             justify-content: space-between;
             align-items: center;
             li {
               flex-shrink: 0;
-              max-width: 6vw;
+              // max-width: 6vw;
+              width: 33%;
               padding: 0 0.5vw;
               transition: transform 1s ease;
               &:hover{
                 transform: scale(1.2);
               }
               &:nth-child(4),&:nth-child(5){
-                display: none;
+                // display: none;
               }
               @include ipad{
                 max-width: 12vw;
@@ -168,15 +188,45 @@ body {
               }
               @include phone{
                 max-width: 20vw;
-                &:nth-child(4),&:nth-child(5){
-                  display: none;
-                }
               }
               img {
                 width: 100%;
                 margin-top: 1vh;
               }
             }
+          }
+        }
+        .left{
+          position: absolute;
+          left: 0;
+          bottom: 5%;
+          z-index: 2;
+          @include ipad{
+            left: 17%;
+            bottom: unset;
+            top: 7%;
+          }
+          @include phone{
+            left: 8%;
+            bottom: unset;
+            top: 5%;
+          }
+        }
+        .right{
+          position: absolute;
+          left: 52%;
+          bottom: 5%;
+          right: 0;
+          z-index: 2;
+          @include ipad{
+            left: 71%;
+            bottom: unset;
+            top: 7%;
+          }
+          @include phone{
+            left: 91%;
+            bottom: unset;
+            top: 5%;
           }
         }
       }
@@ -188,9 +238,9 @@ body {
           position: static;
         }
         .text {
-          max-width: 23vw;
+          width: 23vw;
           @include ipad{
-            max-width: 65vw;
+            width: 65vw;
             margin-bottom: 2vw;
             border-right: 1px solid rgba(#ffffff,0.5);
           }
@@ -203,7 +253,7 @@ body {
             margin-bottom: 1vh;
             @include ipad{
               position: absolute;
-              right: 15%;
+              right: 17%;
               top: 35%;
               font-size: 2.5rem;
             }
@@ -217,7 +267,7 @@ body {
             margin-bottom: 5vh;
             @include ipad{
               position: absolute;
-              right: 11%;
+              right: 20%;
               top: 45%;
               font-size: 3.5rem;
             }
@@ -249,7 +299,7 @@ body {
           @include phone{
             position: absolute;
             right: 20%;
-            top: 48%;
+            top: 56%;
             font-size: 2.5rem;
           }
           button {
@@ -261,8 +311,10 @@ body {
             background: none;
             padding: .3vw 0.8vw;
             &.subscribeBtn {
-              background-color: #ffffff;
+              // background-color: #ffffff;
+              color: #ffffff;
               margin-right: 0.5vw;
+              border: 3px solid #ffffff;
             }
             &.shareBtn {
               color: #ffffff;
@@ -280,8 +332,8 @@ body {
     width: 43.43vw;
     height: 100vh;
     @include ipad{
-      width: 84.4%;;
-      margin-left: 15.6%;
+      width: 80.1%;;
+      margin-left: 19.3%;
       background-color: rgba(#2e2824,0.5);
       height: initial;
       padding-bottom: 6vh;
@@ -320,12 +372,12 @@ body {
           align-items: center;
           @include ipad{
             position: absolute;
-            right: 10%;
+            right: 20%;
             top: 32%;
           }
           @include phone{
             right: 20%;
-            top: 60%;
+            top: 36%;
           }
           p {
             font-size: 2.31rem;
@@ -349,6 +401,8 @@ body {
             align-items: center;
           }
           ul {
+            height: 68vh;
+            overflow: auto;
             @include ipad{
               border-right: 1px solid rgba(#ffffff,0.5);
               margin-bottom: 1vh;
@@ -357,21 +411,30 @@ body {
               background-color: #f7f7f7;
               margin: 0 6vw 2vh 3.5vw;
               position: relative;
-              max-width: 20vw;
+              width: 20vw;
               border: 1px solid #eaeaea;
               box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
               @include ipad{
-                max-width: 60vw;
+                margin-top: 1vh;
+                width: 60vw;
               }
               img {
+                width: 5vw;
+                height: 5vw;
+                border-radius: 100%;
+                border: 1px solid black;
                 position: absolute;
                 right: -8%;
                 top: -8%;
                 @include ipad{
-                  top: -30%;
+                  top: -8%;
+                  width: 9vw;
+                  height: 9vw;
                 }
                 @include phone{
-                  width: 25%;
+                  width: 15vw;
+                  height: 15vw;
+                  top: -12%;
                 }
               }
               h4 {
@@ -456,7 +519,7 @@ body {
           width: 39vw;
           height: 31.5vh;
           opacity: 70%;
-          border-radius: 30px;
+          // border-radius: 30px;
           margin-top: 2vh;
           outline: none;
         }
@@ -666,5 +729,8 @@ body {
   }
   .hide{
     animation: none;
+  }
+  .show{
+    display: block;
   }
 }
