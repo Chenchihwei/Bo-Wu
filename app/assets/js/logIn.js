@@ -1,6 +1,6 @@
 let logOut = document.getElementsByClassName('logOut')[0];
 //會員登入彈窗
-let logIn = document.getElementsByClassName("login")[0];
+let logIn = document.getElementsByClassName("login_manger")[0];
 let panel = document.getElementsByClassName("panel--static")[0];
 let block = document.getElementsByClassName('block');
 
