@@ -75,17 +75,16 @@ function login() {
 function Fblogout(){
   // //按登出按鈕時先檢查狀態是否為登入
   FB.getLoginStatus(function (response) {
-    console.log(response.status);
+    // console.log(response.status);
     if(response.status === 'connected') {
       FB.logout(function () {
-        window.localStorage.clear();
-        console.log("log out");
-        window.alert("您已經成功登出囉!");
+        // window.localStorage.clear();
+        localStorage.clear();
+        // window.alert("您已經成功登出囉!");
         // window.location = "./index.html";
         //清除localStorage
-    
-        item = getLocalstorage();
-        window.location.href = "./";
+        // item = getLocalstorage();
+        // window.location.href = "./";
       });
     }
   });
