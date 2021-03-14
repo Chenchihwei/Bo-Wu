@@ -10,6 +10,10 @@
 body{
     background-color: #f6f6f6;
     line-height: 1.3rem;
+
+    @include pad{
+        font-size: 1rem;
+    }
 }
 
 .menuGold{
@@ -24,9 +28,14 @@ body{
     align-items: center;
 }
 
-.smallSize_indexMenuline1,.smallSize_indexMenuline2{
-    background-color: #BA967D;
+.smallSize_menuOpenCloseAni{
+    .smallSize_indexMenuline1,.smallSize_indexMenuline2{
+        @include pad{
+            background-color: #BA967D;
+        }
+    }
 }
+
 .bock-AboutUs{
     height: 100vh;
     overflow: hidden;
@@ -34,10 +43,10 @@ body{
         height: 720px;
     }
     @include pad{
-        height: 432px;
+            height: 65vh;
     }
     @include mobile{
-        height: 307px;
+        height: 80vh;
     }
 .aboutus-img{
     background-image: url(../../img/src_bg_10.jpg);
@@ -47,16 +56,12 @@ body{
     font-size: $fontSize;
     width: 66vw;
     height: 100%;
-    
 
     @include notebook{
         height: 720px;
     }
     @include pad{
-        height: 432px;
-    }
-    @include mobile{
-        height: 307px;
+        height: 65vh;
     }
     //右方區塊
     p{
@@ -68,14 +73,17 @@ body{
         text-shadow: 1px 1px 3px map-get($color,'black');
         line-height: 1.3rem;
         @include pad{
-            margin-top: 145px;
-            margin-left: 171px;
-            margin-bottom: 39px;
-            
+            margin-top: 46vh;
+            margin-left: -16vw;
+            margin-bottom: 40px;
+            font-size: 1rem;
+            line-height: 1rem;
+            width: 73vw;
         }
         @include mobile{
-            margin-top: 100px;
-            margin-left: 33px;
+            margin-top: 45vh;
+            margin-left: -14vw;
+            line-height: 1.2rem;
         }
     }
     span{
@@ -83,34 +91,45 @@ body{
         text-shadow: 1px 1px 2px map-get($color,'gray');
         position: absolute;
         top: 25vw;
+        @include notebook{
+            top: 40vw;
+        }
         @include pad{
             margin-left: 53px;
+            left: 27vw;
         }
-        h1{
-            color: #000;
-            font-size: $titleL;
-            margin-left: -46px;
-
-            @include notebook{
-                margin-left: -46px;
-            }
-            @include pad{
-                margin-left: -45px;
-            }
-            @include mobile{
-                color:aliceblue;
-                font-size: $titleM;
-            }
-        }
-        h2{
-            font-size: $titleL;
-            @include mobile{
-                font-size: $titleM;
-            }
+        @include mobile{
+            margin-left: 53px;
+            left: 38vw;
+            top: 36vh;
         }
     }
+    h1{
+        color: #000;
+        font-size: $titleL;
+        margin-left: -46px;
+
+        @include notebook{
+            margin-left: -46px;
+        }
+        @include pad{
+            margin-left: -45px;
+        }
+        @include mobile{
+            color:aliceblue;
+            font-size: $titleM;
+        }
+    }
+    h2{
+        font-size: $titleL;
+        @include mobile{
+            font-size: $titleM;
+        }
+    }
+    
+    }
 }
-}
+
 
 .bock-story{
     height: auto;
@@ -122,9 +141,11 @@ body{
     }
     @include pad{
         height: 731px;
+        margin-bottom: 13vh;
+        font-size: 1rem;
     }
     @include mobile{
-    height: 624px;
+        height: auto;
     }
     .bc1{
         display: block;
@@ -212,9 +233,10 @@ body{
             height: 316px;
             margin-top: 66px;
             margin-left: 404px;
+            margin-top: 20vh;
         }
         @include mobile{
-            margin-top: 14px;
+            margin-top: 35vh;
             margin-left: 135px;
         }
         .bc2-img{
@@ -335,6 +357,7 @@ body{
             margin-top: -30px;
             margin-left: 92px;
             position: relative;
+            font-size: 1rem;
         }
     }
     
@@ -347,7 +370,8 @@ body{
         height: 682px;
     }
     @include pad{
-        height: 409px;
+        height: auto;
+        margin-bottom: 10vh;
     }
     @include mobile{
     height: 363px;
@@ -454,7 +478,7 @@ body{
             background-size:cover;
         } 
         @include pad{
-            height: 240px;
+            height: 350px;
             margin-top: -135px;
             margin-left: 122px;
         }
@@ -473,15 +497,14 @@ body{
         padding-left: 2px;
         text-shadow: 1px 1px 2px lightgray;
         @include pad{
-            margin-left: 321px;
-            margin-top: -85px;
+            margin-left: 380px;
+            margin-top: -150px;
+            width: 45vw;
         }
         @include mobile{
-            margin-left: 220px;
+            margin-left: 35vw;
             margin-top: -120px;
-            padding-top: 1px;
-            padding-left: 1px;
-            width: 166px;
+            width: 213px;
         }
 
     }
@@ -499,10 +522,11 @@ body{
 
     @include pad{
         height: 240px;
+        margin: 15vh auto 6vh;
     }
     @include mobile{
-    background-size:cover;
-    height: 310px;
+        background-size:cover;
+        height: 380px;
     }
     h1{
         margin-top: 90px;
@@ -532,6 +556,9 @@ body{
             margin-left: 42.4vw;
             font-family: 'Montserrat';
             font-weight: bold;
+            @include mobile{
+                margin-left: 40vw;
+            }
         }
         
         .line{
@@ -546,6 +573,9 @@ body{
             @include pad{
                 width: 110px;
             }
+            @include mobile{
+                display: none;
+            }
         }
     }
 
@@ -553,16 +583,17 @@ body{
 
 .bock-postcard{
     height: 100vh;
-    overflow: hidden;;
+    overflow: hidden;
 
     @include notebook{
-        height: 663px;
+        height: 70vh;
     }
     @include pad{
-        height: 381px;
+        height: auto;
+        margin-bottom: 8vh;
     }
     @include mobile{
-        height: 418px;
+        height: 80vh;
 
     }
     .pic2{
@@ -604,9 +635,10 @@ body{
             margin-left: 259px;
         }
         @include mobile{
-            
+            width: 265px;
+            height: 215px;
             margin-top: -193px;
-            margin-left: 200px;
+            margin-left: 50px;
         }
     }
     h1{
@@ -615,6 +647,7 @@ body{
         margin-bottom: 70px;
         font-size: $titleM;
         @include notebook{
+            margin-top: -440px;
             margin-left: 51vw;
         }
         @include pad{
@@ -622,7 +655,7 @@ body{
         }
         @include mobile{
             font-size: $titleS;
-            margin-top: -294px;
+            margin-top: -350px;
             margin-left: 200px;
             position: relative;
         }
@@ -640,7 +673,8 @@ body{
             width: 265px;
             height: 179px;
             margin-left: 106px;
-            position: relative
+            position: relative;
+            top: 37vh;
         }
     }
     .text{
@@ -657,10 +691,8 @@ body{
             margin-left: 60vw;
         }
         @include mobile{
-            
-            margin-top: 10px;
-            margin-left: 122px;
-            // width: 200px;
+            margin-top: 39vh;
+            margin-left: 63px;
             height: 19px;
         }
         .line{
@@ -681,6 +713,10 @@ body{
             margin-left: 11.7px;
             font-weight: bold;
             font-family: 'Montserrat';
+
+            @include pad{
+                width: 15vw;
+            }
             a{
                 text-decoration: none;
                 color:map-get($color,'black');
