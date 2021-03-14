@@ -435,13 +435,4 @@ mesButton.addEventListener('click',function(){
   }
 })
 
-//拿localstorage
-function getLocalstorage(){
-  let tasks = JSON.parse(localStorage.getItem("tasks"));
-  if(tasks){
-    // tasks.forEach(function(item){
-    //   return item;
-    // })
-    return tasks[0];
-  }
-}
+
