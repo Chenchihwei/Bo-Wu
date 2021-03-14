@@ -1,7 +1,7 @@
 //動態載入圖片
 let currentWorkId ;
-// var url = location.href;
-// var temp = url.split("?")[1].split('=');
+var url = location.href;
+var temp = url.split("?")[1].split('=');
 // console.log(temp[1]);
 window.onload = memberWorks();
 let item = getLocalstorage();
@@ -10,8 +10,8 @@ function memberWorks(){
     method: "POST",
     url: "./assets/php/front/memberWorks.php",
     data: {
-      'member_id': 1614609750,
-      // 'member_id': temp[1],
+      // 'member_id': 1614609750,
+      'member_id': temp[1],
     },
     dataType: "json",
     success: function (response) {
@@ -59,8 +59,8 @@ function commentFirst(picID){
     url: "./assets/php/front/membercomment.php",
     data: {
       'work_id': picID,
-      'member_id': 1614609750,
-      // 'member_id': temp[1],
+      // 'member_id': 1614609750,
+      'member_id': temp[1],
     },
     dataType: "json",
     success: function (response) {
@@ -140,7 +140,8 @@ function insSubscribe(){
       url: "./assets/php/front/insertSubscribe.php",
       data: {
         'fans_id': item.id,
-        'subscribed_id': 1614609750,
+        // 'subscribed_id': 1614609750,
+        'subscribed_id': temp[1],
       },
       dataType: "text",
       success: function (response) {
@@ -177,7 +178,8 @@ function Subscribe(){
       url: "./assets/php/front/subscribe.php",
       data: {
         'fans_id': item.id,
-        'subscribed_id': 1614609750,
+        // 'subscribed_id': 1614609750,
+        'subscribed_id': temp[1],
       },
       dataType: "text",
       success: function (response) {
