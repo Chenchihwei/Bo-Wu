@@ -50,11 +50,18 @@
             height: 23px;
             margin-left: 20px;
             display: flex;
-            border-bottom: 3px solid #e5e5e5;
-         // outline: 2px solid chocolate;
-            
-            &:hover div,&:hover a{
-                display: block;
+            border-bottom: 2px solid #e5e5e5;
+            // outline: 2px solid chocolate;
+            ul{
+                li{
+                    ul{
+                        margin-top: 1vh;
+                        display: none;
+                    }
+                }
+                &:hover ul{
+                    display: block;
+                }
             }
             
             @include mobile{
