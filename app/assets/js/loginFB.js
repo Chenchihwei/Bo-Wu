@@ -92,7 +92,7 @@ function Fblogout(){
 //AJAX丟給PHP
 function AjaxFB(res){
   $.ajax({
-    url: "php/front/JoinFb.php",
+    url: "./assets/php/front/JoinFb.php",
     method: "POST",        
     data: {
       'fbname':res.name,

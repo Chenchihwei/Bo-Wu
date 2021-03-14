@@ -8,7 +8,7 @@ let item = getLocalstorage();
 function memberWorks(){
   $.ajax({
     method: "POST",
-    url: "php/front/memberWorks.php",
+    url: "./assets/php/front/memberWorks.php",
     data: {
       'member_id': 1614609750,
       // 'member_id': temp[1],
@@ -56,7 +56,7 @@ function memberWorks(){
 function commentFirst(picID){
   $.ajax({
     method: "POST",
-    url: "php/front/membercomment.php",
+    url: "./assets/php/front/membercomment.php",
     data: {
       'work_id': picID,
       'member_id': 1614609750,
@@ -137,7 +137,7 @@ function insSubscribe(){
   if(item){
     $.ajax({
       method: "POST",
-      url: "php/front/insertSubscribe.php",
+      url: "./assets/php/front/insertSubscribe.php",
       data: {
         'fans_id': item.id,
         'subscribed_id': 1614609750,
@@ -156,7 +156,7 @@ function insSubscribe(){
 function delSubscribe(){
   $.ajax({
     method: "POST",
-    url: "php/front/delSubscribe.php",
+    url: "./assets/php/front/delSubscribe.php",
     data: {
       'subscripition_id': timeSubscription,
     },
@@ -174,7 +174,7 @@ function Subscribe(){
   if(item){
     $.ajax({
       method: "POST",
-      url: "php/front/subscribe.php",
+      url: "./assets/php/front/subscribe.php",
       data: {
         'fans_id': item.id,
         'subscribed_id': 1614609750,
@@ -223,7 +223,7 @@ function heartChange(res){
 function heartUpdate(value){
   $.ajax({
     method: "POST",
-    url: "php/front/heartUpdate.php",
+    url: "./assets/php/front/heartUpdate.php",
     data: {
       'like_num': value,
       'work_id': currentWorkId,
@@ -241,7 +241,7 @@ function heartInsert(status){
   let item = getLocalstorage();
   $.ajax({
     method: "POST",
-    url: "php/front/heartInsert.php",
+    url: "./assets/php/front/heartInsert.php",
     data: {
       'work_id': currentWorkId,
       'member_id': item.id,
@@ -261,7 +261,7 @@ function heartStatus(){
   if(item){
     $.ajax({
       method: "POST",
-      url: "php/front/heartStatus.php",
+      url: "./assets/php/front/heartStatus.php",
       data: {
         'work_id': currentWorkId,
         'member_id': item.id,
@@ -316,7 +316,7 @@ function changePic(res){
 function imgCountInsert(imgCount){
   $.ajax({
     method: "POST",
-    url: "php/front/imgCountInsert.php",
+    url: "./assets/php/front/imgCountInsert.php",
     data: {
       'visitors': imgCount,
       'work_id': currentWorkId,
@@ -332,7 +332,7 @@ function imgCountInsert(imgCount){
 function commentLoad(picID){
   $.ajax({
     method: "POST",
-    url: "php/front/membercomment.php",
+    url: "./assets/php/front/membercomment.php",
     data: {
       'work_id': picID,
     },
@@ -406,7 +406,7 @@ function commentInsert(picID){
       commentRightTop.innerHTML+='<li><img src='+ item.pic+' alt=""><h4>'+item.name+'</h4><p>'+text.value+'</p></li>'
       $.ajax({
             method: "POST",
-            url: "php/front/commentInsert.php",
+            url: "./assets/php/front/commentInsert.php",
             data: {
               'message_text':text.value,
               'work_id': picID,

@@ -130,7 +130,7 @@
         <div class="panel panel--sliding">
             <div class="panel__content signup">
                 <h1 class="panel__heading">Sign up</h1>
-                <form id="signup" method="POST" action="./php/front/JoinR.php">
+                <form id="signup" method="POST" action="./assets/php/front/JoinR.php">
                 
                 <div><input type="text" placeholder="Full name" id="name" class="input input--name" name='name' :class="{ 'is-invalid': usernameError }" v-model="name"/><p>{{userErrMsg}}</p></div>
                 <div><input type="text" placeholder="Email" id="mail" class="input input--email" name="mail" :class="{ 'is-invalid': mailError }" v-model="mail"/><p>{{mailErrMsg}}</p></div>
@@ -156,7 +156,7 @@
       
             <div class="panel__content login">
               <h1 class="panel__heading">Log in</h1>
-              <form id="login" method="POST" action="./php/front/LoginR.php">
+              <form id="login" method="POST" action="./assets/php/front/LoginR.php">
                 <div><input type="text" placeholder="Email" id="mail" class="input input--email" name="mail" :class="{ 'is-invalid': mailError }" v-model="mail"/><p>{{mailErrMsg}}</p></div>
                 <div><input type="password" placeholder="Password" id='password' class="input input--password" name="password" :class="{ 'is-invalid': passwordError }" v-model="password"/><p>{{passErrMsg}}</p></div>
                 <button class="btn btn--primary" @click='checkLog($event)'>Log in</button>

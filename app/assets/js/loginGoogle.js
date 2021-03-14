@@ -39,7 +39,7 @@ function signOut() {
 //AJAX丟給PHP
 function AjaxGoogle(profile){
   $.ajax({
-    url: "php/front/JoinGoogle.php",
+    url: "./assets/php/front/JoinGoogle.php",
     method: "POST",        
     data: {
       'googlename':profile.getName(),
