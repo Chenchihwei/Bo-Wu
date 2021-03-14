@@ -72,9 +72,11 @@ body::-webkit-scrollbar{
   margin-left: 20vw;
   margin-bottom: 5.5rem;
   padding: 0;
+  overflow: hidden;
   // overflow-x: scroll;
   
   @include pad{
+    overflow: visible;
     width: auto;
     margin-left: 23vw;
   }

@@ -8,10 +8,12 @@
   <link rel="stylesheet" href="./assets/css/pages/moon.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
-  <script src="js link/jquery-3.5.1.min.js"></script>
+  <script src="./assets/js/jquery-3.5.1.js"></script>
   <script src="./assets/js/vue.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
 
 
 
@@ -126,19 +128,67 @@
   <script src="./assets/js/menu.js"></script>
 
   <script>
+
+    var url = location.href;
+    var temp = url.split("?")[1].split('=');
+    console.log(temp[1]);
     new Vue({  //this代表Vue instance(Vue實例)
       el:'#app',  
       data: { //變數存放的地方
         title: '威拉姆特隕石',
         message: '威拉姆特隕石的正式名稱是威拉姆特，是在美國俄勒岡發現一顆鐵-鎳為主的隕石。它是美國最大的隕石，也是世界第六大的隕石。在發現的地點沒有隕石坑，因此有可能是落在現在的加拿大，然後在冰河時期隨著冰層的流動搬移到被發現的地方。<br>威拉姆特隕石的質量大約是32,000磅，（15公噸），它的類型是III鐵隕石，組成份是91%鐵，7.62%鎳、還有可察覺的鈷和磷。它的尺寸大約是10尺（3.5米）長，6.5尺（1.98米）寬、4.25尺（1.3米）高。表面獨特的侵蝕特徵，應該是高速進入大氣層和之後的大氣風化造成的。風化的情況，和雨水的交互作用造成隕硫鐵的礦物產生，這是硫酸緩慢的溶解隕石內的某些成分形成的。今天在許多的凹陷處都可以看見這種結果（經歷很長的時期）。威拉姆特的韋德曼花紋被追蹤到有再結晶的結構，這是母體受到撞擊加熱事件的結果。',
         imgURL:' ./assets/img/3d/Image.png',
+        id: temp[1],
       },
+      mounted() {
+
+        const params = new URLSearchParams()
+      params.append('ID', this.id)
+
+      axios({
+        method: 'post',
+        url: './assets/php/front/moon.php',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        data: params,
+          
+        }).then((res)=>{
+          this.title = res.data[0].work_name;
+          this.message = res.data[0].work_introduce;
+          this.imgURL = res.data[0].img_path;
+
+          console.log(res.data[0].work_name)
+        }).catch((err)=>{
+          console.log(err);
+        })
+      },
+
+
       methods: { //函數放這裡
+
+        changePage(){
+
+          console.log(123);
+
+          this.id++;
+
+          window.location.href =`http://localhost/group-selfuse/dist/moon.html?work_id=${this.id}`;
+        },
+        changePage_minus(){
+          console.log(123);
+          this.id--;
+          window.location.href =`http://localhost/group-selfuse/dist/moon.html?work_id=${this.id}`;
+
+        }
+
+
 
       }
 
 
     });
+
 
   </script>
 

@@ -24,6 +24,10 @@
 	@return $px/1920 * 100vw;
 }
 
+body::-webkit-scrollbar{
+  display: none;
+}
+
 
 body{
   // outline: 1px solid red;
@@ -267,7 +271,7 @@ body{
           height: 30vh;
           text-indent: 2*$paragraph;
           line-height: 1.5;
-          overflow: auto;
+          overflow-y: scroll;
           margin-left: 2rem;
           @include notebook{
             font-size: $paragraph;

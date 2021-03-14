@@ -18,6 +18,8 @@
   <script src="https://apis.google.com/js/platform.js" async defer></script>
   <meta name="google-signin-client_id" content="5123688312-hh38n162r8fqfrd31n2a2hid0q7pk7uf.apps.googleusercontent.com">
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.js" integrity="sha512-c5JDIvikBZ6tuz+OyaFsHKvuyg+tCug3hf41Vmmd5Yz9H5anj4vZOqlBV5PJoEbBJGFCgKoRT9YAgko4JS6/Qw==" crossorigin="anonymous"></script>
+
 
 
 
@@ -67,9 +69,6 @@
 
   
   <div class="container">
-    <span class="material-icons rightArrow">arrow_forward_ios</span>
-    <span class="material-icons leftArrow">arrow_back_ios</span>
-
 
     <div class="imgAll">
       <a href="moon.html">
@@ -118,9 +117,40 @@
   
   
     
-    <script src="./js&jq/script.js"></script>
-    <script src="./js&jq/button.js"></script>
-  
+    <script src="./assets/js/menu.js"></script>
+    <script src="./assets/js/button.js"></script>
+    
+    <script>
+      // $(window).scroll(doQuery);
+      $(document).ready(function () {
+        doQuery() 
+      });
+      
+            function doQuery() {
+            // axios.get('./test.php').then((res)=>{
+            //   console.log(res.data); 
+            // })
+              // alert();
+            $.ajax({
+                method: "post",
+                url: "./assets/php/front/work_ground.php",
+                // data: {
+                //     Name: str
+                // },
+                dataType: "text",
+                success: function (response) {
+                    //更新html內容
+                    
+                    document.getElementsByClassName('imgAll')[0].insertAdjacentHTML ('beforeend',response) ;
+                },
+                error: function (exception) {
+                    alert("發生錯誤: " + exception.status);
+                }
+            });
+        };
+
+    </script>
+
 
 
 
