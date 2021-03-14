@@ -42,10 +42,10 @@
         $statement->execute();
        
         
-        echo "<script>alert('加入成功，請重新登入!'); location.href = '../../member_pre.html';</script>";
+        echo "<script>alert('加入成功，請重新登入!');window.history.back();location.reload();</script>";
         
     }else{
-        echo "<script>alert('帳號已申請過!'); location.href = '../../member_pre.html';</script>"; 
+        echo "<script>alert('帳號已申請過!');window.history.back();location.reload();</script>"; 
     }
 ?>
     
