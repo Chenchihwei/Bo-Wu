@@ -1,7 +1,6 @@
 @import '../base/base';
 @import '../compontents/compontents';
 @import '../utilities/utilities';
-@import '../utilities/mouseHover';
 
 
 // *{
@@ -10,11 +9,26 @@
 
 body{
     background-color: #f6f6f6;
+    line-height: 1.3rem;
 }
 
+.menuGold{
+    p{
+        color: #BA967D;
+    }
+    .indexMenuline1,.indexMenuline2{
+        background-color: #BA967D;
+    }
+}
+.indexSideBarGold ul{
+    align-items: center;
+}
+
+.smallSize_indexMenuline1,.smallSize_indexMenuline2{
+    background-color: #BA967D;
+}
 .bock-AboutUs{
-    
-    height: 1080px;
+    height: 100vh;
     overflow: hidden;
     @include notebook{
         height: 720px;
@@ -26,13 +40,14 @@ body{
         height: 307px;
     }
 .aboutus-img{
-    background-image: url(../../img/Museums-5-Miyahata-Ruins-Museum-810x644.svg);
-    background-size: cover;
+    background-image: url(../../img/src_bg_10.jpg);
+    background-size: 200%;
     float: right;
     color: white;
     font-size: $fontSize;
     width: 66vw;
     height: 100%;
+    
 
     @include notebook{
         height: 720px;
@@ -45,10 +60,13 @@ body{
     }
     //右方區塊
     p{
-        width: 26vw;
-        margin-top: 148px;
-        margin-left: 293px;
+        width: 50vw;
+        margin-top: 200px;
+        margin-left: 100px;
         margin-bottom: 140px;
+        font-size: 1.1rem;
+        text-shadow: 1px 1px 3px map-get($color,'black');
+        line-height: 1.3rem;
         @include pad{
             margin-top: 145px;
             margin-left: 171px;
@@ -62,13 +80,16 @@ body{
     }
     span{
         display: flex;
+        text-shadow: 1px 1px 2px map-get($color,'gray');
+        position: absolute;
+        top: 25vw;
         @include pad{
             margin-left: 53px;
         }
         h1{
             color: #000;
             font-size: $titleL;
-            margin-left: -86px;
+            margin-left: -46px;
 
             @include notebook{
                 margin-left: -46px;
@@ -92,7 +113,9 @@ body{
 }
 
 .bock-story{
-    height: 1825px;
+    height: auto;
+    text-shadow: 1px 1px 2px map-get($color,'gray');
+    margin-bottom: 20vh;
 
     @include notebook{
         height: 1221px;
@@ -107,8 +130,8 @@ body{
         display: block;
         background-image:url(../../img/Story_us.png);
         background-size: cover;
-        height: 727px;
-        width: 424px;
+        height: 600px;
+        width: 400px;
         margin-left: 15.6vw;
 
         @include notebook{
@@ -150,9 +173,10 @@ body{
         width: 505px;
         height: 170px;
         margin-top: 31px;
-        margin-left: 750px;
-        font-size: $paragraph ;
-        justify-content: center;   
+        margin-left: 700px;
+        font-size: 1.1rem ;
+        justify-content: center; 
+        text-shadow: 1px 1px 1px map-get($color,'gray');  
         
         @include notebook{
             margin-left: 561px;
@@ -249,6 +273,7 @@ body{
         margin-left: 15.6vw;
         margin-top: -379px;
         margin-bottom: 65.9px;
+        opacity: .2;
         @include pad{
             width: 99px;
             margin-left: 121px;
@@ -298,8 +323,8 @@ body{
         
     }
     h2{
-        font-size: $fontSize;
-        width: 660px;
+        font-size: 1.1rem;
+        width: 450px;
         margin-top: -30px;
         margin-left: 15.6vw;
         @include pad{
@@ -316,7 +341,8 @@ body{
 }
 
 .bock-member{
-    height: 1023px;
+    height: auto;
+    margin-bottom: 20vh;
     @include notebook{
         height: 682px;
     }
@@ -342,21 +368,22 @@ body{
             height: 164px;
         }
         h1{
-            color: map-get($color, $key:'white' );
+            color: map-get($color,'white');
             font-size: $titleM ;
             width: 280px;
-            margin-top: 109px;
+            margin-top: 60px;
             margin-left: 15.6vw;
+            text-shadow: 1px 1px 2px #DCCAB8;
 
-             @include pad{
+            @include pad{
                 margin-top: 71px;
                 margin-left: 122px;
-             }
-             @include mobile{
+            }
+            @include mobile{
                 font-size: $titleS;
                 margin-top: 22px;
                 margin-left: 36px;
-             }
+            }
             
         }
         .text{
@@ -364,6 +391,7 @@ body{
             margin-top: 51.9vh;
             margin-left: 51.1vw;
             align-items: center;
+            
             @include notebook{
                 margin-top: 209px;
                 margin-left: 741px;
@@ -378,8 +406,8 @@ body{
             }
             .line{
                 width: 182px;
-                height: 5px;
-                background-color:map-get($color, $key:'white' );
+                height: 2px;
+                background-color:map-get($color,'white' );
 
                 @include notebook{
                     width: 132px;
@@ -393,9 +421,10 @@ body{
                 }
             }
             P{
-                color: map-get($color, $key:'white');
-                font-size: $titleS;
-                margin-left: 11.7px;
+                color: map-get($color,'white');
+                font-size: 1.3rem;
+                margin-left: 12px;
+                font-family: 'Montserrat';
 
                 @include notebook{
                     font-size:medium;
@@ -403,16 +432,21 @@ body{
                 @include pad{
                     font-size: $fontSize;
                 }
+
+                a{
+                    text-decoration: none;
+                    color: white;
+                }
             }
         }
     }
     .pic{
         background-image:url(../../img/src_bg_5.jpg);
         background-position: 90%;
-        width: 21.6vw;
+        width: 30vw;
         height: 600px;
         margin-left: 15.6vw;
-        margin-top: -20.8vw;
+        margin-top: -33vw;
 
         @include notebook{
             margin-top: -232px;
@@ -432,11 +466,12 @@ body{
     }
     h3{
         width: 25.7vw;
-        margin-left: 39vw;
-        font-size: $fontSize;
-        margin-top: -134px;
+        margin-left: 48vw;
+        font-size: 1.1rem;
+        margin-top: -8vh;
         padding-top: 3px;
         padding-left: 2px;
+        text-shadow: 1px 1px 2px lightgray;
         @include pad{
             margin-left: 321px;
             margin-top: -85px;
@@ -455,10 +490,13 @@ body{
 
 .bock-JoinUs{
     background-image:url(../../img/JoinUs.svg);
+    background-size: 100%;
     height: 400px;
-    color: map-get($map: $color, $key: 'dark');
+    color: map-get($color, 'dark');
     text-align: center;
     overflow: hidden;
+    margin: 15vh auto;
+
     @include pad{
         height: 240px;
     }
@@ -477,27 +515,29 @@ body{
         }
     }
     p{
-        font-size: $paragraph;
-        margin-top: 10px;
-        line-height: 1.5;
+        font-size: 1.1rem;
+        margin-top: 80px;
+        line-height: 1.5rem;
     }
     .text{
-        font-size: $paragraph;
+        font-size: 1.1rem;
+        font-weight: bold;
         align-items: center;
         display: flex;
         margin-top: 34px;
+        margin-left: -50px;
         
         span{
-            
             margin-right: 10px;
             margin-left: 42.4vw;
-
+            font-family: 'Montserrat';
+            font-weight: bold;
         }
         
         .line{
             width: 182px;
-            height: 5px;
-            background-color:map-get($color, $key:'black' );
+            height: 2px;
+            background-color:map-get($color,'black' );
 
             @include notebook{
                 width: 132px;
@@ -512,8 +552,9 @@ body{
 }
 
 .bock-postcard{
-    height: 999px;
-    overflow: hidden;
+    height: 100vh;
+    overflow: hidden;;
+
     @include notebook{
         height: 663px;
     }
@@ -543,8 +584,9 @@ body{
     }
     }
     .gray-block{
-        width: 320px;
-        height: 541px;
+        width: 370px;
+        height: 360px;
+        margin-left: 32vw;
         background-color:map-get($color,'gblue');
 
         margin-top: -322px;
@@ -568,8 +610,8 @@ body{
         }
     }
     h1{
-        margin-top: -465px;
-        margin-left: 46.4vw;
+        margin-top: -380px;
+        margin-left: 48vw;
         margin-bottom: 70px;
         font-size: $titleM;
         @include notebook{
@@ -602,15 +644,14 @@ body{
         }
     }
     .text{
-        
         display: flex;
         align-items:center;
         justify-content: center;
         
-        margin-left: 46.7vw;
-        margin-top: 20px;
+        margin-left: 55vw;
+        margin-top: 50px;
         width: 315px;
-        height: 27px;
+        height: 30px;
 
         @include notebook{
             margin-left: 60vw;
@@ -624,8 +665,8 @@ body{
         }
         .line{
             width: 182px;
-            height: 5px;
-            background-color:map-get($map: $color, $key: 'black');
+            height: 2px;
+            background-color:map-get($color,'black');
             
             @include notebook{
                 height: 3px;
@@ -635,8 +676,15 @@ body{
             }
         }
         span{
-            font-size: $paragraph;
+            font-size: 1.1rem;
+            width: 10vw;
             margin-left: 11.7px;
+            font-weight: bold;
+            font-family: 'Montserrat';
+            a{
+                text-decoration: none;
+                color:map-get($color,'black');
+            }
         }
         
     }
@@ -650,6 +698,7 @@ footer{
     background-color: map-get($color, 'black');
     font-family: 'Montserrat',sans-serif;
     overflow: hidden;
+    z-index: 1;
     .text{
         display: flex;
         color:map-get($color, 'white');

@@ -10,285 +10,117 @@
     <link rel="stylesheet" href="">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600&family=Montserrat:wght@300&&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css">
     <script src="./assets/js/jquery-3.5.1.js" ></script>
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
 </head>
 
 <body>
     
-    @@include('./compontents/mouseHover.html')
+    <!-- @@include('./compontents/mouseHover.html') -->
     
     @@include('./compontents/head_gold.html')
     
     @@include('./compontents/searchBarWhite.html')
-    
-    <div class="bock-AboutUs">
-        <!-- <nav class="indexSideBar">
-            <a class="logoForIndex" href="#">
-                <img src="./img/logo_bowu_gold.png"></a>
 
-            <menu class="indexMenu">
-                <p>MENU</p>
-                <span class="indexMenuline1"></span>
-                <span class="indexMenuline2"></span>
-            </menu>
+    <div id="scroll-zone">
 
-            <ul>
-                <li> <a href="#">SHARE</a> </li>
-                <b></b>
-                <li> <a href="#">CONTACT US</a> </li>
-            </ul>
-        </nav> -->
-        <!-- <header>
-            <a href="./homepage.html">
-                <img src="./img/logo_bowu_gold.png">
-            </a>
-
-            <menu class="menu">
-                <p>MENU</p>
-                <span class="indexMenuline1"></span>
-                <span class="indexMenuline2"></span>
-            </menu>
-
-            <div class="menu_bar none">
-                <a href="./exhibition.html" class="menu_personal_exhibits">PERSONAL EXHIBITS</a>
-                <div class="menu_about menu_child">
-                    <a href="./About.html">
-                        <img src="./img/menu_about.png" alt="">
-                        About
-                    </a>
-                </div>
-                <div class="menu_exhibits menu_child">
-                    <a href="./exhibition.html">
-                        <img src="./img/menu_exhibits.png" alt="">Exhibits</a>
-                </div>
-                <div class="menu_postcard menu_child">
-                    <a href="./postcard.html">
-                        <img src="./assets/img/menu_postcard.png" alt="">PostCard</a>
-                </div>
-                <div class="notthings menu_child">
-                    <a href=""></a>
-                </div>
-                <div class="join">
+        <div class="bock-AboutUs">
+            <div class="aboutus-img" data-scroll data-scroll-speed="2">
+                <p data-scroll data-scroll-speed="4">
+                    　　BO-WU是一間結合四大主題與來自各大藝術展覽者所建造的線上展覽館。<br>取名由四個大寫字母組成，是為了有一種活潑的感覺；而中文則為博物的諧音。<br><br>
+                    　　葧是一種植物，塢是指四周高中間低的地方，如：船塢、山塢。<br>希望帶給使用者一種生氣勃勃，自然舒服、停留、靜止、博覽萬物的氣息。<br><br>
+                    　　希望每個光臨BO-WU Museum 的人都可以找到屬於自己的空間。</p>
+                </p>
+                <span data-scroll data-scroll-speed="1">
+                    <h1>A</h1>
+                    <h2>boutUs</h2>
+                </span>
+            </div>
+        </div>
+        <div class="bock-story">
+            <div class="bc1">
+            </div>
+            <h1 data-scroll data-scroll-speed="4" >Story</h1>
+            <P data-scroll data-scroll-speed="3">
+                我們是一群喜歡藝文活動及展覽的工程人。<br>
+                勃塢則是希望能集結對藝術展品喜好的大家而產出的虛擬線上博物館！<br><br>
+                依照四大主題，勃塢提供不同展品給予大家觀賞，也每個會員自己的空間展區給上傳展品、給予大眾觀賞。
+                <br><br>
+                讓交流不分地區，每個藝術品都能找到自己的伯樂。
+            </P>
+            <div class="bc2" data-scroll data-scroll-speed="1">
+                <div class="bc2-gary"></div>
+                <div class="bc2-img"></div>
+            </div>
+            <div class="comma" data-scroll data-scroll-speed="2">
+                <div class="comma1"></div>
+                <div class="comma2"></div>
+            </div>
+            <h2 data-scroll data-scroll-speed="3">　　
+                勃塢 蒐藏並維護具有科學、藝術或歷史重要性的物件，並透過展示（常設展或特展），使公眾得以觀看這些物件。<br><br>
+                　　大多數的大型博物館位於世界各地的重要城市，更具地方性質的博物館位於較小城市、城鎮甚至到鄉村都有典藏、研究、展示、教育四大項。<br></h2>
+        </div>
+        <div class="bock-member">
+            <div class="darkblock">
+                <h1>會員展間</h1>
+                <div class="text" data-scroll data-scroll-speed="1">
                     <div class="line"></div>
-                    <a href="##">JOIN US NOW</a>
+                    <P> <a href="/dist/exhibition.html"> VIEW MORE </a></P>
                 </div>
             </div>
+            <div class="pic">
 
-            <ul>
-                <li> <a href="#">SHARE</a> </li>
-                <b></b>
-                <li> <a href="#">CONTACT US</a> </li>
-            </ul>
-
-        </header> -->
-        
-        <div class="aboutus-img">
-
-            <!-- 右上搜尋欄 -->
-            <!-- <div class="features">
-                <i class="fas fa-search"></i>
-                <div class="personal"><a href="./exhibition.html">個人展間</a>
-                </div>
-
-
-                <div class="login"><a href="" class="login_manger">管理</a>
-                    <i class="fas fa-user-friends"></i>
-                </div>
-
-                <i class="fas fa-bell"></i>
-            </div> -->
-            <!-- 右上搜尋欄 End -->
-            <p>
-                葧塢 BO WU<br>
-                中文音譯，全大寫是為了有一種活潑的感覺，中文取自博物的諧音。
-                <br>
-            </p>
-            <span>
-                <h1>A</h1>
-                <h2>boutUs</h2>
-            </span>
-        </div>
-    </div>
-    <div class="bock-story">
-        <div class="bc1">
+            </div>
+            <h3 data-scroll data-scroll-speed="1">
+                在這裡<br>
+                　　你將擁有專屬展間<br>
+                展覽自己嘔心瀝血的展品們<br>
+                　　提供大家曝光的機會 讓展品名留青史
+            </h3>
 
         </div>
-        <h1>Story</h1>
-        <P>
-            葧是一種植物，塢是指四周高中間低的地方，例如:船塢、山塢。
-            主要希望帶給使用者一種生氣勃勃，自然舒服、停留、靜止、博覽萬物的氣息。
-        </P>
-        <div class="bc2">
-            <div class="bc2-gary"></div>
-            <div class="bc2-img"></div>
-        </div>
-        <div class="comma">
-            <div class="comma1"></div>
-            <div class="comma2"></div>
-        </div>
-        <h2>博物館蒐藏並維護具有科學、藝術或歷史重要性的物件，<br>
-            並透過展示（常設展或特展），使公眾得以觀看這些物件。<br>
-            大多數的大型博物館位於世界各地的重要城市，<br>
-            更具地方性質的博物館位於較小城市、城鎮甚至到鄉村都有<br>
-            典藏、研究、展示、教育四大項。<br>
-            博物館服務於不同的對象，從研究人員、專家到公眾。<br></h2>
-    </div>
-    <div class="bock-member">
-        <div class="darkblock">
-            <h1>會員展間</h1>
+        <div class="bock-JoinUs">
+            <h1>JoinUs</h1>
+            <p>「莫文蔚的陰天，<br>
+                孫燕姿的雨天，周杰倫的晴天， <br>
+                都不如你來和我們和我聊聊天。」</p>
             <div class="text">
+                <span> 趕快點擊右上方 加入會員</span>
                 <div class="line"></div>
-                <P>VIEW MORE</P>
+            </div>
+
+        </div>
+        <div class="bock-postcard" data-scroll data-scroll-speed="2">
+            <div class="pic2" data-scroll data-scroll-speed="1"></div>
+            <div class="gray-block"></div>
+            <h1>客製明信片</h1>
+            <p data-scroll data-scroll-speed="1">不會設計也可輕鬆完成多種背景、元素供您挑選<br>
+                　　玩翻你的想像力！<br><br>
+                完成後可選擇郵寄或實體寄送 <br>
+                　　小小心意、大大滿足，現在就立即動手吧！<br></p>
+            <div class="text" data-scroll data-scroll-speed="2">
+                <div class="line"></div>
+                <span> <a href="/dist/postcard.html"> VIEW MORE </a></span>
             </div>
         </div>
-        <div class="pic">
 
-        </div>
-        <h3>
-            在這裡<br>
-            你將擁有專屬展間<br>
-            展覽自己嘔心瀝血的展品們<br>
-            提供大家曝光的機會<br>
-            願讓展品名留青史
-        </h3>
-
+        @@include('./compontents/footer.html')
     </div>
-    <div class="bock-JoinUs">
-        <h1>JoinUs</h1>
-        <p>「莫文蔚的陰天，<br>
-            孫燕姿的雨天，周杰倫的晴天， <br>
-            都不如你來和我們和我聊聊天。」</p>
-        <div class="text"><span>LEARN MORE</span>
-            <div class="line"></div>
-        </div>
 
-    </div>
-    <div class="bock-postcard">
-        <div class="pic2">
-
-        </div>
-        <div class="gray-block">
-
-        </div>
-        <h1>客製明信片</h1>
-        <p>不會設計也可輕鬆完成多種背景、元素供您挑選 <br>
-            玩翻你的想像力 ,完成後可選擇郵寄或實體寄送 <br>
-            小小心意、大大滿足,現在就立即動手吧 <br></p>
-
-        <div class="text">
-            <div class="line"></div><span>VIEW MORE</span>
-        </div>
-    </div>
-    @@include('./compontents/footer.html')
     <script src="./assets/js/menuGold.js"></script>
-    <script src="./assets/js/mouseHover.js"></script>
+    <!-- <script src="./assets/js/mouseHover.js"></script> -->
 
-     <!-- <script>
-        let menu_bar = document.getElementsByClassName('menu_bar')[0];
-        let menuGold = document.getElementsByClassName('menuGold')[0];
-        
-        menuGold.addEventListener('click', function () {            
-            let not_none = menu_bar.classList.contains("none");
-
-            if (not_none) 
-            {
-                menu_bar.classList.remove("none");
-                gsap.to(".indexMenuline1", {
-                    duration: .5, 
-                    y: '1vh',
-                    rotation:45, 
-                    ease: "ease", 
-                    transformOrigin:"50% 50%"}
-                );
-                gsap.to(".indexMenuline2", {
-                    duration: .5, 
-                    width: '4vw', 
-                    rotation:-45, 
-                    ease: "ease", 
-                    transformOrigin:"50% 50%"},
-                );
-                gsap.to(".menu p", {
-                    opacity:0},
-                );
-                gsap.to(".menu_bar", {
-                    opacity:0},
-                );
-                gsap.to(".menu_bar", {
-                    left : 0,
-                    duration: 1,
-                    opacity:1,
-                    ease: "ease",}
-                );
-                gsap.to(".menuGsapLine", {
-                    right: 0,
-                    duration: 1,
-                    ease: "ease"}
-                );
-                gsap.to(".menu_child a",{
-                    opacity:1,
-                    stagger: 0.3,
-                    ease: "ease",
-                    delay : .5}
-                );
-                gsap.to(".menu_personal_exhibits",{
-                    opacity:1,
-                    ease: "ease",
-                    delay : 1.2}
-                );
-                gsap.to(".join",{
-                    opacity:1,
-                    ease: "ease",
-                    delay : 1.5}
-                );
-            } else {
-                menu_bar.classList.add("none");
-                gsap.to(".indexMenuline1", {
-                    duration: .5, 
-                    y: '0vh',
-                    rotation: 0, 
-                    ease: "ease", 
-                    }
-                );
-                gsap.to(".indexMenuline2", {
-                    duration: .5, 
-                    rotation: 0, 
-                    width: '2vw', 
-                    ease: "ease", 
-                    },
-                );
-                gsap.to(".menu p", {
-                    opacity:1 },
-                );
-                gsap.to(".menu_personal_exhibits",{
-                    opacity:0,
-                    ease: "ease",}
-                );
-                gsap.to(".join",{
-                    opacity:0,
-                    ease: "ease",}
-                );
-                gsap.to(".menuGsapLine", {
-                    right: '-200vw',
-                    duration: 1,
-                    ease: "ease"}
-                );
-                gsap.to(".menu_child a",{
-                    opacity:0,
-                    stagger: 0.3,
-                    ease: "ease",
-                    delay : .5}
-                );
-                gsap.to(".menu_bar", {
-                    opacity:0,
-                    ease: "ease",}
-                );
-            };
-
-            
+    <script>
+        const scroller = new LocomotiveScroll({
+        el: document.querySelector("#scroll-zone"),
+        smooth: true,
+        repeat: true,
         });
-    </script> -->
+
+    </script>
+
 </body>
-   
 </html>
