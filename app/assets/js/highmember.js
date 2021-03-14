@@ -14,8 +14,9 @@ let item = getLocalstorage();
 
 //撈出會員資料
 function member_content() {
-  // let member_id = item.id;
-  let member_id = 1614609750;
+  let item = getLocalstorage();
+  let member_id = item.id;
+  // let member_id = 1614609750;
   $.ajax({
     method: "POST",
     url: "./assets/php/front/highlevel_member_content.php",
@@ -44,8 +45,8 @@ function member_content() {
 
 //撈出作品儲存區
 function work_save() {
-  // let member_id = item.id;
-  let member_id = 1614609750;
+  let member_id = item.id;
+  // let member_id = 1614609750;
   $.ajax({
     method: "POST",
     url: "./assets/php/front/highlevel_work_save.php",
@@ -67,8 +68,8 @@ function work_save() {
 
 //撈出上架區
 function work_exhibition() {
-  // let member_id = item.id;
-  let member_id = 1614609750;
+  let member_id = item.id;
+  // let member_id = 1614609750;
   $.ajax({
     method: "POST",
     url: "./assets/php/front/highlevel_work_exhibition.php",
@@ -297,7 +298,8 @@ $('.edit_click').click(function () {
 
     } else {
       // 會員資料update
-      let member_id = 1614609750;
+      let member_id = item.id;
+      // let member_id = 1614609750;
       $.ajax({
         method: "POST",
         url: "./assets/php/front/highlevel_member_update.php",
@@ -368,8 +370,8 @@ function insert(path) {
       data: {
           'path': path,
           'img_name': "請輸入展品名稱",
-          // 'member_id':item.id,
-          'member_id':1614609750,
+          'member_id':item.id,
+          // 'member_id':1614609750,
       },
       dataType: "text",
       success: function (response) {
