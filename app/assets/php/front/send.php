@@ -2,9 +2,9 @@
 
 $your_mail = $_POST['your_mail'];
 $base64 = $_POST['base64'];
-require("./PHPMailer-master/src/PHPMailer.php");
-require("./PHPMailer-master/src/SMTP.php");
-require("./PHPMailer-master/src/Exception.php");
+require("../PHPMailer-master/src/PHPMailer.php");
+require("../PHPMailer-master/src/SMTP.php");
+require("../PHPMailer-master/src/Exception.php");
 // require_once("./PHPMailer-master/src/PHPMailer.php"); //記得引入檔案 
 $mail = new PHPMailer\PHPMailer\PHPMailer();
 $mail->Charset='UTF-8';
