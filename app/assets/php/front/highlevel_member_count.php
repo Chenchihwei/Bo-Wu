@@ -20,15 +20,15 @@
     $statement->bindValue(1, $member_id);      
     $statement->execute();  
 
-    $goodTotal = '';
-    $peopleTotal='';
-    $commentTotal='';
+    $goodTotal = 0;
+    $peopleTotal= 0;
+    $commentTotal= 0;
 
     $data = $statement->fetchAll();
     foreach($data as $index => $row){
-      $goodTotal +=  $row['like_num'];
-      $peopleTotal +=  $row['visitors'];
-      $commentTotal +=  $row['count(wm.work_id)'];
+      $goodTotal +=  (int)$row['like_num'];
+      $peopleTotal +=  (int)$row['visitors'];
+      $commentTotal +=  (int)$row['count(wm.work_id)'];
     };
     echo $goodTotal.'|'.$peopleTotal.'|'.$commentTotal;
 ?>
