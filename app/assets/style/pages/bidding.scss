@@ -405,6 +405,8 @@ body{
             display: block;
           }
           .messageform{
+            width: 334px;
+            height: 633px;
             flex-direction: column;
             padding: 1vh 1vw;
             @include ipad{

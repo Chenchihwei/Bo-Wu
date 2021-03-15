@@ -47,7 +47,7 @@
       </button> -->
       <ul class="swiper-wrapper">
         <li class="swiper-slide" v-for="(src,index) in imgList">
-          <img :data-id="dataId[index]" :src="src" @click="getData" v-if>
+          <img :data-id="dataId[index]" :src="src" @click="getData">
         </li>
       </ul>
       <!-- <ul class="swiper-wrapper">
@@ -119,44 +119,39 @@
     Vue.component('my-component',{
     template:`
     <div class="content">
-          <ul class='messageform'>
-            <li>
-              <p>Andy</p>
-              <div class="personal">
-                <img src="./assets/img/Ellipse 77.png" alt="">
-                <p>Lorem ipsum dolor sit amet,
-                  consetetur sadipscing elitr, sed
-                  diam nonumy eirmod </p>
-              </div>
-            </li>
-            <li>
-              <p>Andy</p>
-              <div class="personal">
-                <img src="./assets/img/Ellipse 77.png" alt="">
-                <p>Lorem ipsum dolor sit amet,
-                  consetetur sadipscing elitr, sed
-                  diam nonumy eirmod </p>
-              </div>
-            </li>
-            <li>
-              <p>Andy</p>
-              <div class="personal">
-                <img src="./assets/img/Ellipse 77.png" alt="">
-                <p>Lorem ipsum dolor sit amet,
-                  consetetur sadipscing elitr, sed
-                  diam nonumy eirmod </p>
-              </div>
+          <ul class='messageform' >
+            <li v-for="message in messages">             
+                {{message}}
             </li>
           </ul>
-          <div class="message">
-            <form action="">
-              <textarea name="" id="" cols="30" rows="10" placeholder="留言"></textarea>
-              <button>傳送</button>
-            </form>
-
+          <div class="messageblock">
+            
+              <textarea v-model="newMessage"></textarea>
+              <button @click="addmessage">傳送</button>
+            
+          
           </div>
         </div>
-    `
+    `,
+    data(){
+      return{
+        name:'andy',
+        newMessage:'',
+        messages:[],
+
+      }
+    },
+    methods:{
+      addmessage(){
+        // console.log(this.newMessage);
+        // this.messages.push(this.newMessage)
+          if($.inArray(this.newMessage,this.messages)== -1){
+            this.messages.push(this.newMessage)
+          }else{
+            this.newMessage = '';
+          }
+        }
+    }
   });
     Vue.component('my-component1',{
     template:`
@@ -168,25 +163,26 @@
         <li>價錢</li>
       </ul>
       <table class="biddcontent">
-        <tr v-for="item in currentBiddList">
-            <td>{{item.time}}</td>
-            <td>{{item.person}}</td>
-            <td>{{item.price}}</td>
-        </tr>
         <tr v-for="item in newObj">
-            <td>{{item.time}}</td>
-            <td>{{item.person}}</td>
-            <td>{{item.price}}</td>
+            <td>{{item.bidding_time}}</td>
+            <td>{{item.member_id}}</td>
+            <td>{{item.bidding_price}}</td>
         </tr>
     </table>
       </div>
     </div>
     `,
+    // <tr v-for="item in currentBiddList">
+    //         <td>{{item.time}}</td>
+    //         <td>{{item.person}}</td>
+    //         <td>{{item.price}}</td>
+    //     </tr>
     props:['list'],
     data(){
       return{
         oldBiddList:[],
-        currentBiddList:this.list,
+        newObj:this.list,
+        // currentBiddList:this.list,
       }
     },
     mounted() {
@@ -210,7 +206,11 @@
           nowTime:'',
           imgList:[],
           dataId:[],
-          newObj:[],
+          newObj:[
+          // {bidding_time:""},
+          // {member_id:""},
+          // {bidding_price:''},
+          ],
           NameList:[],
           Introduce:[],
           SpriceList:[],
@@ -221,17 +221,18 @@
           Sprice:'333',
           Nprice:888,
           inputprice:888,
-          nowBidding:{
-            price:null,
-            person:"",
-            time:'',
-          },
+          // nowBidding:{
+          //   price:null,
+          //   person:"",
+          //   time:'',
+          // },
+          nowBidding:[],
           biddverify:[],
           theId: '',
           content:'my-component',
-          itemMessage:'',
+          itemMessage:'尚未選取競標品',
           timer:OneHour,
-          itemTime:'',
+          itemTime:'尚未選取競標品',
           timeList:[],
           imgSrc:'./assets/img/exh_5.jpg',
           price: 888,
@@ -266,7 +267,7 @@
         //     this.imgList = product.imgList;
         //     this.ExhibitName = product.ExhibitName[0];
         // },500);
-        this.newObj = JSON.parse(localStorage.getItem('biddList'))||[];
+        //this.newObj = JSON.parse(localStorage.getItem('biddList'))||[];
         setInterval(() => this.timer -= 1, 1000);
       },
       methods: {
@@ -285,6 +286,10 @@
               this.inputprice = this.Nprice;
               this.itemTime = this.timeList[this.theId];
               let nowStatus ;
+              //他可不可以競標
+              //如果他可以競標我再每秒刷新
+              setInterval(() => this.Getbiddlist(), 1000);
+              ///////
               for(let status in this.biddverify){
                 // console.log(status);
                 // nowStatus = this.biddverify[status];
@@ -303,23 +308,83 @@
               // }else{
               //   this.itemMessage = '尚未競標'
               // }
+              
+        },
+        Getbiddlist(){
+          // console.log(this.theId);
+          this.newObj = {
+                  bidding_time:'',
+                  member_id:'',
+                  bidding_price:null,
+                };
+          axios.post('./assets/php/front/biddingpost.php',{'work_id':this.theId})
+              .then((res) => { //console.log(res.data);
+                // console.log(this.newObj)
+                this.newObj = res.data
+
+                //for(let i = 0; i<=res.data.length;i++){
+                  //this.newObj.push(res.data[i].bidding_time,res.data[i].member_id,res.data[i].bidding_price);
+                  // this.newObj.biddtime.push(res.data[i].bidding_time);
+                  // this.newObj.member_id.push(res.data[i].member_id);
+                  // this.newObj.bidding_price.push(res.data[i].bidding_price);
+                //}
+                console.log(this.newObj)
+                //  this.newObj.push(res.data[0]); 
+          }).catch();
         },
         addLocal(){
-          this.nowBidding={
-            price:this.inputprice,
-            person:'Andy',
-            time:this.timeFormate,
-          };
+          // this.nowBidding={
+          //   price:this.inputprice,
+          //   person:'Andy',
+          //   time:this.timeFormate,
+          //   work_id:this.theId
+          // };
           // console.log(this.nowBidding);
-            if(this.nowBidding.price>this.Nprice)
+            if(this.inputprice>this.Nprice)
             {
-              this.newObj.push(this.nowBidding);              
-              localStorage.setItem('biddList',JSON.stringify(this.newObj));
+              // this.newObj.push(this.nowBidding);              
+              // localStorage.setItem('biddList',JSON.stringify(this.newObj));
+              // 資料由後方物件帶入
+              axios.post('./assets/php/front/biddingpost.php', this.nowBidding)
+              .then((res) => { console.log(res.data[0])
+                this.nowBidding={
+                  price:res.data[0].bidding_price,
+                  person:res.data[0].work_id,
+                  time:res.data[0].bidding_time
+                }
+              })
+              // console.log(res.data);
+              //.catch((error) => { console.error(error) })
+              //存入資料抓出
+              //axios.post('./assets/php/front/biddingpost.php').then((res)=>{
+                  //console.log(res.data);
+                  // this.nowBidding =res.data
+                  //
+              //})
+
             }else{
               alert('出價須高於目前價格')
             }
         },
-        
+
+            // <li>
+            //   <p>Andy</p>
+            //   <div class="personal">
+            //     <img src="./assets/img/Ellipse 77.png" alt="">
+            //     <p>Lorem ipsum dolor sit amet,
+            //       consetetur sadipscing elitr, sed
+            //       diam nonumy eirmod </p>
+            //   </div>
+            // </li>
+            // <li>
+            //   <p>Andy</p>
+            //   <div class="personal">
+            //     <img src="./assets/img/Ellipse 77.png" alt="">
+            //     <p>Lorem ipsum dolor sit amet,
+            //       consetetur sadipscing elitr, sed
+            //       diam nonumy eirmod </p>
+            //   </div>
+            // </li>
       },
       computed:{
         total(){
