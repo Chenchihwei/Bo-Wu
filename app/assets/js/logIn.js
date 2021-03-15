@@ -58,12 +58,12 @@ logIn.addEventListener('click', function () {
   
 //登入成功視窗消失
 function signClose(){
-let panel = document.getElementsByClassName("panel--static")[0];
-let leftblock = document.getElementsByClassName("leftBlock")[0];
-let rightblock = document.getElementsByClassName("rightBlock")[0];
-panel.classList.add('close');
-leftblock.style.opacity = '1';
-rightblock.style.opacity = '1';
+  let panel = document.getElementsByClassName("panel--static")[0];
+
+  panel.classList.add('close');
+  for(let i = 0;i<block.length;i++){
+    block[i].style.opacity='1'
+  }
 }
 //控制是否登入狀況
 let manger = document.getElementsByClassName('manger')[0];
