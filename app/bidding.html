@@ -101,7 +101,7 @@
           <div @click="content='my-component'">討論區</div>
           <div @click="content='my-component1'">競標紀錄</div>
         </div>
-        <component :list="newObj"  :is="content"></component>
+        <component :list="newObj"  key='newObj' :is="content"></component>
       </div>
     </div>
   </div>
@@ -156,7 +156,7 @@
         <li>價錢</li>
       </ul>
       <table class="biddcontent">
-        <tr v-for="item in newObj">
+        <tr v-for="item in oldBiddList">
             <td>{{item.bidding_time}}</td>
             <td>{{item.member_id}}</td>
             <td>{{item.bidding_price}}</td>
@@ -180,13 +180,25 @@
       }
     },
     mounted() {
+    
       //localstorge版本 競標紀錄
       // this.oldBiddList = JSON.parse(localStorage.getItem('biddList')) || [];
     },
+    updated() {
+        this.newobj_two();
+    },
+    methods:{
+      newobj_two(){
+        setInterval(()=>{
+          this.oldBiddList = this.list;
+        },1000)
+        
+      },
+    },
     watch: {
-        newObj: {
+        list: {
           handler() {
-            // console.log('123')
+            this.newobj_two();
           },
           immediate:true,
           deep: true,
