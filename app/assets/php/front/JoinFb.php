@@ -32,7 +32,7 @@
         //將會員資訊寫入session
         $Member->setMemberInfo($memberID, $memberName);
         //建立SQL
-        $sql = "INSERT INTO member (`member_id`, `name`, `en_name`, `account`, `password`, `email`, `level`, `blacklist`, `introduction`, `join_date`, `bidding_giveup`,`member_img`) VALUES (?, ?, ?, ?, ?, ?, '1', '1', '1', now(), '0',?);";
+        $sql = "INSERT INTO member (`member_id`, `name`, `en_name`, `account`, `password`, `email`, `level`, `blacklist`, `introduction`, `join_date`, `bidding_giveup`,`member_img`) VALUES (?, ?, ?, ?, ?, ?, '2', '1', '1', now(), '0',?);";
         //執行 
         $statement = $Util->getPDO()->prepare($sql);
         //日期
