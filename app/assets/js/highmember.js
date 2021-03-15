@@ -14,7 +14,6 @@ let item = getLocalstorage();
 
 //撈出會員資料
 function member_content() {
-  let item = getLocalstorage();
   let member_id = item.id;
   // let member_id = 1614609750;
   $.ajax({
@@ -95,9 +94,14 @@ $('.personal_works').on('click', '.personal_work', function () {
   if ($(this).children('.checkrage').hasClass('custom')) {
     $(this).children('.checkrage').removeClass('custom');
     $(this).children('.custom-checkbox').css('display', 'none');
+    biddingBtn.style.display="none";
   } else {
     $(this).children('.checkrage').addClass('custom');
     $(this).children('.custom-checkbox').css('display', 'block');
+    biddingBtn.style.display="block";
+    let src = $(this).children('img').attr('data-id')
+    biddingInformation(src);
+    Save(src);
   };
 });
 
@@ -424,4 +428,68 @@ function deleteWork(imgId){
         alert("發生錯誤: " + exception.status);
     }
 });
+}
+
+
+
+
+var biddingBtn = document.getElementsByClassName('biddingBtn')[0];
+let biddingEdit = document.getElementsByClassName('biddingEdit')[0];
+let save =  document.getElementsByClassName('information')[0].querySelector('button');
+let biddingInfor = document.getElementsByClassName('information')[0].querySelector('h1');
+let biddingP = document.getElementsByClassName('information')[0].querySelector('p');
+let biddingBtnStatus = true;
+biddingBtn.addEventListener('click',function(){
+  if(biddingBtnStatus == true){
+    biddingEdit.style.display = "block";
+    biddingBtnStatus = false;
+  }else{
+    biddingEdit.style.display = "none";
+    biddingBtnStatus = true;
+  }
+})
+
+function Save(imgId){
+  save.addEventListener('click',function(){
+    let time = document.getElementsByClassName('information')[0].getElementsByTagName('input')[0].value;
+    let money = document.getElementsByClassName('information')[0].getElementsByTagName('input')[1].value;
+    let item = getLocalstorage();
+    $.ajax({
+      method: "POST",
+      url: "./assets/php/front/highlevel_bidding_insert.php",
+      data: {
+          'time': time,
+          'money': money,
+          'work_id': imgId,
+          'member_id':item.id
+          // 'member_id':1614609750,
+      },
+      dataType: "text",
+      success: function (response) {
+          alert('新增成功');
+          console.log(response)
+      },
+      error: function (exception) {
+          alert("發生錯誤: " + exception.status);
+      }
+    });
+  })
+}
+
+function biddingInformation(imgId){
+  $.ajax({
+    method: "POST",
+    url: "./assets/php/front/highlevel_bidding_select.php",
+    data: {
+        'work_id': imgId,
+    },
+    dataType: "json",
+    success: function (response) {
+        biddingInfor.innerHTML= response[0].work_name
+        biddingP.innerHTML=response[0].work_introduce
+    },
+    error: function (exception) {
+        alert("發生錯誤: " + exception.status);
+    }
+  });
 }
