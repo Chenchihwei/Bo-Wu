@@ -22,12 +22,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
     <meta name="google-signin-client_id" content="5123688312-hh38n162r8fqfrd31n2a2hid0q7pk7uf.apps.googleusercontent.com">
     <script src="https://apis.google.com/js/platform.js" async defer></script>
-
-
     <title>Homepage_BoWuMuseum</title>
 </head>
 
 <body>
+    
+
     <!-- CURSOR STYLE -->
     <div class="cursor"></div>
     <div class="cursor-outside"></div>
@@ -38,7 +38,7 @@
     <!-- 左側 header -->
     <header class="indexSideBar">
         <a class="logoForIndex mousehover" href="../dist/homepage.html">
-            <img src="../app/assets/img/logo_bowu_white.png">
+            <img src="./assets/img/logo_bowu_white.png">
         </a>
 
         <menu class="menu mousehover">
@@ -331,16 +331,9 @@
 
                     let indexNum = document.getElementsByClassName('indexNum')[0];
                     indexNum.innerText = '0'+ (index+1);
-                    // $('.indexNum-text span').velocity({
-                    //     transform: ["translateX(0%)", "translateX(-550%)"]
-                    // }, {duration: 1000});
-                    // 滾動效果
 
-                    // $('.indexNum-text span').velocity(
-                    //     {opacity: 0}, 
-                    //     {duration: 100}
-                    // );
                     
+
                     let progress = document.getElementsByClassName('pageBarLineNow')[0];
                     // console.log(progress);
                     let w = document.body.clientWidth
