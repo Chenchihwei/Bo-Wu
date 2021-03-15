@@ -197,14 +197,19 @@
 
         changePage() {
 
-          console.log(123);
-
+          // console.log(123);
+          if (this.id == 47) {
+            this.id = 11;
+          };
           this.id++;
 
           window.location.href = `http://localhost/dist/moon.html?work_id=${this.id}`;
         },
         changePage_minus() {
-          console.log(123);
+          // console.log(123);
+          if (this.id == 12) {
+            this.id = 48;
+          };
           this.id--;
           window.location.href = `http://localhost/dist/moon.html?work_id=${this.id}`;
 
