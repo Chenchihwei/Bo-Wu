@@ -215,6 +215,7 @@ $('.personal_OnShelf').click(function () {
       work_exhibition_update(status, work_id);
     };
     alert('上架成功!');
+    verify_mail();
   }
 });
 
@@ -524,4 +525,22 @@ function biddingInformation(imgId) {
       alert("發生錯誤: " + exception.status);
     }
   });
-}
+};
+
+function verify_mail() {
+  let member_id = item.id;
+  $.ajax({
+    method: "POST",
+    url: "./assets/php/front/highmemberwork_mail.php",
+    data: {
+      'member_id': member_id,
+    },
+    dataType: "text",
+    success: function (response) {
+      console.log(response);
+    },
+    error: function (exception) {
+      alert("發生錯誤: " + exception.status);
+    }
+  });
+};

@@ -221,34 +221,52 @@ $('.fa-pen').click(function () {
 
 });
 
+//localhost
+function getLocalstorage() {
+  let tasks = JSON.parse(localStorage.getItem("tasks"));
+  if (tasks) {
+    return tasks[0];
+  }
+}
+let item = getLocalstorage();
+
+
 //html2canvas 下載圖片
 function screenshot() {
-  $(".postcard_send").css("height", "");
-  // $(".postcard_send").css("width", "753px");
-  $("html, body").scrollTop(0);
-  html2canvas(document.getElementsByClassName('postcard_send')[0]).then(function (canvas) {
-    // document.body.appendChild(canvas);
-    var a = document.createElement('a');
-    a.href = canvas.toDataURL("image/jpeg").replace("image/jpeg", "image/octet-stream");
-    a.download = 'image.jpg';
-    a.click();
-  });
+  if (item) {
+    $(".postcard_send").css("height", "");
+    // $(".postcard_send").css("width", "753px");
+    $("html, body").scrollTop(0);
+    html2canvas(document.getElementsByClassName('postcard_send')[0]).then(function (canvas) {
+      // document.body.appendChild(canvas);
+      var a = document.createElement('a');
+      a.href = canvas.toDataURL("image/jpeg").replace("image/jpeg", "image/octet-stream");
+      a.download = 'image.jpg';
+      a.click();
+    });
+  } else {
+    alert('請先登入喔!');
+  }
 }
 
 $('.send').click(function () {
-  $(".postcard_send").css("height", "");
-  $(".postcard_send").css("width", "753px");
-  $("html, body").scrollTop(0);
-  html2canvas(document.getElementsByClassName('postcard_send')[0]).then(function (canvas) {
-    // document.body.appendChild(canvas);
-    var a = document.createElement('a');
-    a.href = canvas.toDataURL("image/jpeg").replace("image/jpeg", "image/octet-stream");
-    let base64 = canvas.toDataURL("image/jpeg");
-    // console.log(base64);
-    let your_mail = $('.email_text').val();
-    mailtest(your_mail, base64);
+  if (item) {
+    $(".postcard_send").css("height", "");
+    $(".postcard_send").css("width", "753px");
+    $("html, body").scrollTop(0);
+    html2canvas(document.getElementsByClassName('postcard_send')[0]).then(function (canvas) {
+      // document.body.appendChild(canvas);
+      var a = document.createElement('a');
+      a.href = canvas.toDataURL("image/jpeg").replace("image/jpeg", "image/octet-stream");
+      let base64 = canvas.toDataURL("image/jpeg");
+      // console.log(base64);
+      let your_mail = $('.email_text').val();
+      mailtest(your_mail, base64);
 
-  });
+    });
+  } else {
+    alert('請先登入喔!');
+  }
 });
 
 
