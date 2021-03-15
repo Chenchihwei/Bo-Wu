@@ -233,7 +233,7 @@ $('.personal_OffShelf').click(function () {
       let img_path = $(exhibition_img_choose[i]).attr('src');
       // console.log(data_id);
       // console.log(img_path);
-      let block = `<div class="authority_div" style="height:178px">
+      let block = `<div class="authority_div" style="height:178px"><p style="font-weight:bold;" class="none">已選取</p>
                   <img class="checked" data-id="${work_id}" src="${img_path}" alt="">
                   </div>`;
       // console.log(block);
@@ -408,6 +408,11 @@ function insert(path) {
     success: function (response) {
       alert('上傳成功');
       console.log(response)
+      let block = `<div class="authority_div" style="height:178px"><p style="font-weight:bold;">待審核</p>
+                  <img style="opacity:0.4;" class="uncheck" data-id="${response}" src="${path}" alt="">
+                  </div>`;
+      // console.log(block);
+      document.getElementsByClassName('authority_image')[0].insertAdjacentHTML('beforeend', block);
     },
     error: function (exception) {
       alert("發生錯誤: " + exception.status);

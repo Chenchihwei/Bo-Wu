@@ -13,7 +13,7 @@ $statement -> bindValue(2, $fileName);
 $statement -> bindValue(3, $member_id);    
 $statement -> bindValue(4, $sqlfilePath);    
 $statement->execute();
-
+echo $time_id;
 ?>
 
 
