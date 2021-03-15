@@ -18,14 +18,16 @@ $statement->execute();
 //抓出全部且依照順序封裝成一個二維陣列
 $data = $statement->fetchAll();
 
-foreach($data as $index => $row){
-    $name = $row["name"];
-    $fansName = $row["send_name"];
-    $email = $row["email"];
     require("../PHPMailer-master/src/PHPMailer.php");
     require("../PHPMailer-master/src/SMTP.php");
     require("../PHPMailer-master/src/Exception.php");
     // require_once("./PHPMailer-master/src/PHPMailer.php"); //記得引入檔案 
+
+foreach($data as $index => $row){
+    $name = $row["name"];
+    $fansName = $row["send_name"];
+    $email = $row["email"];
+    
     $mail = new PHPMailer\PHPMailer\PHPMailer();
     // $mail->Charset='UTF-8';
     $mail->SMTPOptions = array(
