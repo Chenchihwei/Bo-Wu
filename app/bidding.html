@@ -26,10 +26,7 @@
   <script src="https://apis.google.com/js/platform.js" async defer></script>
   <!-- google -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
-  
-  
 </head>
-
 <body>
   @@include('./compontents/head.html')
   <div id="app_bidd">
@@ -69,7 +66,6 @@
         <span v-else>{{itemTime}}</span>
       </div>
     </div>
-
     <div class="introduce">
       <div class="introLeft">
         <h3>競標物品</h3>
@@ -125,11 +121,8 @@
             </li>
           </ul>
           <div class="messageblock">
-            
               <textarea v-model="newMessage"></textarea>
               <button @click="addmessage">傳送</button>
-            
-          
           </div>
         </div>
     `,
@@ -172,6 +165,7 @@
       </div>
     </div>
     `,
+    // localstorge 競標紀錄
     // <tr v-for="item in currentBiddList">
     //         <td>{{item.time}}</td>
     //         <td>{{item.person}}</td>
@@ -182,11 +176,12 @@
       return{
         oldBiddList:[],
         newObj:this.list,
-        // currentBiddList:this.list,
+        // currentBiddList:this.list,     //localstorge版本 競標紀錄
       }
     },
     mounted() {
-      this.oldBiddList = JSON.parse(localStorage.getItem('biddList')) || [];
+      //localstorge版本 競標紀錄
+      // this.oldBiddList = JSON.parse(localStorage.getItem('biddList')) || [];
     },
     watch: {
         newObj: {
@@ -216,11 +211,11 @@
           SpriceList:[],
           NpriceList:[],
           biddList:[],
-          ExhibitName:'ImaginaryConstruction',
-          ExhibitIntro:'Introductione here.... Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor.Introductione here...',
-          Sprice:'333',
-          Nprice:888,
-          inputprice:888,
+          ExhibitName:'',
+          ExhibitIntro:'',
+          Sprice:null,
+          Nprice:null,
+          inputprice:null,
           // nowBidding:{
           //   price:null,
           //   person:"",
@@ -319,63 +314,46 @@
                 };
           axios.post('./assets/php/front/biddingpost.php',{'work_id':this.theId})
               .then((res) => { //console.log(res.data);
-                // console.log(this.newObj)
                 this.newObj = res.data
-
-                //for(let i = 0; i<=res.data.length;i++){
-                  //this.newObj.push(res.data[i].bidding_time,res.data[i].member_id,res.data[i].bidding_price);
-                  // this.newObj.biddtime.push(res.data[i].bidding_time);
-                  // this.newObj.member_id.push(res.data[i].member_id);
-                  // this.newObj.bidding_price.push(res.data[i].bidding_price);
-                //}
-                console.log(this.newObj)
+                this.Nprice = res.data[0].bidding_price;
+                // console.log(this.newObj)
                 //  this.newObj.push(res.data[0]); 
           }).catch();
         },
         addLocal(){
-          // this.nowBidding={
-          //   price:this.inputprice,
-          //   person:'Andy',
-          //   time:this.timeFormate,
-          //   work_id:this.theId
-          // };
-          // console.log(this.nowBidding);
+          // local版 假資料
+          this.nowBidding={
+            price:this.inputprice,
+            //person:'Andy',
+            time:this.timeFormate,
+            work_id:this.theId
+          };
+          
             if(this.inputprice>this.Nprice)
             {
+              // local版本 代資料 
               // this.newObj.push(this.nowBidding);              
               // localStorage.setItem('biddList',JSON.stringify(this.newObj));
-              // 資料由後方物件帶入
+              // 資料由php帶入
               axios.post('./assets/php/front/biddingpost.php', this.nowBidding)
-              .then((res) => { console.log(res.data[0])
+              .then((res) => { 
+                console.log(res.data[0])
                 this.nowBidding={
                   price:res.data[0].bidding_price,
                   person:res.data[0].work_id,
                   time:res.data[0].bidding_time
                 }
               })
-              // console.log(res.data);
               //.catch((error) => { console.error(error) })
-              //存入資料抓出
-              //axios.post('./assets/php/front/biddingpost.php').then((res)=>{
-                  //console.log(res.data);
-                  // this.nowBidding =res.data
-                  //
-              //})
-
             }else{
               alert('出價須高於目前價格')
             }
-        },
+              console.log(this.nowBidding);
+              console.log(res.data);
+              
 
-            // <li>
-            //   <p>Andy</p>
-            //   <div class="personal">
-            //     <img src="./assets/img/Ellipse 77.png" alt="">
-            //     <p>Lorem ipsum dolor sit amet,
-            //       consetetur sadipscing elitr, sed
-            //       diam nonumy eirmod </p>
-            //   </div>
-            // </li>
+        },
+        //留言板格式
             // <li>
             //   <p>Andy</p>
             //   <div class="personal">
