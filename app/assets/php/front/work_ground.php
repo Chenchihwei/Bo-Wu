@@ -1,9 +1,12 @@
 <?php 
 
-  $db_host = "127.0.0.1";
-	$db_user = "root";
-$db_pass = "";
- $db_select = "team3";
+include('../Conn.php');
+
+
+//   $db_host = "127.0.0.1";
+// 	$db_user = "root";
+// $db_pass = "";
+//  $db_select = "team3";
 
  // $db_host = "10.2.0.115";
  // $db_user = "test";
