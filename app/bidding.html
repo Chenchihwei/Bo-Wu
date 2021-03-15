@@ -224,6 +224,7 @@
           active:0,
           nowTime:'',
           imgList:[],
+          tasks:[],
           dataId:[],
           newObj:[
           // {bidding_time:""},
@@ -289,7 +290,13 @@
         // },500);
         //this.newObj = JSON.parse(localStorage.getItem('biddList'))||[];
         setInterval(() => this.timer -= 1, 1000);
+
+          this.tasks = JSON.parse(localStorage.getItem('tasks')); 
+
       },
+      // updated() {
+      //   this.inputprice = this.Nprice;
+      // },
       methods: {
         change(index){
                     this.active = (index + this.total) % this.total
@@ -302,13 +309,13 @@
               this.ExhibitName = this.NameList[this.theId];
               this.ExhibitIntro = this.Introduce[this.theId];
               this.Sprice = this.SpriceList[this.theId]*1;
-              this.Nprice = this.NpriceList[this.theId];
-              this.inputprice = this.Sprice;
+              this.Nprice = this.NpriceList[this.theId]*1;
+              this.inputprice = this.Nprice;
               this.itemTime = this.timeList[this.theId];
               let nowStatus ;
               //他可不可以競標
               //如果他可以競標我再每秒刷新
-              setInterval(() => this.Getbiddlist(), 1000);
+              // setInterval(() => this.Getbiddlist(), 1000);
               ///////
               for(let status in this.biddverify){
                 // console.log(status);
@@ -322,6 +329,7 @@
                 this.itemMessage = '尚未競標';
                 this.itemTime = this.timeList[this.theId];
               }}
+              
               // let biddid = this.biddverify[this.theId];
               // if(biddid = "1"){
               //   this.itemMessage = '競標中'
@@ -341,32 +349,38 @@
               .then((res) => { //console.log(res.data);
                 this.newObj = res.data
                 this.Nprice = res.data[0].bidding_price;
+                // this.inputprice = res.data[0].bidding_price*1;
                 // console.log(this.newObj)
                 //  this.newObj.push(res.data[0]); 
           }).catch();
         },
         addLocal(){
           // local版 假資料
-          this.nowBidding={
-            price:this.inputprice,
-            //person:'Andy',
-            time:this.timeFormate,
-            work_id:this.theId
-          };
-          
+          // this.tasks={
+          //   price:this.inputprice,
+          //   id:Number(this.tasks[0].id),
+          //   time:this.timeFormate,
+          //   work_id:this.theId
+          // };
+
             if(this.inputprice>this.Nprice)
             {
               // local版本 代資料 
-              // this.newObj.push(this.nowBidding);              
-              // localStorage.setItem('biddList',JSON.stringify(this.newObj));
+              // this.tasks=this.nowBidding;              
+              // localStorage.setItem('tasks',JSON.stringify(this.tasks));
+              // localStorage.setItem('tasks',JSON.stringify(this.newObj));
               // 資料由php帶入
-              axios.post('./assets/php/front/biddingpost.php', this.nowBidding)
+              axios.post('./assets/php/front/biddingpost.php', this.tasks)
               .then((res) => { 
-                console.log(res.data[0])
-                this.nowBidding={
+                
+                console.log(res)
+                // console.log(res.data)
+                // console.log(this.tasks)
+                this.tasks={
                   price:res.data[0].bidding_price,
-                  person:res.data[0].work_id,
-                  time:res.data[0].bidding_time
+                  work_id:res.data[0].work_id,
+                  id:Number(this.tasks[0].id),
+                  time:res.data[0].bidding_time,
                 }
               })
               //.catch((error) => { console.error(error) })
@@ -426,7 +440,7 @@
   </script>
 </body>
 <!-- <script src="./assets/js/script.js"></script> -->
-<script src="./assets/js/scriptBlack.js"></script>
+<!-- <script src="./assets/js/scriptBlack.js"></script> -->
 <!-- <script src="./assets/js/exhibition.js"></script> -->
 <script src="./assets/js/loginFB.js"></script>
 <script src="./assets/js/loginGoogle.js"></script>
