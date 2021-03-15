@@ -30,5 +30,5 @@
       $peopleTotal +=  $row['visitors'];
       $commentTotal +=  $row['count(wm.work_id)'];
     };
-    echo $goodTotal.'//'.$peopleTotal.'//'.$commentTotal;
+    echo $goodTotal.'|'.$peopleTotal.'|'.$commentTotal;
 ?>

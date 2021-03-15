@@ -27,14 +27,14 @@ function member_content() {
     success: function (response) {
       //更新html內容
       // console.log(response);
-      let name = response.split('/')[0];
-      let email = response.split('/')[1];
-      let introduction = response.split('/')[2];
-      let userimage= response.split('/')[3];
+      let name = response.split('|')[0];
+      let email = response.split('|')[1];
+      let introduction = response.split('|')[2];
+      let userimage = response.split('|')[3];
       $('.name').children('p').html(name);
       $('.mastername').children('p').html(email);
       $('.intro').children('p').html(introduction);
-      $('.art').src(userimage);
+      $('.art').attr('src', userimage);
     },
     error: function (exception) {
       alert("發生錯誤: " + exception.status);
@@ -55,9 +55,9 @@ function member_total() {
     success: function (response) {
       //更新html內容
       // console.log(response);
-      let goodTotal = response.split('/')[1];
-      let peopleTotal = response.split('/')[2];
-      let commentTotal= response.split('/')[3];
+      let goodTotal = response.split('|')[0];
+      let peopleTotal = response.split('|')[1];
+      let commentTotal = response.split('|')[2];
       $('.good').children('.p1').html(goodTotal);
       $('.tour').children('.p1').html(peopleTotal);
       $('.message').children('.p1').html(commentTotal);
@@ -120,11 +120,11 @@ $('.personal_works').on('click', '.personal_work', function () {
   if ($(this).children('.checkrage').hasClass('custom')) {
     $(this).children('.checkrage').removeClass('custom');
     $(this).children('.custom-checkbox').css('display', 'none');
-    biddingBtn.style.display="none";
+    biddingBtn.style.display = "none";
   } else {
     $(this).children('.checkrage').addClass('custom');
     $(this).children('.custom-checkbox').css('display', 'block');
-    biddingBtn.style.display="block";
+    biddingBtn.style.display = "block";
     let src = $(this).children('img').attr('data-id')
     biddingInformation(src);
     Save(src);
@@ -363,7 +363,7 @@ $('.edit_click').click(function () {
 // 	let file = thisimg.files[0];
 // 		let fr = new FileReader();
 // 		fr.onloadend = function(e) {
-      
+
 // 	  };
 // 	fr.readAsDataURL(file);
 // }
@@ -371,53 +371,53 @@ $('.edit_click').click(function () {
 function upload() {
   let upimg = new FormData(document.getElementsByClassName('upimg')[0]);
   if ($('.fileupload').get(0).files[0]) {
-      $.ajax({
-          type: 'post',
-          url: "./assets/php/front/highmemberupload.php",
-          data: upimg,
-          cache: false,
-          processData: false,
-          contentType: false,
-          success: function (response) {
-              let path = response.split("|")[0];
-              let img_name = response.split("|")[1];
-              console.log(path)
-              console.log(img_name)
-              insert(path);
-          },
-          error: function (exception) {
-              alert("發生錯誤: " + exception.status);
-          }
-      });
+    $.ajax({
+      type: 'post',
+      url: "./assets/php/front/highmemberupload.php",
+      data: upimg,
+      cache: false,
+      processData: false,
+      contentType: false,
+      success: function (response) {
+        let path = response.split("|")[0];
+        let img_name = response.split("|")[1];
+        console.log(path)
+        console.log(img_name)
+        insert(path);
+      },
+      error: function (exception) {
+        alert("發生錯誤: " + exception.status);
+      }
+    });
   } else {
-      
+
   };
 };
 //新增sql
 function insert(path) {
   $.ajax({
-      method: "POST",
-      url: "./assets/php/front/highmember_insert.php",
-      data: {
-          'path': path,
-          'img_name': "請輸入展品名稱",
-          'member_id':item.id,
-          // 'member_id':1614609750,
-      },
-      dataType: "text",
-      success: function (response) {
-          alert('上傳成功');
-          console.log(response)
-      },
-      error: function (exception) {
-          alert("發生錯誤: " + exception.status);
-      }
+    method: "POST",
+    url: "./assets/php/front/highmember_insert.php",
+    data: {
+      'path': path,
+      'img_name': "請輸入展品名稱",
+      'member_id': item.id,
+      // 'member_id':1614609750,
+    },
+    dataType: "text",
+    success: function (response) {
+      alert('上傳成功');
+      console.log(response)
+    },
+    error: function (exception) {
+      alert("發生錯誤: " + exception.status);
+    }
   });
 }
 let work_btn = document.getElementsByClassName('work_btn')[0];
-let fileupload =document.getElementsByClassName('fileupload')[0];
+let fileupload = document.getElementsByClassName('fileupload')[0];
 
-work_btn.addEventListener('click',function(e){
+work_btn.addEventListener('click', function (e) {
   if (fileupload) {
     fileupload.click();
   }
@@ -429,7 +429,7 @@ work_btn.addEventListener('click',function(e){
 let trash_btn = document.getElementsByClassName('trash_btn')[0];
 trash_btn.addEventListener('click', function () {
   let imgSelected = document.getElementsByClassName('authority_image')[0].querySelectorAll('div');
-  
+
   imgSelected.forEach(element => {
     if (element.lastChild.classList.contains('unexhibition_img_choose')) {
       element.remove();
@@ -440,21 +440,21 @@ trash_btn.addEventListener('click', function () {
   });
 })
 
-function deleteWork(imgId){
+function deleteWork(imgId) {
   $.ajax({
     method: "POST",
     url: "./assets/php/front/highmember_delete.php",
     data: {
-        'imgId': imgId,
+      'imgId': imgId,
     },
     dataType: "text",
     success: function (response) {
-        alert('刪除成功');
+      alert('刪除成功');
     },
     error: function (exception) {
-        alert("發生錯誤: " + exception.status);
+      alert("發生錯誤: " + exception.status);
     }
-});
+  });
 }
 
 
@@ -462,22 +462,22 @@ function deleteWork(imgId){
 
 var biddingBtn = document.getElementsByClassName('biddingBtn')[0];
 let biddingEdit = document.getElementsByClassName('biddingEdit')[0];
-let save =  document.getElementsByClassName('information')[0].querySelector('button');
+let save = document.getElementsByClassName('information')[0].querySelector('button');
 let biddingInfor = document.getElementsByClassName('information')[0].querySelector('h1');
 let biddingP = document.getElementsByClassName('information')[0].querySelector('p');
 let biddingBtnStatus = true;
-biddingBtn.addEventListener('click',function(){
-  if(biddingBtnStatus == true){
+biddingBtn.addEventListener('click', function () {
+  if (biddingBtnStatus == true) {
     biddingEdit.style.display = "block";
     biddingBtnStatus = false;
-  }else{
+  } else {
     biddingEdit.style.display = "none";
     biddingBtnStatus = true;
   }
 })
 
-function Save(imgId){
-  save.addEventListener('click',function(){
+function Save(imgId) {
+  save.addEventListener('click', function () {
     let time = document.getElementsByClassName('information')[0].getElementsByTagName('input')[0].value;
     let money = document.getElementsByClassName('information')[0].getElementsByTagName('input')[1].value;
     let item = getLocalstorage();
@@ -485,38 +485,38 @@ function Save(imgId){
       method: "POST",
       url: "./assets/php/front/highlevel_bidding_insert.php",
       data: {
-          'time': time,
-          'money': money,
-          'work_id': imgId,
-          'member_id':item.id
-          // 'member_id':1614609750,
+        'time': time,
+        'money': money,
+        'work_id': imgId,
+        'member_id': item.id
+        // 'member_id':1614609750,
       },
       dataType: "text",
       success: function (response) {
-          alert('新增成功');
-          console.log(response)
+        alert('新增成功');
+        console.log(response)
       },
       error: function (exception) {
-          alert("發生錯誤: " + exception.status);
+        alert("發生錯誤: " + exception.status);
       }
     });
   })
 }
 
-function biddingInformation(imgId){
+function biddingInformation(imgId) {
   $.ajax({
     method: "POST",
     url: "./assets/php/front/highlevel_bidding_select.php",
     data: {
-        'work_id': imgId,
+      'work_id': imgId,
     },
     dataType: "json",
     success: function (response) {
-        biddingInfor.innerHTML= response[0].work_name
-        biddingP.innerHTML=response[0].work_introduce
+      biddingInfor.innerHTML = response[0].work_name
+      biddingP.innerHTML = response[0].work_introduce
     },
     error: function (exception) {
-        alert("發生錯誤: " + exception.status);
+      alert("發生錯誤: " + exception.status);
     }
   });
 }

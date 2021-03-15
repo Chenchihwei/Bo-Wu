@@ -48,12 +48,17 @@
 
 				<div class="main">
 					<div class="left">
-						<div class="name">Name<img src="./assets/img/highlevelnumber/Group 250.png"></div>
-
+						<div class="name">
+							<p>Name</p>
+							<input
+								style="height:3vh; width: 20vw; border:none; outline:medium; background-color: transparent; font-size: 32px;"
+								type="text" class="edit_input edit_name none">
+							<img class="edit_click" src="./assets/img/highlevelnumber/Group 250.png">
+						</div>
 						<div class="artimg">
 							<img class="art" src="./assets/img/normalnumber/art.png">
 
-							<h1>Tags</h1>
+							<!-- <h1>Tags</h1>
 							<div class="tag">
 								<button>web</button>
 								<button>illustration</button>
@@ -65,15 +70,24 @@
 								<button>interface</button>
 								<button>icon</button>
 								<button>web design</button>
-							</div>
+							</div> -->
 						</div>
-						<div class="name_rwd">Name<img src="./assets/img/highlevelnumber/Group 250.png"></div>
-						<div class="mastername">MasterPieces Name<img src="./assets/img/highlevelnumber/Group 250.png">
+						<div class="name_rwd">
+							<p>Name</p>
+							<img src="./assets/img/highlevelnumber/Group 250.png">
+						</div>
+						<div class="mastername">
+							<p>MasterPieces Name</p>
+							<input
+								style="height:5vh; width: 30vw; border:none; outline:medium; background-color: transparent; font-size: 36px;"
+								type="text" class="edit_input edit_work_name none">
+							<img class="edit_click" src="./assets/img/highlevelnumber/Group 250.png">
 						</div>
 						<div class="intro">
-							<p> Lorem ipsum dolor sit amet, consectetur adipiscing
+							<p class=""> Lorem ipsum dolor sit amet, consectetur adipiscing
 								elit, sed do eiusmod tempor incididunt </p>
-							<img src="./assets/img/highlevelnumber/Group 250.png">
+							<textarea class="edit_input edit_introduce none" cols="60" rows="3"></textarea>
+							<img class="edit_click" src="./assets/img/highlevelnumber/Group 250.png">
 						</div>
 						<div class="visit">
 							<div class="good">
@@ -94,6 +108,7 @@
 					<div class="right">
 						<div class="pull_stone">
 							<h1>上架區</h1>
+							<button class="biddingBtn" style="float: right;margin:0 20px;display: none;">競標選擇</button>
 							<div class="personal_works">
 								<!-- <div class="personal_work">
 									<img class='personal_img' src="./assets/img/highlevelnumber/left.png" alt="">
@@ -295,7 +310,7 @@
 										<div class="work_btn"><span class="material-icons">library_add</span>ADD WORK
 										</div>
 										<form enctype="multipart/form-data" class="upimg" style="display:none">
-											<input type="file" name="file" class="fileupload" />
+											<input type="file" name="file" class="fileupload" onchange="upload();" />
 											<input type="button" class="fileupload_btn" value="上傳檔案"
 												onclick="upload()" />
 										</form>
@@ -382,7 +397,7 @@
 	</div>
 
 	@@include('./compontents/footer.html')
-	<script src="./assets/js/new.js"></script>
+	<!-- <script src="./assets/js/new.js"></script>
 
 	<script>
 		new Vue({
@@ -391,14 +406,14 @@
 				message: 'Hello, VueJS!',
 			},
 		});
-	</script>
+	</script> -->
 
 	<!-- <script src="./assets/js/script.js"></script> -->
 	<script src="./assets/js/highlevel.js"></script>
 	<script src="./assets/js/menu.js"></script>
 	<script src="./assets/js/loginFB.js"></script>
 	<script src="./assets/js/loginGoogle.js"></script>
-	<script src='./assets/js/music.js'></script>
+	<!-- <script src='./assets/js/music.js'></script> -->
 	<script src='./assets/js/verify.js'></script>
 	<script src='./assets/js/logIn.js'></script>
 	<script src="assets/js/highmember.js"></script>
