@@ -22,8 +22,9 @@ function onSignIn(googleUser) {
     //視窗消失
     signClose();
     //寫入localstorage
-    controlSignBar(1);
+    // controlSignBar(1);
     alert(profile.getName()+"登入成功");
+    
   }
 };
 //登出
@@ -52,6 +53,9 @@ function AjaxGoogle(profile){
       // alert(JSON.stringify(data));
       inStorage(data,'google',1,profile.getImageUrl(),profile.getName());
       item = getLocalstorage();
+      controlSignBar(1);
+      // location.reload();
+      manger_click();
     },
     error: function(errMsg) {
       alert(JSON.stringify(errMsg));

@@ -77,8 +77,8 @@ function controlSignBar(num){
     manger.classList.remove('close');
     logOut.classList.remove('close');
     logIn.classList.add('close');
-    manger_click();
-}
+    
+  }
 }
 //寫入localstorge
 function inStorage(userid,how,sign,imgUrl,name){
@@ -100,18 +100,21 @@ let task = {
 window.onload = outStorage();
 //localstorage拿出
 function outStorage(){
-let tasks = JSON.parse(localStorage.getItem("tasks"));
-if(tasks){
-  tasks.forEach(function(item){
-    if(item.sign == 1){
-      controlSignBar(1);
-      
-    }
-  })
-}else{
-  controlSignBar(0);
+  let tasks = JSON.parse(localStorage.getItem("tasks"));
+  if(tasks){
+    tasks.forEach(function(item){
+      if(item.sign == 1){
+        controlSignBar(1);
+        manger_click();
+      }
+    })
+  }else{
+    controlSignBar(0);
+  }
 }
-}
+// manger.addEventListener('click',function(){
+//   manger_click();
+// })
 //判斷登入者等級
 function manger_click() {
   let item = getLocalstorage();

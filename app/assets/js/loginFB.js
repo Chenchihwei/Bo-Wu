@@ -63,7 +63,7 @@ function login() {
         console.log(res)
         AjaxFB(res);
         signClose();
-        controlSignBar('1');
+        // controlSignBar('1');
         window.alert(res.name+'您已經成功登入囉!');
       });
     }
@@ -102,9 +102,10 @@ function AjaxFB(res){
     },
     dataType: "text",
     success: function(data){
-      // alert(JSON.stringify(data));
       inStorage(data,'facebook',1,res.picture.data.url,res.name);
       item = getLocalstorage();
+      controlSignBar(1);
+      manger_click();
     },
     error: function(errMsg) {
       alert(JSON.stringify(errMsg));
