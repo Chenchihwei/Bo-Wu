@@ -364,8 +364,10 @@ body{
           
         }
         .content{
+            width: 18vw;
+            height: 949px;
           .biddinform{
-            width: 334px;
+            width: 100%;
             height: 633px;
           .biddtop{
             display:flex;
@@ -405,8 +407,8 @@ body{
             display: block;
           }
           .messageform{
-            width: 334px;
-            height: 633px;
+            width: 100%;
+            height: 76%;
             flex-direction: column;
             padding: 1vh 1vw;
             @include ipad{
@@ -416,12 +418,14 @@ body{
               background-color: #ffffff;
             }
             li{
+              width: 80%;
               background-color: #F7F7F7;
               padding: 1vh 1vw;
               margin: 1vh;
               border:1px solid #EAEAEA;
-              p{
+              h1{
                 font-size: 1.5rem;
+                margin-bottom: 1vh;
                 @include phone{
                   font-size: 2.0rem;
                 }
@@ -443,8 +447,11 @@ body{
               }
             }
           }
-          .message{
+          .messageblock{
             border-top :1px solid  black;
+            @include notebook{
+
+            }
             @include ipad{
               border-left: 1px solid black;
               border-top: none;
@@ -453,19 +460,21 @@ body{
               border-left: none;
               border-top: 1px solid black;
             }
-            form{
-              position: relative;
-              background-color: white;
+            //form{
+              // position: relative;
+              // background-color: white;
               textarea{
+                width: 17.8vw;
+                height: 200px;
                 font-size: 1.5rem;
                 border:none;
-                resize : none;
+                resize :none;
                 &:focus{outline:none;}
               }
               button{
                 position: absolute;
-                right: 5%;
-                bottom: 5%;
+                right: 9%;
+                bottom: 6%;
                 background-color: white;
                 font-size: 1.25rem;
                 @include ipad{
@@ -475,7 +484,7 @@ body{
                   bottom: 5%;
                 }
               }
-            }
+            //}
           }
         }
       }

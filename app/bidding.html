@@ -116,8 +116,12 @@
     template:`
     <div class="content">
           <ul class='messageform' >
-            <li v-for="message in messages">             
-                {{message}}
+            <li v-for="message in messages">
+              <h1>{{username}}</h1> 
+              <div class="personal">
+                <img src="./assets/img/Ellipse 77.png">
+                <p>{{message}}</p>
+              </div>
             </li>
           </ul>
           <div class="messageblock">
@@ -128,9 +132,10 @@
     `,
     data(){
       return{
-        name:'andy',
+        username:'',
         newMessage:'',
         messages:[],
+
 
       }
     },
@@ -144,7 +149,13 @@
             this.newMessage = '';
           }
         }
-    }
+    },
+    mounted(){
+      axios.get("./assets/php/front/bidding_member.php").then((head) => {
+              console.log(head.data[0].name);
+              this.username = head.data[0].name;
+        }).catch();
+    },
   });
     Vue.component('my-component1',{
     template:`
@@ -209,6 +220,7 @@
     new Vue({
       el:'#app_bidd',
       data:{
+          username:'',
           active:0,
           nowTime:'',
           imgList:[],
@@ -241,6 +253,7 @@
           timer:OneHour,
           itemTime:'尚未選取競標品',
           timeList:[],
+          headshot:"./assets/img/Ellipse 77.png",
           imgSrc:'./assets/img/exh_5.jpg',
           price: 888,
       },
@@ -288,9 +301,9 @@
               this.imgSrc = this.imgList[this.theId];
               this.ExhibitName = this.NameList[this.theId];
               this.ExhibitIntro = this.Introduce[this.theId];
-              this.Sprice = this.SpriceList[this.theId];
-              this.Nprice = this.NpriceList[this.theId]*1;
-              this.inputprice = this.Nprice;
+              this.Sprice = this.SpriceList[this.theId]*1;
+              this.Nprice = this.NpriceList[this.theId];
+              this.inputprice = this.Sprice;
               this.itemTime = this.timeList[this.theId];
               let nowStatus ;
               //他可不可以競標
@@ -414,7 +427,7 @@
 </body>
 <!-- <script src="./assets/js/script.js"></script> -->
 <script src="./assets/js/scriptBlack.js"></script>
-<script src="./assets/js/exhibition.js"></script>
+<!-- <script src="./assets/js/exhibition.js"></script> -->
 <script src="./assets/js/loginFB.js"></script>
 <script src="./assets/js/loginGoogle.js"></script>
 <script src='./assets/js/music.js'></script>

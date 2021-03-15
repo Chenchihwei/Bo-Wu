@@ -22,10 +22,9 @@
     $work_id = $_POST->work_id;
     if(isset( $_POST->price)){//要不要insert
 
-        $price = $_POST->price;// 抓POST的DATA物件中的PRICE
-        $time = $_POST->time;
+    $price = $_POST->price;// 抓POST的DATA物件中的PRICE
+    $time = $_POST->time;
 
-        
     $sql = "INSERT INTO `team3`.`bidding_price` (`work_id`, `member_id`, `bidding_price`,`bidding_time`) VALUES (:work_id, :member_id, :price,:time)";
     $biddlist = $pdo->prepare($sql);
     $biddlist->bindValue(':work_id',$work_id);
