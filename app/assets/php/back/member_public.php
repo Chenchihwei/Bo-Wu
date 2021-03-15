@@ -57,15 +57,15 @@ foreach($data as $index => $row){
     $blacklist = $row["blacklist"];
     switch ($blacklist) {
         case "1":
-            $blacklist = '黑名單';
+            $blacklist = '白名單';
         break;
         case "2":
-            $blacklist = '白名單';
+            $blacklist = '黑名單';
         break;
         default:
             $level = '錯誤';
     };
-    echo "<td><p class='select_p edit_blacklist'>".$blacklist."</p><select name='' class='member_blacklist_select edit_select none'><option value='1'>黑名單</option><option value='2'>白名單</option></select></td>";
+    echo "<td><p class='select_p edit_blacklist'>".$blacklist."</p><select name='' class='member_blacklist_select edit_select none'><option value='1'>白名單</option><option value='2'>黑名單</option></select></td>";
 
     echo "<td><p class='produce'>".$row["introduction"]."</p><textarea name='' class='edit_textarea none' cols='30' rows='10'></textarea></td>";
     echo "<td>".$row["count(d.work_id)"]."</td>";

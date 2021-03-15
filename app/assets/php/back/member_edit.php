@@ -30,10 +30,10 @@
 
     switch ($edit_blacklist) {
         case "黑名單":
-            $edit_blacklist = '1';
+            $edit_blacklist = '2';
         break;
         case "白名單":
-            $edit_blacklist = '2';
+            $edit_blacklist = '1';
         break;
         default:
             $edit_blacklist = '錯誤';

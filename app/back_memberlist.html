@@ -168,16 +168,16 @@
             let edit_select = tr.querySelectorAll('.edit_select');
             if (select_p[0].innerHTML === '高級會員') {
                 edit_select[0].value = 1;
-                if (select_p[1].innerHTML === '黑名單') {
+                if (select_p[1].innerHTML === '白名單') {
                     edit_select[1].value = 1;
-                } else if (select_p[1].innerHTML === '白名單') {
+                } else if (select_p[1].innerHTML === '黑名單') {
                     edit_select[1].value = 2;
                 };
             } else if (select_p[0].innerHTML === '普通會員') {
                 edit_select[0].value = 2;
-                if (select_p[1].innerHTML === '黑名單') {
+                if (select_p[1].innerHTML === '白名單') {
                     edit_select[1].value = 1;
-                } else if (select_p[1].innerHTML === '白名單') {
+                } else if (select_p[1].innerHTML === '黑名單') {
                     edit_select[1].value = 2;
                 };
             };
@@ -210,18 +210,18 @@
                 select_p[0].innerHTML = '高級會員';
                 if (edit_select[1].value == 1) {
                     // console.log(edit_select[1].value);
-                    select_p[1].innerHTML = '黑名單';
+                    select_p[1].innerHTML = '白名單';
                 } else if (edit_select[1].value == 2) {
                     console.log(edit_select[1].value);
-                    select_p[1].innerHTML = '白名單';
+                    select_p[1].innerHTML = '黑名單';
                 };
             } else if (edit_select[0].value == 2) {
                 select_p[0].innerHTML = '普通會員';
                 if (edit_select[1].value == 1) {
-                    select_p[1].innerHTML = '黑名單';
+                    select_p[1].innerHTML = '白名單';
                 } else if (edit_select[1].value == 2) {
                     console.log(edit_select[1].value);
-                    select_p[1].innerHTML = '白名單';
+                    select_p[1].innerHTML = '黑名單';
                 };
             };
 
