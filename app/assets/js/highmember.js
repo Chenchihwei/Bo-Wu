@@ -1,7 +1,8 @@
 $(document).ready(function () {
   work_save();
   work_exhibition();
-  member_content()
+  member_content();
+  member_total();
 });
 //localhost
 function getLocalstorage() {
@@ -29,12 +30,37 @@ function member_content() {
       let name = response.split('/')[0];
       let email = response.split('/')[1];
       let introduction = response.split('/')[2];
+      let userimage= response.split('/')[3];
       $('.name').children('p').html(name);
       $('.mastername').children('p').html(email);
       $('.intro').children('p').html(introduction);
-
-      // console.log(name);
-
+      $('.art').src(userimage);
+    },
+    error: function (exception) {
+      alert("發生錯誤: " + exception.status);
+    }
+  });
+};
+//撈出總值
+function member_total() {
+  let member_id = item.id;
+  // let member_id = 1614609750;
+  $.ajax({
+    method: "POST",
+    url: "./assets/php/front/highlevel_member_count.php",
+    data: {
+      'member_id': member_id,
+    },
+    dataType: "text",
+    success: function (response) {
+      //更新html內容
+      // console.log(response);
+      let goodTotal = response.split('/')[1];
+      let peopleTotal = response.split('/')[2];
+      let commentTotal= response.split('/')[3];
+      $('.good').children('.p1').html(goodTotal);
+      $('.tour').children('.p1').html(peopleTotal);
+      $('.message').children('.p1').html(commentTotal);
     },
     error: function (exception) {
       alert("發生錯誤: " + exception.status);
@@ -118,6 +144,7 @@ $('.authority_image').on('click', 'img', function () {
       $(this).prevAll('p').addClass('none');
       $('.name').removeClass('work_content');
       member_content();
+      member_total();
     } else {
       $(this).addClass('unexhibition_img_choose');
       $(this).prevAll('p').removeClass('none');
