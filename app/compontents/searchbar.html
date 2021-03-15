@@ -20,8 +20,6 @@
         <div id="searchBar" :class="{'-active': searchBarPage}">
             <div class="searchBarTop">
                 
-                <!-- <img class="searchBarGobackBtn" @click="searchBarClose" src="./assets/img/icon_goBack.png"> -->
-                
                 <div class="searchTitle">
                     <i class="fas fa-search"></i>
                     <p> Search </p>
@@ -31,8 +29,6 @@
                 <img class="searchBarArrow" src="./assets/img/Icon_arrowRight.png">
                 
             </div>  
-            
-            <!-- <div class="searchLine"></div> -->
             
             <div class="notSearch none">
                 <img src="../app/assets/img/searchBarImg.png">
@@ -59,10 +55,14 @@
 
         <div class="logInOption">
             <div class="login">
-                <a class="login_manger">登入</a>
-                <a href="###" class="manger close">管理</a> 
+                <a href="###" class="login_manger">登入</a>
+                <ul>
+                    <li>
+                        <a href="###" class="manger close">管理</a>
+                        <ul><li><a href="###" class="logOut close">登出</a></li></ul>
+                    </li>
+                </ul>
                 <i class="fas fa-user-friends"></i>
-                <div class="logOut"><a href="">登 出</a></div>
             </div>
         </div>
 
@@ -129,8 +129,8 @@
         </div> -->
         <div class="panel panel--sliding">
             <div class="panel__content signup">
-              <h1 class="panel__heading">Sign up</h1>
-              <form id="signup" method="POST" action="./php/front/JoinR.php">
+                <h1 class="panel__heading">Sign up</h1>
+                <form id="signup" method="POST" action="./assets/php/front/JoinR.php">
                 
                 <div><input type="text" placeholder="Full name" id="name" class="input input--name" name='name' :class="{ 'is-invalid': usernameError }" v-model="name"/><p>{{userErrMsg}}</p></div>
                 <div><input type="text" placeholder="Email" id="mail" class="input input--email" name="mail" :class="{ 'is-invalid': mailError }" v-model="mail"/><p>{{mailErrMsg}}</p></div>
@@ -156,7 +156,7 @@
       
             <div class="panel__content login">
               <h1 class="panel__heading">Log in</h1>
-              <form id="login" method="POST" action="./php/front/LoginR.php">
+              <form id="login" method="POST" action="./assets/php/front/LoginR.php">
                 <div><input type="text" placeholder="Email" id="mail" class="input input--email" name="mail" :class="{ 'is-invalid': mailError }" v-model="mail"/><p>{{mailErrMsg}}</p></div>
                 <div><input type="password" placeholder="Password" id='password' class="input input--password" name="password" :class="{ 'is-invalid': passwordError }" v-model="password"/><p>{{passErrMsg}}</p></div>
                 <button class="btn btn--primary" @click='checkLog($event)'>Log in</button>
@@ -179,4 +179,3 @@
           </div>
     </div>
 </div>
-  

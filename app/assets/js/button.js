@@ -5,17 +5,12 @@ $(document).ready(function () {
     $('.uni').not(this).removeClass('clicked');
   });
 
-  $('.container span').click(function () { 
-    console.log('按到了');
-    // $('container').toggleClass('shrink');
-    $('container').scrollLeft();
-  });
+  $('html, body, *').mousewheel(function(e, delta) {
+    this.scrollLeft -= (delta);
+    e.preventDefault();
+    });
 
-//   $(".container span").click(function() {
-//     $([document.documentElement, document.body]).animate({
-//         scrollTop: $("#elementtoScrollToID").offset().top
-//     }, 2000);
-// });
+
 
 
 });

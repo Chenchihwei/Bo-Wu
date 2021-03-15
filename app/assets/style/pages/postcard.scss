@@ -101,8 +101,16 @@ header{
                     display: flex;
                     flex-direction: column;
                     // margin-right: 0.781vw;
-                    margin-top: 10.52vh;
-                    cursor: pointer;
+                    // margin-top: 10.52vh;
+                    // cursor: pointer;
+                    button{
+                        margin: 0 auto;
+                        margin-top: 5vh;
+                        width: 5vw;
+                        height: 1.875vw;
+                        font-size: 10px;
+                        line-height: 1.5vw;
+                    }
                     .color{
                         display: flex;
                         justify-content: center;
@@ -231,6 +239,12 @@ header{
                                         // margin-top: 3.5vw;
                                         // margin-right: 3.125vw;
                                         line-height: 36px;
+                                    }
+                                    .material{
+                                        position: absolute;
+                                        top: 0;
+                                        left:50%;
+                                        width: 5vw;
                                     }
                             }
                         }

@@ -19,9 +19,12 @@
     <script src="./assets/js/jquery-ui.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/4.3.1/fabric.js"></script>
+    <script src="http://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
     <!-- google -->
     <!-- <meta name="google-signin-scope" content="profile email"> -->
-    <meta name="google-signin-client_id" content="5123688312-hh38n162r8fqfrd31n2a2hid0q7pk7uf.apps.googleusercontent.com">
+    <meta name="google-signin-client_id"
+        content="5123688312-hh38n162r8fqfrd31n2a2hid0q7pk7uf.apps.googleusercontent.com">
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <!-- google -->
 </head>
@@ -97,6 +100,10 @@
                 </div>
                 <div class="pos_center">
                     <div class="font_color">
+                        <button type="button" class="delete" onclick="messageDel()"><i class="fas fa-times"></i>
+                            DEL</button>
+                        <i class="fas fa-pen"></i>
+                        <i class="fas fa-eraser"></i>
                         <div class="color">
                             <label>color</label>
                             <input type="color" min="0" max="150" id="shadowColorInput" onchange="changeLineColor()">
@@ -115,7 +122,8 @@
                         <div class="size">
                             <!-- <p>SIZE</p> -->
                             <label>size</label>
-                            <input class="input-range" orient="vertical" type="range"  min="0" max="100" value="1" onchange="changeLineWidth()">
+                            <input class="input-range" orient="vertical" type="range" min="0" max="100" value="1"
+                                onchange="changeLineWidth()">
                             <!-- <div class="line1"></div>
                             <div class="line2"></div> -->
                         </div>
@@ -124,14 +132,14 @@
                         <div class="postcard">
                             <div class="postcard_send">
                                 <div class="postcard_bg">
-                                    <canvas id='canvas'></canvas>
+                                    <canvas id='canvas' width="690px" height="390px"></canvas>
                                     <div class="postcard_title">
-                                    <img src="./assets/img/postcard/logo_bowu_white.png" alt="">
-                                    <h3>BOWU MUSEUM <br>
-                                        <span>by Name Surname</span>
-                                    </h3>
+                                        <img src="./assets/img/postcard/logo_bowu_white.png" alt="">
+                                        <h3>BOWU MUSEUM <br>
+                                            <span>by Name Surname</span>
+                                        </h3>
                                     </div>
-                                    
+
                                     <!-- <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
                                         tempor.
                                     </p> -->
@@ -159,8 +167,10 @@
                                 <textarea name="" class="pos_textbox" cols="30" rows="10"
                                     placeholder="Message:"></textarea>
                                 <div class="btn">
-                                    <button type="button" class="save" onclick="messageSave()"><i class="far fa-circle"></i> SAVE</button>
-                                    <button type="button" class="delete" onclick="messageDel()"><i class="fas fa-times"></i> DEL</button>
+                                    <button type="button" class="save" onclick="messageSave()"><i
+                                            class="far fa-circle"></i> SAVE</button>
+                                    <button type="button" class="delete" onclick="messageDel()"><i
+                                            class="fas fa-times"></i> DEL</button>
                                 </div>
                             </div>
                         </div>
@@ -205,8 +215,8 @@
                     <h1>明信片完成:</h1>
                     <h2>Your email / address:</h2>
                     <input type="text" name="" class="email_text">
-                    <input type="submit" value="SEND" class="submit">
-                    <input type="button" value="DOWNLOAD" class="submit">
+                    <input type="submit" value="SEND" class="submit send">
+                    <input type="button" value="DOWNLOAD" class="submit" id="btnSave" onclick="screenshot()">
                 </section>
             </div>
         </div>
@@ -319,8 +329,8 @@
 </body>
 <!-- <script src="./assets/js/script.js"></script> -->
 <script src="./assets/js/postcard.js"></script>
-<script src="./assets/js/scriptBlack.js"></script>
-<script src="./assets/js/exhibition.js"></script>
+<script src="./assets/js/menuGold.js"></script>
+<!-- <script src="./assets/js/exhibition.js"></script> -->
 <script src="./assets/js/loginFB.js"></script>
 <script src="./assets/js/loginGoogle.js"></script>
 <script src='./assets/js/music.js'></script>

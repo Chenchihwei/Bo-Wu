@@ -61,14 +61,113 @@ $break-points: (
 	lg: $break-point-lg,
 	xl: $break-point-xl,
 );
-
+@mixin ipad {
+	@media (max-width:$break-point-md){
+	  @content;
+	}
+  }
+  @mixin phone {
+	@media (max-width:$break-point-xs){
+	  @content;
+	}
+  }
 * {
 	text-decoration: none;
 }
+.unexhibition_img_choose{
+	outline: 1px solid white;
+	outline-offset: -10px;
+};
 
 .wrapper {
 	display: flex;
-
+	.biddingEdit{
+		position: fixed;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		margin: auto;
+		width: 50.2vw;
+		height: 52.9vh;
+		// display: none;
+		background-image: url('../../img/Group 452.png');
+		background-attachment: fixed;
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+		@include ipad{
+		  height: 40.9vh;
+		}
+		@include phone{
+		  height: 64.9vh;
+		}
+		.editTitle{
+		  background-color: #efefef;
+		  font-size: 2rem;
+		  display: flex;
+		  align-content: center;
+		  justify-content: center;
+		  margin: 2vh 0;
+		  padding: 1vh 0;
+		  position: relative;
+		  p{
+			letter-spacing: 5px;
+		  }
+		  img{
+			position: absolute;
+			right: 1%;
+			width: 2vw;
+			@include ipad{
+			  width: 3vw;
+			}
+		  }
+		}
+		.information{
+		  position: relative;
+		  margin: 0 5vw;
+		  width: 35vw;
+		  h1{
+			font-size: 3.4375rem;
+			margin-bottom: 2vh;
+		  }
+		  p{
+			font-size: 1.5rem;
+			line-height: 1.5;
+			margin-bottom: 2vh;
+		  }
+		  label{
+			font-size: 2rem;
+			input{
+			  outline: none;
+			  border:none;
+			  border-bottom: 1px solid black;
+			  @include phone{
+				margin-bottom: 1vh;
+			  }
+			}
+		  }
+		  button{
+			position: absolute;
+			right: -20%;
+			bottom: 0;
+			padding: .5vh 2vw;
+			border-radius: 20px;
+			border:1px solid #3E3E3E;
+			outline: none;
+			@include ipad{
+			  right: 25%;
+			  bottom: -18%;
+			}
+			@include phone{
+			  right: 0;
+			  left: 0;
+			  margin: auto;
+			  bottom: -12%;
+			}
+		  }
+		}
+	  }
 	.rightbar {
 		padding-left: PxToVw(69);
 		box-sizing: border-box;
@@ -334,7 +433,9 @@ $break-points: (
 						margin-top: 25px;
 						margin-left: 14px;
 						display: flex;
-
+						flex-wrap: wrap;
+						height:23vh;
+						overflow-y: auto;
 						img {
 							margin-right: 1px;
 							width: 180px;
@@ -727,6 +828,19 @@ $break-points: (
 						.authority_image {
 							width: PxToVw(574);
 							margin-left: 30px;
+							display: flex;
+							flex-wrap:wrap;
+							.authority_div{
+								margin-left: 5px;
+								position: relative;
+								p{
+									font-size: 20px;
+									position: absolute;
+									left: 50%;
+									top: 50%;
+									transform: translate(-50%,-50%);
+								}
+							}
 							img {
 								width: 180px;
 								height: 178px;

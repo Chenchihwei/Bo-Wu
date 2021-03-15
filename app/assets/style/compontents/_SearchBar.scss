@@ -50,11 +50,18 @@
             height: 23px;
             margin-left: 20px;
             display: flex;
-            border-bottom: 3px solid #e5e5e5;
-         // outline: 2px solid chocolate;
-            
-            &:hover div,&:hover a{
-                display: block;
+            border-bottom: 2px solid #e5e5e5;
+            // outline: 2px solid chocolate;
+            ul{
+                li{
+                    ul{
+                        margin-top: 1vh;
+                        display: none;
+                    }
+                }
+                &:hover ul{
+                    display: block;
+                }
             }
             
             @include mobile{
@@ -63,27 +70,27 @@
             }
         }
         .logOut{
-            display: none;
+            // display: none;
 
-            position: absolute;
-            top: 140%;
-            left: 20px;
+            // position: absolute;
+            // top: 140%;
+            // left: 20px;
 
-            width: 60px;
-            height: 25px;
-            background-color: #e5e5e56e;
-            border-radius: 13px;
-            text-align: center;
-            line-height: 25px;
-            a{
-                color: gray;
-            }
-            &:hover{
-                background-color: #e5e5e5e7;
-                a{
-                    color: black;
-                }
-            }
+            // width: 60px;
+            // height: 25px;
+            // background-color: #e5e5e56e;
+            // border-radius: 13px;
+            // text-align: center;
+            // line-height: 25px;
+            // a{
+            //     color: gray;
+            // }
+            // &:hover{
+            //     background-color: #e5e5e5e7;
+            //     a{
+            //         color: black;
+            //     }
+            // }
         }
     }
     .fa-user-friends {
@@ -356,7 +363,8 @@
     }
     
 }
-
-
 // search Bar popUp end
+
+
+
 

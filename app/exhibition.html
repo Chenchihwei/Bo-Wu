@@ -10,9 +10,21 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
     <!-- <link rel="stylesheet" href="./css/header_footer.css"> -->
     <link rel=" stylesheet" href="./assets/css/all.css">
+    <link rel="stylesheet" href='./assets/css/pages/signin.css'>
     <link rel=" stylesheet" href="./assets/css/pages/exhibition.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.js"></script>
     <script src="./assets/js/jquery-3.5.1.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
+    <!-- google -->
+    <!-- <meta name="google-signin-scope" content="profile email"> -->
+    <meta name="google-signin-client_id"
+        content="5123688312-hh38n162r8fqfrd31n2a2hid0q7pk7uf.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
 </head>
 
 <body>
@@ -97,7 +109,7 @@
         </div>
         <div class="exhibition_bottom">
             <div class="exhibition_bottom_pic">
-                <ul>
+                <ul class="work_ul">
                     <li class="exb_pic">
                         <img src="./assets/img/exhibition/exh_4.jpg" alt="">
                         <div class="product_like">
@@ -345,14 +357,16 @@
 
     </div>
     <div class="exhibition_cover none"></div>
-    <div class="musicControlBtn">
+    @@include('./compontents/music.html')
+
+    <!-- <div class="musicControlBtn">
         <div class="musicControlBtnSpan">
             <span class="line1"></span>
             <span class="line2"></span>
             <span class="line3"></span>
         </div>
         <p>Music on/ off</p>
-    </div>
+    </div> -->
 
     <!-- <footer>
         <ul>
@@ -376,8 +390,13 @@
             <li><a href="#"><img src="./img/IconYoutube.png"></a></li>
         </ol>
     </footer> -->
-    <script src="./assets/js/scriptBlack.js"></script>
+    <script src="./assets/js/menu.js"></script>
     <script src="./assets/js/exhibition.js"></script>
+    <script src="./assets/js/loginFB.js"></script>
+    <script src="./assets/js/loginGoogle.js"></script>
+    <script src='./assets/js/music.js'></script>
+    <script src='./assets/js/verify.js'></script>
+    <script src='./assets/js/logIn.js'></script>
     <script>
 
     </script>

@@ -19,7 +19,7 @@
         if(getExtensionName($filePath)=='jpg'||getExtensionName($filePath)=='png'||getExtensionName($filePath)=='gif'){
         //將暫存檔搬移到正確位置
         move_uploaded_file($filePath_Temp, $filePath);
-        $sqlfilePath = "./img/postcard/".$fileName;
+        $sqlfilePath = "./assets/img/postcard/".$fileName;
         // 顯示檔案資訊
         echo $sqlfilePath;
         echo "|";
