@@ -64,7 +64,7 @@
 
   <div class="wrapper">
     <div class="title">
-      <h1>Exhibits of Universe</h1>
+      <h1>Exhibits of BoWu</h1>
       <div class="gray"></div>
     </div>
 
@@ -83,9 +83,10 @@
 
 
       <div class="container_left">
+
         <div class="like">
-          <span class="material-icons">favorite</span>
-          <p>1314</p>
+          <span  :class="{'like_red':like_red}"  class="material-icons like_php" @click="like_plus($event)">favorite</span>
+          <p>{{like_num}}</p>
         </div>
 
         <div class="work">
@@ -106,25 +107,25 @@
             <li>
               <a href="#">
                 <span></span>
-                <p>01</p>
+                <p>宇宙</p>
               </a>
             </li>
             <li>
               <a href="#">
                 <span></span>
-                <p>02</p>
+                <p>海洋</p>
               </a>
             </li>
             <li>
               <a href="#">
                 <span></span>
-                <p>03</p>
+                <p>森林</p>
               </a>
             </li>
             <li>
               <a href="#">
                 <span></span>
-                <p>04</p>
+                <p>地底</p>
               </a>
             </li>
 
@@ -167,29 +168,36 @@
         // imgURL:' ./assets/img/3d/Image.png',
         imgURL: '',
         id: temp[1],
+        like_num:'',
+        like_red:false,
+        like_numNew:'',
       },
       mounted() {
 
         const params = new URLSearchParams()
-        params.append('ID', this.id)
+      params.append('ID', this.id)
 
-        axios({
-          method: 'post',
-          url: './assets/php/front/moon.php',
-          headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-          },
-          data: params,
-
-        }).then((res) => {
+      axios({
+        method: 'post',
+        url: './assets/php/front/moon.php',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        data: params,
+          
+        }).then((res)=>{
           this.title = res.data[0].work_name;
           this.message = res.data[0].work_introduce;
           this.imgURL = res.data[0].img_path;
+          this.like_num = res.data[0].like_num;
+          console.log(res.data[0].like_num);
 
           console.log(res.data[0].work_name)
-        }).catch((err) => {
+        }).catch((err)=>{
           console.log(err);
-        })
+        });
+
+
       },
 
 
@@ -202,8 +210,8 @@
             this.id = 11;
           };
           this.id++;
-
-          window.location.href = `http://localhost/dist/moon.html?work_id=${this.id}`;
+          // url = "member_pre.html?advance_id=" + advance_memberid;
+          window.location.href = `moon.html?work_id=${this.id}`;
         },
         changePage_minus() {
           // console.log(123);
@@ -211,10 +219,44 @@
             this.id = 48;
           };
           this.id--;
-          window.location.href = `http://localhost/dist/moon.html?work_id=${this.id}`;
+          window.location.href = `moon.html?work_id=${this.id}`;
+
+        },
+                like_plus(e){
+          this.like_red=true;
+          
+          console.log(e.target.classList.contains('like_red'));
+          
+          // this.like_num++;
+          if(!e.target.classList.contains('like_red')){
+            this.like_num++;
+          }else{
+            this.like_red=false;
+            this.like_num--;
+          };
+
+          const param = new URLSearchParams()
+          param.append('ID', this.id)
+          param.append('like_num', this.like_num)
+          // let like_num = this.like_num;
+          // let id = this.id;
+          // console.log(id);
+          // console.log(like_num);
+          axios({
+            method: 'post',
+            url: './assets/php/front/moon_likeUpdate.php',
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            data:param,
+              
+            }).then((res)=>{
+              console.log(res);
+            }).catch((err)=>{
+              console.log(err);
+            });
 
         }
-
 
 
       }
