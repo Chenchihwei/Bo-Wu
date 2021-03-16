@@ -14,29 +14,21 @@
     //建立PDO物件，並放入指定的相關資料
     $pdo = new PDO($dsn, $db_user, $db_pass);
     
-    
-    //$member_id = 1;//尚未處理會員編號
+    /////
+    $member_id = 1;//尚未處理會員編號
 
     $_POST =json_decode(file_get_contents("php://input",true));// axios post做轉換
 
     $work_id = $_POST->work_id;
     if(isset( $_POST->price)){//要不要insert
-    
+
     $price = $_POST->price;// 抓POST的DATA物件中的PRICE
-    $id = $_POST->id;
     $time = $_POST->time;
 
-    // echo $price;
-    
-    // echo $id;
-    
-    // echo $time;
-
-    $sql = "INSERT INTO `team3`.`bidding_price` (`work_id`, `member_id`, `bidding_price`,`bidding_time`) VALUES (:work_id,:id,:price,:time)";//member_id
+    $sql = "INSERT INTO `team3`.`bidding_price` (`work_id`, `member_id`, `bidding_price`,`bidding_time`) VALUES (:work_id, :member_id, :price,:time)";
     $biddlist = $pdo->prepare($sql);
     $biddlist->bindValue(':work_id',$work_id);
-    // $biddlist->bindValue(':member_id',$member_id);
-    $biddlist->bindValue(':id',$id);
+    $biddlist->bindValue(':member_id',$member_id);
     $biddlist->bindValue(':price',$price);
     $biddlist->bindValue(':time',$time);
     $biddlist->execute();
@@ -49,18 +41,14 @@
 
     
 
-    // $sql1= "SELECT * 
-    // FROM bidding_price bp
-    //     join member m
-    //     on  bp.member_id = m.member_id
-    // where work_id = ? order by bidding_price_id desc";
+    $sql1= "SELECT * FROM team3.bidding_price where work_id = ? order by bidding_price_id desc";
 
-    // $biddlistReturn = $pdo->prepare($sql1);
-    // $biddlistReturn->bindValue(1,$work_id);
-    // $biddlistReturn->execute();
-    // $data = $biddlistReturn->fetchAll(PDO::FETCH_ASSOC);
+    $biddlistReturn = $pdo->prepare($sql1);
+    $biddlistReturn->bindValue(1,$work_id);
+    $biddlistReturn->execute();
+    $data = $biddlistReturn->fetchAll(PDO::FETCH_ASSOC);
 
-    // echo json_encode($data);
+    echo json_encode($data);
 
 
     // $sql = "SELECT * FROM member  ";  //作業
