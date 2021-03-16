@@ -26,10 +26,7 @@
   <script src="https://apis.google.com/js/platform.js" async defer></script>
   <!-- google -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
-  
-  
 </head>
-
 <body>
   @@include('./compontents/head.html')
   <div id="app_bidd">
@@ -38,7 +35,7 @@
       <h1>競標商品</h1>
       <div></div>
       <h2>Buy the goods you like!</h2>
-      <p>et dolore magna aliqua.</p>
+      <p>Enjoy your bidding time.</p>
     </div>
     <div class="swiper-container">
       <button class="swiper-button-prev"></button>
@@ -64,11 +61,11 @@
       <div>競標狀態:
         <span>{{itemMessage}}</span>
       </div>
-      <div>競標倒數:
-        <span>{{itemTime}}</span>
+      <div>競標時間:
+        <span v-if="theId == 1">{{ timer | hoursMinutesAndSeconds }}</span>
+        <span v-else>{{itemTime}}</span>
       </div>
     </div>
-
     <div class="introduce">
       <div class="introLeft">
         <h3>競標物品</h3>
@@ -89,12 +86,13 @@
             <div class="yourPrice">
               <div>您的出價:</div>
               <div class="price">
-                <button @click="Nprice -= 1"><img src="./assets/img/-.png"></button>
-                <input v-model.num="Nprice" :value="Nprice">
-                <button @click="Nprice += 1"><img src="./assets/img/+.png"></button>
+                <button @click="inputprice -= 1"><img src="./assets/img/-.png"></button>
+                <!-- <input :value="Nprice"> -->
+                <input :value="inputprice">
+                <button @click="inputprice += 1"><img src="./assets/img/+.png"></button>
               </div>
             </div>
-            <button @click="">我要競標</button>
+            <button class="btn_button" @click=addLocal>我要競標</button>
           </div>
         </div>
       </div>
@@ -103,10 +101,9 @@
           <div @click="content='my-component'">討論區</div>
           <div @click="content='my-component1'">競標紀錄</div>
         </div>
-        <component :is="content"></component>
+        <component :list="newObj"  key='newObj' :is="content"></component>
       </div>
     </div>
-
   </div>
   </div>
   @@include('./compontents/searchbar.html')
@@ -114,76 +111,160 @@
   @@include('./compontents/footer.html')
 <!-- vue -->
   <script>
+    const OneHour = 60 * 60 ;  //一小時的總秒數
     Vue.component('my-component',{
     template:`
     <div class="content">
-          <ul>
-            <li>
-              <p>Andy</p>
+          <ul class='messageform' >
+            <li v-for="message in messages">
+              <h1>{{username}}</h1> 
               <div class="personal">
-                <img src="./assets/img/Ellipse 77.png" alt="">
-                <p>Lorem ipsum dolor sit amet,
-                  consetetur sadipscing elitr, sed
-                  diam nonumy eirmod </p>
-              </div>
-            </li>
-            <li>
-              <p>Andy</p>
-              <div class="personal">
-                <img src="./assets/img/Ellipse 77.png" alt="">
-                <p>Lorem ipsum dolor sit amet,
-                  consetetur sadipscing elitr, sed
-                  diam nonumy eirmod </p>
-              </div>
-            </li>
-            <li>
-              <p>Andy</p>
-              <div class="personal">
-                <img src="./assets/img/Ellipse 77.png" alt="">
-                <p>Lorem ipsum dolor sit amet,
-                  consetetur sadipscing elitr, sed
-                  diam nonumy eirmod </p>
+                <img src="./assets/img/Ellipse 77.png">
+                <p>{{message}}</p>
               </div>
             </li>
           </ul>
-          <div class="message">
-            <form action="">
-              <textarea name="" id="" cols="30" rows="10" placeholder="留言"></textarea>
-              <button>傳送</button>
-            </form>
-
+          <div class="messageblock">
+              <textarea v-model="newMessage"></textarea>
+              <button @click="addmessage">傳送</button>
           </div>
         </div>
-    `
+    `,
+    data(){
+      return{
+        username:'',
+        newMessage:'',
+        messages:[],
+
+
+      }
+    },
+    methods:{
+      addmessage(){
+        // console.log(this.newMessage);
+        // this.messages.push(this.newMessage)
+          if($.inArray(this.newMessage,this.messages)== -1){
+            this.messages.push(this.newMessage)
+          }else{
+            this.newMessage = '';
+          }
+        }
+    },
+    mounted(){
+      axios.get("./assets/php/front/bidding_member.php").then((head) => {
+              console.log(head.data[0].name);
+              this.username = head.data[0].name;
+        }).catch();
+    },
   });
     Vue.component('my-component1',{
     template:`
     <div class="content">
-      <h3>--component1--</h3>
+      <div class="biddinform">
+      <ul class="biddtop">
+        <li>時間</li>
+        <li>競標者</li>
+        <li>價錢</li>
+      </ul>
+      <table class="biddcontent">
+        <tr v-for="item in oldBiddList">
+            <td>{{item.bidding_time}}</td>
+            <td>{{item.member_id}}</td>
+            <td>{{item.bidding_price}}</td>
+        </tr>
+    </table>
+      </div>
     </div>
-    `
+    `,
+    // localstorge 競標紀錄
+    // <tr v-for="item in currentBiddList">
+    //         <td>{{item.time}}</td>
+    //         <td>{{item.person}}</td>
+    //         <td>{{item.price}}</td>
+    //     </tr>
+    props:['list'],
+    data(){
+      return{
+        oldBiddList:[],
+        newObj:this.list,
+        // currentBiddList:this.list,     //localstorge版本 競標紀錄
+      }
+    },
+    mounted() {
+    
+      //localstorge版本 競標紀錄
+      // this.oldBiddList = JSON.parse(localStorage.getItem('biddList')) || [];
+    },
+    updated() {
+        this.newobj_two();
+    },
+    methods:{
+      newobj_two(){
+        setInterval(()=>{
+          this.oldBiddList = this.list;
+        },1000)
+        
+      },
+    },
+    watch: {
+        list: {
+          handler() {
+            this.newobj_two();
+          },
+          immediate:true,
+          deep: true,
+        },
+      },
   });
-
+  
     new Vue({
       el:'#app_bidd',
       data:{
+          username:'',
           active:0,
+          nowTime:'',
           imgList:[],
           dataId:[],
+          newObj:[
+          // {bidding_time:""},
+          // {member_id:""},
+          // {bidding_price:''},
+          ],
           NameList:[],
           Introduce:[],
           SpriceList:[],
           NpriceList:[],
-          ExhibitName:'ImaginaryConstruction',
-          ExhibitIntro:'Introductione here.... Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor.Introductione here...',
-          Sprice:'333',
-          Nprice:888,
+          biddList:[],
+          ExhibitName:'',
+          ExhibitIntro:'',
+          Sprice:null,
+          Nprice:null,
+          inputprice:null,
+          // nowBidding:{
+          //   price:null,
+          //   person:"",
+          //   time:'',
+          // },
+          nowBidding:[],
+          biddverify:[],
           theId: '',
           content:'my-component',
-          itemMessage:'競標中',
-          itemTime:new Date(),
-          imgSrc:'./assets/img/1.png',
+          itemMessage:'尚未選取競標品',
+          timer:OneHour,
+          itemTime:'尚未選取競標品',
+          timeList:[],
+          headshot:"./assets/img/Ellipse 77.png",
+          imgSrc:'./assets/img/exh_5.jpg',
           price: 888,
+      },
+      filters: {
+          hoursMinutesAndSeconds (value) {
+          // let hours = Math.floor(value / 60 * 60);
+          let hours = Math.floor(value / (60 * 60));
+          let minutes = Math.floor((value / 60) % 60);
+	        let seconds = Math.floor(value % 60);
+          return `${hours} : ${minutes} : ${seconds}`;
+        }
       },
       // 抓資料
       mounted() {
@@ -192,11 +273,12 @@
               for(let i = 0; i<=res.data.length;i++){
                 this.imgList.push(res.data[i].img_path);
                 this.dataId.push(res.data[i].work_id);
-                this.itemTime = res.data[i].bidding_time;
+                this.timeList.push(res.data[i].bidding_time);
                 this.NameList.push(res.data[i].work_name);
                 this.Introduce.push(res.data[i].work_introduce);
                 this.SpriceList.push(res.data[i].start_price);
-                this.NpriceList.push(res.data[i].now_price)
+                this.NpriceList.push(res.data[i].now_price);
+                this.biddverify.push(res.data[i].bidding_verify);
                 // console.log(this.imgList)
               }
         }).catch();
@@ -205,6 +287,8 @@
         //     this.imgList = product.imgList;
         //     this.ExhibitName = product.ExhibitName[0];
         // },500);
+        //this.newObj = JSON.parse(localStorage.getItem('biddList'))||[];
+        setInterval(() => this.timer -= 1, 1000);
       },
       methods: {
         change(index){
@@ -212,19 +296,112 @@
                 },
         getData(e){
               this.theId = e.target.dataset.id;   
-              this.imgSrc = `./assets/img/${this.theId}.png`;
-              this.ExhibitName = this.NameList[this.active];
-              this.ExhibitIntro = this.Introduce[this.active];
-              this.Sprice = this.SpriceList[this.active];
-              this.Nprice = this.NpriceList[this.active]*1;
-
+              // this.imgSrc = `./assets/img/${this.theId}.png`;
+              // this.imgSrc = `./assets/img/exh_${this.theId}.jpg`;
+              this.imgSrc = this.imgList[this.theId];
+              this.ExhibitName = this.NameList[this.theId];
+              this.ExhibitIntro = this.Introduce[this.theId];
+              this.Sprice = this.SpriceList[this.theId]*1;
+              this.Nprice = this.NpriceList[this.theId];
+              this.inputprice = this.Sprice;
+              this.itemTime = this.timeList[this.theId];
+              let nowStatus ;
+              //他可不可以競標
+              //如果他可以競標我再每秒刷新
+              setInterval(() => this.Getbiddlist(), 1000);
+              ///////
+              for(let status in this.biddverify){
+                // console.log(status);
+                // nowStatus = this.biddverify[status];
+              if(this.biddverify[status] == '1' && (this.theId-1) == status){
+            
+                this.itemMessage = '競標中';
+                return
+              }else{
+                // console.log(2);
+                this.itemMessage = '尚未競標';
+                this.itemTime = this.timeList[this.theId];
+              }}
+              // let biddid = this.biddverify[this.theId];
+              // if(biddid = "1"){
+              //   this.itemMessage = '競標中'
+              // }else{
+              //   this.itemMessage = '尚未競標'
+              // }
+              
+        },
+        Getbiddlist(){
+          // console.log(this.theId);
+          this.newObj = {
+                  bidding_time:'',
+                  member_id:'',
+                  bidding_price:null,
+                };
+          axios.post('./assets/php/front/biddingpost.php',{'work_id':this.theId})
+              .then((res) => { //console.log(res.data);
+                this.newObj = res.data
+                this.Nprice = res.data[0].bidding_price;
+                // console.log(this.newObj)
+                //  this.newObj.push(res.data[0]); 
+          }).catch();
+        },
+        addLocal(){
+          // local版 假資料
+          this.nowBidding={
+            price:this.inputprice,
+            //person:'Andy',
+            time:this.timeFormate,
+            work_id:this.theId
+          };
+          
+            if(this.inputprice>this.Nprice)
+            {
+              // local版本 代資料 
+              // this.newObj.push(this.nowBidding);              
+              // localStorage.setItem('biddList',JSON.stringify(this.newObj));
+              // 資料由php帶入
+              axios.post('./assets/php/front/biddingpost.php', this.nowBidding)
+              .then((res) => { 
+                console.log(res.data[0])
+                this.nowBidding={
+                  price:res.data[0].bidding_price,
+                  person:res.data[0].work_id,
+                  time:res.data[0].bidding_time
+                }
+              })
+              //.catch((error) => { console.error(error) })
+            }else{
+              alert('出價須高於目前價格')
+            }
+              console.log(this.nowBidding);
+              console.log(res.data);
+              
 
         },
+        //留言板格式
+            // <li>
+            //   <p>Andy</p>
+            //   <div class="personal">
+            //     <img src="./assets/img/Ellipse 77.png" alt="">
+            //     <p>Lorem ipsum dolor sit amet,
+            //       consetetur sadipscing elitr, sed
+            //       diam nonumy eirmod </p>
+            //   </div>
+            // </li>
       },
       computed:{
         total(){
                 return this.imgList.length
-              }
+              },
+                 // 得到當下時間
+        timeFormate() {
+        let newdate = new Date();
+        let hh    = newdate.getHours() < 10? "0" + newdate.getHours(): newdate.getHours();
+        let mm    = newdate.getMinutes() < 10? "0" + newdate.getMinutes(): newdate.getMinutes();
+        let ss    = newdate.getSeconds() < 10? "0" + newdate.getSeconds(): newdate.getSeconds();
+        this.nowTime = hh.toString()+":"+mm.toString() + ":" + ss.toString();
+        return this.nowTime
+        },
       },
       // watch:{
       //   count:function(val){
@@ -240,7 +417,6 @@
       slidesPerView: 4,
       centeredSlides: false,
       spaceBetween: 0,
-
       navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
@@ -251,7 +427,7 @@
 </body>
 <!-- <script src="./assets/js/script.js"></script> -->
 <script src="./assets/js/scriptBlack.js"></script>
-<script src="./assets/js/exhibition.js"></script>
+<!-- <script src="./assets/js/exhibition.js"></script> -->
 <script src="./assets/js/loginFB.js"></script>
 <script src="./assets/js/loginGoogle.js"></script>
 <script src='./assets/js/music.js'></script>

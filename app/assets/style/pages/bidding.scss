@@ -168,7 +168,7 @@ body{
           background-color:none !important;
           border:0;
           color:map-get($color,'black');
-          z-index: 5 !important;
+          
         }
     }
     .bidding{
@@ -229,7 +229,7 @@ body{
           }
           .pic{
             img{
-              width: 100%;
+              width: 30vw;
             }
             @include phone{
               margin-bottom: 2vh;
@@ -282,9 +282,9 @@ body{
               }
               .price{
                 display: flex;
-                justify-content: space-between;
+                justify-content:space-between;
                 align-items: center;
-                margin-top: 5vh;
+                margin-top: 7vh;
                 border-bottom: 1px solid black;
                 @include ipad{
                   margin-top: 2.0vh;
@@ -292,18 +292,35 @@ body{
                 @include phone{
                   margin: 2vh;
                 }
-                img{
-                  cursor: pointer;
-                }
-                div{
-                  font-size: 2.5rem;
+                input{
+                  border:none;
+                  background-color:transparent;
+                  outline: none;
+                  text-align: center;
+                  height: 15vh;
+                  font-size: 20px;
+                  font-style: oblique;
+                }               
+                button{
+                  border:0;
+                  outline: none;
+                  img{                  
+                    width: 2vw;
+                    border:0;
+                  }
+                  &{
+                    cursor: pointer;
+                    
+                  }
                 }
               }
+
             }
-            button{
+            .btn_button{
               margin-top: 5vh;
               font-size: 1.5rem;
               width: 17.3vw;
+              // border:0;
               border-radius: 100px;
               cursor: pointer;
               outline: none;
@@ -340,21 +357,58 @@ body{
             background-color: #2E2824;
             color:white;
           }
+          
           :nth-child(2){
             background-color: #FBFBF6;
           }
           
         }
         .content{
+            width: 18vw;
+            height: 949px;
+          .biddinform{
+            width: 100%;
+            height: 100%;
+          .biddtop{
+            display:flex;
+            background-color:map-get($color,'gray');
+            font-size: 24px;
+            flex-grow: 1;
+            flex-basis: 33%;
+            text-align: center;
+            justify-content: space-around;
+            margin-top: 1vh;
+            // :nth-child(1),:nth-child(2) {
+            //   border-right: 2px solid black;
+            // }
+          }
+          .biddcontent{
+            border:1px;
+            display: block;
+            border-collapse: initial;
+            border-spacing: 27px;
+            width: 334px;
+            height: 100%;
+            font-size: 24px;
+            border: 1px;
+            overflow-y: auto;
+            td{
+              width: 120px;
+            }
+          }
+          }
           border :1px solid  black;
           background-color: #ffffff;
+          
           @include ipad{
             display: flex;
           }
           @include phone{
             display: block;
           }
-          ul{
+          .messageform{
+            width: 100%;
+            height: 76%;
             flex-direction: column;
             padding: 1vh 1vw;
             @include ipad{
@@ -364,12 +418,14 @@ body{
               background-color: #ffffff;
             }
             li{
+              width: 80%;
               background-color: #F7F7F7;
               padding: 1vh 1vw;
               margin: 1vh;
               border:1px solid #EAEAEA;
-              p{
+              h1{
                 font-size: 1.5rem;
+                margin-bottom: 1vh;
                 @include phone{
                   font-size: 2.0rem;
                 }
@@ -391,8 +447,11 @@ body{
               }
             }
           }
-          .message{
+          .messageblock{
             border-top :1px solid  black;
+            @include notebook{
+
+            }
             @include ipad{
               border-left: 1px solid black;
               border-top: none;
@@ -401,19 +460,21 @@ body{
               border-left: none;
               border-top: 1px solid black;
             }
-            form{
-              position: relative;
-              background-color: white;
+            //form{
+              // position: relative;
+              // background-color: white;
               textarea{
+                width: 17.8vw;
+                height: 200px;
                 font-size: 1.5rem;
                 border:none;
-                resize : none;
+                resize :none;
                 &:focus{outline:none;}
               }
               button{
                 position: absolute;
-                right: 5%;
-                bottom: 5%;
+                right: 9%;
+                bottom: 6%;
                 background-color: white;
                 font-size: 1.25rem;
                 @include ipad{
@@ -423,7 +484,7 @@ body{
                   bottom: 5%;
                 }
               }
-            }
+            //}
           }
         }
       }
