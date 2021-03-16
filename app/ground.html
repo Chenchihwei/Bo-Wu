@@ -67,9 +67,7 @@
   <div class="container">
 
     <div class="imgAll">
-      <a href="moon.html">
-        <img src="./assets/img/underground/gemstone.jpg">
-      </a>
+      <div class="3d"></div>
       <!-- <img src="./assets/img/underground/fossil01.jpg" alt="">
       <img src="./assets/img/underground/plantFossil01.jpg" alt="">
       <img src="./assets/img/underground/e7269f483bf5be55aedb45d8dd3a3b5b.jpg" alt="">
@@ -161,6 +159,187 @@
   </script>
 
 
+
+  <script type="module">
+    import * as THREE from 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r124/three.module.min.js';
+
+    // import Stats from 'https://threejs.org/examples/jsm/libs/stats.module.js';
+
+    import {
+      OrbitControls
+    } from 'https://threejs.org/examples/jsm/controls/OrbitControls.js';
+    import {
+      FBXLoader
+    } from 'https://threejs.org/examples/jsm/loaders/FBXLoader.js';
+
+    let camera, scene, renderer, stats;
+    // let camera2, scene2, renderer2, stats2;
+
+
+    const clock = new THREE.Clock();
+
+    let mixer;
+
+
+    init();
+    // init_2();
+    animate();
+
+    function init() {
+
+      const container = document.createElement('div');
+      document.body.appendChild(container);
+
+      camera = new THREE.PerspectiveCamera(35, window.innerWidth / window.innerHeight, 1, 2000);
+      // camera.position.set(3, 0.5, -2);
+      camera.position.set(1.6, 0, 1.2);
+
+      // camera.lookAt(1, 1, 1);
+      camera.lookAt(1, 1, 1,);
+
+
+      scene = new THREE.Scene();
+      scene.background = new THREE.Color('#FFFFFF');
+      scene.fog = new THREE.Fog('#FFFFFF', 200, 1000);
+
+      const hemiLight = new THREE.HemisphereLight(0xffffff, 0x444444);
+      hemiLight.position.set(0, 2000, 0);
+      scene.add(hemiLight);
+
+      const dirLight = new THREE.DirectionalLight(0xffffff);
+      dirLight.position.set(20, 20, 10);
+      dirLight.castShadow = true;
+      dirLight.shadow.camera.top = 180;
+      dirLight.shadow.camera.bottom = -100;
+      dirLight.shadow.camera.left = -120;
+      dirLight.shadow.camera.right = 120;
+      scene.add(dirLight);
+
+      // scene.add( new THREE.CameraHelper( dirLight.shadow.camera ) );
+
+      // ground
+      // const mesh = new THREE.Mesh(new THREE.PlaneBufferGeometry(2000, 2000), new THREE.MeshPhongMaterial({
+      //   // color: 0x2E2824,
+      //   // color: '#2e2725',
+      //   depthWrite: false
+      // }));
+      // mesh.rotation.x = -Math.PI / 5;
+      // mesh.receiveShadow = true;
+      // scene.add(mesh);
+
+      // const grid = new THREE.GridHelper(200, 20, 0x000000, 0x000000);
+      // grid.material.opacity = 0.2;
+      // grid.material.transparent = true;
+      // scene.add(grid);
+
+
+
+      // model
+      var threed = document.getElementsByClassName('3d')[0];
+      console.log(threed);
+      const loader = new FBXLoader();
+      loader.load('../3d/trex.fbx', function (object) {
+
+        //中心點
+        object.children[0].geometry.computeBoundingBox();
+
+        object.rotation.x = THREE.Math.degToRad(0);
+        object.rotation.y = THREE.Math.degToRad(50);
+        object.rotation.z = THREE.Math.degToRad(0);
+        console.log(- (object.children[0].geometry.boundingBox.max.x + object.children[0].geometry.boundingBox.min.x) / 2);
+        console.log(- (object.children[0].geometry.boundingBox.max.y + object.children[0].geometry.boundingBox.min.y) / 2);
+        console.log(- (object.children[0].geometry.boundingBox.max.z + object.children[0].geometry.boundingBox.min.z) / 2);
+        console.log(object.children[0].geometry.center());
+        // window.addEventListener('resize', function () {
+        // 	player.setSize(window.innerWidth, window.innerHeight);
+        // });
+
+        // var player = new APP.Player();
+        // player.load(JSON.parse(object));
+        // player.setSize(window.innerWidth, window.innerWidth);
+        // player.play();
+
+        // document.getElementsByClassName("3d")[0].appendChild(player.dom);
+        // mixer = new THREE.AnimationMixer(object);
+
+        // const action = mixer.clipAction(object.animations[0]);
+        // let action = mixer.clipAction((obj as any).animations[0]);
+        // action.play();
+
+        // object.traverse(function(child) {
+
+        //     if (child.isMesh) {
+
+        //         child.castShadow = true;
+        //         child.receiveShadow = true;
+
+        //     }
+
+        // });
+
+
+        scene.add(object);
+
+      });
+
+
+      renderer = new THREE.WebGLRenderer({
+        antialias: true
+      });
+      renderer.setPixelRatio(window.devicePixelRatio);
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      renderer.shadowMap.enabled = true;
+      container.appendChild(renderer.domElement);
+
+      const controls = new OrbitControls(camera, renderer.domElement);
+      controls.target.set(0, 0, 0);
+      controls.update();
+
+      window.addEventListener('resize', onWindowResize, false);
+
+      // stats
+      // current.stats = new Stats();
+      // container.appendChild(current.stats.dom);
+
+      var canvas = document.getElementsByTagName('canvas')[0];
+      threed.appendChild(canvas);
+
+    }
+
+
+
+
+
+
+
+    function onWindowResize() {
+
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+
+      renderer.setSize(window.innerWidth, window.innerHeight);
+
+    }
+
+    //
+
+    function animate() {
+
+      requestAnimationFrame(animate);
+
+      const delta = clock.getDelta();
+
+      if (mixer) mixer.update(delta);
+
+      renderer.render(scene, camera);
+      // current.renderer.render(current.scene, camera);
+
+      // current.stats.update();
+
+    }
+
+
+  </script>
 
 
 </body>
