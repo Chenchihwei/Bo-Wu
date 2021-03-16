@@ -4,36 +4,179 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600&family=Montserrat:wght@300&&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="./assets/js/jquery-3.5.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>BoWu_Index</title>
 </head>
-<style>
-    body {
-        background-color: black;
-    }
 
-    .main {
-        width: 90vw;
-        margin: 0 auto;
-    }
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            list-style: none;
 
-    a {
-        font-size: 50px;
-        color: white;
-        text-decoration: none;
-    }
-</style>
+            overflow-y: hidden;
+            overflow-x: hidden;
+
+            cursor: none !important;
+        }
+        a{
+            cursor: none;
+        }
+        .fontEnd > a:hover,.backEnd > a:hover{
+            color: #fff;
+            transition: .6s;
+        }
+        .optionAll{
+            color: #fff;
+            font-family: 'Montserrat';
+            letter-spacing: 5px;
+            font-size: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+
+            text-align: center;
+        }
+        .optionAll a{
+            text-decoration: none;
+            color: rgba(255, 255, 255, .5);
+            font-size: 1.5rem;
+        }
+        a li:first-child{
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+        .optionAll img{
+            width: 150px;
+            margin: 0 15px;
+            opacity: .5;
+        }
+        /* 滑鼠設定 */
+        .cursor{
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 10px;
+            height: 10px;
+            transform: translate(-50%, -50%);
+            background-color: rgb(175, 175, 175);
+            border-radius: 50%;
+            pointer-events: none; 
+            z-index: 1010;
+        }
+        .cursor-outside{
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 50px;
+            height: 50px;
+            border: 1px solid #E5E5E5;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            pointer-events: none; 
+            z-index: 1010;
+        }
+        /* LINK STYLE */
+        .mousehover{
+            text-decoration: none;
+            color: #e5e5e5a2;
+        }
+        .aniImg{
+            animation: into 1s 1s forwards;
+        }
+        @keyframes into {
+            from{ opacity: .5;}
+            to{opacity: .8;}
+        }
+    </style>
 
 <body>
+
+    <!-- CURSOR STYLE -->
+    <div class="cursor"></div>
+    <div class="cursor-outside"></div>
+    
+    <!-- LINK STYLE -->
+    <a href="#" class="mousehover"></a>
+
+    <!-- option -->
     <div class="main">
-        <div class="font">
-            <a href="./homepage.html">前台</a>
-        </div>
-        <div class="back">
-            <a href="./back_memberlist.html">後台</a>
+        <div class="optionAll">
+
+            <div class="fontEnd mousehover" data-aos="zoom-in-left" data-aos-duration="700">
+                <a href="./homepage.html">
+                    <li>前台</li>
+                    <li>FRONT-END</li>
+                </a>
+            </div>
+
+            <img class="aniImg"src="./assets/img/logo_bowu_white.png">
+
+            <div class="backEnd mousehover" data-aos="zoom-in-right" data-aos-duration="1200">
+                <a href="./back_memberlist.html">
+                    <li>後台</li>
+                    <li>BACK-END</li>
+                </a>
+            </div>
         </div>
     </div>
 
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+
+    <script>
+    var circle = document.getElementsByClassName('cursor')[0];
+    var circleOut = document.getElementsByClassName('cursor-outside')[0];
+    // console.log(circle);
+        
+        function moveCircle(e) { 
+            TweenMax.to(circle, 1, {
+                css: { 
+                    left: e.pageX,
+                    top: e.pageY 
+                },
+                ease: Elastic.easeOut
+            });
+            TweenMax.to(circleOut, 1, {
+                css: { 
+                    left: e.pageX,
+                    top: e.pageY 
+                },
+                delay:.05,
+                ease: Elastic.easeOut
+            });
+        };
+        
+        $(window).on('mousemove', moveCircle);
+        
+        $('.mousehover').mouseenter(function(e) {
+            TweenMax.to(circle, 0.2, {
+                scale: 5,
+                backgroundColor: '#e5e5e5a2'
+            });
+        });
+        
+        $('.mousehover').mouseleave(function(e) {
+            TweenMax.to(circle, 0.2, {
+                scale: 1,
+                backgroundColor: 'rgb(175, 175, 175)'
+            });
+        });
+        
+    </script>  
 </body>
 
 </html>
