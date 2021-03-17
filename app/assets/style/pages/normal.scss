@@ -10,7 +10,10 @@
 * {
 	text-decoration: none;
 }
-
+.unexhibition_img_choose{
+	outline: 1px solid white;
+	outline-offset: -10px;
+};
 .wrapper {
 	display: flex;
 
@@ -119,11 +122,11 @@
 					img {
 						cursor: pointer;
 					}
-					input {
-						width: PxToVw(400);
-						height: PxToVh(60);
-						font-size: 32px;
-					}
+					// input {
+					// 	width: PxToVw(400);
+					// 	height: PxToVh(60);
+					// 	font-size: 32px;
+					// }
 				}
 				.artimg {
 					position: relative;
@@ -135,7 +138,9 @@
 						height: PxToVh(508);
 					}
 				}
-
+				.name_rwd {
+					display: none;
+				}
 				.mastername {
 					display: block;
 					width: PxToVw(655);
@@ -149,11 +154,11 @@
 					img {
 						cursor: pointer;
 					}
-					input {
-						width: PxToVw(655);
-						height: PxToVh(49);
-						font-size: 48px;
-					}
+					// input {
+					// 	width: PxToVw(655);
+					// 	height: PxToVh(49);
+					// 	font-size: 48px;
+					// }
 				}
 				.intro {
 					width: PxToVw(655);
@@ -171,10 +176,10 @@
 						display: block;
 						width: 460px;
 					}
-					input {
-						width: PxToVw(655);
-						font-size: 20px;
-					}
+					// input {
+					// 	width: PxToVw(655);
+					// 	font-size: 20px;
+					// }
 				}
 				.visit {
 					display: flex;
@@ -275,6 +280,28 @@
 						.authority_image {
 							width: 574px;
 							margin-left: 30px;
+							display: flex;
+							flex-wrap:wrap;
+							.authority_div{
+								margin-left: 5px;
+								position: relative;
+								p{
+									font-size: 20px;
+									position: absolute;
+									left: 50%;
+									top: 50%;
+									transform: translate(-50%,-50%);
+								}
+							}
+							img {
+								width: 180px;
+								height: 178px;
+							}
+							img:hover {
+								cursor: pointer;
+								outline: 1px solid white;
+								outline-offset: -10px;
+							}
 						}
 
 						.authority_btn {
