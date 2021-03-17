@@ -6,19 +6,19 @@ let form_wrap = document.getElementsByClassName('form-wrap')[0];
 let loginClose = document.getElementsByClassName('loginClose')[0];
 logIn.addEventListener('click', function () {
   if (panel.classList.contains("close")) {
-    loginClose.style.display="block";
+    loginClose.style.display = "block";
     panel.classList.remove('close');
     form_wrap.classList.remove('close');
   } else {
-    loginClose.style.display="none";
+    loginClose.style.display = "none";
     panel.classList.add('close');
     form_wrap.classList.add('close');
   }
 });
-loginClose.addEventListener('click',function(){
+loginClose.addEventListener('click', function () {
   form_wrap.classList.add('close');
   panel.classList.add('close');
-  loginClose.style.display="none";
+  loginClose.style.display = "none";
 });
 //會員登入左右滑動
 (function () {
@@ -60,7 +60,8 @@ loginClose.addEventListener('click',function(){
 function signClose() {
   let panel = document.getElementsByClassName("panel--static")[0];
   panel.classList.add('close');
-  loginClose.style.display="none";
+  form_wrap.classList.add('close');
+  loginClose.style.display = "none";
 }
 //控制是否登入狀況
 let manger = document.getElementsByClassName('manger')[0];
@@ -182,16 +183,16 @@ function getLocalstorage() {
 
 //rwd login
 
-jQuery(document).ready(function($) {
+jQuery(document).ready(function ($) {
   tab = $('.tabs h3 a');
 
-  tab.on('click', function(event) {
-      event.preventDefault();
-      tab.removeClass('active');
-      $(this).addClass('active');
+  tab.on('click', function (event) {
+    event.preventDefault();
+    tab.removeClass('active');
+    $(this).addClass('active');
 
-      tab_content = $(this).attr('href');
-      $('div[id$="tab-content"]').addClass('close');
-      $(tab_content).removeClass('close');
+    tab_content = $(this).attr('href');
+    $('div[id$="tab-content"]').addClass('close');
+    $(tab_content).removeClass('close');
   });
 });
