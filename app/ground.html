@@ -68,278 +68,278 @@
 
     <div class="imgAll">
       <div class="3d"></div>
-      <!-- <img src="./assets/img/underground/fossil01.jpg" alt="">
+      <img src="./assets/img/underground/fossil01.jpg" alt="">
       <img src="./assets/img/underground/plantFossil01.jpg" alt="">
       <img src="./assets/img/underground/e7269f483bf5be55aedb45d8dd3a3b5b.jpg" alt="">
       <img src="./assets/img/underground/rubystone.jpg" alt="">
       <img src="./assets/img/underground/Amethyst.jpg" alt="">
       <img src="./assets/img/underground/fossil03.jpg" alt="">
       <img src="./assets/img/underground/plantFossil02.jpg"" alt="">
-      <img src="./assets/img/underground/megalodon.jpg" alt="">
-      <img src="./assets/img/underground/alligator.jpg"" alt=""> -->
+      <img src=" ./assets/img/underground/megalodon.jpg" alt="">
+      <img src="./assets/img/underground/alligator.jpg"" alt="">
     </div>
 
   </div>
 
-  <ul class="button">
-    <li>
-      <a href="./universe.html">
-        <span></span>
-        <p>宇宙</p>
-      </a>
-    </li>
-    <li>
-      <a href="./ocean.html">
-        <span></span>
-        <p>海洋</p>
-      </a>
-    </li>
-    <li>
-      <a href="./forest.html">
-        <span></span>
-        <p>森林</p>
-      </a>
-    </li>
-    <li>
-      <a href="#" style="color: #2E2824;">
-        <span></span>
-        <p>地底</p>
-      </a>
-    </li>
+  <ul class=" button">
+      <li>
+        <a href="./universe.html">
+          <span></span>
+          <p>宇宙</p>
+        </a>
+      </li>
+      <li>
+        <a href="./ocean.html">
+          <span></span>
+          <p>海洋</p>
+        </a>
+      </li>
+      <li>
+        <a href="./forest.html">
+          <span></span>
+          <p>森林</p>
+        </a>
+      </li>
+      <li>
+        <a href="#" style="color: #2E2824;">
+          <span></span>
+          <p>地底</p>
+        </a>
+      </li>
 
-  </ul>
+      </ul>
 
 
-  <script src="./assets/js/menu.js"></script>
-  <script src="./assets/js/loginFB.js"></script>
-  <script src="./assets/js/loginGoogle.js"></script>
-  <script src='./assets/js/music.js'></script>
-  <script src='./assets/js/verify.js'></script>
-  <script src='./assets/js/logIn.js'></script>
-  <script src="./assets/js/button.js"></script>
+      <script src="./assets/js/menu.js"></script>
+      <script src="./assets/js/loginFB.js"></script>
+      <script src="./assets/js/loginGoogle.js"></script>
+      <script src='./assets/js/music.js'></script>
+      <script src='./assets/js/verify.js'></script>
+      <script src='./assets/js/logIn.js'></script>
+      <script src="./assets/js/button.js"></script>
 
-  <script>
-    // $(window).scroll(doQuery);
-    $(document).ready(function () {
-      doQuery()
-    });
+      <script>
+        // $(window).scroll(doQuery);
+        $(document).ready(function () {
+          doQuery()
+        });
 
-    function doQuery() {
-      // axios.get('./test.php').then((res)=>{
-      //   console.log(res.data); 
-      // })
-      // alert();
-      $.ajax({
-        method: "post",
-        url: "./assets/php/front/work_ground.php",
-        // data: {
-        //     Name: str
-        // },
-        dataType: "text",
-        success: function (response) {
-          //更新html內容
+        function doQuery() {
+          // axios.get('./test.php').then((res)=>{
+          //   console.log(res.data); 
+          // })
+          // alert();
+          $.ajax({
+            method: "post",
+            url: "./assets/php/front/work_ground.php",
+            // data: {
+            //     Name: str
+            // },
+            dataType: "text",
+            success: function (response) {
+              //更新html內容
 
-          document.getElementsByClassName('imgAll')[0].insertAdjacentHTML('beforeend', response);
-        },
-        error: function (exception) {
-          alert("發生錯誤: " + exception.status);
+              document.getElementsByClassName('imgAll')[0].insertAdjacentHTML('beforeend', response);
+            },
+            error: function (exception) {
+              alert("發生錯誤: " + exception.status);
+            }
+          });
+        };
+
+      </script>
+      <script>
+        $('.imgAll').on('click', '.collection_img', function () {
+
+          let work_id = $(this).attr('data-id');
+          // console.log(work_id);
+          url = "moon.html?work_id=" + work_id;
+          window.location.href = url;
+        });
+      </script>
+
+
+
+      <script type="module">
+        import * as THREE from 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r124/three.module.min.js';
+
+        // import Stats from 'https://threejs.org/examples/jsm/libs/stats.module.js';
+
+        import {
+          OrbitControls
+        } from 'https://threejs.org/examples/jsm/controls/OrbitControls.js';
+        import {
+          FBXLoader
+        } from 'https://threejs.org/examples/jsm/loaders/FBXLoader.js';
+
+        let camera, scene, renderer, stats;
+        // let camera2, scene2, renderer2, stats2;
+
+
+        const clock = new THREE.Clock();
+
+        let mixer;
+
+
+        init();
+        // init_2();
+        animate();
+
+        function init() {
+
+          const container = document.createElement('div');
+          document.body.appendChild(container);
+
+          camera = new THREE.PerspectiveCamera(35, window.innerWidth / window.innerHeight, 1, 2000);
+          // camera.position.set(3, 0.5, -2);
+          camera.position.set(1.6, 0, 1.2);
+
+          // camera.lookAt(1, 1, 1);
+          camera.lookAt(1, 1, 1,);
+
+
+          scene = new THREE.Scene();
+          scene.background = new THREE.Color('#FFFFFF');
+          scene.fog = new THREE.Fog('#FFFFFF', 200, 1000);
+
+          const hemiLight = new THREE.HemisphereLight(0xffffff, 0x444444);
+          hemiLight.position.set(0, 2000, 0);
+          scene.add(hemiLight);
+
+          const dirLight = new THREE.DirectionalLight(0xffffff);
+          dirLight.position.set(20, 20, 10);
+          dirLight.castShadow = true;
+          dirLight.shadow.camera.top = 180;
+          dirLight.shadow.camera.bottom = -100;
+          dirLight.shadow.camera.left = -120;
+          dirLight.shadow.camera.right = 120;
+          scene.add(dirLight);
+
+          // scene.add( new THREE.CameraHelper( dirLight.shadow.camera ) );
+
+          // ground
+          // const mesh = new THREE.Mesh(new THREE.PlaneBufferGeometry(2000, 2000), new THREE.MeshPhongMaterial({
+          //   // color: 0x2E2824,
+          //   // color: '#2e2725',
+          //   depthWrite: false
+          // }));
+          // mesh.rotation.x = -Math.PI / 5;
+          // mesh.receiveShadow = true;
+          // scene.add(mesh);
+
+          // const grid = new THREE.GridHelper(200, 20, 0x000000, 0x000000);
+          // grid.material.opacity = 0.2;
+          // grid.material.transparent = true;
+          // scene.add(grid);
+
+
+
+          // model
+          var threed = document.getElementsByClassName('3d')[0];
+          console.log(threed);
+          const loader = new FBXLoader();
+          loader.load('../3d/trex.fbx', function (object) {
+
+            //中心點
+            object.children[0].geometry.computeBoundingBox();
+
+            object.rotation.x = THREE.Math.degToRad(0);
+            object.rotation.y = THREE.Math.degToRad(50);
+            object.rotation.z = THREE.Math.degToRad(0);
+            console.log(- (object.children[0].geometry.boundingBox.max.x + object.children[0].geometry.boundingBox.min.x) / 2);
+            console.log(- (object.children[0].geometry.boundingBox.max.y + object.children[0].geometry.boundingBox.min.y) / 2);
+            console.log(- (object.children[0].geometry.boundingBox.max.z + object.children[0].geometry.boundingBox.min.z) / 2);
+            console.log(object.children[0].geometry.center());
+            // window.addEventListener('resize', function () {
+            // 	player.setSize(window.innerWidth, window.innerHeight);
+            // });
+
+            // var player = new APP.Player();
+            // player.load(JSON.parse(object));
+            // player.setSize(window.innerWidth, window.innerWidth);
+            // player.play();
+
+            // document.getElementsByClassName("3d")[0].appendChild(player.dom);
+            // mixer = new THREE.AnimationMixer(object);
+
+            // const action = mixer.clipAction(object.animations[0]);
+            // let action = mixer.clipAction((obj as any).animations[0]);
+            // action.play();
+
+            // object.traverse(function(child) {
+
+            //     if (child.isMesh) {
+
+            //         child.castShadow = true;
+            //         child.receiveShadow = true;
+
+            //     }
+
+            // });
+
+
+            scene.add(object);
+
+          });
+
+
+          renderer = new THREE.WebGLRenderer({
+            antialias: true
+          });
+          renderer.setPixelRatio(window.devicePixelRatio);
+          renderer.setSize(window.innerWidth, window.innerHeight);
+          renderer.shadowMap.enabled = true;
+          container.appendChild(renderer.domElement);
+
+          const controls = new OrbitControls(camera, renderer.domElement);
+          controls.target.set(0, 0, 0);
+          controls.update();
+
+          window.addEventListener('resize', onWindowResize, false);
+
+          // stats
+          // current.stats = new Stats();
+          // container.appendChild(current.stats.dom);
+
+          var canvas = document.getElementsByTagName('canvas')[0];
+          threed.appendChild(canvas);
+
         }
-      });
-    };
 
-  </script>
-  <script>
-    $('.imgAll').on('click', '.collection_img', function () {
 
-      let work_id = $(this).attr('data-id');
-      // console.log(work_id);
-      url = "moon.html?work_id=" + work_id;
-      window.location.href = url;
-    });
-  </script>
 
 
 
-  <script type="module">
-    import * as THREE from 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r124/three.module.min.js';
 
-    // import Stats from 'https://threejs.org/examples/jsm/libs/stats.module.js';
 
-    import {
-      OrbitControls
-    } from 'https://threejs.org/examples/jsm/controls/OrbitControls.js';
-    import {
-      FBXLoader
-    } from 'https://threejs.org/examples/jsm/loaders/FBXLoader.js';
+        function onWindowResize() {
 
-    let camera, scene, renderer, stats;
-    // let camera2, scene2, renderer2, stats2;
+          camera.aspect = window.innerWidth / window.innerHeight;
+          camera.updateProjectionMatrix();
 
+          renderer.setSize(window.innerWidth, window.innerHeight);
 
-    const clock = new THREE.Clock();
+        }
 
-    let mixer;
+        //
 
+        function animate() {
 
-    init();
-    // init_2();
-    animate();
+          requestAnimationFrame(animate);
 
-    function init() {
+          const delta = clock.getDelta();
 
-      const container = document.createElement('div');
-      document.body.appendChild(container);
+          if (mixer) mixer.update(delta);
 
-      camera = new THREE.PerspectiveCamera(35, window.innerWidth / window.innerHeight, 1, 2000);
-      // camera.position.set(3, 0.5, -2);
-      camera.position.set(1.6, 0, 1.2);
+          renderer.render(scene, camera);
+          // current.renderer.render(current.scene, camera);
 
-      // camera.lookAt(1, 1, 1);
-      camera.lookAt(1, 1, 1,);
+          // current.stats.update();
 
+        }
 
-      scene = new THREE.Scene();
-      scene.background = new THREE.Color('#FFFFFF');
-      scene.fog = new THREE.Fog('#FFFFFF', 200, 1000);
 
-      const hemiLight = new THREE.HemisphereLight(0xffffff, 0x444444);
-      hemiLight.position.set(0, 2000, 0);
-      scene.add(hemiLight);
-
-      const dirLight = new THREE.DirectionalLight(0xffffff);
-      dirLight.position.set(20, 20, 10);
-      dirLight.castShadow = true;
-      dirLight.shadow.camera.top = 180;
-      dirLight.shadow.camera.bottom = -100;
-      dirLight.shadow.camera.left = -120;
-      dirLight.shadow.camera.right = 120;
-      scene.add(dirLight);
-
-      // scene.add( new THREE.CameraHelper( dirLight.shadow.camera ) );
-
-      // ground
-      // const mesh = new THREE.Mesh(new THREE.PlaneBufferGeometry(2000, 2000), new THREE.MeshPhongMaterial({
-      //   // color: 0x2E2824,
-      //   // color: '#2e2725',
-      //   depthWrite: false
-      // }));
-      // mesh.rotation.x = -Math.PI / 5;
-      // mesh.receiveShadow = true;
-      // scene.add(mesh);
-
-      // const grid = new THREE.GridHelper(200, 20, 0x000000, 0x000000);
-      // grid.material.opacity = 0.2;
-      // grid.material.transparent = true;
-      // scene.add(grid);
-
-
-
-      // model
-      var threed = document.getElementsByClassName('3d')[0];
-      console.log(threed);
-      const loader = new FBXLoader();
-      loader.load('../3d/trex.fbx', function (object) {
-
-        //中心點
-        object.children[0].geometry.computeBoundingBox();
-
-        object.rotation.x = THREE.Math.degToRad(0);
-        object.rotation.y = THREE.Math.degToRad(50);
-        object.rotation.z = THREE.Math.degToRad(0);
-        console.log(- (object.children[0].geometry.boundingBox.max.x + object.children[0].geometry.boundingBox.min.x) / 2);
-        console.log(- (object.children[0].geometry.boundingBox.max.y + object.children[0].geometry.boundingBox.min.y) / 2);
-        console.log(- (object.children[0].geometry.boundingBox.max.z + object.children[0].geometry.boundingBox.min.z) / 2);
-        console.log(object.children[0].geometry.center());
-        // window.addEventListener('resize', function () {
-        // 	player.setSize(window.innerWidth, window.innerHeight);
-        // });
-
-        // var player = new APP.Player();
-        // player.load(JSON.parse(object));
-        // player.setSize(window.innerWidth, window.innerWidth);
-        // player.play();
-
-        // document.getElementsByClassName("3d")[0].appendChild(player.dom);
-        // mixer = new THREE.AnimationMixer(object);
-
-        // const action = mixer.clipAction(object.animations[0]);
-        // let action = mixer.clipAction((obj as any).animations[0]);
-        // action.play();
-
-        // object.traverse(function(child) {
-
-        //     if (child.isMesh) {
-
-        //         child.castShadow = true;
-        //         child.receiveShadow = true;
-
-        //     }
-
-        // });
-
-
-        scene.add(object);
-
-      });
-
-
-      renderer = new THREE.WebGLRenderer({
-        antialias: true
-      });
-      renderer.setPixelRatio(window.devicePixelRatio);
-      renderer.setSize(window.innerWidth, window.innerHeight);
-      renderer.shadowMap.enabled = true;
-      container.appendChild(renderer.domElement);
-
-      const controls = new OrbitControls(camera, renderer.domElement);
-      controls.target.set(0, 0, 0);
-      controls.update();
-
-      window.addEventListener('resize', onWindowResize, false);
-
-      // stats
-      // current.stats = new Stats();
-      // container.appendChild(current.stats.dom);
-
-      var canvas = document.getElementsByTagName('canvas')[0];
-      threed.appendChild(canvas);
-
-    }
-
-
-
-
-
-
-
-    function onWindowResize() {
-
-      camera.aspect = window.innerWidth / window.innerHeight;
-      camera.updateProjectionMatrix();
-
-      renderer.setSize(window.innerWidth, window.innerHeight);
-
-    }
-
-    //
-
-    function animate() {
-
-      requestAnimationFrame(animate);
-
-      const delta = clock.getDelta();
-
-      if (mixer) mixer.update(delta);
-
-      renderer.render(scene, camera);
-      // current.renderer.render(current.scene, camera);
-
-      // current.stats.update();
-
-    }
-
-
-  </script>
+      </script>
 
 
 </body>

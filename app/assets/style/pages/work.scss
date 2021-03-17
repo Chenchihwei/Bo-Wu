@@ -105,6 +105,9 @@ body::-webkit-scrollbar{
       height: 60vh !important;
       grid-area: big1 !important; 
       margin-left: 340px;     
+      @include mobile{
+        display: none !important;
+      }
   }
 
     @include notebook{
