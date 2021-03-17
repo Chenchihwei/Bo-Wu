@@ -2,23 +2,20 @@ let logOut = document.getElementsByClassName('logOut')[0];
 //會員登入彈窗
 let logIn = document.getElementsByClassName("login_manger")[0];
 let panel = document.getElementsByClassName("panel--static")[0];
-let block = document.getElementsByClassName('block');
-
-
+let form_wrap = document.getElementsByClassName('form-wrap')[0];
+let loginClose = document.getElementsByClassName('loginClose')[0];
 logIn.addEventListener('click', function () {
   if (panel.classList.contains("close")) {
+    loginClose.style.display="block";
     panel.classList.remove('close');
-    for (let i = 0; i < block.length; i++) {
-      block[i].style.opacity = '0.5'
-    }
-
   } else {
+    loginClose.style.display="none";
     panel.classList.add('close');
-    for (let i = 0; i < block.length; i++) {
-      block[i].style.opacity = '1'
-    }
-
   }
+});
+loginClose.addEventListener('click',function(){
+  panel.classList.add('close');
+  loginClose.style.display="none";
 });
 //會員登入左右滑動
 (function () {
@@ -182,3 +179,19 @@ function getLocalstorage() {
     return tasks[0];
   }
 }
+
+//rwd login
+
+jQuery(document).ready(function($) {
+  tab = $('.tabs h3 a');
+
+  tab.on('click', function(event) {
+      event.preventDefault();
+      tab.removeClass('active');
+      $(this).addClass('active');
+
+      tab_content = $(this).attr('href');
+      $('div[id$="tab-content"]').addClass('close');
+      $(tab_content).removeClass('close');
+  });
+});
