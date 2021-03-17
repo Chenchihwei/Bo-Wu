@@ -59,11 +59,8 @@ loginClose.addEventListener('click',function(){
 //登入成功視窗消失
 function signClose() {
   let panel = document.getElementsByClassName("panel--static")[0];
-
   panel.classList.add('close');
-  for (let i = 0; i < block.length; i++) {
-    block[i].style.opacity = '1'
-  }
+  loginClose.style.display="none";
 }
 //控制是否登入狀況
 let manger = document.getElementsByClassName('manger')[0];
