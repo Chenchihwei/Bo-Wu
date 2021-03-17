@@ -8,12 +8,15 @@ logIn.addEventListener('click', function () {
   if (panel.classList.contains("close")) {
     loginClose.style.display="block";
     panel.classList.remove('close');
+    form_wrap.classList.remove('close');
   } else {
     loginClose.style.display="none";
     panel.classList.add('close');
+    form_wrap.classList.add('close');
   }
 });
 loginClose.addEventListener('click',function(){
+  form_wrap.classList.add('close');
   panel.classList.add('close');
   loginClose.style.display="none";
 });
