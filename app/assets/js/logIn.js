@@ -135,7 +135,7 @@ function manger_click() {
       if (response == 1) {
         $(manger).attr("href", './hightlevelnumber.html');
       } else if (response == 2) {
-        $(manger).attr("href", './normalnumber.html');
+        $(manger).attr("href", './normalmember.html');
       } else {
 
       };
