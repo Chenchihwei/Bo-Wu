@@ -100,6 +100,16 @@ body::-webkit-scrollbar{
 
     justify-items: center;
 
+    canvas{
+      width: 510px!important;
+      height: 60vh !important;
+      grid-area: big1 !important; 
+      margin-left: 340px;     
+      @include mobile{
+        display: none !important;
+      }
+  }
+
     @include notebook{
     // margin-left: 18vw;
       grid-gap: 10px;
@@ -160,7 +170,7 @@ body::-webkit-scrollbar{
   a{
     width: 100%;
     height: 100%;
-    grid-area: big1;
+    // grid-area: big1;
 
     display: flex;
     justify-content: center;
@@ -268,4 +278,11 @@ body::-webkit-scrollbar{
   // 50%{ transform: scale(0.8); opacity: .5;}
   100%{ transform: scale(1); opacity: 1;}
 }
+
+
+//3d
+
+
+  
+
 
