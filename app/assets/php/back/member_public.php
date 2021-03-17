@@ -15,9 +15,6 @@ echo "<tr class='table-dark table_title'>
             <p class='th_p'>密碼</p>
         </th>
         <th>
-            <p class='th_p'>email</p>
-        </th>
-        <th>
             <p class='th_p'>等級</p>
         </th>
         <th>
@@ -39,7 +36,6 @@ foreach($data as $index => $row){
     echo "<td><p class='edit_p edit_name'>".$row["name"]."</p><input type='text' style='width:5vw;' name='' class='edit_text none'></td>";
     echo "<td><p class='edit_p edit_account'>".$row["account"]."</p><input type='text' style='width:5vw;' name='' class='edit_text none'></td>";
     echo "<td><p class='edit_p edit_password'>".$row["password"]."</p><input type='text' style='width:5vw;' name='' class='edit_text none'></td>";
-    echo "<td><p class='edit_p edit_email'>".$row["email"]."</p><input type='text' style='width:5vw;' name='' class='edit_text none'></td>";
 
     $level = $row["level"];
     switch ($level) {

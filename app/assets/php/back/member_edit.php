@@ -5,7 +5,7 @@
     $edit_name = $_POST["edit_name"];
     $edit_account = $_POST["edit_account"];
     $edit_password = $_POST["edit_password"];
-    $edit_email = $_POST["edit_email"];
+    // $edit_email = $_POST["edit_email"];
     $edit_level = $_POST["edit_level"];
     $edit_blacklist = $_POST["edit_blacklist"];
     $edit_produce = $_POST["edit_produce"];
@@ -47,7 +47,7 @@
     $statement->bindValue(1 , $edit_name);     
     $statement->bindValue(2 , $edit_account);
     $statement->bindValue(3 , $edit_password);
-    $statement->bindValue(4 , $edit_email);
+    $statement->bindValue(4 , $edit_account);
     $statement->bindValue(5 , $edit_level);
     $statement->bindValue(6 , $edit_blacklist);    
     $statement->bindValue(7 , $edit_produce);    
