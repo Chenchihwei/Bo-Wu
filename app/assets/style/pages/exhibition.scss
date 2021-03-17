@@ -28,6 +28,9 @@
 //     // width: 15.6vw;
 //     background-color: map-get($color ,'black');
 // }
+.indexSideBar{
+    z-index: 100;
+}
 .like_red{
     color:red;
 }
