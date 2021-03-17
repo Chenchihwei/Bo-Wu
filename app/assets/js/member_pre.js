@@ -271,7 +271,7 @@ function heartStatus() {
         if (response == 1) {
           count.src = './assets/img/Heart1.png';
           countState = false;
-        } else if (response == 0) {
+        } else if (response == 2) {
           count.src = './assets/img/Heart.png';
           countState = true;
         }
