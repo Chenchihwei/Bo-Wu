@@ -11,14 +11,14 @@
                 work w
                 join member m
                 on w.member_id = m.member_id
-            where w.verify = 1';
+            where w.verify = 1 and w.member_id != 0';
         }else{
             $sql = 'SELECT w.*, m.name
             FROM 
                 work w
                 join member m
                 on w.member_id = m.member_id
-            where w.verify = 1 and w.work_id like ?';
+            where w.verify = 1 and w.work_id like ? and w.member_id != 0';
         }
     }else if($select == 'work_name'){ 
         if( $textbox =="" ){
@@ -27,14 +27,14 @@
                 work w
                 join member m
                 on w.member_id = m.member_id
-            where w.verify = 1';
+            where w.verify = 1 and w.member_id != 0';
         }else{
             $sql = 'SELECT w.*, m.name
             FROM 
                 work w
                 join member m
                 on w.member_id = m.member_id
-            where w.verify = 1 and w.work_name like ?';
+            where w.verify = 1 and w.work_name like ? and w.member_id != 0';
         }
     }else{
         if( $textbox =="" ){
@@ -43,14 +43,14 @@
                 work w
                 join member m
                 on w.member_id = m.member_id
-            where w.verify = 1';
+            where w.verify = 1 and w.member_id != 0';
         }else{
             $sql = 'SELECT w.*, m.name
             FROM 
                 work w
                 join member m
                 on w.member_id = m.member_id
-            where w.verify = 1 and m.name like ?';
+            where w.verify = 1 and m.name like ? and w.member_id != 0';
         }
     };
 
