@@ -293,3 +293,19 @@ function mailtest(your_mail, base64) {
 
 }
 
+let width = $(window).width();
+if (width <= 1920 && width > 1440) {
+  $('#canvas').removeClass('none');
+  $('#canvas1').addClass('none');
+  $('#canvas2').addClass('none');
+
+} else if (width <= 1440 && width > 1280) {
+  $('#canvas').addClass('none');
+  $('#canvas1').removeClass('none');
+  $('#canvas2').addClass('none');
+
+} else if (width <= 1280) {
+  $('#canvas').addClass('none');
+  $('#canvas1').addClass('none');
+  $('#canvas2').removeClass('none');
+}
