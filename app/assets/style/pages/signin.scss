@@ -268,9 +268,11 @@ body {
     display: none;
     @include ipad{
         display: block;
+        height: 440px;
     }
     @include phone{
         display: block;
+        height: 440px;
     }
     @include center;
     background-color: #fff;
@@ -395,6 +397,12 @@ body {
         margin-left: 3vw;
         .fab{
             font-size: 10vw;
+            @include ipad{
+                font-size: 5vw;
+            }
+            @include phone(){
+                font-size: 10vw;
+            }
             &:hover{
                 color: #BA967D;
             }
