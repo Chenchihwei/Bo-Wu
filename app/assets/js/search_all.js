@@ -1,14 +1,27 @@
 $('.searchBarArrow').click(function () {
     document.getElementsByClassName('searchBar_Found')[0].innerHTML = "";
     $('.searchBar_Found').css('overflow-y', 'scroll');
+    $('.searchBar_Found').css('height', '80vh');
     let search_text = $('#searchBarInput').val();
     // console.log(search_text);
     if (search_text !== '') {
         search_work(search_text);
         search_person(search_text);
+        $('.no_fouund').addClass('none');
+        $('.no_search').addClass('none');
+        $('.notSearch').addClass('none');
+        $('.searchBar_Found').removeClass('none');
     } else {
-        alert('請輸入關鍵字');
+        // alert('請輸入關鍵字');
+        $('.no_search').removeClass('none');
+        $('.notSearch').removeClass('none');
+        $('.no_fouund').addClass('none');
+        $('.searchBar_Found').addClass('none');
     }
+});
+
+$('#searchBarInput').keyup(function () {
+    $('.searchBarArrow').click();
 });
 
 //查詢展品
@@ -43,14 +56,7 @@ function search_work(search_text) {
                 let url = "exhibition.html?work_id=" + work_id;
                 window.location.href = url;
             });
-
-
-
-
-
-
-
-
+            result(response2);
         },
         error: function (exception) {
             alert("發生錯誤: " + exception.status);
@@ -78,6 +84,8 @@ function search_person(search_text) {
                 let url = "member_pre.html?advance_id=" + member_id;
                 window.location.href = url;
             });
+            result(response1);
+
         },
         error: function (exception) {
             alert("發生錯誤: " + exception.status);
@@ -92,4 +100,26 @@ function search_person(search_text) {
 //     console.log(member_id);
 // });
 
-
+function result(response1, response2) {
+    // if (response == "") {
+    //     // alert();
+    //     $('.notSearch').removeClass('none');
+    //     $('.no_fouund').removeClass('none');
+    //     $('.no_search').addClass('none');
+    // } else {
+    //     // $('.no_fouund').removeClass('none');
+    //     // $('.no_search').addClass('none');
+    //     $('.notSearch').addClass('none');
+    //     $('.no_fouund').addClass('none');
+    //     $('.no_search').removeClass('none');
+    // }
+    if (response1 == "" && response2 == "") {
+        $('.notSearch').removeClass('none');
+        $('.no_fouund').removeClass('none');
+        $('.no_search').addClass('none');
+    } else {
+        $('.notSearch').addClass('none');
+        $('.no_fouund').addClass('none');
+        $('.no_search').removeClass('none');
+    }
+};
