@@ -38,7 +38,7 @@ body::-webkit-scrollbar{
 .title{
   // outline: 1px solid hotpink;
   border-bottom: 20px solid #7e7e7e;
-  width: 1100px;
+  width: 60vw;
   margin-left: 20vw;
   padding-top: 80px;
 
@@ -53,9 +53,11 @@ body::-webkit-scrollbar{
   }
 
   h1{
-    font-size: $titleM;
+    font-size: $titleSM;
     margin: 0;
-    margin-bottom: 30px;  
+    margin-bottom: 1.85vh;  
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+    font-family: 'Noto Serif TC';
     @include notebook{
       font-size: $titleS;
     }

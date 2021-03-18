@@ -3,10 +3,11 @@
 @mixin product_like($left, $right) {
     position: absolute;
     bottom: 6vh;
-    font-family: Lato;
+    font-family: 'Montserrat';
     font-weight: bold;
-    font-size: 1.25rem;
+    font-size: 1rem;
     z-index: 10;
+    text-shadow: 1px 1px 2px lightgray;
     .fa-heart{
         margin-left: $left;
         margin-right: 0.3vw;
@@ -28,6 +29,15 @@
 //     // width: 15.6vw;
 //     background-color: map-get($color ,'black');
 // }
+
+body{
+    cursor: none !important;
+}
+
+a{
+    cursor: none;
+}
+
 .indexSideBar{
     z-index: 100;
 }
@@ -168,7 +178,7 @@
                         text-align: center;
                     }
                     .product_like{
-                        @include product_like(3vw, 5vw);
+                        @include product_like(3vw, 6vw);
                     }
                 }
             }
@@ -265,11 +275,12 @@
             button{
                 margin-right: 0.52vw;
                 margin-bottom: 0.93vh;
-                font-size: 12px;
+                font-size: 14px;
                 line-height: 1.3rem;
                 border:2px solid map-get($color,'black');
                 background-color: map-get($color,'yellow');
                 border-radius: 5px;
+                font-family: 'Montserrat';
                 cursor: pointer;
                 &:hover{
                     color: map-get($color,'yellow');
@@ -313,7 +324,7 @@
             margin-top: 4.26vh;
         }
         h2{
-            font-size: $paragraph;
+            font-size: 1.5rem;
             margin-bottom: 1.48vh;
         }
         p{
@@ -321,9 +332,9 @@
             line-height: 1.6;
         }
         .product_like{
-            bottom: 3vh;
+            bottom: 4vh;
             position: absolute;
-            margin-left: 7vw;
+            margin-left: 5vw;
             display: flex;
             .fa-heart{
                 font-size: $paragraph;
@@ -787,4 +798,41 @@
             }
         }
     }
+}
+
+// 滑鼠設定
+.cursor{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 10px;
+    height: 10px;
+    transform: translate(-50%, -50%);
+    background-color: rgb(175, 175, 175);
+    border-radius: 50%;
+    pointer-events: none; 
+    z-index: 1010;
+}
+
+.cursor-outside{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 50px;
+    height: 50px;
+    border: 1px solid #E5E5E5;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    pointer-events: none; 
+    z-index: 1010;
+}
+
+// LINK STYLE
+.mousehover{
+    text-decoration: none;
+    color: #e5e5e5a2;
+    // position: absolute;
+    // top: 50%;
+    // left: 50%;
+    // transform: translate(-50%, -50%);
 }
