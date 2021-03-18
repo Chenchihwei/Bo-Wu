@@ -8,7 +8,9 @@
     <title>Personal-Exhibition</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600&family=Montserrat:wght@300&&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600&family=Montserrat:wght@300&&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
     <link rel=" stylesheet" href="./assets/css/all.css">
     <link rel="stylesheet" href='./assets/css/pages/signin.css'>
     <link rel=" stylesheet" href="./assets/css/pages/exhibition.css">
@@ -35,7 +37,7 @@
 
     <!-- LINK STYLE -->
     <a href="#" class="mousehover"></a>
-    
+
     @@include('./compontents/head.html')
     <!-- <header>
         <a href="#">
@@ -101,7 +103,7 @@
             <div class="bottom_line"></div>
             <h2>Easy Way To Show yor masterpieces!</h2>
             <p> 在這裡，有來自全國各地的藝術家們，分享、交流不同的藝術展品。<br>
-            有好的展品想要跟眾人分享嗎？ 歡迎加入會員找到自己的空間與天地 ! 也請參觀的各位不令吝的給予留言、評論及按讚。</p>
+                有好的展品想要跟眾人分享嗎？ 歡迎加入會員找到自己的空間與天地 ! 也請參觀的各位不令吝的給予留言、評論及按讚。</p>
         </div>
         <div class="exhibition_img">
             <i class="fas fa-chevron-left"></i>
@@ -402,6 +404,8 @@
     <script src="./assets/js/loginGoogle.js"></script>
     <script src='./assets/js/music.js'></script>
     <script src='./assets/js/verify.js'></script>
+    <script src="./assets/js/search.js"></script>
+    <script src="./assets/js/search_all.js"></script>
     <script src='./assets/js/logIn.js'></script>
     <script src="./assets/js/exhibition.js"></script>
     <!-- 滑鼠設定 -->
@@ -409,41 +413,41 @@
         var circle = document.getElementsByClassName('cursor')[0];
         var circleOut = document.getElementsByClassName('cursor-outside')[0];
         // console.log(circle);
-            
-            function moveCircle(e) { 
-                TweenMax.to(circle, 1, {
-                    css: { 
-                        left: e.pageX,
-                        top: e.pageY 
-                    },
-                    ease: Elastic.easeOut
-                });
-                TweenMax.to(circleOut, 1, {
-                    css: { 
-                        left: e.pageX,
-                        top: e.pageY 
-                    },
-                    delay:.05,
-                    ease: Elastic.easeOut
-                });
-            };
-            
-            $(window).on('mousemove', moveCircle);
-            
-            $('.mousehover').mouseenter(function(e) {
-                TweenMax.to(circle, 0.2, {
-                    scale: 5,
-                    backgroundColor: '#e5e5e5a2'
-                });
+
+        function moveCircle(e) {
+            TweenMax.to(circle, 1, {
+                css: {
+                    left: e.pageX,
+                    top: e.pageY
+                },
+                ease: Elastic.easeOut
             });
-            
-            $('.mousehover').mouseleave(function(e) {
-                TweenMax.to(circle, 0.2, {
-                    scale: 1,
-                    backgroundColor: 'rgb(175, 175, 175)'
-                });
+            TweenMax.to(circleOut, 1, {
+                css: {
+                    left: e.pageX,
+                    top: e.pageY
+                },
+                delay: .05,
+                ease: Elastic.easeOut
             });
-            
+        };
+
+        $(window).on('mousemove', moveCircle);
+
+        $('.mousehover').mouseenter(function (e) {
+            TweenMax.to(circle, 0.2, {
+                scale: 5,
+                backgroundColor: '#e5e5e5a2'
+            });
+        });
+
+        $('.mousehover').mouseleave(function (e) {
+            TweenMax.to(circle, 0.2, {
+                scale: 1,
+                backgroundColor: 'rgb(175, 175, 175)'
+            });
+        });
+
     </script>
 
 </body>
