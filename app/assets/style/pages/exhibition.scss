@@ -47,27 +47,30 @@
         margin-left: 2.24vw;
         margin-bottom: 5.56vh;
         h1{
-            font-size: $titleS;
+            font-size: $titleSM;
             color: #000000;
             margin-top: 9.72vh;
             margin-bottom: 1.85vh;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+            font-family: 'Noto Serif TC';
         }
         .bottom_line{
-            width: 57.29vw;
+            width: 60vw;
             height: 10px;
-            background-color: map-get($color , 'darkGray' );
-            margin-bottom: 3.98vh;
+            background-color: map-get($color , 'darkGray');
+            box-shadow: 1px 1px 2px darkgrey;
+            margin-bottom: 4vh;
         }
         h2{
-            font-size: 3rem;
-            font-family: lato;
+            font-size: $titleS;
+            font-family: 'Montserrat';
             margin-bottom: 1.48vh;
         }
         p{
-            font-size: 1.25rem;
-            font-family: lato;
-            width: 44.32vw;
-            line-height: 1.6;
+            font-size: $paragraph;
+            font-family: 'Montserrat';
+            width: 60vw;
+            line-height: 1.5rem;
         }
     }
     .exhibition_img{
@@ -96,7 +99,7 @@
                 border-radius: 10px;
                 overflow: hidden;
                 transition: transform 1s ease;
-                box-shadow: 3px 3px 5px 6px #cccccc;
+                box-shadow: 2px 2px 4px #cccccc;
                 a{
                     img{
                         width: 17.29vw;
@@ -165,7 +168,7 @@
                         text-align: center;
                     }
                     .product_like{
-                        @include product_like(3vw, 7vw);
+                        @include product_like(3vw, 5vw);
                     }
                 }
             }
@@ -253,21 +256,25 @@
             margin-right: 5.3vw;
             h3{
                 color: white;
-                font-family: Lato;
-                font-size: $paragraph;
+                font-family: 'Montserrat';;
+                font-size: 1.3rem;
                 font-weight: bold;
-                margin-bottom: 1.76vh;
+                margin-bottom: 1.8vh;
+                text-shadow: 1px 1px 3px black;
             }
             button{
                 margin-right: 0.52vw;
                 margin-bottom: 0.93vh;
                 font-size: 12px;
-                border:2px solid black;
-                background-color: white;
+                line-height: 1.3rem;
+                border:2px solid map-get($color,'black');
+                background-color: map-get($color,'yellow');
+                border-radius: 5px;
                 cursor: pointer;
                 &:hover{
-                    color: white;
-                    background-color: black;
+                    color: map-get($color,'yellow');
+                    background-color:#886f5e46;
+                    transition: all .2s;
                 }
             }
         }
