@@ -627,6 +627,15 @@
             }
         }
     }
+    .searchBarBlack{
+        width: 62vw;
+    }
+    .features{
+        color: black;
+        a{
+            color: black;
+        }
+    }
 }
 
 @media screen and (max-width: 414px){
@@ -780,6 +789,7 @@
         margin: 0;
         left: 15vw;
         top: 17vh;
+        z-index: 101;
         img{
             display: block;
             width: 50vw;
@@ -802,6 +812,9 @@
                 font-size: 2rem;
             }
         }
+    }
+    .searchBarBlack{
+        width: 35vw;
     }
 }
 
