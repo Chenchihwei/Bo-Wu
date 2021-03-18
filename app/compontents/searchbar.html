@@ -19,33 +19,33 @@
 
         <div id="searchBar" :class="{'-active': searchBarPage}">
             <div class="searchBarTop">
-                
+
                 <div class="searchTitle">
                     <i class="fas fa-search"></i>
                     <p> Search </p>
                 </div>
-                
+
                 <input type="text" name="searchArea" id="searchBarInput">
                 <img class="searchBarArrow" src="./assets/img/Icon_arrowRight.png">
-                
-            </div>  
-            
+
+            </div>
+
             <div class="notSearch none">
-                <img src="../app/assets/img/searchBarImg.png">
-                <h4>
+                <img src="./assets/img/searchBarImg.png">
+                <h4 class="no_search">
                     Type something to search...
                 </h4>
-                <h4 class="none">
+                <h4 class="no_fouund none">
                     No results found for query "..."
                 </h4>
             </div>
 
             <ul class="searchBar_Found">
-                <li class="searchBar_item"> <div class="personalRoom"></div> <a href="#">Andy's personal exhibits </a> </li>
+                <!-- <li class="searchBar_item"> <div class="personalRoom"></div> <a href="#">Andy's personal exhibits </a> </li>
                 <li class="searchBar_item"> <a href="#">Andy's works </a> </li>
                 <li class="searchBar_item"> <a href="#">A ....  </a> </li>
                 <li class="searchBar_item"> <a href="#">A ....  </a> </li>
-                <li class="searchBar_item"> <a href="#">A ....  </a> </li>
+                <li class="searchBar_item"> <a href="#">A ....  </a> </li> -->
             </ul>
         </div>
 
@@ -59,7 +59,9 @@
                 <ul>
                     <li>
                         <a href="###" class="manger close">管理</a>
-                        <ul><li><a href="###" class="logOut close">登出</a></li></ul>
+                        <ul>
+                            <li><a href="###" class="logOut close">登出</a></li>
+                        </ul>
                     </li>
                 </ul>
                 <i class="fas fa-user-friends"></i>
@@ -86,91 +88,124 @@
         <div class="panel__content signup">
             <h1 class="panel__heading">Sign up</h1>
             <form id="signup" method="POST" action="./assets/php/front/JoinR.php">
-            
-            <div><input type="text" placeholder="Full name" id="name" class="input input--name" name='name' :class="{ 'is-invalid': usernameError }" v-model="name"/><p>{{userErrMsg}}</p></div>
-            <div><input type="text" placeholder="Email" id="mail" class="input input--email" name="mail" :class="{ 'is-invalid': mailError }" v-model="mail"/><p>{{mailErrMsg}}</p></div>
-            <div><input type="password" placeholder="Password" id='password' class="input input--password" name="password" :class="{ 'is-invalid': passwordError }" v-model="password"/><p>{{passErrMsg}}</p></div>
-            <br/>
-            <label class="rule"><input type="checkbox" class="input--agree" value="agree">已閱讀會員守則，並同意遵守</label>
-            <br />
-            <button class="btn btn--primary" @click='checkSign($event)'>Sign up</button>
+
+                <div><input type="text" placeholder="Full name" id="name" class="input input--name" name='name'
+                        :class="{ 'is-invalid': usernameError }" v-model="name" />
+                    <p>{{userErrMsg}}</p>
+                </div>
+                <div><input type="text" placeholder="Email" id="mail" class="input input--email" name="mail"
+                        :class="{ 'is-invalid': mailError }" v-model="mail" />
+                    <p>{{mailErrMsg}}</p>
+                </div>
+                <div><input type="password" placeholder="Password" id='password' class="input input--password"
+                        name="password" :class="{ 'is-invalid': passwordError }" v-model="password" />
+                    <p>{{passErrMsg}}</p>
+                </div>
+                <br />
+                <label class="rule"><input type="checkbox" class="input--agree" value="agree">已閱讀會員守則，並同意遵守</label>
+                <br />
+                <button class="btn btn--primary" @click='checkSign($event)'>Sign up</button>
             </form>
             <div class="faceGoogle">
-            <div class="googleTitle">
-                <div></div> 
-                <p>or sign in with</p>
-                <div></div>
-            </div>
-            <div class="pic">
-                <!-- <div class="fb-login-button" onclick="facebookLogIn()" data-width="120px" data-size="large" data-button-type="login_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false"></div> -->
-                <i class="fab fa-facebook-square" id="facebook" onclick="facebookLogIn()"></i>
-                <div class="g-signin2" onclick="ClickLogin()" data-onsuccess="onSignIn" data-theme="dark"></div>
-            </div>
+                <div class="googleTitle">
+                    <div></div>
+                    <p>or sign in with</p>
+                    <div></div>
+                </div>
+                <div class="pic">
+                    <!-- <div class="fb-login-button" onclick="facebookLogIn()" data-width="120px" data-size="large" data-button-type="login_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false"></div> -->
+                    <i class="fab fa-facebook-square" id="facebook" onclick="facebookLogIn()"></i>
+                    <div class="g-signin2" onclick="ClickLogin()" data-onsuccess="onSignIn" data-theme="dark"></div>
+                </div>
             </div>
         </div>
-    
+
         <div class="panel__content login">
             <h1 class="panel__heading">Log in</h1>
             <form id="login" method="POST" action="./assets/php/front/LoginR.php">
-            <div><input type="text" placeholder="Email" id="mail" class="input input--email" name="mail" :class="{ 'is-invalid': mailError }" v-model="mail"/><p>{{mailErrMsg}}</p></div>
-            <div><input type="password" placeholder="Password" id='password' class="input input--password" name="password" :class="{ 'is-invalid': passwordError }" v-model="password"/><p>{{passErrMsg}}</p></div>
-            <button class="btn btn--primary" @click='checkLog($event)'>Log in</button>
-            <a href="###">Forgot password?</a>
+                <div><input type="text" placeholder="Email" id="mail" class="input input--email" name="mail"
+                        :class="{ 'is-invalid': mailError }" v-model="mail" />
+                    <p>{{mailErrMsg}}</p>
+                </div>
+                <div><input type="password" placeholder="Password" id='password' class="input input--password"
+                        name="password" :class="{ 'is-invalid': passwordError }" v-model="password" />
+                    <p>{{passErrMsg}}</p>
+                </div>
+                <button class="btn btn--primary" @click='checkLog($event)'>Log in</button>
+                <a href="###">Forgot password?</a>
             </form>
             <div class="faceGoogle">
-            <div class="googleTitle">
-                <div></div>
-                <p>or sign in with</p>
-                <div></div>
-            </div>
-            <div class="pic">
-                <i class="fab fa-facebook-square" id="facebook" onclick="facebookLogIn()"></i>
-                <div class="g-signin2" onclick="ClickLogin()" data-onsuccess="onSignIn" data-theme="dark"></div>
-            </div>
+                <div class="googleTitle">
+                    <div></div>
+                    <p>or sign in with</p>
+                    <div></div>
+                </div>
+                <div class="pic">
+                    <i class="fab fa-facebook-square" id="facebook" onclick="facebookLogIn()"></i>
+                    <div class="g-signin2" onclick="ClickLogin()" data-onsuccess="onSignIn" data-theme="dark"></div>
+                </div>
             </div>
         </div>
-    
+
     </div>
 </div>
 
 <div class="paenl form-wrap close" id="app3">
     <div class="tabs">
-        <h3 class="signup-tab"><a class="active"href="#signup-tab-content">Sign Up</a></h3>
+        <h3 class="signup-tab"><a class="active" href="#signup-tab-content">Sign Up</a></h3>
         <h3 class="login-tab"><a href="#login-tab-content">Login</a></h3>
-    </div><!--.tabs-->
+    </div>
+    <!--.tabs-->
 
     <div class="tabs-content">
         <div id="signup-tab-content" class="active">
             <form class="signup-form" action="./assets/php/front/JoinR.php" method="post">
-                <input type="text" placeholder="Full name" id="name" class="input input--name" name='name' :class="{ 'is-invalid': usernameError }" v-model="name"/><p>{{userErrMsg}}</p>
-                <input type="text" placeholder="Email" id="mail" class="input input--email" name="mail" :class="{ 'is-invalid': mailError }" v-model="mail"/><p>{{mailErrMsg}}</p>
-                <input type="password" placeholder="Password" id='password' class="input input--password" name="password" :class="{ 'is-invalid': passwordError }" v-model="password"/><p>{{passErrMsg}}</p>
+                <input type="text" placeholder="Full name" id="name" class="input input--name" name='name'
+                    :class="{ 'is-invalid': usernameError }" v-model="name" />
+                <p>{{userErrMsg}}</p>
+                <input type="text" placeholder="Email" id="mail" class="input input--email" name="mail"
+                    :class="{ 'is-invalid': mailError }" v-model="mail" />
+                <p>{{mailErrMsg}}</p>
+                <input type="password" placeholder="Password" id='password' class="input input--password"
+                    name="password" :class="{ 'is-invalid': passwordError }" v-model="password" />
+                <p>{{passErrMsg}}</p>
                 <button class="button1" @click='checkSign($event)'>Sign up</button>
-            </form><!--.login-form-->
+            </form>
+            <!--.login-form-->
             <div class="help-text">
                 <label class="rule"><input type="checkbox" class="input--agree" value="agree">已閱讀會員守則，並同意遵守</label>
-            </div><!--.help-text-->
+            </div>
+            <!--.help-text-->
             <div class="pic">
                 <i class="fab fa-facebook-square" id="facebook" onclick="facebookLogIn()"></i>
                 <div class="g-signin2" onclick="ClickLogin()" data-onsuccess="onSignIn" data-theme="dark"></div>
             </div>
-        </div><!--.signup-tab-content-->
+        </div>
+        <!--.signup-tab-content-->
 
         <div id="login-tab-content" class="close">
             <form class="login-form" action="./assets/php/front/LoginR.php" method="post">
-                <input type="text" placeholder="Email" id="mail" class="input input--email" name="mail" :class="{ 'is-invalid': mailError }" v-model="mail"/><p>{{mailErrMsg}}</p>
-                <input type="password" placeholder="Password" id='password' class="input input--password" name="password" :class="{ 'is-invalid': passwordError }" v-model="password"/><p>{{passErrMsg}}</p>
+                <input type="text" placeholder="Email" id="mail" class="input input--email" name="mail"
+                    :class="{ 'is-invalid': mailError }" v-model="mail" />
+                <p>{{mailErrMsg}}</p>
+                <input type="password" placeholder="Password" id='password' class="input input--password"
+                    name="password" :class="{ 'is-invalid': passwordError }" v-model="password" />
+                <p>{{passErrMsg}}</p>
                 <button class="button1 btn--primary" @click='checkLog($event)'>Log in</button>
-            </form><!--.login-form-->
+            </form>
+            <!--.login-form-->
             <div class="help-text">
                 <p><a href="#">Forget your password?</a></p>
-            </div><!--.help-text-->
+            </div>
+            <!--.help-text-->
             <div class="pic">
                 <i class="fab fa-facebook-square" id="facebook" onclick="facebookLogIn()"></i>
                 <div class="g-signin2" onclick="ClickLogin()" data-onsuccess="onSignIn" data-theme="dark"></div>
             </div>
-        </div><!--.login-tab-content-->
-    </div><!--.tabs-content-->
+        </div>
+        <!--.login-tab-content-->
+    </div>
+    <!--.tabs-content-->
 </div>
 
 <div class="loginClose" style="position: fixed;top: 0;left: 0;

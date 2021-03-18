@@ -6,9 +6,21 @@ $('.searchBarArrow').click(function () {
     if (search_text !== '') {
         search_work(search_text);
         search_person(search_text);
+        $('.no_fouund').addClass('none');
+        $('.no_search').addClass('none');
+        $('.notSearch').addClass('none');
+        $('.searchBar_Found').removeClass('none');
     } else {
-        alert('請輸入關鍵字');
+        // alert('請輸入關鍵字');
+        $('.no_search').removeClass('none');
+        $('.notSearch').removeClass('none');
+        $('.no_fouund').addClass('none');
+        $('.searchBar_Found').addClass('none');
     }
+});
+
+$('#searchBarInput').keyup(function () {
+    $('.searchBarArrow').click();
 });
 
 //查詢展品
@@ -43,7 +55,7 @@ function search_work(search_text) {
                 let url = "exhibition.html?work_id=" + work_id;
                 window.location.href = url;
             });
-
+            result(response);
 
 
 
@@ -78,6 +90,8 @@ function search_person(search_text) {
                 let url = "member_pre.html?advance_id=" + member_id;
                 window.location.href = url;
             });
+            result(response);
+
         },
         error: function (exception) {
             alert("發生錯誤: " + exception.status);
@@ -92,4 +106,17 @@ function search_person(search_text) {
 //     console.log(member_id);
 // });
 
-
+function result(response) {
+    if (response == "") {
+        // alert();
+        $('.notSearch').removeClass('none');
+        $('.no_fouund').removeClass('none');
+        $('.no_search').addClass('none');
+    } else {
+        // $('.no_fouund').removeClass('none');
+        // $('.no_search').addClass('none');
+        $('.notSearch').addClass('none');
+        $('.no_fouund').addClass('none');
+        $('.no_search').removeClass('none');
+    }
+};
