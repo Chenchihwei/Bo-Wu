@@ -155,6 +155,7 @@ logOut.addEventListener('click', function () {
     location.assign('./homepage.html')
   } else if (tasks[0].status == 'facebook') {
     Fblogout();
+    localStorage.clear();
     alert('登出成功');
     manger.classList.add('close');
     logOut.classList.add('close');
