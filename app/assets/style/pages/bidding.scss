@@ -242,7 +242,7 @@ body{
       display: flex;
       margin-left: 1vw;
       @include notebook{
-        width: 80%;
+        width: 68vw;
       }
       @include pad{
         display: block;
@@ -626,8 +626,17 @@ body{
     }
   }
   .features{
+    @include pad{
+      color:black;
+    }
     @include mobile{
       top:3%;
+    }
+    a{
+      @include pad{
+      color:black;
+
+      }
     }
   }
 }
