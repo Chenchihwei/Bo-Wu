@@ -1,48 +1,57 @@
 @import "../base/base";
-@mixin notebook {
-  @media (max-width:$break-point-xl){
-    @content;
-  }
-}
-@mixin ipad {
-  @media (max-width:$break-point-md){
-    @content;
-  }
-}
-@mixin phone {
-  @media (max-width:$break-point-xs){
-    @content;
-  }
-}
-html{
-  @include notebook{
-    font-size: 12px;
-  }
-  @include ipad{
-    font-size: 10px;
-  }
-  @include phone{
-    font-size: 8px;
-  }
-}
+// @mixin notebook {
+//   @media (max-width:$break-point-xl){
+//     @content;
+//   }
+// }
+// @mixin ipad {
+//   @media (max-width:$break-point-md){
+//     @content;
+//   }
+// }
+// @mixin phone {
+//   @media (max-width:$break-point-xs){
+//     @content;
+//   }
+// }
+// html{
+//   @include notebook{
+//     font-size: 12px;
+//   }
+//   @include ipad{
+//     font-size: 10px;
+//   }
+//   @include phone{
+//     font-size: 8px;
+//   }
+// }
 body{
   font-family: $fontFamily;
   display: flex;
   flex-wrap: wrap;
-  @include notebook{
-    width: 768px !important;
-  }
   .rightBlock{
     margin-left: 15.6vw;
     margin-top: 7.4vh;
     width: 84.4%;
     position: relative;
     .title{
+      margin-left: 100px;
+      @include mobile{
+        margin-left: 37px;
+      }
       h1{
         font-size: $titleS;
         font-weight: bold;
         margin-left: 5px;
         padding-left: 2.3vw;
+        @include notebook{
+          margin-top: 63.8px;
+          margin-bottom: 15.5px;
+        }
+        @include pad{
+          margin-top: 90px;
+          padding-left: 6.3vw;
+        }
       }
       div{
         max-width: 57vw;
@@ -50,9 +59,13 @@ body{
         background-color: #727272;
         opacity: 50%;
         margin: 1.8vh 2.3vw;
+        @include notebook{
+          margin-bottom: 21.9px;
+        }
+
       }
       h2{
-        font-size: 3rem;
+        font-size: $titleS;
         margin-left: 5px;
         padding-left: 2.3vw;
       }
@@ -127,8 +140,9 @@ body{
     //   }
     // }
     .swiper-container{
-      width: 70vw;
+      width: 75vw;
       height: 520px;
+      margin-left: 15.6vw;
       margin: 0;
       padding: 0 2.3vw;
       .swiper-slide{
@@ -136,23 +150,36 @@ body{
         display: flex;
         justify-content:center;
         align-items:center;
-          transition: transform 1s ease;
+        transition: transform 1s ease;
+        @include pad{
+          max-width: 16vw;
+        }
+        @include mobile{
+          max-width: 21vw;
+        }
+          img{
+            cursor: pointer;
+            box-shadow:3px 3px 5px 6px #cccccc;
+            // max-width:335px;
+            width: 17vw; 
+            height: 453px;
+            border-radius: 10px;
+            @include notebook{
+              width: 20vw;
+              height: 358px;
+            }
+            @include pad{
+              width: 23vw;
+              height: 290px;
+            }
+            @include mobile{
+              width: 40vw;
+            }
+          }
           &:hover{
             transform: scale(1.1);
             z-index: 100;
           }
-          img{
-            cursor: pointer;
-            box-shadow:3px 3px 5px 6px #cccccc;
-            max-width:335px;
-            width: 332px !important; 
-            height: 453px !important;
-            // background-size: cover;
-            border-radius: 10px;
-          }
-          @include ipad{
-            max-width: 30vw;
-          }  
         }
         .swiper-button-prev{
           width: 30px;
@@ -181,23 +208,28 @@ body{
       align-items: center;
       background-color: #F1F1F1;
       padding: 0.5vw;
-      @include ipad{
+      @include pad{
         left: 20%;
       }
-      @include phone{
+      @include mobile{
         display: block;
         background-color: initial;
       }
       div{
         font-size: 1.875rem;
-        @include phone{
+        @include notebook{
+          font-size: 1.25rem;
+        }
+        @include pad{
+          font-size: $fontSize;
+        }
+        @include mobile{
           padding: 2vw;
           &:nth-child(1){
             background-color: #F1F1F1;
           }
         }
         span{
-          font-size: 2.0rem;
           color:#9E0000;
           font-weight: bold;
         }
@@ -208,47 +240,81 @@ body{
       background-color: #F1F1F1;
       padding: 12vh 5.9vw 12vh 7.3vw;
       display: flex;
-      @include ipad{
+      margin-left: 1vw;
+      @include notebook{
+        width: 80%;
+      }
+      @include pad{
         display: block;
+        width: 87%;
         padding: 4vh 5.9vw 4vh 7.3vw;
         margin-top: 2.6vh;
         background-color: (#2E2824,0.2);
       }
       .introLeft{
+      
         h3{
         font-size: 2.5rem;
         margin-bottom: 5.6vh;
-        @include ipad{
-          margin-bottom: 3.6vh;
+        @include notebook{
+          font-size: $titleS;
+        }
+        @include pad{
+          margin-left: 1vw;
+          margin-bottom: 9.6vh;
+          margin-top: 3vh;
+          width: 45vw;
+        }
+        @include mobile{
+          margin-left: 8vw;
+          margin-bottom: 5.6vh;
         }
         }
         .intro{
           display:flex;
-          @include phone{
+          width: 50vw;
+          @include mobile{
             display: block;
           }
           .pic{
             img{
               width: 30vw;
+              
+              @include notebook{
+                width: 25vw;
+                // margin-left: 1vw;
+              }
+              @include mobile{
+                width: 50vw;
+                margin-left: 10vw;
+              }
             }
-            @include phone{
+           
+            @include mobile{
               margin-bottom: 2vh;
             }
           }
           .text{
             padding: 0 2.125vw ;
+            @include mobile{
+              margin-left: 10vw;
+            }
             h3{
               font-size: 2.25rem;
               font-weight: bold;
-              @include ipad{
-                margin-bottom: 1.6vh;
+              @include pad{
+                margin-bottom: 2vh;
+                font-size: $titleS;
               }
             }
             p{
               font-size: 1.5rem;
+              line-height: 1.6;
               margin-bottom: 6.5vh;
-              @include ipad{
-                margin-bottom: 1.6vh;
+              @include pad{
+                font-size: $paragraph;
+
+                margin-bottom: 7vh;
               }
             }
             .start , .current{
@@ -257,10 +323,14 @@ body{
               padding: 5px;
               border-bottom: 1px solid black;
               margin-bottom: 2vh;
-              @include ipad{
-                margin-bottom: 2.0vh;
+              @include notebook{
+                font-size: $titleS;
               }
-              @include phone{
+              @include pad{
+                margin-bottom: 2.0vh;
+                font-size: $paragraph;
+              }
+              @include mobile{
                 max-width: 50vw;
               }
               span{
@@ -268,16 +338,27 @@ body{
                 font-weight: bold;
                 color:#9E0000;
                 margin-left: 1vw;
+                @include notebook{
+                  font-size: $titleS;
+                }
+                @include pad{
+                  font-size: 1.25rem;
+                }
               }
             }
             .yourPrice{
               font-size: 1.75rem;
               max-width: 17.3vw;
               margin-top: 5vh;
-              @include ipad{
-                margin-top: 2.0vh;
+              @include notebook{
+                font-size: $titleS;
               }
-              @include phone{
+              @include pad{
+                max-width: 37vw;
+                margin-top: 5vh;
+                font-size: $paragraph;
+              }
+              @include mobile{
                 max-width: 70vw;
               }
               .price{
@@ -286,11 +367,12 @@ body{
                 align-items: center;
                 margin-top: 7vh;
                 border-bottom: 1px solid black;
-                @include ipad{
+                @include pad{
                   margin-top: 2.0vh;
                 }
-                @include phone{
+                @include mobile{
                   margin: 2vh;
+                  width: 50vw;
                 }
                 input{
                   border:none;
@@ -300,6 +382,8 @@ body{
                   height: 15vh;
                   font-size: 20px;
                   font-style: oblique;
+                  width: 12vw;
+
                 }               
                 button{
                   border:0;
@@ -310,7 +394,6 @@ body{
                   }
                   &{
                     cursor: pointer;
-                    
                   }
                 }
               }
@@ -324,10 +407,12 @@ body{
               border-radius: 100px;
               cursor: pointer;
               outline: none;
-              @include ipad{
-                margin-top: 2.0vh;
+              @include pad{
+                background-color:#FFFFFF;
+                margin-bottom: 8vh;
+                width: 40vw;
               }
-              @include phone{
+              @include mobile{
                 width: 50vw;
                 margin: 3vh auto;
                 padding:  1vw;
@@ -340,7 +425,10 @@ body{
         }
       }
       .introRight{
-        @include ipad{
+        @include notebook{
+          margin-left: 4vw;
+        }
+        @include pad{
           margin-top: 1.5vh;
         }
         .top{
@@ -353,19 +441,29 @@ body{
             text-align: center;
             padding: 10px;
           }
-          :nth-child(1){
-            background-color: #2E2824;
-            color:white;
-          }
+          // :nth-child(1){
+          //   background-color: #2E2824;
+          //   color:white;
+          // }
           
-          :nth-child(2){
-            background-color: #FBFBF6;
-          }
+          // :nth-child(2){
+          //   background-color: #FBFBF6;
+          // }
+  
+
           
         }
         .content{
             width: 18vw;
             height: 949px;
+            @include notebook{
+              height: 600px;
+              margin-bottom: 1vh;
+            }
+            @include pad{
+              width: 469px;
+              // height: 330px;
+            }
           .biddinform{
             width: 100%;
             height: 100%;
@@ -378,56 +476,83 @@ body{
             text-align: center;
             justify-content: space-around;
             margin-top: 1vh;
-            // :nth-child(1),:nth-child(2) {
-            //   border-right: 2px solid black;
-            // }
+            @include notebook{
+              font-size: $paragraph;
+            }
+
           }
           .biddcontent{
             border:1px;
             display: block;
             border-collapse: initial;
             border-spacing: 27px;
-            width: 334px;
+            width: 405px;
             height: 100%;
-            font-size: 24px;
+            font-size: $titleS;
             border: 1px;
+            overflow-x: auto;
             overflow-y: auto;
+            @include notebook{
+            font-size: $paragraph;
+
+              width: 255px;
+              height: 95%;
+            }
             td{
               width: 120px;
+              font-size: $paragraph;
+              @include notebook{
+                width:80px;
+              }
             }
           }
           }
           border :1px solid  black;
           background-color: #ffffff;
           
-          @include ipad{
+          @include pad{
             display: flex;
+            flex-direction: column;
+            width: 99.5%;
           }
-          @include phone{
+          @include mobile{
             display: block;
           }
           .messageform{
+            
             width: 100%;
             height: 76%;
             flex-direction: column;
             padding: 1vh 1vw;
-            @include ipad{
-              background-color: #F1F1F1;
+            overflow-y: auto;
+            @include notebook{
+              height: 60%;
+
             }
-            @include phone{
+            @include pad{
+              background-color: #F1F1F1;
+              // border-right: 1px solid black;
+              width: 96.5%;
+              height: 300px;
+            }
+            @include mobile{
               background-color: #ffffff;
             }
             li{
-              width: 80%;
+              width: 70%;
               background-color: #F7F7F7;
               padding: 1vh 1vw;
               margin: 1vh;
               border:1px solid #EAEAEA;
+              border-radius: 15px;
+              @include mobile{
+                width: 92%;
+              }
               h1{
                 font-size: 1.5rem;
                 margin-bottom: 1vh;
-                @include phone{
-                  font-size: 2.0rem;
+                @include mobile{
+                  font-size: 1.5rem;
                 }
               }
               .personal{
@@ -440,8 +565,9 @@ body{
                 p{
                   font-size: 1.25rem;
                   padding: 1vw;
-                  @include phone{
-                    font-size: 2.0rem;
+                  @include mobile{
+                    font-size: 1.5rem;
+                    padding: 2vw;
                   }
                 }
               }
@@ -449,14 +575,14 @@ body{
           }
           .messageblock{
             border-top :1px solid  black;
-            @include notebook{
-
+            @include pad{
+              // border-left: 1px solid black;
+              border:none;
+              margin-top: 1.8px;
+              width: 100%;
+              height: 46%;
             }
-            @include ipad{
-              border-left: 1px solid black;
-              border-top: none;
-            }
-            @include phone{
+            @include mobile{
               border-left: none;
               border-top: 1px solid black;
             }
@@ -464,12 +590,21 @@ body{
               // position: relative;
               // background-color: white;
               textarea{
-                width: 17.8vw;
-                height: 200px;
+                width: 16.8vw;
+                height: 180px;
                 font-size: 1.5rem;
                 border:none;
                 resize :none;
+                padding:10px;
                 &:focus{outline:none;}
+                @include notebook{
+                  height: 166px;
+                  width: 16.3vw;
+                }
+                @include pad{
+                  width: 50%;
+
+                }
               }
               button{
                 position: absolute;
@@ -477,10 +612,10 @@ body{
                 bottom: 6%;
                 background-color: white;
                 font-size: 1.25rem;
-                @include ipad{
-                  bottom: -50%;
+                @include pad{
+                  bottom: 5%;
                 }
-                @include phone{
+                @include mobile{
                   bottom: 5%;
                 }
               }
@@ -491,8 +626,14 @@ body{
     }
   }
   .features{
-    @include phone{
+    @include mobile{
       top:3%;
     }
   }
+}
+.black{
+
+  background-color: #2E2824;
+  color:white;
+
 }
