@@ -55,14 +55,7 @@ function search_work(search_text) {
                 let url = "exhibition.html?work_id=" + work_id;
                 window.location.href = url;
             });
-            result(response);
-
-
-
-
-
-
-
+            result(response2);
         },
         error: function (exception) {
             alert("發生錯誤: " + exception.status);
@@ -90,7 +83,7 @@ function search_person(search_text) {
                 let url = "member_pre.html?advance_id=" + member_id;
                 window.location.href = url;
             });
-            result(response);
+            result(response1);
 
         },
         error: function (exception) {
@@ -106,15 +99,24 @@ function search_person(search_text) {
 //     console.log(member_id);
 // });
 
-function result(response) {
-    if (response == "") {
-        // alert();
+function result(response1, response2) {
+    // if (response == "") {
+    //     // alert();
+    //     $('.notSearch').removeClass('none');
+    //     $('.no_fouund').removeClass('none');
+    //     $('.no_search').addClass('none');
+    // } else {
+    //     // $('.no_fouund').removeClass('none');
+    //     // $('.no_search').addClass('none');
+    //     $('.notSearch').addClass('none');
+    //     $('.no_fouund').addClass('none');
+    //     $('.no_search').removeClass('none');
+    // }
+    if (response1 == "" && response2 == "") {
         $('.notSearch').removeClass('none');
         $('.no_fouund').removeClass('none');
         $('.no_search').addClass('none');
     } else {
-        // $('.no_fouund').removeClass('none');
-        // $('.no_search').addClass('none');
         $('.notSearch').addClass('none');
         $('.no_fouund').addClass('none');
         $('.no_search').removeClass('none');
