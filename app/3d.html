@@ -7,10 +7,24 @@
 	<title>Document</title>
 	<!-- <link rel="stylesheet" href="css/header_footer.css"> -->
 	<link rel="stylesheet" href="../dist/assets/css/all.css">
+	<link rel="stylesheet" href="./assets/css/pages/signin.css">
 	<link rel="stylesheet" href="../dist/assets/css/pages/3d.css">
 	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
 	<script src="./assets/js/jquery-3.5.1.js"></script>
+	<script src="./assets/js/vue.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
+	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+	<script src="https://apis.google.com/js/platform.js" async defer></script>
+	<meta name="google-signin-client_id" content="5123688312-hh38n162r8fqfrd31n2a2hid0q7pk7uf.apps.googleusercontent.com">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.js"
+		integrity="sha512-c5JDIvikBZ6tuz+OyaFsHKvuyg+tCug3hf41Vmmd5Yz9H5anj4vZOqlBV5PJoEbBJGFCgKoRT9YAgko4JS6/Qw=="
+		crossorigin="anonymous"></script>
+
 </head>
 
 <body>
@@ -18,7 +32,12 @@
 		<vue-header></vue-header>
 
 		@@include('./compontents/head.html')
-		@@include('./compontents/SearchBar.html')
+
+
+		@@include('./compontents/searchbar.html')
+
+
+		@@include('./compontents/music.html')
 		<div class="wrapper">
 
 
@@ -26,7 +45,7 @@
 				<div class="top">
 					<h1>Exhibits Of Universe</h1>
 
-					<div class="features">
+					<!-- <div class="features">
 						<i class="fas fa-search"></i>
 						<div class="personal"><a href="">個人展間</a>
 						</div>
@@ -37,7 +56,7 @@
 						</div>
 
 						<i class="fas fa-bell"></i>
-					</div>
+					</div> -->
 				</div>
 
 
@@ -251,14 +270,7 @@
 					Music on/off
 				</span>
 			</span> -->
-				<div class="musicControlBtn">
-					<div class="musicControlBtnSpan">
-						<span class="line1"></span>
-						<span class="line2"></span>
-						<span class="line3"></span>
-					</div>
-					<p>Music on/ off</p>
-				</div>
+
 			</div>
 		</div>
 
@@ -386,8 +398,8 @@
 
 
 					current.scene = new THREE.Scene();
-					current.scene.background = new THREE.Color('#2e2725');
-					current.scene.fog = new THREE.Fog('#2e2725', 200, 1000);
+					current.scene.background = new THREE.Color('rgb(207, 204, 204)');
+					current.scene.fog = new THREE.Fog('rgb(207, 204, 204)', 200, 1000);
 
 					const hemiLight = new THREE.HemisphereLight(0xffffff, 0x444444);
 					hemiLight.position.set(0, 2000, 0);
@@ -525,6 +537,12 @@
 			}
 		</script>
 		<!-- <script src="./assets/js/three_trex.js"></script> -->
+		<script src="./assets/js/menu.js"></script>
+		<script src="./assets/js/loginFB.js"></script>
+		<script src="./assets/js/loginGoogle.js"></script>
+		<script src='./assets/js/music.js'></script>
+		<script src='./assets/js/verify.js'></script>
+		<script src='./assets/js/logIn.js'></script>
 </body>
 
 </html>

@@ -59,12 +59,12 @@ body {
 	display: flex;
 	width: 100%;
 	height: PxToVh(1080);
-	padding-bottom: 150px;
 	// outline: 2px solid cadetblue;
 
 	.rightbar {
 		margin-left: auto;
 		width: auto;
+		background-color: rgb(207, 204, 204);
 		// outline: 2px solid cadetblue;
 		.top {
 			width: 100%;
