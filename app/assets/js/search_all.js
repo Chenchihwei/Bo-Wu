@@ -1,6 +1,7 @@
 $('.searchBarArrow').click(function () {
     document.getElementsByClassName('searchBar_Found')[0].innerHTML = "";
     $('.searchBar_Found').css('overflow-y', 'scroll');
+    $('.searchBar_Found').css('height', '80vh');
     let search_text = $('#searchBarInput').val();
     // console.log(search_text);
     if (search_text !== '') {

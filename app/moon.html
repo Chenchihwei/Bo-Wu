@@ -85,7 +85,8 @@
       <div class="container_left">
 
         <div class="like">
-          <span  :class="{'like_red':like_red}"  class="material-icons like_php" @click="like_plus($event)">favorite</span>
+          <span :class="{'like_red':like_red}" class="material-icons like_php"
+            @click="like_plus($event)">favorite</span>
           <p>{{like_num}}</p>
         </div>
 
@@ -149,6 +150,8 @@
   <script src="./assets/js/loginGoogle.js"></script>
   <script src='./assets/js/music.js'></script>
   <script src='./assets/js/verify.js'></script>
+  <script src="./assets/js/search.js"></script>
+  <script src="./assets/js/search_all.js"></script>
   <script src='./assets/js/logIn.js'></script>
   <script src="./assets/js/button.js"></script>
 
@@ -168,24 +171,24 @@
         // imgURL:' ./assets/img/3d/Image.png',
         imgURL: '',
         id: temp[1],
-        like_num:'',
-        like_red:false,
-        like_numNew:'',
+        like_num: '',
+        like_red: false,
+        like_numNew: '',
       },
       mounted() {
 
         const params = new URLSearchParams()
-      params.append('ID', this.id)
+        params.append('ID', this.id)
 
-      axios({
-        method: 'post',
-        url: './assets/php/front/moon.php',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        data: params,
-          
-        }).then((res)=>{
+        axios({
+          method: 'post',
+          url: './assets/php/front/moon.php',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+          },
+          data: params,
+
+        }).then((res) => {
           this.title = res.data[0].work_name;
           this.message = res.data[0].work_introduce;
           this.imgURL = res.data[0].img_path;
@@ -193,7 +196,7 @@
           console.log(res.data[0].like_num);
 
           console.log(res.data[0].work_name)
-        }).catch((err)=>{
+        }).catch((err) => {
           console.log(err);
         });
 
@@ -222,16 +225,16 @@
           window.location.href = `moon.html?work_id=${this.id}`;
 
         },
-                like_plus(e){
-          this.like_red=true;
-          
+        like_plus(e) {
+          this.like_red = true;
+
           console.log(e.target.classList.contains('like_red'));
-          
+
           // this.like_num++;
-          if(!e.target.classList.contains('like_red')){
+          if (!e.target.classList.contains('like_red')) {
             this.like_num++;
-          }else{
-            this.like_red=false;
+          } else {
+            this.like_red = false;
             this.like_num--;
           };
 
@@ -248,13 +251,13 @@
             headers: {
               'Content-Type': 'application/x-www-form-urlencoded',
             },
-            data:param,
-              
-            }).then((res)=>{
-              console.log(res);
-            }).catch((err)=>{
-              console.log(err);
-            });
+            data: param,
+
+          }).then((res) => {
+            console.log(res);
+          }).catch((err) => {
+            console.log(err);
+          });
 
         }
 
