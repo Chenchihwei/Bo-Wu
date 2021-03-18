@@ -50,8 +50,13 @@ body {
     width: 43.43%;
     // height: 100vh;
     @include ipad{
-      margin-left: 19.3vw;
-      flex-basis: 80.7%;
+      margin-left: 20vw;
+      flex-basis: 80%;
+      height: initial
+    }
+    @include phone{
+      margin-left: 23vw;
+      flex-basis: 77%;
       height: initial
     }
     .title {
@@ -100,7 +105,7 @@ body {
             margin-bottom: 1.7vh;
           }
           @include phone{
-            margin: 0 auto;
+            // margin: 0 auto;
             max-width: 50vw;
           }
           img {
@@ -159,7 +164,7 @@ body {
             order: -1;
             max-width: 61vw;
             margin-bottom: 2vh;
-            margin-left: 12vw;
+            margin-left: 10vw;
             justify-content: space-around;
           }
           
@@ -187,7 +192,7 @@ body {
                 }
               }
               @include phone{
-                max-width: 20vw;
+                max-width: 30%;
               }
               img {
                 width: 100%;
@@ -236,6 +241,11 @@ body {
         top: 5.5vh;
         @include ipad{
           position: static;
+        }
+        @include phone{
+          position: relative;
+          right: 0;
+          top: 0;
         }
         .text {
           width: 23vw;
@@ -298,8 +308,8 @@ body {
           }
           @include phone{
             position: absolute;
-            right: 20%;
-            top: 56%;
+            right: 5%;
+            top: -13%;
             font-size: 2.5rem;
           }
           button {
@@ -337,6 +347,11 @@ body {
       background-color: rgba(#2e2824,0.5);
       height: initial;
       padding-bottom: 6vh;
+    }
+    @include phone{
+      margin-left: 23vw;
+      flex-basis: 77%;
+      height: initial
     }
     .searchBlock {
       margin: 50px 60px 0 0;
@@ -376,7 +391,7 @@ body {
             top: 32%;
           }
           @include phone{
-            right: 20%;
+            right: 4%;
             top: 36%;
           }
           p {
@@ -485,7 +500,7 @@ body {
     margin: auto;
     width: 50.2vw;
     height: 52.9vh;
-    background-image: url('../img/Area.png');
+    background-image: url('../../img/Area.png');
     display: none;
     .messageTitle{
       background-color: #efefef;

@@ -30,10 +30,10 @@ foreach($data as $index => $row){
     $blacklist = $row["blacklist"];
     switch ($blacklist) {
         case "1":
-            $blacklist = '黑名單';
+            $blacklist = '白名單';
         break;
         case "2":
-            $blacklist = '白名單';
+            $blacklist = '黑名單';
         break;
         default:
             $level = '錯誤';

@@ -14,8 +14,14 @@
     $statement->execute();  
 
     $data = $statement->fetchAll();
+    $img_path = '';
     foreach($data as $index => $row){
-        echo $row['name'].'/'.$row['email'].'/'.$row['introduction'];
+        if($row['member_img']==""){
+            $img_path="./assets/img/normalnumber/art.png";
+        }else{
+            $img_path = $row['member_img'];
+        }
+        echo $row['name'].'|'.$row['email'].'|'.$row['introduction'].'|'.$img_path;
     };
 
 ?>

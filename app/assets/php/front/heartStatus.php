@@ -16,14 +16,14 @@
 
   $like_id = "";
   foreach($data as $index => $row){
-      $like_id = $row["like_id"];
+      $like_id = $row["like"];
   }
 
     //判斷是否
-    if($like_id == ""){
-        echo "0"; 
-    }else{
+    if($like_id == 1){
         echo "1"; 
+    }else{
+        echo "2"; 
     }
 ?>
     

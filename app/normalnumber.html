@@ -17,6 +17,8 @@
 	<script src="./assets/js/jquery-3.5.1.js"></script>
 	<!-- <link rel="stylesheet" href="/css/hightlevelnumber_rwd.css"> -->
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+
 	<script src="./assets/js/jquery-3.5.1.js"></script>
 	<script src="./assets/js/vue.js"></script>
 
@@ -24,10 +26,61 @@
 
 <body>
 	<div id="app">
-		<vue-header></vue-header>
+		<!-- <vue-header></vue-header> -->
 
-		@@include('./compontents/head.html')
-		@@include('./compontents/SearchBar.html')
+		<header class="indexSideBar">
+			<a class="logoForIndex" href="./homepage.html">
+				<img src="./assets/img/logo_bowu_white.png">
+			</a>
+
+			<menu class="menu">
+				<p>MENU</p>
+				<div class="menuOpenCloseAni">
+					<span class="indexMenuline1"></span>
+					<span class="indexMenuline2"></span>
+				</div>
+			</menu>
+
+			<div class="menu_bar none">
+
+				<div class="menuGsapLine"></div>
+
+				<a href="./exhibition.html" class="menu_personal_exhibits">PERSONAL EXHIBITS</a>
+
+				<div class="menu_about menu_child">
+					<a href="./About.html">
+						<img src="./assets/img/menu_about.png">
+						About
+					</a>
+				</div>
+
+				<div class="menu_exhibits menu_child">
+					<a href="./exhibition.html">
+						<img src="./assets/img/menu_exhibits.png" alt="">Exhibits</a>
+				</div>
+
+				<div class="menu_postcard menu_child">
+					<a href="./postcard.html">
+						<img src="./assets/img/menu_postcard.png" alt="">PostCard</a>
+				</div>
+
+				<div class="notthings menu_child">
+					<a href=""></a>
+				</div>
+
+				<div class="join">
+					<div class="line"></div>
+					<a href="##">JOIN US NOW</a>
+				</div>
+			</div>
+
+			<ul>
+				<li> <a href="#">SHARE</a> </li>
+				<b></b>
+				<li> <a href="./About.html">CONTACT US</a> </li>
+			</ul>
+		</header>
+
 
 		<div class="wrapper">
 
@@ -41,17 +94,18 @@
 				</div>
 
 				<div class="main">
+
 					<div @v-show="!showInDetail" class="left">
 						<div v-show="!isShow" class="name">{{defaultText}}<img @click="inputName"
 								src="./assets/img/highlevelnumber/Group 250.png">
 						</div>
 
-						<div v-show="isShow" class="name"><input type="text" v-model="defaultText"><img
-								@click="inputName" src="./assets/img/highlevelnumber/Group 250.png">
+						<div v-show="isShow" class="name"><input type="text" v-model="defaultText"><img @click="inputName"
+								src="./assets/img/highlevelnumber/Group 250.png">
 						</div>
 
 						<div class="artimg">
-							<img class="art" src="./assets/img/highlevelnumber/art.png">
+							<img :class="art" :src="itemImg.imgSrc">
 						</div>
 
 						<div v-show="!showPieces" class="mastername">
@@ -65,8 +119,7 @@
 
 
 						<div v-show="!showIntro" class="intro">
-							<p>{{introContent}}</p><img @click="inputIntro"
-								src="./assets/img/highlevelnumber/Group 250.png">
+							<p>{{introContent}}</p><img @click="inputIntro" src="./assets/img/highlevelnumber/Group 250.png">
 						</div>
 
 						<div v-show="showIntro" class="intro">
@@ -76,18 +129,20 @@
 
 						<div class="visit">
 							<div class="good">
-								<p class="p1">24K</p>
+								<p id="like" class="p1">24K</p>
 								<p class="p2">給讚人數</p>
 							</div>
 							<div class="tour">
-								<p class="p1">1,890</p>
+								<p id="look" class="p1">1,890</p>
 								<p class="p2">瀏覽人次</p>
 							</div>
 							<div class="message">
-								<p class="p1">90</p>
+								<p id="comment" class="p1">90</p>
 								<p class="p2">留言數</p>
 							</div>
 						</div>
+
+
 					</div>
 					<div class="right">
 
@@ -99,35 +154,30 @@
 
 							<div class="authority_down">
 								<div class="authority_image">
-									<img @click="selectWork('./assets/img/highlevelnumber/authority_work1.png')"
-										src="./assets/img/highlevelnumber/authority_work1.png" alt="">
-									<img @click="selectWork" src="./assets/img/highlevelnumber/authority_work2.png"
-										alt="">
-									<img src="./assets/img/highlevelnumber/authority_work3.png" alt="">
-									<img src="./assets/img/highlevelnumber/authority_work4.png" alt="">
-									<img src="./assets/img/highlevelnumber/authority_work5.png" alt="">
-									<img src="./assets/img/highlevelnumber/authority_work6.png" alt="">
-									<img src="./assets/img/highlevelnumber/authority_work7.png" alt="">
-									<img src="./assets/img/highlevelnumber/authority_work8.png" alt="">
-									<img src="./assets/img/highlevelnumber/authority_work9.png" alt="">
-									<img src="./assets/img/highlevelnumber/authority_work1.png" alt="">
-									<img src="./assets/img/highlevelnumber/authority_work2.png" alt="">
-									<img src="./assets/img/highlevelnumber/authority_work3.png" alt="">
-									<img src="./assets/img/highlevelnumber/authority_work4.png" alt="">
-									<img src="./assets/img/highlevelnumber/authority_work5.png" alt="">
-									<img src="./assets/img/highlevelnumber/authority_work6.png" alt="">
-									<img src="./assets/img/highlevelnumber/authority_work7.png" alt="">
-									<img src="./assets/img/highlevelnumber/authority_work8.png" alt="">
-									<img src="./assets/img/highlevelnumber/authority_work9.png" alt="">
+
+
+									<input type="file" style="display: none;" id="updateImg" name="updateImg" @change="selectWork"
+										accept="image/*" ref="file">
+
+
+
+									<!-- <img id="iu" :src="itemImg.imgSrc" style="width: 0px; height: 0px;">
+									<img id="ou" :src="storageImgUrl" style="width: 0px; height: 0px;">
+ -->
+
+									<img v-for="(item,index) of itemList" :data-id="item.work_id" :src="item.img_path" alt=""
+										style="width:120px;height:118px;" @click="checkWork(item)">
+
+
 								</div>
 
 
 
 								<div class="authority_btn">
 									<div class="authority_btn_down">
-										<div class="work_btn"><span class="material-icons">library_add</span>ADD WORK
+										<div class="work_btn" @click="workUpdate"><span class="material-icons">library_add</span>ADD WORK
 										</div>
-										<div class="trash_btn"><i class="fas fa-trash"></i>DELETE</div>
+										<div class="trash_btn" @click="workDelete"><i class="fas fa-trash"></i>DELETE</div>
 									</div>
 								</div>
 
@@ -152,8 +202,28 @@
 
 	</div>
 
-	@@include('./compontents/footer.html')
-	<script src="./assets/js/new.js"></script>
+	<footer>
+		<ul>
+			<li><a href="./About.html">AboutUs</a></li>
+			<li><a href="./exhibition.html">Exhibits</a></li>
+			<li><a href="./postcard.html">PostCard</a></li>
+		</ul>
+
+		<div class="footerLogo">
+			<a href="#">
+				<img src="./assets/img/logo_bowu_white.png" width="55px" height="55px">
+				<p>　BO WU MUSEUM</p>
+			</a>
+		</div>
+
+		<ol>
+			<li><a href="#">Rules</a></li>
+			<li><a href="#"><img src="./assets/img/IconFacebook.png"></a></li>
+			<li><a href="#"><img src="./assets/img/IconInstagram.png"></a></li>
+			<li><a href="#"><img src="./assets/img/IconYoutube.png"></a></li>
+		</ol>
+	</footer>
+	<!-- <script src="./assets/js/new.js"></script> -->
 
 
 
@@ -163,37 +233,6 @@
 
 
 	<script>
-		// new Vue({
-		// 	el: '#app',
-		// 	data: {
-		// 		message: 'Hello, VueJS!',
-		// 	},
-		// });
-
-
-
-
-
-		Vue.component('itemDemo', {
-			props: ['img'],
-
-			template: `<div>
-				
-				
-				</div>`,
-
-			data() {
-				return {
-					name: '1231231',
-
-
-				}
-			}
-
-
-
-
-		})
 
 		new Vue({
 			el: '#app',
@@ -204,9 +243,51 @@
 				showPieces: false,
 				introContent: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et',
 				showIntro: false,
-				showWork: false,
-				itemImg: '',
+				itemImg: {
+					imgName: '請輸入作者',
+					imgMastername: '請輸入作品名稱',
+					imgSrc: './assets/img/highlevelnumber/art.png',
+					imgIntro: '請輸入作品介紹',
+					work_id: '',
+				},
+				itemList: [],
+				showInDetail: false,
+				art: 'art',
+				imgUrl: '',
+				storageImgUrl: [],
+				deleteWork: [],
+				// mainImg: './assets/img/highlevelnumber/authority_work3.png',
 			},
+
+			mounted() {
+
+				// console.log('data', this[0].itemImg, this[0].name);
+				axios.get("./assets/php/front/normal_memberlist.php").then((res) => {
+					// console.log(res.data[0])
+					// this.items = res.data[0];
+					this.defaultText = res.data[0].name;
+					this.masterName = res.data[0].email;
+					this.introContent = res.data[0].introduction;
+
+					// this.itemImg.imgSrc=res.data[0].
+				}).catch();
+
+				axios.get("./assets/php/front/normal_workstorage.php").then((res) => {
+					this.itemList = res.data;
+					this.storageImgUrl = res.data[0].img_path;
+					console.log(this.storageImgUrl);
+					like.innerHTML = res.data[0].like_num;
+					look.innerHTML = res.data[0].visitors;
+					// comment.innerHTML = res.data[0].work_message;
+					// ou.style = "width:120px;height:118px;"
+				}).catch();
+
+
+
+			},
+
+
+
 			methods: {
 				inputName() {
 					// .style;
@@ -230,32 +311,181 @@
 					}
 				},
 
+
+
 				inputIntro() {
 					if (!this.showIntro) {
 						this.showIntro = true;
 					} else {
 						this.showIntro = false;
+						// const params = new URLSearchParams();
+						// params.append('name', this.name);
+						//name是網址後面＋的，this.name是要綁的資料庫欄位
+						axios({
+							method: 'post',
+							url: './assets/php/front/normal_pieceslist.php ',
+							headers: {
+								'Content-Type': 'application/x-www-form-urlencoded',
+							},
+							data: {
+								// 傳入資料庫的值
+								'work_name': this.masterName,
+								'work_introduction': this.introContent,
+								'img_path': this.imgUrl,
+							}
+
+						}).then((res) => {
+							// 回應成功
+							console.log(res)
+							// console.log(this.itemImg.imgIntro)
+							// this.items = res.data[0];
+							res.data[0].name = this.imgName;
+							// res.data[0].email = this.imgMastername;
+							// res.data[0].introduction = this.imgIntro;
+						}).catch((err) => {
+							console.log(err.response);
+						});
+						// axios.post("./assets/php/front/normal_pieceslist.php", {
+						// 	method:'post',
+						// 	// 傳入資料庫的值
+						// 	name: this.imgName,
+
+						// }).then((res) => {
+						// 	// 回應成功
+						// 	console.log(res.data[0])
+						// 	// this.items = res.data[0];
+						// 	// res.data[0].name = this.imgName;
+						// 	// res.data[0].email = this.imgMastername;
+						// 	// res.data[0].introduction = this.imgIntro;
+						// }).catch(
+						// 	// 回應失敗
+						// 	console.log(error)
+						// );
 					}
 				},
 
-				selectWork(val) {
-					if (!this.showWork) {
-						console.log(123);
-						this.showWork = true;
+
+				workUpdate() {
+					// console.log(123);
+					updateImg.click();
+
+				},
+				selectWork(e) {
+
+					let file = e.target.files[0];
+					// console.log(file.name);
+					let readFile = new FileReader();
+					readFile.readAsDataURL(file);
+					readFile.addEventListener('load', this.loadImage);
+					this.file = this.$refs.file.files[0];
+					let formData = new FormData();
+					formData.append("file", this.file);
+					console.log(this.imgUrl);
+
+					axios.post("./assets/php/front/normal_fileUpload.php", formData, {
+						headers: {
+							"mime-Type": "multipart/form-data",
+						},
+					})
+						.then((res) => {
+							// console.log(`${res.data}`);
+							// console.log(data.data);
+							this.imgUrl = res.data;
+							console.log(this.imgUrl);
+							// console.log(this.itemImg.imgSrc);
+						}).catch((err) => {
+							console.log(err);
+						});
+					// .catch(function () {
+					// 	console.log("FAILURE!!");
+					// });
+				},
+				loadImage(e) {
+					this.itemImg.imgSrc = e.target.result;
+					// console.log(e.target.name);
+					this.defaultText = this.itemImg.imgName;
+					this.masterName = this.itemImg.imgMastername;
+					this.introContent = this.itemImg.imgIntro;
+					// this.mainImg = e.target.result;
+					// fileCheck.click();
+				},
+				checkWork(item) {
+					console.log(item);
+					this.masterName = item.work_name;
+					this.introContent = item.work_introduce;
+					this.itemImg.imgSrc = item.img_path;
+					like.innerHTML = item.like_num;
+					look.innerHTML = item.visitors;
+					// comment.innerHTML=item.comment;
+					this.deleteWork = item;
+
+					// console.log(item.work_id)
+
+				},
+				workDelete() {
 
 
-						this.itemImg = val;
 
-					} else {
-						this.showWork = false;
-					}
-				}
+
+					this.itemList.splice(this.itemList.indexOf(this.deleteWork), 1);
+
+
+
+					const params = new URLSearchParams();
+					params.append('ID', this.deleteWork.work_id)
+
+					axios({
+						method: 'post',
+						url: './assets/php/front/normal_workdelete.php',
+						headers: {
+							'Content-Type': 'application/x-www-form-urlencoded',
+						},
+						data: params,
+					}).then((res) => {
+						// 回應成功
+						console.log(res);
+
+					}).catch((err) => {
+						console.log(err.response);
+					});
+
+
+				},
+
+
+
 			},
 		})
+
+
+
+
+
 	</script>
 
-	<script src="./assets/js/script.js"></script>
+	<!-- <script src="./assets/js/script.js"></script> -->
 	<script src="./assets/js/normal.js"></script>
+	<script>
+		function doQuery(str) {
+			//Typing your code...
+			$.ajax({
+				method: "POST",
+				url: "./assets/php/back/member_list.php",
+				data: {
+					Name: str
+				},
+				dataType: "text",
+				success: function (response) {
+					//更新html內容
+					// document.getElementsByClassName('table')[0].insertAdjacentHTML("beforeend", response);
+					document.getElementsByClassName('table')[0].innerHTML = response;
+				},
+				error: function (exception) {
+					alert("發生錯誤: " + exception.status);
+				}
+			});
+		};
+	</script>
 </body>
 
 </html>

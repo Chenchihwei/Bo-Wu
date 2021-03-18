@@ -15,9 +15,6 @@ echo "<tr class='table-dark table_title'>
             <p class='th_p'>密碼</p>
         </th>
         <th>
-            <p class='th_p'>email</p>
-        </th>
-        <th>
             <p class='th_p'>等級</p>
         </th>
         <th>
@@ -39,7 +36,6 @@ foreach($data as $index => $row){
     echo "<td><p class='edit_p edit_name'>".$row["name"]."</p><input type='text' style='width:5vw;' name='' class='edit_text none'></td>";
     echo "<td><p class='edit_p edit_account'>".$row["account"]."</p><input type='text' style='width:5vw;' name='' class='edit_text none'></td>";
     echo "<td><p class='edit_p edit_password'>".$row["password"]."</p><input type='text' style='width:5vw;' name='' class='edit_text none'></td>";
-    echo "<td><p class='edit_p edit_email'>".$row["email"]."</p><input type='text' style='width:5vw;' name='' class='edit_text none'></td>";
 
     $level = $row["level"];
     switch ($level) {
@@ -57,15 +53,15 @@ foreach($data as $index => $row){
     $blacklist = $row["blacklist"];
     switch ($blacklist) {
         case "1":
-            $blacklist = '黑名單';
+            $blacklist = '白名單';
         break;
         case "2":
-            $blacklist = '白名單';
+            $blacklist = '黑名單';
         break;
         default:
             $level = '錯誤';
     };
-    echo "<td><p class='select_p edit_blacklist'>".$blacklist."</p><select name='' class='member_blacklist_select edit_select none'><option value='1'>黑名單</option><option value='2'>白名單</option></select></td>";
+    echo "<td><p class='select_p edit_blacklist'>".$blacklist."</p><select name='' class='member_blacklist_select edit_select none'><option value='1'>白名單</option><option value='2'>黑名單</option></select></td>";
 
     echo "<td><p class='produce'>".$row["introduction"]."</p><textarea name='' class='edit_textarea none' cols='30' rows='10'></textarea></td>";
     echo "<td>".$row["count(d.work_id)"]."</td>";

@@ -1,35 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./assets/css/all.css">
+  <link rel="stylesheet" href="./assets/css/pages/signin.css">
   <link rel="stylesheet" href="./assets/css/pages/moon.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
   <script src="./assets/js/jquery-3.5.1.js"></script>
   <script src="./assets/js/vue.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
-
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <meta name="google-signin-client_id" content="5123688312-hh38n162r8fqfrd31n2a2hid0q7pk7uf.apps.googleusercontent.com">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.js"
+    integrity="sha512-c5JDIvikBZ6tuz+OyaFsHKvuyg+tCug3hf41Vmmd5Yz9H5anj4vZOqlBV5PJoEbBJGFCgKoRT9YAgko4JS6/Qw=="
+    crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+
 
 
 
   <title>月球</title>
 </head>
+
 <body>
   @@include('./compontents/head.html')
+  @@include('./compontents/searchbar.html')
+  @@include('./compontents/music.html')
 
-  <div class="features">
+
+
+  <!-- <div class="features">
     <i class="fas fa-search"></i>
     <div class="personal"><a href="">個人展間</a>
     </div>
 
 
     <div class="login"><a href="" class="login_manger">管理</a>
-        <i class="fas fa-user-friends"></i>
+      <i class="fas fa-user-friends"></i>
     </div>
 
     <i class="fas fa-bell"></i>
@@ -37,38 +54,39 @@
 
   <div class="musicControlBtn">
     <div class="musicControlBtnSpan">
-        <span class="line1"></span>
-        <span class="line2"></span>
-        <span class="line3"></span>
+      <span class="line1"></span>
+      <span class="line2"></span>
+      <span class="line3"></span>
     </div>
     <p>Music on/ off</p>
-  </div>
+  </div> -->
 
 
   <div class="wrapper">
     <div class="title">
-      <h1>Exhibits of Universe</h1>
+      <h1>Exhibits of BoWu</h1>
       <div class="gray"></div>
     </div>
 
     <div class="back">
       <a href="./homepage.html">
-        <img src="./assets/img/Icon awesome-arrow-left white.png" alt="">      
+        <img src="./assets/img/Icon awesome-arrow-left white.png" alt="">
       </a>
-      
+
     </div>
-    
 
 
-    <div id="app" class="container">
-      <span class="material-icons rightArrow">arrow_forward_ios</span>
-      <span class="material-icons leftArrow">arrow_back_ios</span>
-  
+
+    <div id="app1" class="container">
+      <span class="material-icons rightArrow" @click="changePage">arrow_forward_ios</span>
+      <span class="material-icons leftArrow" @click="changePage_minus">arrow_back_ios</span>
+
 
       <div class="container_left">
+
         <div class="like">
-          <span class="material-icons">favorite</span>
-          <p>1314</p>
+          <span  :class="{'like_red':like_red}"  class="material-icons like_php" @click="like_plus($event)">favorite</span>
+          <p>{{like_num}}</p>
         </div>
 
         <div class="work">
@@ -86,34 +104,34 @@
 
         <div class="bottom">
           <ul class="button">
-            <li>    
-                <a href="#">
+            <li>
+              <a href="#">
                 <span></span>
-                <p>01</p>
-                </a>
-              </li>
-              <li>    
-                <a href="#">
-                  <span></span>
-                  <p>02</p>
-                </a>    
-              </li>
-              <li>    
-                <a href="#">
-                  <span></span>
-                  <p>03</p>
-                </a>  
-              </li>
-              <li>
-                <a href="#">
-                  <span></span>
-                  <p>04</p>
-                </a>
-              </li>
-            
-            </ul>  
+                <p>宇宙</p>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span></span>
+                <p>海洋</p>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span></span>
+                <p>森林</p>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span></span>
+                <p>地底</p>
+              </a>
+            </li>
+
+          </ul>
         </div>
-      
+
 
       </div>
     </div>
@@ -124,21 +142,35 @@
 
 
 
+
   <!-- ----------JS------------- -->
   <script src="./assets/js/menu.js"></script>
+  <script src="./assets/js/loginFB.js"></script>
+  <script src="./assets/js/loginGoogle.js"></script>
+  <script src='./assets/js/music.js'></script>
+  <script src='./assets/js/verify.js'></script>
+  <script src='./assets/js/logIn.js'></script>
+  <script src="./assets/js/button.js"></script>
+
 
   <script>
 
     var url = location.href;
     var temp = url.split("?")[1].split('=');
-    console.log(temp[1]);
-    new Vue({  //this代表Vue instance(Vue實例)
-      el:'#app',  
+    // console.log(temp[1]);
+    const moon = new Vue({  //this代表Vue instance(Vue實例)
+      el: '#app1',
       data: { //變數存放的地方
-        title: '威拉姆特隕石',
-        message: '威拉姆特隕石的正式名稱是威拉姆特，是在美國俄勒岡發現一顆鐵-鎳為主的隕石。它是美國最大的隕石，也是世界第六大的隕石。在發現的地點沒有隕石坑，因此有可能是落在現在的加拿大，然後在冰河時期隨著冰層的流動搬移到被發現的地方。<br>威拉姆特隕石的質量大約是32,000磅，（15公噸），它的類型是III鐵隕石，組成份是91%鐵，7.62%鎳、還有可察覺的鈷和磷。它的尺寸大約是10尺（3.5米）長，6.5尺（1.98米）寬、4.25尺（1.3米）高。表面獨特的侵蝕特徵，應該是高速進入大氣層和之後的大氣風化造成的。風化的情況，和雨水的交互作用造成隕硫鐵的礦物產生，這是硫酸緩慢的溶解隕石內的某些成分形成的。今天在許多的凹陷處都可以看見這種結果（經歷很長的時期）。威拉姆特的韋德曼花紋被追蹤到有再結晶的結構，這是母體受到撞擊加熱事件的結果。',
-        imgURL:' ./assets/img/3d/Image.png',
+        // title: '威拉姆特隕石',
+        title: '',
+        // message: '威拉姆特隕石的正式名稱是威拉姆特，是在美國俄勒岡發現一顆鐵-鎳為主的隕石。它是美國最大的隕石，也是世界第六大的隕石。在發現的地點沒有隕石坑，因此有可能是落在現在的加拿大，然後在冰河時期隨著冰層的流動搬移到被發現的地方。<br>威拉姆特隕石的質量大約是32,000磅，（15公噸），它的類型是III鐵隕石，組成份是91%鐵，7.62%鎳、還有可察覺的鈷和磷。它的尺寸大約是10尺（3.5米）長，6.5尺（1.98米）寬、4.25尺（1.3米）高。表面獨特的侵蝕特徵，應該是高速進入大氣層和之後的大氣風化造成的。風化的情況，和雨水的交互作用造成隕硫鐵的礦物產生，這是硫酸緩慢的溶解隕石內的某些成分形成的。今天在許多的凹陷處都可以看見這種結果（經歷很長的時期）。威拉姆特的韋德曼花紋被追蹤到有再結晶的結構，這是母體受到撞擊加熱事件的結果。',        
+        message: '',
+        // imgURL:' ./assets/img/3d/Image.png',
+        imgURL: '',
         id: temp[1],
+        like_num:'',
+        like_red:false,
+        like_numNew:'',
       },
       mounted() {
 
@@ -157,31 +189,74 @@
           this.title = res.data[0].work_name;
           this.message = res.data[0].work_introduce;
           this.imgURL = res.data[0].img_path;
+          this.like_num = res.data[0].like_num;
+          console.log(res.data[0].like_num);
 
           console.log(res.data[0].work_name)
         }).catch((err)=>{
           console.log(err);
-        })
+        });
+
+
       },
 
 
       methods: { //函數放這裡
 
-        changePage(){
+        changePage() {
 
-          console.log(123);
-
+          // console.log(123);
+          if (this.id == 47) {
+            this.id = 11;
+          };
           this.id++;
-
-          window.location.href =`http://localhost/group-selfuse/dist/moon.html?work_id=${this.id}`;
+          // url = "member_pre.html?advance_id=" + advance_memberid;
+          window.location.href = `moon.html?work_id=${this.id}`;
         },
-        changePage_minus(){
-          console.log(123);
+        changePage_minus() {
+          // console.log(123);
+          if (this.id == 12) {
+            this.id = 48;
+          };
           this.id--;
-          window.location.href =`http://localhost/group-selfuse/dist/moon.html?work_id=${this.id}`;
+          window.location.href = `moon.html?work_id=${this.id}`;
+
+        },
+                like_plus(e){
+          this.like_red=true;
+          
+          console.log(e.target.classList.contains('like_red'));
+          
+          // this.like_num++;
+          if(!e.target.classList.contains('like_red')){
+            this.like_num++;
+          }else{
+            this.like_red=false;
+            this.like_num--;
+          };
+
+          const param = new URLSearchParams()
+          param.append('ID', this.id)
+          param.append('like_num', this.like_num)
+          // let like_num = this.like_num;
+          // let id = this.id;
+          // console.log(id);
+          // console.log(like_num);
+          axios({
+            method: 'post',
+            url: './assets/php/front/moon_likeUpdate.php',
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            data:param,
+              
+            }).then((res)=>{
+              console.log(res);
+            }).catch((err)=>{
+              console.log(err);
+            });
 
         }
-
 
 
       }
@@ -194,4 +269,5 @@
 
 
 </body>
+
 </html>

@@ -1,7 +1,8 @@
 $(document).ready(function () {
   work_save();
   work_exhibition();
-  member_content()
+  member_content();
+  member_total();
 });
 //localhost
 function getLocalstorage() {
@@ -14,7 +15,6 @@ let item = getLocalstorage();
 
 //撈出會員資料
 function member_content() {
-  let item = getLocalstorage();
   let member_id = item.id;
   // let member_id = 1614609750;
   $.ajax({
@@ -27,15 +27,40 @@ function member_content() {
     success: function (response) {
       //更新html內容
       // console.log(response);
-      let name = response.split('/')[0];
-      let email = response.split('/')[1];
-      let introduction = response.split('/')[2];
+      let name = response.split('|')[0];
+      let email = response.split('|')[1];
+      let introduction = response.split('|')[2];
+      let userimage = response.split('|')[3];
       $('.name').children('p').html(name);
       $('.mastername').children('p').html(email);
       $('.intro').children('p').html(introduction);
-
-      // console.log(name);
-
+      $('.art').attr('src', userimage);
+    },
+    error: function (exception) {
+      alert("發生錯誤: " + exception.status);
+    }
+  });
+};
+//撈出總值
+function member_total() {
+  let member_id = item.id;
+  // let member_id = 1614609750;
+  $.ajax({
+    method: "POST",
+    url: "./assets/php/front/highlevel_member_count.php",
+    data: {
+      'member_id': member_id,
+    },
+    dataType: "text",
+    success: function (response) {
+      //更新html內容
+      // console.log(response);
+      let goodTotal = response.split('|')[0];
+      let peopleTotal = response.split('|')[1];
+      let commentTotal = response.split('|')[2];
+      $('.good').children('.p1').html(goodTotal);
+      $('.tour').children('.p1').html(peopleTotal);
+      $('.message').children('.p1').html(commentTotal);
     },
     error: function (exception) {
       alert("發生錯誤: " + exception.status);
@@ -95,9 +120,14 @@ $('.personal_works').on('click', '.personal_work', function () {
   if ($(this).children('.checkrage').hasClass('custom')) {
     $(this).children('.checkrage').removeClass('custom');
     $(this).children('.custom-checkbox').css('display', 'none');
+    biddingBtn.style.display = "none";
   } else {
     $(this).children('.checkrage').addClass('custom');
     $(this).children('.custom-checkbox').css('display', 'block');
+    biddingBtn.style.display = "block";
+    let src = $(this).children('img').attr('data-id')
+    biddingInformation(src);
+    Save(src);
   };
 });
 
@@ -114,6 +144,7 @@ $('.authority_image').on('click', 'img', function () {
       $(this).prevAll('p').addClass('none');
       $('.name').removeClass('work_content');
       member_content();
+      member_total();
     } else {
       $(this).addClass('unexhibition_img_choose');
       $(this).prevAll('p').removeClass('none');
@@ -184,6 +215,7 @@ $('.personal_OnShelf').click(function () {
       work_exhibition_update(status, work_id);
     };
     alert('上架成功!');
+    verify_mail();
   }
 });
 
@@ -202,7 +234,7 @@ $('.personal_OffShelf').click(function () {
       let img_path = $(exhibition_img_choose[i]).attr('src');
       // console.log(data_id);
       // console.log(img_path);
-      let block = `<div class="authority_div" style="height:178px">
+      let block = `<div class="authority_div" style="height:178px"><p style="font-weight:bold;" class="none">已選取</p>
                   <img class="checked" data-id="${work_id}" src="${img_path}" alt="">
                   </div>`;
       // console.log(block);
@@ -332,7 +364,7 @@ $('.edit_click').click(function () {
 // 	let file = thisimg.files[0];
 // 		let fr = new FileReader();
 // 		fr.onloadend = function(e) {
-      
+
 // 	  };
 // 	fr.readAsDataURL(file);
 // }
@@ -340,53 +372,58 @@ $('.edit_click').click(function () {
 function upload() {
   let upimg = new FormData(document.getElementsByClassName('upimg')[0]);
   if ($('.fileupload').get(0).files[0]) {
-      $.ajax({
-          type: 'post',
-          url: "./assets/php/front/highmemberupload.php",
-          data: upimg,
-          cache: false,
-          processData: false,
-          contentType: false,
-          success: function (response) {
-              let path = response.split("|")[0];
-              let img_name = response.split("|")[1];
-              console.log(path)
-              console.log(img_name)
-              insert(path);
-          },
-          error: function (exception) {
-              alert("發生錯誤: " + exception.status);
-          }
-      });
+    $.ajax({
+      type: 'post',
+      url: "./assets/php/front/highmemberupload.php",
+      data: upimg,
+      cache: false,
+      processData: false,
+      contentType: false,
+      success: function (response) {
+        let path = response.split("|")[0];
+        let img_name = response.split("|")[1];
+        console.log(path)
+        console.log(img_name)
+        insert(path);
+      },
+      error: function (exception) {
+        alert("發生錯誤: " + exception.status);
+      }
+    });
   } else {
-      
+
   };
 };
 //新增sql
 function insert(path) {
   $.ajax({
-      method: "POST",
-      url: "./assets/php/front/highmember_insert.php",
-      data: {
-          'path': path,
-          'img_name': "請輸入展品名稱",
-          'member_id':item.id,
-          // 'member_id':1614609750,
-      },
-      dataType: "text",
-      success: function (response) {
-          alert('上傳成功');
-          console.log(response)
-      },
-      error: function (exception) {
-          alert("發生錯誤: " + exception.status);
-      }
+    method: "POST",
+    url: "./assets/php/front/highmember_insert.php",
+    data: {
+      'path': path,
+      'img_name': "請輸入展品名稱",
+      'member_id': item.id,
+      // 'member_id':1614609750,
+    },
+    dataType: "text",
+    success: function (response) {
+      alert('上傳成功');
+      console.log(response)
+      let block = `<div class="authority_div" style="height:178px"><p style="font-weight:bold;">待審核</p>
+                  <img style="opacity:0.4;" class="uncheck" data-id="${response}" src="${path}" alt="">
+                  </div>`;
+      // console.log(block);
+      document.getElementsByClassName('authority_image')[0].insertAdjacentHTML('beforeend', block);
+    },
+    error: function (exception) {
+      alert("發生錯誤: " + exception.status);
+    }
   });
 }
 let work_btn = document.getElementsByClassName('work_btn')[0];
-let fileupload =document.getElementsByClassName('fileupload')[0];
+let fileupload = document.getElementsByClassName('fileupload')[0];
 
-work_btn.addEventListener('click',function(e){
+work_btn.addEventListener('click', function (e) {
   if (fileupload) {
     fileupload.click();
   }
@@ -398,7 +435,7 @@ work_btn.addEventListener('click',function(e){
 let trash_btn = document.getElementsByClassName('trash_btn')[0];
 trash_btn.addEventListener('click', function () {
   let imgSelected = document.getElementsByClassName('authority_image')[0].querySelectorAll('div');
-  
+
   imgSelected.forEach(element => {
     if (element.lastChild.classList.contains('unexhibition_img_choose')) {
       element.remove();
@@ -409,19 +446,101 @@ trash_btn.addEventListener('click', function () {
   });
 })
 
-function deleteWork(imgId){
+function deleteWork(imgId) {
   $.ajax({
     method: "POST",
     url: "./assets/php/front/highmember_delete.php",
     data: {
-        'imgId': imgId,
+      'imgId': imgId,
     },
     dataType: "text",
     success: function (response) {
-        alert('刪除成功');
+      alert('刪除成功');
     },
     error: function (exception) {
-        alert("發生錯誤: " + exception.status);
+      alert("發生錯誤: " + exception.status);
     }
-});
+  });
 }
+
+
+
+
+var biddingBtn = document.getElementsByClassName('biddingBtn')[0];
+let biddingEdit = document.getElementsByClassName('biddingEdit')[0];
+let save = document.getElementsByClassName('information')[0].querySelector('button');
+let biddingInfor = document.getElementsByClassName('information')[0].querySelector('h1');
+let biddingP = document.getElementsByClassName('information')[0].querySelector('p');
+let biddingBtnStatus = true;
+biddingBtn.addEventListener('click', function () {
+  if (biddingBtnStatus == true) {
+    biddingEdit.style.display = "block";
+    biddingBtnStatus = false;
+  } else {
+    biddingEdit.style.display = "none";
+    biddingBtnStatus = true;
+  }
+})
+
+function Save(imgId) {
+  save.addEventListener('click', function () {
+    let time = document.getElementsByClassName('information')[0].getElementsByTagName('input')[0].value;
+    let money = document.getElementsByClassName('information')[0].getElementsByTagName('input')[1].value;
+    let item = getLocalstorage();
+    $.ajax({
+      method: "POST",
+      url: "./assets/php/front/highlevel_bidding_insert.php",
+      data: {
+        'time': time,
+        'money': money,
+        'work_id': imgId,
+        'member_id': item.id
+        // 'member_id':1614609750,
+      },
+      dataType: "text",
+      success: function (response) {
+        alert('新增成功');
+        console.log(response)
+      },
+      error: function (exception) {
+        alert("發生錯誤: " + exception.status);
+      }
+    });
+  })
+}
+
+function biddingInformation(imgId) {
+  $.ajax({
+    method: "POST",
+    url: "./assets/php/front/highlevel_bidding_select.php",
+    data: {
+      'work_id': imgId,
+    },
+    dataType: "json",
+    success: function (response) {
+      biddingInfor.innerHTML = response[0].work_name
+      biddingP.innerHTML = response[0].work_introduce
+    },
+    error: function (exception) {
+      alert("發生錯誤: " + exception.status);
+    }
+  });
+};
+
+function verify_mail() {
+  let member_id = item.id;
+  $.ajax({
+    method: "POST",
+    url: "./assets/php/front/highmemberwork_mail.php",
+    data: {
+      'member_id': member_id,
+    },
+    dataType: "text",
+    success: function (response) {
+      console.log(response);
+    },
+    error: function (exception) {
+      alert("發生錯誤: " + exception.status);
+    }
+  });
+};

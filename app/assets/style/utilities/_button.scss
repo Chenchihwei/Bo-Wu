@@ -178,8 +178,8 @@
     text-decoration: none;
     // border: 1px solid maroon;
     img{
-      // border: 1px solid blue;
-      width: 100%;
+      width: 80%;
+      margin-top: 6vh;
       @include pad{
         width: 120%;
       }
@@ -187,10 +187,11 @@
     &:hover{
       &::after{
         content: 'back';
-        font-size: $titleS;
+        font-size: 1rem;
         color: map-get($color, 'darkGray');
         line-height: 1.5;
         padding-left: 10px;
+        // transition: all .6s;
 
         @include notebook{
           font-size: $paragraph;

@@ -16,6 +16,10 @@ body{
     }
 }
 
+a{
+    cursor: none;
+}
+
 .menuGold{
     p{
         color: #BA967D;
@@ -470,7 +474,7 @@ body{
         width: 30vw;
         height: 600px;
         margin-left: 15.6vw;
-        margin-top: -33vw;
+        margin-top: -26vw;
 
         @include notebook{
             margin-top: -232px;
@@ -565,7 +569,6 @@ body{
             width: 182px;
             height: 2px;
             background-color:map-get($color,'black' );
-
             @include notebook{
                 width: 132px;
                 height: 3px;

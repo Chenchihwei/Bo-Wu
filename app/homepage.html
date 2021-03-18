@@ -22,12 +22,130 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
     <meta name="google-signin-client_id" content="5123688312-hh38n162r8fqfrd31n2a2hid0q7pk7uf.apps.googleusercontent.com">
     <script src="https://apis.google.com/js/platform.js" async defer></script>
-
-
     <title>Homepage_BoWuMuseum</title>
 </head>
 
 <body>
+    <style>
+        .openingAni{
+            z-index: 15;
+            top: 0;
+            left: 0;
+            
+            position: fixed;
+            display: block;
+            margin: 0 auto;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+
+            animation: end 1s 3.5s forwards;    
+            pointer-events: none;
+        }
+        @keyframes end{
+            0%{opacity: 1;}
+            100%{opacity: 0;}
+        }
+        .nameAll{
+            color: #fff;
+            font-family: 'Montserrat';
+            letter-spacing: 5px;
+            font-size: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+        }
+        .nameAll img{
+            width: 150px;
+            margin: 0 15px;
+            opacity: 0;
+        }
+        
+        .nameAni-outer1{
+            overflow: hidden;
+            margin-top: 50px;
+            opacity: 0;
+            animation: ccc 1s forwards;
+        }
+        .nameAni1{
+            display: block;
+            width: auto;
+            height: 1em;
+            background-color: #000;
+            animation: aaa 1s forwards;
+            position: relative;
+            top: -1em;
+            left: 0;
+        }
+        @keyframes aaa {
+            0%{transform: translateX(0px)}
+            100%{transform: translateX(3.5em);}
+        }
+        .nameAni-outer2{
+            overflow: hidden;
+            margin-top: 50px;
+            opacity: 0;
+            animation: ccc 1.5s .8s forwards;
+        }
+        .nameAni2{
+            display: block;
+            width: auto;
+            height: 1em;
+            background-color: rgb(0, 0, 0);
+
+            position: relative;
+            top: -1em;
+            left: 0;
+            animation: bbb 1.5s .8s forwards;
+        }
+        @keyframes bbb {
+            0%{transform: translateX(0px);}
+            100%{transform: translateX(5em);}
+        } 
+        .nameAni3{
+            animation: ccc 2s 2s forwards;
+        }
+        @keyframes ccc {
+            0%{opacity: 0;}
+            100%{opacity: 1;}
+        } 
+        </style>
+
+    <!-- openingAni -->
+    <div class="openingAni">
+        <div class="nameAll">
+            <div class="nameAni-outer1">
+                BoWu<div class="nameAni1"></div>
+            </div>
+            <img class="nameAni3" src="./assets/img/logo_bowu_white.png">
+            <div class="nameAni-outer2">
+                Museum<div class="nameAni2"></div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- biddingBtn -->
+    <div class="biddingBtn">
+        <div class="biddingContent">
+            <img src="./assets/img/IconSpeaker.png">
+            <a href="./bidding.html">
+                <ul>
+                    <li>競標活動開始！</li>
+                    <li>由此進入</li>
+                </ul>
+            </a>
+        </div>
+    </div>
+
+    <!-- 跳轉頁面之div -->
+    <div class="going3Dpage"></div>
+
     <!-- CURSOR STYLE -->
     <div class="cursor"></div>
     <div class="cursor-outside"></div>
@@ -38,7 +156,7 @@
     <!-- 左側 header -->
     <header class="indexSideBar">
         <a class="logoForIndex mousehover" href="../dist/homepage.html">
-            <img src="../app/assets/img/logo_bowu_white.png">
+            <img src="./assets/img/logo_bowu_white.png">
         </a>
 
         <menu class="menu mousehover">
@@ -237,6 +355,9 @@
                 <div class="bgcolorFor4Topic"></div>
             </div>
 
+            <div class="swiper-slide">
+            </div>
+
             <!-- <div class="swiper-slide">
                 <div class="lastWrapper big-wrapper">
                     <main class="mainAreaLast">
@@ -319,7 +440,8 @@
 
     <!-- Swiper -->
     <script>
-        var swiperV = new Swiper(".swiper-container-v", {
+        setTimeout(()=>{
+            var swiperV = new Swiper(".swiper-container-v", {
             direction: "vertical",
             effect: 'fade',
             mousewheel: true,
@@ -329,18 +451,17 @@
                 slideChange(){
                     let index = this.realIndex;
 
+                    if(this.realIndex === 4){
+                        document.querySelector('.going3Dpage').classList.add('-active')
+                        setTimeout(function(){
+                            window.location.href='./3d.html'
+                        }, 1500);
+                        return false
+                    }
+
                     let indexNum = document.getElementsByClassName('indexNum')[0];
                     indexNum.innerText = '0'+ (index+1);
-                    // $('.indexNum-text span').velocity({
-                    //     transform: ["translateX(0%)", "translateX(-550%)"]
-                    // }, {duration: 1000});
-                    // 滾動效果
 
-                    // $('.indexNum-text span').velocity(
-                    //     {opacity: 0}, 
-                    //     {duration: 100}
-                    // );
-                    
                     let progress = document.getElementsByClassName('pageBarLineNow')[0];
                     // console.log(progress);
                     let w = document.body.clientWidth
@@ -372,6 +493,8 @@
             hide: true,
             },
         });
+        },3500)
+
     </script>
 
 
@@ -670,11 +793,12 @@
 
     </script>
 
-    <script src="./assets/js/exhibition.js"></script>
+    <!-- <script src="./assets/js/exhibition.js"></script> -->
     <script src="./assets/js/loginFB.js"></script>
     <script src="./assets/js/loginGoogle.js"></script>
     <script src='./assets/js/verify.js'></script>
     <script src='./assets/js/logIn.js'></script>
+    <script src='./assets/js/search_all.js'></script>
 
     </body>
 </html>

@@ -180,15 +180,15 @@ body{
         justify-content: center;
         align-items: center;
         img{
-          width: 65%;
+          height: 50vh;
           @include notebook{
             margin: 0 auto;
           }
           @include pad{
-            width: 65%;
+            height: 50vh;
           }
           @include mobile(){
-            width: 55%;
+            height: 50vh;
           }
         }
         @include pad{
@@ -343,4 +343,9 @@ body{
     width: 3%;
   }
 }
+
+.like_red{
+  color: #9E0000 !important;
+}
+
 

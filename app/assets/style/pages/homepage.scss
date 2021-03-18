@@ -27,6 +27,98 @@ a{
     cursor: none;
 }
 
+// openingAni
+
+.openingAni{
+    z-index: 15;
+    top: 0;
+    left: 0;
+    position: fixed;
+    
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+
+    animation: end 1s 3.5s forwards;
+}
+@keyframes end{
+    0%{opacity: 1;}
+    100%{opacity: 0;}
+}
+
+.nameAll{
+    color: #fff;
+    font-family: 'Montserrat';
+    letter-spacing: 5px;
+    font-size: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+.nameAll img{
+    width: 150px;
+    margin: 0 15px;
+    opacity: 0;
+}
+
+.nameAni-outer1{
+    overflow: hidden;
+    margin-top: 50px;
+    opacity: 0;
+    animation: ccc 1s forwards;
+}
+.nameAni1{
+    display: block;
+    width: auto;
+    height: 1em;
+    background-color: #000;
+    animation: maskA 1s forwards;
+    position: relative;
+    top: -1em;
+    left: 0;
+}
+@keyframes maskA {
+    0%{transform: translateX(0px)}
+    100%{transform: translateX(3.5em);}
+}
+.nameAni-outer2{
+    overflow: hidden;
+    margin-top: 50px;
+    opacity: 0;
+    animation: ccc 1.5s .8s forwards;
+}
+.nameAni2{
+    display: block;
+    width: auto;
+    height: 1em;
+    background-color: rgb(0, 0, 0);
+
+    position: relative;
+    top: -1em;
+    left: 0;
+    animation: maskB 1.5s .8s forwards;
+}
+@keyframes maskB {
+    0%{transform: translateX(0px);}
+    100%{transform: translateX(5em);}
+} 
+.nameAni3{
+    animation: maskC 2s 2s forwards;
+}
+@keyframes maskC {
+    0%{opacity: 0;}
+    100%{opacity: 1;}
+} 
+// ani end
+
 .bgcolorFor4Topic{
     width: 20vw;
     height: 100vh;
@@ -61,7 +153,7 @@ a{
     background-color: rgb(175, 175, 175);
     border-radius: 50%;
     pointer-events: none; 
-    z-index: 1010;
+    z-index: 10000;
 }
 
 .cursor-outside{
@@ -87,8 +179,66 @@ a{
     // transform: translate(-50%, -50%);
 }
 
-// logIN-mobile start
+// Bidding 
 
+.biddingBtn{
+    display: block;
+    width: 200px;
+    height: 65px;
+    background-color: #F1F1F1;
+    border: 1px solid #707070;
+    border-radius: 50px 0 0 50px;
+    box-shadow: 1px 1px 2px #242424;;
+
+    position: fixed;
+    bottom: 10vw;
+    right: -140px;
+    z-index: 50;
+
+    transition: all 1s linear;
+
+    &:hover{
+        right: -10px;
+    }
+    &:hover img{
+        animation: shake 0.5s infinite;
+    }
+
+    .biddingContent{
+        display: flex;
+        margin-top: 8px;
+        a{
+            text-decoration: none;
+            color: black;
+        }
+        img{
+            width:50px;
+            margin-left: 10px;
+            margin-right: 5px;
+        }
+        li:last-child{
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+    }
+}
+
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+// logIN-mobile start
 .logInBg{
     display: block;
     width: 100vw;
@@ -101,8 +251,6 @@ a{
     z-index: 300;
     opacity: .8;
 }
-
-
 // logIN-mobile end
 
 // 左側選單 start
@@ -938,317 +1086,318 @@ a{
 // 滑動看更多 end
 
 // 右上方選單 start
+@import '../compontents/SearchBar';
 
-.features {
-    display: flex;
-    width: 250px;
-    height: 27px;
-    color: map-get($color, 'black');
+// .features {
+//     display: flex;
+//     width: 250px;
+//     height: 27px;
+//     color: map-get($color, 'black');
 
-    align-items: center;
-    position: fixed;
-    top: 50px;
-    right:1vw;
-    z-index: 3;
+//     align-items: center;
+//     position: fixed;
+//     top: 50px;
+//     right:1vw;
+//     z-index: 3;
 
-    a{
-        text-decoration: none;
-        color: map-get($color, 'black');
-        font-size: $paragraph;
-        font-family: 'Noto Serif TC';
-        @include pad{
-            color:map-get($color ,'white');
-        }
-        @include mobile{
-            font-size: 14px;
-        }
-    }
-    .fa-search {
-        font-size: 23px;
-        margin: 0;
-        @include mobile{
-            font-size: 20px;
-        }
-    }
-    .personal {
-        width: 64px;
-        height: 23px;
-        margin-left: 20px;
-        border-bottom: 3px solid #e5e5e5;
-     // outline: 2px solid chocolate;
-        @include mobile{
-            display: none;
-            border-bottom: 1.5px solid #e5e5e5;
-        }
-    }
-    .logInOption{
-        position: relative;
+//     a{
+//         text-decoration: none;
+//         color: map-get($color, 'black');
+//         font-size: $paragraph;
+//         font-family: 'Noto Serif TC';
+//         @include pad{
+//             color:map-get($color ,'white');
+//         }
+//         @include mobile{
+//             font-size: 14px;
+//         }
+//     }
+//     .fa-search {
+//         font-size: 23px;
+//         margin: 0;
+//         @include mobile{
+//             font-size: 20px;
+//         }
+//     }
+//     .personal {
+//         width: 64px;
+//         height: 23px;
+//         margin-left: 20px;
+//         border-bottom: 3px solid #e5e5e5;
+//      // outline: 2px solid chocolate;
+//         @include mobile{
+//             display: none;
+//             border-bottom: 1.5px solid #e5e5e5;
+//         }
+//     }
+//     .logInOption{
+//         position: relative;
 
-        .login {
-            width: 56px;
-            height: 23px;
-            margin-left: 20px;
-            display: flex;
-            border-bottom: 3px solid #e5e5e5;
-         // outline: 2px solid chocolate;
+//         .login {
+//             width: 56px;
+//             height: 23px;
+//             margin-left: 20px;
+//             display: flex;
+//             border-bottom: 3px solid #e5e5e5;
+//          // outline: 2px solid chocolate;
             
-            &:hover div,&:hover a{
-                display: block;
-            }
+//             &:hover div,&:hover a{
+//                 display: block;
+//             }
             
-            @include mobile{
-                height: 20px;
-                border-bottom: 1.5px solid #e5e5e5;
-            }
-        }
-        .logOut{
-            display: none;
+//             @include mobile{
+//                 height: 20px;
+//                 border-bottom: 1.5px solid #e5e5e5;
+//             }
+//         }
+//         .logOut{
+//             display: none;
 
-            position: absolute;
-            top: 140%;
-            left: 20px;
+//             position: absolute;
+//             top: 140%;
+//             left: 20px;
 
-            width: 60px;
-            height: 25px;
-            background-color: #e5e5e56e;
-            border-radius: 13px;
-            text-align: center;
-            line-height: 25px;
-            a{
-                color: gray;
-            }
-            &:hover{
-                background-color: #e5e5e5e7;
-                a{
-                    color: black;
-                }
-            }
-        }
-    }
-    .fa-user-friends {
-        font-size: 15px;
-        margin: 0;
-        margin-left: 4px;
-    }
-    .fa-bell {
-        font-size: 20px;
-        margin-left: 15px;
-        margin-bottom: 6px;
+//             width: 60px;
+//             height: 25px;
+//             background-color: #e5e5e56e;
+//             border-radius: 13px;
+//             text-align: center;
+//             line-height: 25px;
+//             a{
+//                 color: gray;
+//             }
+//             &:hover{
+//                 background-color: #e5e5e5e7;
+//                 a{
+//                     color: black;
+//                 }
+//             }
+//         }
+//     }
+//     .fa-user-friends {
+//         font-size: 15px;
+//         margin: 0;
+//         margin-left: 4px;
+//     }
+//     .fa-bell {
+//         font-size: 20px;
+//         margin-left: 15px;
+//         margin-bottom: 6px;
 
-        @include mobile{
-            display: none;
-        }
-    }
-    @include notebook{
-        right: -1vw;
-    }
-    @include pad{
-        color:map-get($color ,'white');
-    }
-    @include mobile{
-        right: -30vw;
-        top: 36px;
-    }
-}
+//         @include mobile{
+//             display: none;
+//         }
+//     }
+//     @include notebook{
+//         right: -1vw;
+//     }
+//     @include pad{
+//         color:map-get($color ,'white');
+//     }
+//     @include mobile{
+//         right: -30vw;
+//         top: 36px;
+//     }
+// }
 // 右上方選單 end
 
 
 // search Bar popUp
-#searchBar{
-    position: fixed;
-    top:0;
-    right: -3vw;
-    width: 23vw;
-    height: 100vh;
-    
-    color: black;
-    background-color: #fff;
-    z-index: 6;
-    box-shadow: 3px 3px 20px black;
-    @include notebook{
-        width: 25vw;
-    }
-    @include pad{
-        width: 38vw;
-    }
-    @include mobile{
-        width: 65vw;
-    }
-
-    opacity: 0;
-    pointer-events: none;
-    transition: .6s ease;
-
-    &:not(.-active){
-        *{
-            pointer-events: none !important;
-        }
-    }
-
-
-    &.-active{
-        opacity: 1;
-        pointer-events: auto;
-        right: 0;
-    }
-}
-
-.searchBarBlack{
-    display: block;
-    width: 80vw;
-    height: 100vh;
-    background-color: rgb(51, 51, 51);
-
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 3;
-    opacity: .8;
-    @include pad{
-        width: 65vw;
-    }
-
-    opacity: 0;
-    pointer-events: none;
-
-    transition: .6s ease;
-
-    &.-active{
-        opacity: .8;
-        pointer-events: auto;
-    }
-}
-.searchBarTop{
-    padding: 5vh;
-    border-bottom: 1px solid #E5E5E5;
-    @include notebook{
-        padding: 5vh 1vw 3vw 3vh;
-    }
-    @include mobile{
-        padding: 5vh 3vw 6vw 3vh;
-    }
-}
-// .searchBarGobackBtn{
+// #searchBar{
 //     position: fixed;
-//     top: 4vh;
-//     right: 2vw;
-//     width: 25px;
-//     @include mobile{
-//         right: 5vw;
-//         width: 20px;
+//     top:0;
+//     right: -3vw;
+//     width: 23vw;
+//     height: 100vh;
+    
+//     color: black;
+//     background-color: #fff;
+//     z-index: 6;
+//     box-shadow: 3px 3px 20px black;
+//     @include notebook{
+//         width: 25vw;
 //     }
-// }
-.searchBarArrow{
-    // position: fixed;
-    // top: 85px;
-    // right: 2vw;
-    width: 16px;
-    height: 16px;
-    margin-left: 20px;
-    @include notebook{
-        margin-left: 10px;
-    }
-    &:hover{
-        opacity: .5;
-    }
-}
-.fa-search{
-    font-size: 23px;
-    display: flex;
-}
-.searchTitle{
-    display: flex;
-    align-items: center;
-    height: 30px;
-    font-size: 24px;
-}
-.searchTitle p{
-    z-index: 6;
-    margin-left: 10px;
-    margin-bottom: 3px;
-    opacity: .5;
-}
-
-#searchBarInput{
-    outline: none;
-    border: none;
-    margin-top: 21px;
-    width: 235px;
-    opacity: 1;
-    border-bottom: 2px solid #707070;
-    font-size: 16px;
-    @include notebook{
-        width: 220px;
-    }
-    @include pad{
-        width: 200px;
-    }
-    @include mobile{
-        width: 180px;
-    }
-}
-// .searchLine{
-//     width: 100%;
-//     height: 1px;
-//     border-bottom: 1px solid #E5E5E5;
-//     position: absolute;
-//     top: 21vh;
 //     @include pad{
-//         top: 14vh;
+//         width: 38vw;
 //     }
 //     @include mobile{
-//         top: 20vh;
+//         width: 65vw;
+//     }
+
+//     opacity: 0;
+//     pointer-events: none;
+//     transition: .6s ease;
+
+//     &:not(.-active){
+//         *{
+//             pointer-events: none !important;
+//         }
+//     }
+
+
+//     &.-active{
+//         opacity: 1;
+//         pointer-events: auto;
+//         right: 0;
 //     }
 // }
-.notSearch{
-    position: absolute;
-    top: 40vh;
+
+// .searchBarBlack{
+//     display: block;
+//     width: 80vw;
+//     height: 100vh;
+//     background-color: rgb(51, 51, 51);
+
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     z-index: 3;
+//     opacity: .8;
+//     @include pad{
+//         width: 65vw;
+//     }
+
+//     opacity: 0;
+//     pointer-events: none;
+
+//     transition: .6s ease;
+
+//     &.-active{
+//         opacity: .8;
+//         pointer-events: auto;
+//     }
+// }
+// .searchBarTop{
+//     padding: 5vh;
+//     border-bottom: 1px solid #E5E5E5;
+//     @include notebook{
+//         padding: 5vh 1vw 3vw 3vh;
+//     }
+//     @include mobile{
+//         padding: 5vh 3vw 6vw 3vh;
+//     }
+// }
+// // .searchBarGobackBtn{
+// //     position: fixed;
+// //     top: 4vh;
+// //     right: 2vw;
+// //     width: 25px;
+// //     @include mobile{
+// //         right: 5vw;
+// //         width: 20px;
+// //     }
+// // }
+// .searchBarArrow{
+//     // position: fixed;
+//     // top: 85px;
+//     // right: 2vw;
+//     width: 16px;
+//     height: 16px;
+//     margin-left: 20px;
+//     @include notebook{
+//         margin-left: 10px;
+//     }
+//     &:hover{
+//         opacity: .5;
+//     }
+// }
+// .fa-search{
+//     font-size: 23px;
+//     display: flex;
+// }
+// .searchTitle{
+//     display: flex;
+//     align-items: center;
+//     height: 30px;
+//     font-size: 24px;
+// }
+// .searchTitle p{
+//     z-index: 6;
+//     margin-left: 10px;
+//     margin-bottom: 3px;
+//     opacity: .5;
+// }
+
+// #searchBarInput{
+//     outline: none;
+//     border: none;
+//     margin-top: 21px;
+//     width: 235px;
+//     opacity: 1;
+//     border-bottom: 2px solid #707070;
+//     font-size: 16px;
+//     @include notebook{
+//         width: 220px;
+//     }
+//     @include pad{
+//         width: 200px;
+//     }
+//     @include mobile{
+//         width: 180px;
+//     }
+// }
+// // .searchLine{
+// //     width: 100%;
+// //     height: 1px;
+// //     border-bottom: 1px solid #E5E5E5;
+// //     position: absolute;
+// //     top: 21vh;
+// //     @include pad{
+// //         top: 14vh;
+// //     }
+// //     @include mobile{
+// //         top: 20vh;
+// //     }
+// // }
+// .notSearch{
+//     position: absolute;
+//     top: 40vh;
     
-    display: block;
-    width: 100%;
-    height: auto;
-    text-align: center;
-    h4{
-        margin-top: 10px;
-        font-family: 'Montserrat';
-        line-height: 1.2rem;
-    }
-}
-.searchBar_Found{
-    display: block;
-    width: 100%;
-    height: auto;
+//     display: block;
+//     width: 100%;
+//     height: auto;
+//     text-align: center;
+//     h4{
+//         margin-top: 10px;
+//         font-family: 'Montserrat';
+//         line-height: 1.2rem;
+//     }
+// }
+// .searchBar_Found{
+//     display: block;
+//     width: 100%;
+//     height: auto;
 
-    li{
-        padding: 3.5vh 5vh;
-        border-bottom: 1px solid #E5E5E5;
-        display: flex;
-        align-items: center;
-        pointer-events: all;
+//     li{
+//         padding: 3.5vh 5vh;
+//         border-bottom: 1px solid #E5E5E5;
+//         display: flex;
+//         align-items: center;
+//         pointer-events: all;
 
-        @include notebook{
-            padding: 2.5vh 3vh;
-        }
+//         @include notebook{
+//             padding: 2.5vh 3vh;
+//         }
 
-        .personalRoom{
-            display: block;
-            width: 3px;
-            height: 25px;
-            background-color: #886F5E;
-            margin-right: 10px;
-        }
-        &:hover{
-            background-color: #e5e5e58a;
-        }
-    }
-    a{
-        display: block;
-        width: 100%;
-        height: 100%;
-        color: black;
-    }
+//         .personalRoom{
+//             display: block;
+//             width: 3px;
+//             height: 25px;
+//             background-color: #886F5E;
+//             margin-right: 10px;
+//         }
+//         &:hover{
+//             background-color: #e5e5e58a;
+//         }
+//     }
+//     a{
+//         display: block;
+//         width: 100%;
+//         height: 100%;
+//         color: black;
+//     }
     
-}
+// }
 
 
 // search Bar popUp end
@@ -1455,8 +1604,7 @@ h2{
     box-sizing: border-box;
 
     display: flex;
-    background-image: url(../../../../app/assets/img/uni_bg_1.jpg);
-    background-repeat: no-repeat;
+    background-image: url(../../img/uni_bg_1.jpg);
     background-size: cover;
     color: white;
 
@@ -1516,7 +1664,7 @@ h2{
     display: block;
     width: 230px;
     height: 380px;
-    background-image: url(../../../../app/assets/img/uni_bg_2.jpg);
+    background-image: url(../../img/uni_bg_2.jpg);
     background-position: right 20% center;
     background-size: 350%;
     background-repeat: no-repeat;
@@ -1540,7 +1688,7 @@ h2{
     box-sizing: border-box;
 
     display: flex;
-    background-image: url(../../../../app/assets/img/oce_bg_2.jpg);
+    background-image: url(../../img/oce_bg_2.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     color: white;
@@ -1611,7 +1759,7 @@ h2{
     display: block;
     width: 230px;
     height: 380px;
-    background-image: url(../../../../app/assets/img/oce_bg_3.jpg);
+    background-image: url(../../img/oce_bg_3.jpg);
     background-position: left 38% center;
     background-size: 320%;
     background-repeat: no-repeat;
@@ -1636,7 +1784,7 @@ h2{
     box-sizing: border-box;
     
     display: flex;
-    background-image: url(../../../../app/assets/img/for_bg_1.jpg);
+    background-image: url(../../img/for_bg_1.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     color: white;
@@ -1706,7 +1854,7 @@ h2{
     display: block;
     width: 230px;
     height: 380px;
-    background-image: url(../../../../app/assets/img/for_bg_3.jpg);
+    background-image: url(../../img/for_bg_3.jpg);
     background-position: right 20% center;
     background-size: 130%;
     background-repeat: no-repeat;
@@ -1729,7 +1877,7 @@ h2{
     box-sizing: border-box;
 
     display: flex;
-    background-image: url(../../../../app/assets/img/gro_bg_1.jpg);
+    background-image: url(../../img/gro_bg_1.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     color: white;
@@ -1803,7 +1951,7 @@ h2{
     display: block;
     width: 230px;
     height: 380px;
-    background-image: url(../../../../app/assets/img/gro_bg_2.jpg);
+    background-image: url(../../img/gro_bg_2.jpg);
     background-position: left 20% center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -1817,6 +1965,28 @@ h2{
         height: 135px;
     }
 }
+
+// 跳轉頁面
+
+.going3Dpage{
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    background-color: #2E2824;
+    opacity: 0;
+    pointer-events: none;
+    transition: .6s ease;
+
+    &.-active{
+        opacity: 1;
+    }
+}
+
 
 // 最後一頁
 .lastWrapper {

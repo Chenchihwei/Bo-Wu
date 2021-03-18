@@ -3,19 +3,36 @@
 @import "../base/base";
 // @import url(//fonts.googleapis.com/earlyaccess/notosanstc.css);
 
-input {
-    -webkit-appearance: none;  /* Safari 和 Chrome，常用於iOS下移除內建樣式 */
-    -moz-appearance: none;     /* FireFox */
-    appearance: none;
-}
+// input {
+//     -webkit-appearance: none;  /* Safari 和 Chrome，常用於iOS下移除內建樣式 */
+//     -moz-appearance: none;     /* FireFox */
+//     appearance: none;
+// }
 body{
     width: 100%;
-    font-family: Roboto;
+    font-family: 'PT Serif';
 }
-header{
-    // width: 13.39vw;
-    width: 15.6vw;
-    background-color: transparent;
+
+.menuGold{
+    height: 37px;
+    &:hover{
+        color: #2E2824;
+    }
+}
+
+.indexSideBarGold {
+    p{
+        color: #886F5E;
+    }
+    ul {
+        align-items: center;
+    }
+}
+.indexMenuline1,.indexMenuline2{
+    background-color: #886F5E;
+}
+.outline{
+    outline: 1px solid red;
 }
 .black{
     background-color: #2E2824 !important;
@@ -40,28 +57,34 @@ header{
             .pos_top{
                 margin-bottom: 6.48vh;
                 h1{
-                    font-size: $titleS;
-                    color: #000000;
+                    font-size: $titleSM;
+                    color: map-get($color,'black');
                     margin-top: 9.72vh;
                     margin-bottom: 1.85vh;
+                    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+                    font-family: 'Noto Serif TC';
                 }
                 .bottom_line{
-                    width: 57.29vw;
+                    width: 60vw;
                     height: 10px;
                     background-color: map-get($color , 'darkGray' );
-                    margin-bottom: 3.98vh;
-                    opacity: 50%;
-            }
+                    box-shadow: 1px 1px 2px darkgrey;
+                    margin-bottom: 4vh;
+                }
                 h2{
-                    font-weight: bold;
-                    font-size: 2rem;
-                    margin-bottom: 1.85vh;
-                    color: #000000;
+                    font-weight: normal;
+                    font-size: $titleS;
+                    margin-bottom: 2vh;
+                    color: map-get($color , 'black');
+                    font-family: 'Montserrat';
                 }
                 p{
                     font-size: $paragraph;
                     margin-bottom: 3.98vh;
                     color: #212121;
+                    line-height: 1.5rem;
+                    color: map-get($color , 'black');
+                    font-family: 'Montserrat';
                 }
                 ul{
                     font-size: 2rem;
@@ -73,16 +96,16 @@ header{
                     font-size: 2rem;
                     a{
                         display: block;
-                        line-height: 5.19vh;
+                        line-height: 5vh;
                         text-align: center;
                         font-size: 1.25rem;
-                        width: 8.8vw;
-                        height: 5.19vh;
+                        width: 8vw;
+                        height: 5vh;
                         background-color: #FBFBF6;
-                        border-radius: 5%;
+                        border-radius: 5px;
                         color: black;
                         text-decoration: none;
-                        
+                        box-shadow: 2px 2px 3px darkgrey;
                     }
                     span{
                         font-weight: bold;
@@ -103,20 +126,36 @@ header{
                     // margin-right: 0.781vw;
                     // margin-top: 10.52vh;
                     // cursor: pointer;
+                    .fa-pen{
+                        font-size: 20px;
+                        display: flex;
+                        margin-top: 2vh;
+                        justify-content: center;
+                    }
+                    .fa-eraser{
+                        font-size: 20px;
+                        display: flex;
+                        justify-content: center;
+                        margin-top: 2vh;
+                        margin-bottom: 2vh;
+                    }
                     button{
                         margin: 0 auto;
                         margin-top: 5vh;
-                        width: 5vw;
-                        height: 1.875vw;
+                        width: 3.5vw;
+                        height: 1.9vw;
                         font-size: 10px;
                         line-height: 1.5vw;
+                        border: none;
+                        border-radius: 40px;
+                        outline: none;
                     }
                     .color{
                         display: flex;
                         justify-content: center;
                         flex-direction: column;
                         align-items: center;
-                        margin-bottom: 5vh;
+                        margin-bottom: 2vh;
                     }
                 //    ul{
                 //        margin-right: 0.781vw;
@@ -158,6 +197,8 @@ header{
                 //    }
                    .size{
                     text-align: center;
+                    display: flex;
+                    flex-direction: column;
                         .input-range {
                             -webkit-appearance: none;
                             max-width: 5.2vw;
@@ -183,7 +224,7 @@ header{
                         background-color:#FFFFFF;
                         margin: 0 auto;
                     }
-                   }
+                    }
                 }
                section{
                    .mobile_font_color{
@@ -369,31 +410,37 @@ header{
             section{
                 h1{
                     margin-top: 2.5vh;
-                    font-size: 2rem;
-                    margin-bottom: 2.78vh;
+                    font-size: 1.8rem;
+                    margin-bottom: 2vh;
+                    font-family: 'Noto Serif TC';
                 }
                 h2{
-                    font-size: 0.875rem;
-                    margin-bottom: 0.926vh;
+                    font-size: 1rem;
+                    margin-bottom: 1vh;
+                    font-family: 'Montserrat';
                 }
                 input.email_text{
                     margin-bottom: 2.31vh;
                     width: 16.15vw;
+                    height: 20vh;
+                    outline: none;
                 }
                 .submit{
                     display: block;
                     width: 16.15vw;
-                    height: 3.333vh;
+                    height: 3.5vh;
                     background-color: #fff;
                     border: 2px solid #3E3E3E;
                     border-radius: 30px;
                     cursor: pointer;
                     margin-bottom: 1.39vh;
-                    font-family: Noto Serif TC;
+                    font-family: 'Noto Serif TC';
                     font-weight: bold;
                 }
                 .submit:focus{
                     outline: none;
+                    background-color: #ba967d3f;
+                    transition: all .5s;
                 }
             }
         }

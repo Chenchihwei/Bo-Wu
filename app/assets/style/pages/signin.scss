@@ -1,4 +1,20 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+@import "../base/base";
+@mixin notebook {
+  @media (max-width:$break-point-xl){
+    @content;
+  }
+}
+@mixin ipad {
+  @media (max-width:$break-point-md){
+    @content;
+  }
+}
+@mixin phone {
+  @media (max-width:$break-point-xs){
+    @content;
+  }
+}
 
 /** [Vars] *****/
 
@@ -64,8 +80,19 @@ body {
 .panel {
     font-family: 'Montserrat';
     border-radius: 3px;
-    
+    @include ipad{
+        display: none;
+    }
+    @include phone{
+        display: none;
+    }
     &--static {
+        @include ipad{
+            display: none;
+        }
+        @include phone{
+            display: none;
+        }
         @include center;
         display: flex;
         align-items: center;
@@ -236,3 +263,149 @@ body {
         margin-bottom: 2vh;
     }
   }
+
+  .form-wrap{
+    display: none;
+    @include ipad{
+        display: block;
+        height: 440px;
+    }
+    @include phone{
+        display: block;
+        height: 440px;
+    }
+    @include center;
+    background-color: #fff;
+    width: 320px;
+    height: 550px;
+    z-index: 200;
+    margin: 3em auto;
+    box-shadow: 0px 1px 8px #BEBEBE;
+    font-family: 'Montserrat';
+    -webkit-box-shadow: 0px 1px 8px #BEBEBE;
+    -moz-box-shadow: 0px 1px 8px #BEBEBE; 
+    .tabs{
+        overflow: hidden; 
+        
+        h3{
+            float: left;
+            width: 50%; 
+            margin-top: 0px;
+            a{
+                line-height: 30px;
+                padding: 0.5em 0;
+                text-align: center;
+                font-weight: 400;
+                background-color: #e6e7e8;
+                display: block;
+                color: #666; 
+                text-decoration: none;
+
+                &.active{
+                    background-color: #fff; 
+                }
+            }
+        }
+    }
+    .tabs-content{
+        padding: 1.5em;
+        // &div[id$="tab-content"]{
+        //     display: none; 
+        // }
+        &.active{
+            display: block !important; 
+        }
+    }
+    form{
+        .input{
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            color: inherit;
+            font-family: inherit;
+            padding: .8em 0 10px .8em;
+            border: 1px solid #CFCFCF;
+            outline: 0;
+            display: inline-block;
+            margin: 0 0 .8em 0;
+            padding-right: 2em;
+            width: 100%; 
+        }
+        .button1{
+            width: 100%;
+            padding: .8em 0 .8em;
+            background-color: #E5E5E5;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            text-transform: uppercase; 
+            &:hover{
+                background-color: #7E7E7E; 
+            }
+            .checkbox{
+                visibility: hidden;
+                padding: 20px;
+                margin: .5em 0 1.5em; 
+                &:checked, label:after{
+                    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+                    filter: alpha(opacity=100);
+                    opacity: 1; 
+                }
+            }
+        }
+    }
+    form label[for]{
+        position: relative;
+        padding-left: 20px;
+        cursor: pointer; 
+        &:before{
+            content: '';
+            position: absolute;
+            border: 1px solid #CFCFCF;
+            width: 17px;
+            height: 17px;
+            top: 0px;
+            left: -14px; 
+        }
+        &:after{
+            filter: alpha(opacity=0);
+            opacity: 0;
+            content: '';
+            position: absolute;
+            width: 9px;
+            height: 5px;
+            background-color: transparent;
+            top: 4px;
+            left: -10px;
+            border: 3px solid #2E2824;
+            border-top: none;
+            border-right: none;
+            transform: rotate(-45deg); 
+        }
+    }
+    .help-text{
+        margin-top: .6em; 
+        p{
+            text-align: center;
+            font-size: 14px; 
+        }
+    }
+    .pic{
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        margin-top: 2vh;
+        margin-left: 3vw;
+        .fab{
+            font-size: 10vw;
+            @include ipad{
+                font-size: 5vw;
+            }
+            @include phone(){
+                font-size: 10vw;
+            }
+            &:hover{
+                color: #BA967D;
+            }
+        }
+    }
+}
