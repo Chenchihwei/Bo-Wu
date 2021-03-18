@@ -17,7 +17,7 @@
             $sql = 'SELECT * FROM work where member_id != 0 and exhibition = 1 and work_introduce like?';
             $statement = $pdo->prepare($sql);
             // $statement->bindValue(1,'%'.$tag[0].'%');
-            $statement->bindValue(1,'%美國%');
+            $statement->bindValue(1,'%'.$tag[0].'%');
             $statement->execute(); 
             break;
         case 2:
