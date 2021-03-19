@@ -61,8 +61,9 @@
       <div>競標狀態:
         <span>{{itemMessage}}</span>
       </div>
-      <div>競標時間:
-        <span v-if="theId == 1">{{ timer | hoursMinutesAndSeconds }}</span>
+      <!-- theid原本是1 -->
+      <div>競標時間: 
+        <span v-if="theId == 0">{{ timer | hoursMinutesAndSeconds }}</span>
         <span v-else>{{itemTime}}</span>
       </div>
     </div>
@@ -131,7 +132,6 @@
         </div>
     `,
     data(){
- 
       return{
         componentChange:'',
         MessageData:[],
@@ -282,7 +282,7 @@
           // },
           nowBidding:[],
           biddverify:[],
-          theId: '',
+          theId: '1',
           content:'my-component',
           itemMessage:'尚未選取競標品',
           timer:OneHour,
@@ -304,7 +304,7 @@
       // 抓資料
       mounted() {
         axios.get("./assets/php/front/bidding.php").then((res) => {
-              // console.log(res.data[0]);
+              console.log(res.data);
               for(let i = 0; i<=res.data.length;i++){
                 this.imgList.push(res.data[i].img_path);
                 this.dataId.push(res.data[i].work_id);
@@ -328,14 +328,14 @@
       methods: {
 
         changeHandler(val){
-          console.log(val);
+          // console.log(val);
           this.componentChange = val;
         },
         change(index){
                     this.active = (index + this.total) % this.total
                 },
         getData(e){
-              this.theId = e.target.dataset.id;   
+              this.theId = e.target.dataset.id - 1;   
               // this.imgSrc = `./assets/img/${this.theId}.png`;
               // this.imgSrc = `./assets/img/exh_${this.theId}.jpg`;
               this.imgSrc = this.imgList[this.theId];
@@ -348,12 +348,14 @@
               let nowStatus ;
               //他可不可以競標
               //如果他可以競標我再每秒刷新
-              setInterval(() => this.Getbiddlist(), 1000);
+              // setInterval(() => this.Getbiddlist(), 1000);
               ///////
               for(let status in this.biddverify){
                 // console.log(status);
                 // nowStatus = this.biddverify[status];
-              if(this.biddverify[status] == '1' && (this.theId-1) == status){
+              // if(this.biddverify[status] == '1' && (this.theId-1) == status){
+              if(this.biddverify[status] == '1' && (this.theId) == status){
+
             
                 this.itemMessage = '競標中';
                 return

@@ -159,7 +159,8 @@ body{
         }
           img{
             cursor: pointer;
-            box-shadow:3px 3px 5px 6px #cccccc;
+            box-shadow: 2px 2px 4px #cccccc;
+
             // max-width:335px;
             width: 17vw; 
             height: 453px;
@@ -174,6 +175,7 @@ body{
             }
             @include mobile{
               width: 40vw;
+              height: 304px;
             }
           }
           &:hover{
@@ -187,6 +189,10 @@ body{
           background-color:none !important;
           border:0;
           color:map-get($color,'black');
+
+          @include mobile{
+            left: 38px;
+          }
         }
         .swiper-button-next{
 
