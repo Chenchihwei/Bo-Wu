@@ -30,16 +30,20 @@
 //     background-color: map-get($color ,'black');
 // }
 
-body{
-    cursor: none !important;
-}
+// body{
+//     cursor: none !important;
+// }
 
-a{
-    cursor: none;
-}
+// a{
+//     cursor: none;
+// }
 
 .indexSideBar{
     z-index: 100;
+}
+.searchBarBlack{
+    z-index: 100;
+    width: 76vw;
 }
 .like_red{
     color:red;
@@ -110,6 +114,7 @@ a{
                 overflow: hidden;
                 transition: transform 1s ease;
                 box-shadow: 2px 2px 4px #cccccc;
+
                 a{
                     img{
                         width: 17.29vw;
@@ -622,6 +627,15 @@ a{
             }
         }
     }
+    .searchBarBlack{
+        width: 62vw;
+    }
+    .features{
+        color: black;
+        a{
+            color: black;
+        }
+    }
 }
 
 @media screen and (max-width: 414px){
@@ -775,6 +789,7 @@ a{
         margin: 0;
         left: 15vw;
         top: 17vh;
+        z-index: 101;
         img{
             display: block;
             width: 50vw;
@@ -797,6 +812,9 @@ a{
                 font-size: 2rem;
             }
         }
+    }
+    .searchBarBlack{
+        width: 35vw;
     }
 }
 

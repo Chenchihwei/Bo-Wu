@@ -216,6 +216,7 @@ $('.personal_OnShelf').click(function () {
     };
     alert('上架成功!');
     verify_mail();
+    location.reload();
   }
 });
 
@@ -243,6 +244,7 @@ $('.personal_OffShelf').click(function () {
       work_exhibition_update(status, work_id);
     };
     alert('下架成功!');
+    location.reload();
   }
 
 });
