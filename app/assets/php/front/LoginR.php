@@ -29,7 +29,7 @@
     }
 
     //判斷是否有會員資料?
-    if($memberID != "" && $memberName != ""){
+    if($memberID != "" && $memberName != "" && $memberBlacklist == "1"){
       include("../Lib/MemberClass.php");
       $Member = new MemberClass();
   
@@ -57,12 +57,11 @@
 
       echo "<script>alert('登入成功!');window.history.back();location.reload();</script>"; 
 
+    }else if($memberBlacklist == "2"){
+      echo "<script>alert('此帳號為黑名單!');window.history.back();location.reload();</script>";
     }else{
       //跳出提示停留在登入頁
       echo "<script>alert('帳號或密碼錯誤!');window.history.back();location.reload();</script>"; 
     }
 
 ?>
-    
-
-    
