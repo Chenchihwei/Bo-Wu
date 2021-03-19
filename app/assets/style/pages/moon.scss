@@ -227,7 +227,7 @@ body{
           color: map-get($color, 'white');
         }
         @include mobile(){
-          margin: 13rem auto 0;
+          margin: 10rem auto 0;
           width: auto;
         }
 
