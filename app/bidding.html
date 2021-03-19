@@ -157,7 +157,7 @@
             // </li>
       //php撈資料
       axios.get("./assets/php/front/bidding_get.php").then((head) => {
-              console.log(head.data[0]);
+              // console.log(head.data[0]);
               this.nowMessagebord = head.data;
               // this.username = head.data[0].name;
         }).catch();
@@ -209,7 +209,7 @@
       <table class="biddcontent">
         <tr v-for="item in oldBiddList">
             <td>{{item.bidding_time}}</td>
-            <td>{{item.member_id}}</td>
+            <td>{{item.name}}</td>
             <td>{{item.bidding_price}}</td>
         </tr>
     </table>
@@ -219,7 +219,7 @@
     // localstorge 競標紀錄
     // <tr v-for="item in currentBiddList">
     //         <td>{{item.time}}</td>
-    //         <td>{{item.person}}</td>
+    //         <td>{{item.name}}</td>
     //         <td>{{item.price}}</td>
     //     </tr>
     props:['list'],
@@ -262,6 +262,7 @@
       el:'#app_bidd',
       data:{
           componentChange:0,
+          MessageData:[],
           username:'',
           active:0,
           nowTime:'',
@@ -278,7 +279,7 @@
           Sprice:null,
           Nprice:null,
           inputprice:null,
-          nowBidding:[],
+          nowBidding:{},
           biddverify:[],
           theId: '1',
           content:'my-component',
@@ -345,16 +346,15 @@
               let nowStatus ;
               //他可不可以競標
               //如果他可以競標我再每秒刷新
-              setInterval(() => this.Getbiddlist(), 1000);
-              ///////
+          
               for(let status in this.biddverify){
                 // console.log(status);
                 // nowStatus = this.biddverify[status];
               // if(this.biddverify[status] == '1' && (this.theId-1) == status){
               if(this.biddverify[status] == '1' && (this.theId) == status){
-
-            
                 this.itemMessage = '競標中';
+                setInterval(() => this.Getbiddlist(), 1000);
+                // this.Getbiddlist();
                 return
               }else{
                 // console.log(2);
@@ -371,14 +371,16 @@
         },
         Getbiddlist(){
           // console.log(this.theId);
-          this.newObj = {
-                  bidding_time:'',
-                  member_id:'',
-                  bidding_price:null,
-                };
+          // this.newObj = {
+          //         bidding_time:'',
+          //         member_id:'',
+          //         bidding_price:null,
+          //       };
+                
           axios.post('./assets/php/front/biddingpost.php',{'work_id':this.theId})
-              .then((res) => { //console.log(res.data);
-                this.newObj = res.data
+              .then((res) => { 
+                console.log(res.data);
+                this.newObj = res.data;
                 this.Nprice = res.data[0].bidding_price;
                 // console.log(this.newObj)
                 //  this.newObj.push(res.data[0]); 
@@ -386,35 +388,28 @@
         },
         addLocal(){
           // local版 假資料
+          this.MessageData = JSON.parse(localStorage.getItem('tasks')) || [];
           this.nowBidding={
             price:this.inputprice,
             time:this.timeFormate,
-            work_id:this.theId
+            work_id:this.theId,
+            member_id:this.MessageData[0]['id'],
           };
-          
             if(this.inputprice>this.Nprice)
             {
               // local版本 代資料 
               // this.newObj.push(this.nowBidding);              
               // localStorage.setItem('biddList',JSON.stringify(this.newObj));
+              console.log(this.nowBidding);
               // 資料由php帶入
               axios.post('./assets/php/front/biddingpost.php', this.nowBidding)
               .then((res) => { 
-                // console.log(res.data[0])
-                this.nowBidding={
-                  price:res.data[0].bidding_price,
-                  person:res.data[0].work_id,
-                  time:res.data[0].bidding_time
-                }
+                console.log(res.data);
               })
               //.catch((error) => { console.error(error) })
             }else{
               alert('出價須高於目前價格')
             }
-              // console.log(this.nowBidding);
-              // console.log(res.data);
-              
-
         },},
       computed:{
         total(){
