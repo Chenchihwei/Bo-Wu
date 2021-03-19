@@ -218,3 +218,7 @@ smallSizeCloseBtn.addEventListener('click', function () {
 
 });
 
+
+
+
+

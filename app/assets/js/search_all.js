@@ -123,3 +123,28 @@ function result(response1, response2) {
         $('.no_search').removeClass('none');
     }
 };
+
+
+
+// 分享畫面彈窗
+
+let sharingBlock = document.getElementsByClassName('sharingBlock')[0];
+let sharingBoxAll = document.getElementsByClassName('sharingBoxAll')[0];
+let sharingBoxBg = document.getElementsByClassName('sharingBoxBg')[0];
+let sharingStatus = true;
+sharingBlock.addEventListener('click',function(){
+    console.log('hi')
+    if(sharingStatus){
+        sharingBoxAll.style.display="block";
+        sharingStatus = false;
+    }else{
+        sharingBoxAll.style.display="none";
+        sharingStatus = true;
+    }
+})
+sharingBoxBg.addEventListener('click',function(){
+    if(!sharingStatus){
+        sharingBoxAll.style.display="none";
+        sharingStatus = true;
+    }
+})
