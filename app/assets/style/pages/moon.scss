@@ -185,11 +185,12 @@ body{
             margin: 0 auto;
           }
           @include pad{
-            weight: 60vw;
+            width: 60vw;
             height: 50vh;
           }
           @include mobile(){
-            height: 50vh;
+            width: 70vw;
+            height: 40vh;
           }
         }
         @include pad{
