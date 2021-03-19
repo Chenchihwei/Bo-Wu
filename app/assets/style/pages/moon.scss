@@ -223,7 +223,7 @@ body{
         }
         @include pad{
           width: 500px;
-          margin: 13rem auto 0;
+          margin: 20rem auto 0;
           color: map-get($color, 'white');
         }
         @include mobile(){
