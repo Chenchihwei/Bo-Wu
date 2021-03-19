@@ -117,11 +117,11 @@
     template:`
     <div class="content">
           <ul class='messageform' >
-            <li v-for="message in MessageData">
-              <h1>{{message.user}}</h1> 
+            <li v-for="message in nowMessagebord">
+              <h1>{{message.name}}</h1> 
               <div class="personal">
-                <img :src="message.photo">
-                <p>{{message.messages}}</p>
+                <img :src="message.member_img">
+                <p>{{message.bidding_messages}}</p>
               </div>
             </li>
           </ul>
@@ -138,11 +138,7 @@
         // username:'',
         newMessage:'',
         messages:[],
-        nowMessagebord:{
-            user:'way',
-            photo:'./assets/img/Ellipse 77.png',
-            messages:'',
-          },
+        nowMessagebord:{},
       }
     },
     mounted(){
@@ -160,32 +156,43 @@
             //   </div>
             // </li>
       //php撈資料
-      // axios.get("./assets/php/front/bidding_member.php").then((head) => {
-      //         console.log(head.data[0].name);
-      //         this.username = head.data[0].name;
-      //   }).catch();
+      axios.get("./assets/php/front/bidding_get.php").then((head) => {
+              console.log(head.data[0]);
+              this.nowMessagebord = head.data;
+              // this.username = head.data[0].name;
+        }).catch();
         //localstorge版本 留言板
-        this.MessageData = JSON.parse(localStorage.getItem('messageList')) || [];
+        // this.nowMessagebord = JSON.parse(localStorage.getItem('messageList')) || [];
     },
     methods:{
-      
       addmessage(){
         // console.log(this.newMessage);
         // this.messages.push(this.newMessage)
+        this.MessageData = JSON.parse(localStorage.getItem('tasks')) || [];
+
           if($.inArray(this.newMessage,this.messages)== -1){
             // this.messages.push(this.newMessage)
+            // this.MessageData.push(this.newMessagebord);
             this.newMessagebord={
-            user:'way',
-            photo:'./assets/img/Ellipse 77.png',
-            messages:this.newMessage,
+                    user:this.MessageData[0]['name'],
+                    photo:this.MessageData[0]['pic'],
+                    messages:this.newMessage,
+                    member_id:this.MessageData[0]['id'],
             }
-            this.MessageData.push(this.newMessagebord);
-            localStorage.setItem('messageList',JSON.stringify( this.MessageData));
+            // 資料由php帶入
+            axios.post('./assets/php/front/bidding_member.php', this.newMessagebord)
+              .then((res) => { 
+                console.log(res.data)
+                this.newMessagebord={
+                    user:this.MessageData[0]['name'],
+                    photo:this.MessageData[0]['pic'],
+                    messages:this.newMessage,
+                    member_id:this.MessageData[0]['id'],
+            }
+              })
+            // localStorage.setItem('messageList',JSON.stringify(this.MessageData));
           }
-            this.newMessage = '';
-
-
-
+      this.newMessage = '';
         }
     },
 
@@ -260,11 +267,7 @@
           nowTime:'',
           imgList:[],
           dataId:[],
-          newObj:[
-          // {bidding_time:""},
-          // {member_id:""},
-          // {bidding_price:''},
-          ],
+          newObj:[],
           NameList:[],
           Introduce:[],
           SpriceList:[],
@@ -275,11 +278,6 @@
           Sprice:null,
           Nprice:null,
           inputprice:null,
-          // nowBidding:{
-          //   price:null,
-          //   person:"",
-          //   time:'',
-          // },
           nowBidding:[],
           biddverify:[],
           theId: '1',
@@ -304,7 +302,7 @@
       // 抓資料
       mounted() {
         axios.get("./assets/php/front/bidding.php").then((res) => {
-              console.log(res.data);
+              // console.log(res.data[0]);
               for(let i = 0; i<=res.data.length;i++){
                 this.imgList.push(res.data[i].img_path);
                 this.dataId.push(res.data[i].work_id);
@@ -328,7 +326,6 @@
       methods: {
 
         changeHandler(val){
-          // console.log(val);
           this.componentChange = val;
         },
         change(index){
@@ -348,7 +345,7 @@
               let nowStatus ;
               //他可不可以競標
               //如果他可以競標我再每秒刷新
-              // setInterval(() => this.Getbiddlist(), 1000);
+              setInterval(() => this.Getbiddlist(), 1000);
               ///////
               for(let status in this.biddverify){
                 // console.log(status);
@@ -391,7 +388,6 @@
           // local版 假資料
           this.nowBidding={
             price:this.inputprice,
-            //person:'Andy',
             time:this.timeFormate,
             work_id:this.theId
           };
@@ -404,7 +400,7 @@
               // 資料由php帶入
               axios.post('./assets/php/front/biddingpost.php', this.nowBidding)
               .then((res) => { 
-                console.log(res.data[0])
+                // console.log(res.data[0])
                 this.nowBidding={
                   price:res.data[0].bidding_price,
                   person:res.data[0].work_id,
@@ -415,8 +411,8 @@
             }else{
               alert('出價須高於目前價格')
             }
-              console.log(this.nowBidding);
-              console.log(res.data);
+              // console.log(this.nowBidding);
+              // console.log(res.data);
               
 
         },},

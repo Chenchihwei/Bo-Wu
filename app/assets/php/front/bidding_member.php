@@ -1,37 +1,22 @@
 <?php
-    // include('../Conn.php');
-
-    
-    //MySQL相關資訊
-    $db_host = "localhost";
-    $db_user = "root";
-    $db_pass = "pk5233";
-    $db_select = "team3";
-
-    //建立資料庫連線物件
-    $dsn = "mysql:host=".$db_host.";dbname=".$db_select;
-
-    //建立PDO物件，並放入指定的相關資料
-    $pdo = new PDO($dsn, $db_user, $db_pass);
-
+    include('../Conn.php');
 
     //連線開始
 
 
-    $sql = "SELECT *
-    from team3.member"; 
+    $_POST =json_decode(file_get_contents("php://input",true));// axios post做轉換
+    $work_id = 1 ;
+    $member_id = $_POST->member_id;
+    $messages = $_POST->messages;
+    $time = '2021-03-21 12:00:00';
+    $messageshow = 1;
+    $sql2 = "INSERT INTO `team3`.`bidding_message` (`work_id`, `member_id`, `bidding_messages`,`message_time`,`message_show`) VALUES (:work_id, :member_id, :messages,:time,:messageshow)";
+    $messageList = $pdo->prepare($sql2);
+    $messageList->bindValue(':work_id',$work_id);
+    $messageList->bindValue(':member_id',$member_id);
+    $messageList->bindValue(':messages',$messages);
+    $messageList->bindValue(':time',$time);
+    $messageList->bindValue(':messageshow',$messageshow);
 
-    //$sql = "SELECT * FROM member WHERE Name = '".$account."' and PWD = '".$pwd."' ";  //作業
-    
-    $statement = $pdo->prepare($sql);    
-    $statement->execute();  
-
-
-
-
-
-    //抓出全部且依照順序封裝成一個二維陣列
-    $data = $statement->fetchAll();
-
-    echo json_encode($data);
+    $messageList->execute();
 ?>
