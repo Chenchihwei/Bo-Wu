@@ -32,7 +32,7 @@
   <div id="app_bidd">
   <div class="rightBlock block">
     <div class="title">
-      <h1>競標商品</h1>
+      <h1>競標展品 Bidding</h1>
       <div></div>
       <h2>Buy the goods you like!</h2>
       <p>Enjoy your bidding time.</p>
@@ -61,8 +61,9 @@
       <div>競標狀態:
         <span>{{itemMessage}}</span>
       </div>
-      <div>競標時間:
-        <span v-if="theId == 1">{{ timer | hoursMinutesAndSeconds }}</span>
+      <!-- theid原本是1 -->
+      <div>競標時間: 
+        <span v-if="theId == 0">{{ timer | hoursMinutesAndSeconds }}</span>
         <span v-else>{{itemTime}}</span>
       </div>
     </div>
@@ -98,10 +99,10 @@
       </div>
       <div class="introRight">
         <div class="top">
-          <div @click="content='my-component'">討論區</div>
-          <div @click="content='my-component1'">競標紀錄</div>
+          <div   :class="{black:componentChange==0}"  @click="content='my-component'">討論區</div>
+          <div   :class="{black:componentChange==1}" @click="content='my-component1'">競標紀錄</div>
         </div>
-        <component :list="newObj"  key='newObj' :is="content"></component>
+        <component @component_change="changeHandler" :list="newObj"  key='newObj' :is="content"></component>
       </div>
     </div>
   </div>
@@ -116,11 +117,11 @@
     template:`
     <div class="content">
           <ul class='messageform' >
-            <li v-for="message in messages">
-              <h1>{{username}}</h1> 
+            <li v-for="message in MessageData">
+              <h1>{{message.user}}</h1> 
               <div class="personal">
-                <img src="./assets/img/Ellipse 77.png">
-                <p>{{message}}</p>
+                <img :src="message.photo">
+                <p>{{message.messages}}</p>
               </div>
             </li>
           </ul>
@@ -132,30 +133,62 @@
     `,
     data(){
       return{
-        username:'',
+        componentChange:'',
+        MessageData:[],
+        // username:'',
         newMessage:'',
         messages:[],
-
-
+        nowMessagebord:{
+            user:'way',
+            photo:'./assets/img/Ellipse 77.png',
+            messages:'',
+          },
       }
     },
+    mounted(){
+      this.$emit('component_change',0)
+      // this.componentChange == '0' ;
+
+            //留言板格式
+            // <li>
+            //   <p>Andy</p>
+            //   <div class="personal">
+            //     <img src="./assets/img/Ellipse 77.png" alt="">
+            //     <p>Lorem ipsum dolor sit amet,
+            //       consetetur sadipscing elitr, sed
+            //       diam nonumy eirmod </p>
+            //   </div>
+            // </li>
+      //php撈資料
+      // axios.get("./assets/php/front/bidding_member.php").then((head) => {
+      //         console.log(head.data[0].name);
+      //         this.username = head.data[0].name;
+      //   }).catch();
+        //localstorge版本 留言板
+        this.MessageData = JSON.parse(localStorage.getItem('messageList')) || [];
+    },
     methods:{
+      
       addmessage(){
         // console.log(this.newMessage);
         // this.messages.push(this.newMessage)
           if($.inArray(this.newMessage,this.messages)== -1){
-            this.messages.push(this.newMessage)
-          }else{
-            this.newMessage = '';
+            // this.messages.push(this.newMessage)
+            this.newMessagebord={
+            user:'way',
+            photo:'./assets/img/Ellipse 77.png',
+            messages:this.newMessage,
+            }
+            this.MessageData.push(this.newMessagebord);
+            localStorage.setItem('messageList',JSON.stringify( this.MessageData));
           }
+            this.newMessage = '';
+
+
+
         }
     },
-    mounted(){
-      axios.get("./assets/php/front/bidding_member.php").then((head) => {
-              console.log(head.data[0].name);
-              this.username = head.data[0].name;
-        }).catch();
-    },
+
   });
     Vue.component('my-component1',{
     template:`
@@ -185,13 +218,14 @@
     props:['list'],
     data(){
       return{
+        componentChange:'',
         oldBiddList:[],
         newObj:this.list,
         // currentBiddList:this.list,     //localstorge版本 競標紀錄
       }
     },
     mounted() {
-    
+      this.$emit('component_change',1)
       //localstorge版本 競標紀錄
       // this.oldBiddList = JSON.parse(localStorage.getItem('biddList')) || [];
     },
@@ -220,6 +254,7 @@
     new Vue({
       el:'#app_bidd',
       data:{
+          componentChange:0,
           username:'',
           active:0,
           nowTime:'',
@@ -247,7 +282,7 @@
           // },
           nowBidding:[],
           biddverify:[],
-          theId: '',
+          theId: '1',
           content:'my-component',
           itemMessage:'尚未選取競標品',
           timer:OneHour,
@@ -269,7 +304,7 @@
       // 抓資料
       mounted() {
         axios.get("./assets/php/front/bidding.php").then((res) => {
-              // console.log(res.data[0]);
+              console.log(res.data);
               for(let i = 0; i<=res.data.length;i++){
                 this.imgList.push(res.data[i].img_path);
                 this.dataId.push(res.data[i].work_id);
@@ -291,11 +326,16 @@
         setInterval(() => this.timer -= 1, 1000);
       },
       methods: {
+
+        changeHandler(val){
+          // console.log(val);
+          this.componentChange = val;
+        },
         change(index){
                     this.active = (index + this.total) % this.total
                 },
         getData(e){
-              this.theId = e.target.dataset.id;   
+              this.theId = e.target.dataset.id - 1;   
               // this.imgSrc = `./assets/img/${this.theId}.png`;
               // this.imgSrc = `./assets/img/exh_${this.theId}.jpg`;
               this.imgSrc = this.imgList[this.theId];
@@ -308,12 +348,14 @@
               let nowStatus ;
               //他可不可以競標
               //如果他可以競標我再每秒刷新
-              setInterval(() => this.Getbiddlist(), 1000);
+              // setInterval(() => this.Getbiddlist(), 1000);
               ///////
               for(let status in this.biddverify){
                 // console.log(status);
                 // nowStatus = this.biddverify[status];
-              if(this.biddverify[status] == '1' && (this.theId-1) == status){
+              // if(this.biddverify[status] == '1' && (this.theId-1) == status){
+              if(this.biddverify[status] == '1' && (this.theId) == status){
+
             
                 this.itemMessage = '競標中';
                 return
@@ -377,18 +419,7 @@
               console.log(res.data);
               
 
-        },
-        //留言板格式
-            // <li>
-            //   <p>Andy</p>
-            //   <div class="personal">
-            //     <img src="./assets/img/Ellipse 77.png" alt="">
-            //     <p>Lorem ipsum dolor sit amet,
-            //       consetetur sadipscing elitr, sed
-            //       diam nonumy eirmod </p>
-            //   </div>
-            // </li>
-      },
+        },},
       computed:{
         total(){
                 return this.imgList.length
@@ -425,9 +456,8 @@
     
   </script>
 </body>
-<!-- <script src="./assets/js/script.js"></script> -->
-<script src="./assets/js/scriptBlack.js"></script>
-<!-- <script src="./assets/js/exhibition.js"></script> -->
+<!-- <script src="./assets/js/search_all.js"></script> -->
+<script src="./assets/js/menu.js"></script>
 <script src="./assets/js/loginFB.js"></script>
 <script src="./assets/js/loginGoogle.js"></script>
 <script src='./assets/js/music.js'></script>

@@ -185,10 +185,12 @@ body{
             margin: 0 auto;
           }
           @include pad{
+            width: 60vw;
             height: 50vh;
           }
           @include mobile(){
-            height: 50vh;
+            width: 70vw;
+            height: 40vh;
           }
         }
         @include pad{
@@ -221,8 +223,11 @@ body{
         }
         @include pad{
           width: 500px;
+          margin: 20rem auto 0;
+          color: map-get($color, 'white');
         }
         @include mobile(){
+          margin: 10rem auto 0;
           width: auto;
         }
 
@@ -286,10 +291,7 @@ body{
             padding: 1rem 2rem 0;
           }
         }
-        @include pad{
-          margin: 11rem auto 0;
-          color: map-get($color, 'white');
-        }
+
 
       }
 

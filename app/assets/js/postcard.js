@@ -284,7 +284,8 @@ function mailtest(your_mail, base64) {
     success: function (response) {
       //更新html內容
       // document.getElementsByClassName('tr')[0].innerHTML = response;
-      console.log(response);
+      // console.log(response);
+      alert('明信片已經為您寄出!');
     },
     error: function (exception) {
       alert("發生錯誤: " + exception.status);

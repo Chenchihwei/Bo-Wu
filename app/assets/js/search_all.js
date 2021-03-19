@@ -123,3 +123,4 @@ function result(response1, response2) {
         $('.no_search').removeClass('none');
     }
 };
+

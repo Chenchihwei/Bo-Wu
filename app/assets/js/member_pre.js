@@ -372,10 +372,10 @@ function selectPic() {
   picAll.style.left = "0";
   picAll.style.position = 'relative';
 
-  left.addEventListener('click', function () {
+  right.addEventListener('click', function () {
     slidePic(-liWidth.offsetWidth);
   })
-  right.addEventListener('click', function () {
+  left.addEventListener('click', function () {
     slidePic(liWidth.offsetWidth);
   })
 
