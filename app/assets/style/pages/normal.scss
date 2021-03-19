@@ -175,6 +175,7 @@
 					p {
 						display: block;
 						width: 460px;
+							overflow: auto;
 					}
 					// input {
 					// 	width: PxToVw(655);
@@ -396,53 +397,8 @@
 		}
 	}
 }
-.bottombar {
-	display: flex;
-	align-items: center;
-	height: 250px;
-	background-image: url("../img/normalnumber/Rectangle -1.png");
-	p {
-		font-size: 24px;
-		color: white;
-	}
-	p:nth-child(1) {
-		margin-left: 297px;
-	}
-	p:nth-child(2) {
-		margin-left: 67px;
-	}
-	p:nth-child(3) {
-		margin-left: 76px;
-	}
-	img {
-		width: 64px;
-		height: 64px;
-		margin-left: 111px;
-		margin-right: 20px;
-	}
-	h1 {
-		margin-right: 96px;
-		font-family: Lato;
-		font-size: 30px;
-		color: white;
-		font-weight: bold;
-	}
-	.fa-facebook-f {
-		margin-left: 46px;
-		font-size: 33px;
-		color: white;
-	}
-	.fa-instagram {
-		margin-left: 75px;
-		font-size: 30px;
-		color: white;
-	}
-	.fa-youtube {
-		margin-left: 66px;
-		font-size: 27px;
-		color: white;
-	}
-}
+
+
 
 @media screen and (max-width: 1280px) {
 	.wrapper {
@@ -622,6 +578,7 @@
 @media screen and (max-width: 768px) {
 	.wrapper {
 		.rightbar {
+			margin-left: 18vw;
 			.features {
 				margin-left: 320px;
 			}
@@ -691,6 +648,7 @@
 						// outline: 2px solid cadetblue;
 						p {
 							width: 135px;
+							height: 36px;
 						}
 					}
 					.visit {
@@ -752,28 +710,22 @@
 							width: 75px;
 						}
 					}
-				}
-				.authority {
-					width: 535px;
-					.authority_top {
-						h1 {
-							width: 110px;
-							font-size: 18px;
+				
+					.authority {
+						width: 535px;
+						.authority_top {
+							h1 {
+								width: 110px;
+								font-size: 18px;
+							}
 						}
-					}
-				}
-				.backimage_select {
-					width: 530px;
-					margin-bottom: 20px;
-					.none {
-						width: 70px;
-						height: 55px;
 					}
 				}
 			}
 		}
 	}
 }
+
 
 @media screen and (max-width: 414px) {
 	.wrapper {
@@ -878,7 +830,9 @@
 						width: 264px;
 
 						p {
+							// height: auto;
 							width: 135px;
+							line-height: 36px;
 							// outline: 2px solid cadetblue;
 						}
 					}
