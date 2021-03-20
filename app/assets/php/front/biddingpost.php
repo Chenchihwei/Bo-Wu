@@ -1,13 +1,13 @@
 <?php
     include('../Conn.php');
     
-    // $member_id = 1;//尚未處理會員編號
 
     $_POST =json_decode(file_get_contents("php://input",true));// axios post做轉換
 
-    $work_id = 1;
-    if(isset( $_POST->price)){//要不要insert
+    $work_id = $_POST->work_id+1;
+ 
     $member_id = $_POST->member_id;
+    if(isset( $_POST->price)){//要不要insert
     $price = $_POST->price;// 抓POST的DATA物件中的PRICE
     $time = $_POST->time;
 

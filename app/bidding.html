@@ -304,7 +304,7 @@
       mounted() {
         axios.get("./assets/php/front/bidding.php").then((res) => {
               // console.log(res.data[0]);
-              for(let i = 0; i<=res.data.length;i++){
+              for(let i = 0; i<res.data.length;i++){
                 this.imgList.push(res.data[i].img_path);
                 this.dataId.push(res.data[i].work_id);
                 this.timeList.push(res.data[i].bidding_time);
@@ -377,9 +377,14 @@
           //         bidding_price:null,
           //       };
                 
-          axios.post('./assets/php/front/biddingpost.php',{'work_id':this.theId})
+          this.MessageData = JSON.parse(localStorage.getItem('tasks')) || [];
+          axios.post('./assets/php/front/biddingpost.php',{
+            
+            member_id:this.MessageData[0]['id'],
+            'work_id':this.theId})
               .then((res) => { 
                 console.log(res.data);
+                console.log(this.theId);
                 this.newObj = res.data;
                 this.Nprice = res.data[0].bidding_price;
                 // console.log(this.newObj)
@@ -395,6 +400,8 @@
             work_id:this.theId,
             member_id:this.MessageData[0]['id'],
           };
+          // if(this.MessageData ) 
+            
             if(this.inputprice>this.Nprice)
             {
               // local版本 代資料 
