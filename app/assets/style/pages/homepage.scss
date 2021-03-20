@@ -179,65 +179,6 @@ a{
     // transform: translate(-50%, -50%);
 }
 
-// Bidding 
-
-.biddingBtn{
-    display: block;
-    width: 200px;
-    height: 65px;
-    background-color: #F1F1F1;
-    border: 1px solid #707070;
-    border-radius: 50px 0 0 50px;
-    box-shadow: 1px 1px 2px #242424;;
-
-    position: fixed;
-    bottom: 10vw;
-    right: -140px;
-    z-index: 50;
-
-    transition: all 1s linear;
-
-    &:hover{
-        right: -10px;
-    }
-    &:hover img{
-        animation: shake 0.5s infinite;
-    }
-
-    .biddingContent{
-        display: flex;
-        margin-top: 8px;
-        a{
-            text-decoration: none;
-            color: black;
-        }
-        img{
-            width:50px;
-            margin-left: 10px;
-            margin-right: 5px;
-        }
-        li:last-child{
-            font-size: 1.8rem;
-            font-weight: bold;
-            margin-top: 5px;
-        }
-    }
-}
-
-@keyframes shake {
-    0% { transform: translate(1px, 1px) rotate(0deg); }
-    10% { transform: translate(-1px, -2px) rotate(-1deg); }
-    20% { transform: translate(-3px, 0px) rotate(1deg); }
-    30% { transform: translate(3px, 2px) rotate(0deg); }
-    40% { transform: translate(1px, -1px) rotate(1deg); }
-    50% { transform: translate(-1px, 2px) rotate(-1deg); }
-    60% { transform: translate(-3px, 1px) rotate(0deg); }
-    70% { transform: translate(3px, 1px) rotate(-1deg); }
-    80% { transform: translate(-1px, -1px) rotate(1deg); }
-    90% { transform: translate(1px, 2px) rotate(0deg); }
-    100% { transform: translate(1px, -2px) rotate(-1deg); }
-}
-
 // logIN-mobile start
 .logInBg{
     display: block;
@@ -725,6 +666,85 @@ a{
     display: none !important;
     transition: 2s;
 }
+
+
+// 分享彈窗
+
+ul.share-buttons{
+    list-style: none;
+    padding: 0;
+}
+ul.share-buttons li{
+display: inline;
+}
+
+ul.share-buttons .sr-only{
+position: absolute;
+clip: rect(1px 1px 1px 1px);
+clip: rect(1px, 1px, 1px, 1px);
+padding: 0;
+border: 0;
+height: 1px;
+width: 1px;
+overflow: hidden;
+}
+
+.sharingBoxBg{
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+.sharingBoxAll{
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+.sharingBox{
+    display: block;
+    position: fixed;
+    top:0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    width: 320px;
+    height: 100px;
+    background-color: #cccccc;
+    padding: 25px;
+    border: 15px solid white;
+    color: black;
+    text-align: center;
+    font-size: 20px;
+    box-shadow: 1px 1px 3px #ccc;
+    font-family: 'Montserrat';
+    transition: .6s ease;
+
+    animation: popUp 0.7s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+
+    .share-buttons > li> a{
+        color: black;
+    }
+    p{
+        margin-bottom: 15px;
+    }
+}
+
+@keyframes popUp {
+    0% { opacity: 0;}
+    100% { opacity: 1;}
+}
+
 // 左側選單 end
 
 
