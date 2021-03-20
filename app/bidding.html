@@ -93,7 +93,7 @@
                 <button @click="inputprice += 1"><img src="./assets/img/+.png"></button>
               </div>
             </div>
-            <button class="btn_button" @click=addLocal>我要競標</button>
+            <button class="btn_button" @click="addLocal">我要競標</button>
           </div>
         </div>
       </div>
@@ -126,7 +126,7 @@
             </li>
           </ul>
           <div class="messageblock">
-              <textarea v-model="newMessage"></textarea>
+              <textarea v-model="newMessage" @keyup.enter="addmessage"></textarea>
               <button @click="addmessage">傳送</button>
           </div>
         </div>
@@ -169,7 +169,9 @@
         // console.log(this.newMessage);
         // this.messages.push(this.newMessage)
         this.MessageData = JSON.parse(localStorage.getItem('tasks')) || [];
-
+        if(this.MessageData = []){
+          alert('快登入會員~就可以立即留言喔~')
+        }else{
           if($.inArray(this.newMessage,this.messages)== -1){
             // this.messages.push(this.newMessage)
             // this.MessageData.push(this.newMessagebord);
@@ -192,6 +194,8 @@
               })
             // localStorage.setItem('messageList',JSON.stringify(this.MessageData));
           }
+        }
+          
       this.newMessage = '';
         }
     },
@@ -287,17 +291,18 @@
           timer:OneHour,
           itemTime:'尚未選取競標品',
           timeList:[],
-          headshot:"./assets/img/Ellipse 77.png",
-          imgSrc:'./assets/img/exh_5.jpg',
+          imgSrc:'',
           price: 888,
       },
       filters: {
+        
           hoursMinutesAndSeconds (value) {
           // let hours = Math.floor(value / 60 * 60);
           let hours = Math.floor(value / (60 * 60));
           let minutes = Math.floor((value / 60) % 60);
 	        let seconds = Math.floor(value % 60);
           return `${hours} : ${minutes} : ${seconds}`;
+          console.log(itemTime);
         }
       },
       // 抓資料
@@ -313,9 +318,9 @@
                 this.SpriceList.push(res.data[i].start_price);
                 this.NpriceList.push(res.data[i].now_price);
                 this.biddverify.push(res.data[i].bidding_verify);
-                // console.log(this.imgList)
               }
         }).catch();
+        // console.log(this.timeList);
         // setTimeout(()=>{         
         //     this.dataId = product.dataId;
         //     this.imgList = product.imgList;
@@ -325,7 +330,6 @@
         setInterval(() => this.timer -= 1, 1000);
       },
       methods: {
-
         changeHandler(val){
           this.componentChange = val;
         },
@@ -346,7 +350,6 @@
               let nowStatus ;
               //他可不可以競標
               //如果他可以競標我再每秒刷新
-          
               for(let status in this.biddverify){
                 // console.log(status);
                 // nowStatus = this.biddverify[status];
@@ -361,30 +364,15 @@
                 this.itemMessage = '尚未競標';
                 this.itemTime = this.timeList[this.theId];
               }}
-              // let biddid = this.biddverify[this.theId];
-              // if(biddid = "1"){
-              //   this.itemMessage = '競標中'
-              // }else{
-              //   this.itemMessage = '尚未競標'
-              // }
-              
         },
         Getbiddlist(){
-          // console.log(this.theId);
-          // this.newObj = {
-          //         bidding_time:'',
-          //         member_id:'',
-          //         bidding_price:null,
-          //       };
-                
           this.MessageData = JSON.parse(localStorage.getItem('tasks')) || [];
           axios.post('./assets/php/front/biddingpost.php',{
-            
             member_id:this.MessageData[0]['id'],
             'work_id':this.theId})
               .then((res) => { 
-                console.log(res.data);
-                console.log(this.theId);
+                // console.log(res.data);
+                // console.log(this.theId);
                 this.newObj = res.data;
                 this.Nprice = res.data[0].bidding_price;
                 // console.log(this.newObj)
@@ -394,15 +382,18 @@
         addLocal(){
           // local版 假資料
           this.MessageData = JSON.parse(localStorage.getItem('tasks')) || [];
-          this.nowBidding={
+        
+          if(this.MessageData =[])
+          {
+            alert('請先登入會員喔')
+          }else{
+            this.nowBidding={
             price:this.inputprice,
             time:this.timeFormate,
             work_id:this.theId,
             member_id:this.MessageData[0]['id'],
           };
-          // if(this.MessageData ) 
-            
-            if(this.inputprice>this.Nprice)
+          if(this.inputprice>this.Nprice)
             {
               // local版本 代資料 
               // this.newObj.push(this.nowBidding);              
@@ -417,11 +408,15 @@
             }else{
               alert('出價須高於目前價格')
             }
+
+          } 
+            
         },},
       computed:{
         total(){
                 return this.imgList.length
               },
+              //抓取回傳日期時間秒數
                  // 得到當下時間
         timeFormate() {
         let newdate = new Date();
