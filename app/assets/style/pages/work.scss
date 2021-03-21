@@ -297,7 +297,12 @@ body::-webkit-scrollbar{
 #searchBarALL{
   .features{
     @include pad{
-      color: map-get($color, 'black') !important;
+      color: map-get($color, 'black');
+    }
+    .personal{
+      a{
+        color: map-get($color, 'black');
+      }
     }
   }
 }
@@ -307,7 +312,7 @@ body::-webkit-scrollbar{
     .logInOption{
       a{
         @include pad{
-          color: map-get($color, 'black') !important;
+          color: map-get($color, 'black');
         }
       }  
     }
