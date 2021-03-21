@@ -1523,6 +1523,24 @@ $break-points: (
       }
     }
   }
+  #searchBarALL {
+    .features{
+      color: #2e2824;
+      a{
+        color: #2e2824;
+      }
+      .personal{
+        a{
+          color: #2e2824;
+        }
+      }
+      .logInOption{
+        a{
+          color: #2e2824;
+        }  
+      }
+    }
+  }
 }
 
 @media screen and (max-width: 414px) {
