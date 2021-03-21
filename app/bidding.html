@@ -169,7 +169,7 @@
         // console.log(this.newMessage);
         // this.messages.push(this.newMessage)
         this.MessageData = JSON.parse(localStorage.getItem('tasks')) || [];
-        if(this.MessageData = []){
+        if(!(this.MessageData.length)){
           alert('快登入會員~就可以立即留言喔~')
         }else{
           if($.inArray(this.newMessage,this.messages)== -1){
@@ -383,7 +383,7 @@
           // local版 假資料
           this.MessageData = JSON.parse(localStorage.getItem('tasks')) || [];
         
-          if(this.MessageData =[])
+          if(!(this.MessageData.length))
           {
             alert('請先登入會員喔')
           }else{
