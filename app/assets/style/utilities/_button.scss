@@ -108,7 +108,7 @@
     justify-content: center;
     align-items: center;
 
-    font-size: 8rem;
+    font-size: 6rem;
     color: map-get($color, 'black');
     opacity: 0;
     z-index: 10;
@@ -118,6 +118,7 @@
 
     &:hover{
       opacity: .8;
+      transition: all .6s;
     }
 
     @include notebook{
@@ -138,7 +139,7 @@
     justify-content: center;
     align-items: center;
 
-    font-size: 8rem;
+    font-size: 6rem;
     color: map-get($color, 'white');
     opacity: 0;
     z-index: 2;
@@ -149,6 +150,7 @@
 
     &:hover{
       opacity: .8;
+      transition: all .6s;
     }
 
     @include notebook{
