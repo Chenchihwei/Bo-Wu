@@ -89,6 +89,7 @@ body {
         margin-top: 2vh;
       }
       .imgBlock {
+        margin-left: 2vw;
         @include ipad{
           display: flex;
           flex-direction: column;
@@ -207,7 +208,7 @@ body {
         }
         .left{
           position: absolute;
-          left: 0;
+          left: 2vw;
           bottom: 5%;
           z-index: 2;
           @include ipad{
@@ -223,7 +224,7 @@ body {
         }
         .right{
           position: absolute;
-          left: 52%;
+          left: 58%;
           bottom: 5%;
           right: 0;
           z-index: 2;
@@ -279,6 +280,7 @@ body {
           h2 {
             font-size: $titleSM;
             margin-bottom: 5vh;
+            text-shadow: 1px 1px 3px black;
             @include ipad{
               position: absolute;
               right: 20%;
@@ -291,7 +293,7 @@ body {
             }
           }
           p {
-            font-size: $paragraph;
+            font-size: 1.2rem;
             line-height: 1.5;
             color: #7e7e7e;
             padding:  0 1vw;
@@ -313,7 +315,7 @@ body {
           @include phone{
             position: absolute;
             right: 5%;
-            top: -13%;
+            top: -55%;
             font-size: 2.5rem;
           }
           button {
@@ -422,6 +424,7 @@ body {
           ul {
             height: 68vh;
             overflow: auto;
+            padding-top: 10px;
             @include ipad{
               border-right: 1px solid rgba(#ffffff,0.5);
               margin-bottom: 1vh;
@@ -465,7 +468,7 @@ body {
                 }
               }
               p {
-                font-size: 1.75rem;
+                font-size: 1rem;
                 padding: 0 2vw 3vh 2vw;
               }
             }
