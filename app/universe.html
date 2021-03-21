@@ -170,7 +170,7 @@
       FBXLoader
     } from 'https://threejs.org/examples/jsm/loaders/FBXLoader.js';
 
-    let camera, scene, renderer, stats;
+    let camera, scene, renderer, stats, controls;
     // let camera2, scene2, renderer2, stats2;
 
 
@@ -235,6 +235,7 @@
       // model
       var threed = document.getElementsByClassName('3d')[0];
       console.log(threed);
+
       const loader = new FBXLoader();
       loader.load('../3d/fbx_f_1500_v_752/fbx_f_1500_v_752.fbx', function (object) {
         //中心點
@@ -288,9 +289,11 @@
       renderer.shadowMap.enabled = true;
       container.appendChild(renderer.domElement);
 
-      const controls = new OrbitControls(camera, renderer.domElement);
+      controls = new OrbitControls(camera, renderer.domElement);
       controls.target.set(0, 0, 0);
-      controls.update();
+      controls.autoRotate = true;
+      controls.autoRotateSpeed = 10;
+      // controls.update();
 
       window.addEventListener('resize', onWindowResize, false);
 
@@ -324,9 +327,10 @@
 
       requestAnimationFrame(animate);
 
-      const delta = clock.getDelta();
+      // const delta = clock.getDelta();
 
-      if (mixer) mixer.update(delta);
+      // if (mixer) mixer.update(delta);
+      controls.update();
 
       renderer.render(scene, camera);
       // current.renderer.render(current.scene, camera);

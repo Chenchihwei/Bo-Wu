@@ -172,7 +172,7 @@
       FBXLoader
     } from 'https://threejs.org/examples/jsm/loaders/FBXLoader.js';
 
-    let camera, scene, renderer, stats;
+    let camera, scene, renderer, stats, controls;
     // let camera2, scene2, renderer2, stats2;
 
 
@@ -192,7 +192,7 @@
 
       camera = new THREE.PerspectiveCamera(35, window.innerWidth / window.innerHeight, 1, 2000);
       // camera.position.set(3, 0.5, -2);
-      camera.position.set(3, 2, -5);
+      camera.position.set(3, 1, -5);
 
       // camera.lookAt(1, 1, 1);
       camera.lookAt(1, 1, 1,);
@@ -291,9 +291,11 @@
       renderer.shadowMap.enabled = true;
       container.appendChild(renderer.domElement);
 
-      const controls = new OrbitControls(camera, renderer.domElement);
+      controls = new OrbitControls(camera, renderer.domElement);
+      controls.autoRotate = true;
+      controls.autoRotateSpeed = 10;
       controls.target.set(0, 0, 0);
-      controls.update();
+      // controls.update();
 
       window.addEventListener('resize', onWindowResize, false);
 
@@ -327,9 +329,10 @@
 
       requestAnimationFrame(animate);
 
-      const delta = clock.getDelta();
+      // const delta = clock.getDelta();
 
-      if (mixer) mixer.update(delta);
+      // if (mixer) mixer.update(delta);
+      controls.update();
 
       renderer.render(scene, camera);
       // current.renderer.render(current.scene, camera);
