@@ -20,7 +20,8 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
 	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 	<script src="https://apis.google.com/js/platform.js" async defer></script>
-	<meta name="google-signin-client_id" content="5123688312-hh38n162r8fqfrd31n2a2hid0q7pk7uf.apps.googleusercontent.com">
+	<meta name="google-signin-client_id"
+		content="5123688312-hh38n162r8fqfrd31n2a2hid0q7pk7uf.apps.googleusercontent.com">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.js"
 		integrity="sha512-c5JDIvikBZ6tuz+OyaFsHKvuyg+tCug3hf41Vmmd5Yz9H5anj4vZOqlBV5PJoEbBJGFCgKoRT9YAgko4JS6/Qw=="
 		crossorigin="anonymous"></script>
@@ -315,10 +316,11 @@
 					scene: null,
 					renderer: null,
 					stats: null,
+					controls: null,
 					model: '../3d/fbx_f_1500_v_752/fbx_f_1500_v_752.fbx',
 					x: '0',
 					y: '-5',
-					z: '40',
+					z: '30',
 					a: '10',
 					b: '10',
 					c: '10',
@@ -328,10 +330,11 @@
 					scene: null,
 					renderer: null,
 					stats: null,
+					controls: null,
 					model: '../3d/Tree.fbx',
-					x: '-1.5',
-					y: '4',
-					z: '-2',
+					x: '0',
+					y: '0',
+					z: '6.5',
 					a: '1',
 					b: '1',
 					c: '1',
@@ -342,12 +345,13 @@
 					scene: null,
 					renderer: null,
 					stats: null,
-					model: '../3d/samidare-destroyer/source/full.fbx',
+					controls: null,
+					model: '../3d/3d-model.fbx',
 					// x: '800',
 					// y: '100',
-					x: '10',
-					y: '50',
-					z: '-20',
+					x: '1000',
+					y: '2500',
+					z: '5000',
 					a: '1',
 					b: '1',
 					c: '1',
@@ -357,6 +361,7 @@
 					scene: null,
 					renderer: null,
 					stats: null,
+					controls: null,
 					model: '../3d/trex.fbx',
 					x: '1.5',
 					y: '0',
@@ -379,6 +384,10 @@
 
 				let mixer;
 
+				let dist = 1000
+				if (index == 2) {
+					dist = 10000;
+				}
 
 				init();
 				// init_2();
@@ -389,7 +398,7 @@
 					const container = document.createElement('div');
 					document.body.appendChild(container);
 
-					current.camera = new THREE.PerspectiveCamera(35, window.innerWidth / window.innerHeight, 1, 2000);
+					current.camera = new THREE.PerspectiveCamera(35, window.innerWidth / window.innerHeight, 1, dist);
 					// camera.position.set(3, 0.5, -2);
 					current.camera.position.set(current.x, current.y, current.z);
 
@@ -399,7 +408,7 @@
 
 					current.scene = new THREE.Scene();
 					current.scene.background = new THREE.Color('rgb(207, 204, 204)');
-					current.scene.fog = new THREE.Fog('rgb(207, 204, 204)', 200, 1000);
+					// current.scene.fog = new THREE.Fog('rgb(207, 204, 204)', 200, 1000);
 
 					const hemiLight = new THREE.HemisphereLight(0xffffff, 0x444444);
 					hemiLight.position.set(0, 2000, 0);
@@ -437,17 +446,18 @@
 					const loader = new FBXLoader();
 					loader.load(current.model, function (object) {
 
-						//中心點
-						// object.children[0].geometry.computeBoundingBox();
+						if (index == 0 | index == 1 | index == 2) {
+							// 中心點
+							object.children[0].geometry.computeBoundingBox();
 
-						// object.rotation.x = THREE.Math.degToRad(0);
-						// object.rotation.y = THREE.Math.degToRad(50);
-						// object.rotation.z = THREE.Math.degToRad(0);
-						// console.log(- (object.children[0].geometry.boundingBox.max.x + object.children[0].geometry.boundingBox.min.x) / 2);
-						// console.log(- (object.children[0].geometry.boundingBox.max.y + object.children[0].geometry.boundingBox.min.y) / 2);
-						// console.log(- (object.children[0].geometry.boundingBox.max.z + object.children[0].geometry.boundingBox.min.z) / 2);
-						// console.log(object.children[0].geometry.center());
-
+							object.rotation.x = THREE.Math.degToRad(0);
+							object.rotation.y = THREE.Math.degToRad(50);
+							object.rotation.z = THREE.Math.degToRad(0);
+							console.log(- (object.children[0].geometry.boundingBox.max.x + object.children[0].geometry.boundingBox.min.x) / 2);
+							console.log(- (object.children[0].geometry.boundingBox.max.y + object.children[0].geometry.boundingBox.min.y) / 2);
+							console.log(- (object.children[0].geometry.boundingBox.max.z + object.children[0].geometry.boundingBox.min.z) / 2);
+							console.log(object.children[0].geometry.center());
+						}
 						// window.addEventListener('resize', function () {
 						// 	player.setSize(window.innerWidth, window.innerHeight);
 						// });
@@ -488,9 +498,11 @@
 					current.renderer.shadowMap.enabled = true;
 					container.appendChild(current.renderer.domElement);
 
-					const controls = new OrbitControls(current.camera, current.renderer.domElement);
-					controls.target.set(0, 0, 0.8);
-					controls.update();
+					current.controls = new OrbitControls(current.camera, current.renderer.domElement);
+					current.controls.target.set(0, 0, 0.8);
+					current.controls.autoRotate = true;
+					current.controls.autoRotateSpeed = 10;
+					// controls.update();
 
 					window.addEventListener('resize', onWindowResize, false);
 
@@ -524,10 +536,10 @@
 
 					requestAnimationFrame(animate);
 
-					const delta = clock.getDelta();
+					// const delta = clock.getDelta();
 
-					if (mixer) mixer.update(delta);
-
+					// if (mixer) mixer.update(delta);
+					current.controls.update();
 					current.renderer.render(current.scene, current.camera);
 					// current.renderer.render(current.scene, camera);
 
