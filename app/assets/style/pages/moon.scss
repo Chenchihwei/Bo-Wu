@@ -45,6 +45,7 @@ body{
   // margin: 0 auto;
   padding-top: 80px;
   position: fixed;
+  margin-left: 4vw;
 
   @include notebook{
     display: none;
@@ -62,11 +63,10 @@ body{
   }
 
   h1{
-    font-size: 70px;
+    font-size: $titleSM;
     color: map-get($color, 'white');
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
     // padding-left: 5vw;
-
-    text-shadow: 3px 3px map-get($color, 'black');
     margin: 0;
     z-index: 3;
     @include notebook{
@@ -82,7 +82,7 @@ body{
   }
   .gray{
     width: PxToVw(1100);
-    height: 30px;
+    height: 20px;
     background-color: map-get($color, 'yellow');
     opacity: .5;
 
@@ -129,8 +129,9 @@ body{
 
     .container_left{
       background-color: map-get($color, 'black');
-      width: 50%;
+      width: 0%;
       height: 100vh;
+      animation: bgAni 1s forwards;
       .like{
         position: absolute;
         top: 25vh;
@@ -160,9 +161,10 @@ body{
         }
         p{
           color: map-get($color, 'white');
-          font-size: 2.5rem;
+          font-size: 1.5rem;
           line-height: $paragraph;
           margin-left: 1rem;
+          margin-top: 5px;
           @include notebook{
             font-size: $titleS;
           }
@@ -252,8 +254,8 @@ body{
         }
         h2{
           // border: 1px solid blue;
-          font-size: $titleM;
-          filter: drop-shadow(3px 3px 6px rgba(0, 0, 0, 0.5));
+          font-size: $titleS;
+          filter: drop-shadow(1px 1px 2px #ccc);
           margin-bottom: 3rem;
           @include notebook{
             font-size: $titleS;
@@ -272,7 +274,7 @@ body{
         }
         p{
           // border: 1px solid blue;
-          font-size: $paragraph*1.5;
+          font-size: $paragraph;
           height: 30vh;
           text-indent: 2*$paragraph;
           line-height: 1.5;
@@ -301,6 +303,15 @@ body{
         z-index: -2;
       }
     }
+  }
+}
+
+@keyframes bgAni{
+  from{
+    width: 0%;
+  }
+  to{
+    width: 50%;
   }
 }
 
