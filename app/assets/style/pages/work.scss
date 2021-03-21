@@ -282,9 +282,37 @@ body::-webkit-scrollbar{
 }
 
 
-//3d
+//searchBar
 
+// .feature{
+//   @include pad{
+//     color: map-get($color, 'black') !important;
+//   }
+//   a{
+//     @include pad{
+//     }
+//   }
+// }
 
+#searchBarALL{
+  .features{
+    @include pad{
+      color: map-get($color, 'black') !important;
+    }
+  }
+}
+
+#searchBarALL {
+  .features{
+    .logInOption{
+      a{
+        @include pad{
+          color: map-get($color, 'black') !important;
+        }
+      }  
+    }
+  }
+}
   
 
 
