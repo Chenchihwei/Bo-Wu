@@ -8,7 +8,7 @@ Tibame-work
 | 育寧: | j23063519 |
 | 松輝: | yuria1215 |
 | 上瑞: | joshtinhan |
-| 力揚: | weiyi-li00 |
+| 立揚: | weiyi-li00 |
 | 惠真: | b8211142002 |
 
 ## 共同規定
